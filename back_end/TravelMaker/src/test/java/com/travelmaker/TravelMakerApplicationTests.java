@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.troublemaker.TravelMakerApplication;
-import com.troublemaker.domain.User;
+import com.travelMaker.TravelMakerApplication;
+import com.travelMaker.dto.User;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TravelMakerApplication.class)

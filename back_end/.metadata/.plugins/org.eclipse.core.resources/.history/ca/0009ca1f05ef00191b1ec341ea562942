@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.travelMaker.domain.User" alias="user" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="resource/mapper/userMapper.xml" />
+	</mappers>
+</configuration>

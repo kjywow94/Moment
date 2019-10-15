@@ -1,0 +1,14 @@
+package com.travelMaker.dto.enumeration;
+/**
+ * 현재 동행 게시물의 상태를 나타내는 enum
+ * 
+ * @author 김선일
+ *
+ */
+public enum Status {
+	APPLY,
+	CANCEL,
+	START,
+	END
+	
+}

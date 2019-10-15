@@ -1,0 +1,5 @@
+package com.travelMaker.dto;
+
+public class Accompany {
+
+}
