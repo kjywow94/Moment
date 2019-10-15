@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.travelmaker.dto.User;
 
+
+
 @Mapper
 public interface UserMapper {
 	public List<User> selectAllUser();

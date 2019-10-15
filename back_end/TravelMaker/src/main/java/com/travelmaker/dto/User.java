@@ -10,21 +10,21 @@ public class User {
 	LocalDateTime birthday;
 	Gender gender;
 	String nickname;
-	String user_name;
+	String username;
 	String phone;
 	String email;
-	int companion_count;
-	int companion_grade;
+	int companionCount;
+	int companionGrade;
 	String password;
-	String sns_1;
-	String sns_2;
-	int taste_1;
-	int taste_2;
-	int taste_3;
-	int taste_4;
-	int taste_5;
-	int taste_6;
-	int taste_7;
+	String sns1;
+	String sns2;
+	int taste1;
+	int taste2;
+	int taste3;
+	int taste4;
+	int taste5;
+	int taste6;
+	int taste7;
 	String about;
 	Authority authority;
 	String walletAddress;
@@ -57,11 +57,11 @@ public class User {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public String getUser_name() {
-		return user_name;
+	public String getUsername() {
+		return username;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPhone() {
 		return phone;
@@ -75,17 +75,17 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getCompanion_count() {
-		return companion_count;
+	public int getCompanioncount() {
+		return companionCount;
 	}
-	public void setCompanion_count(int companion_count) {
-		this.companion_count = companion_count;
+	public void setCompanioncount(int companioncount) {
+		this.companionCount = companioncount;
 	}
-	public int getCompanion_grade() {
-		return companion_grade;
+	public int getCompaniongrade() {
+		return companionGrade;
 	}
-	public void setCompanion_grade(int companion_grade) {
-		this.companion_grade = companion_grade;
+	public void setCompaniongrade(int companiongrade) {
+		this.companionGrade = companiongrade;
 	}
 	public String getPassword() {
 		return password;
@@ -93,59 +93,59 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getSns_1() {
-		return sns_1;
+	public String getSns1() {
+		return sns1;
 	}
-	public void setSns_1(String sns_1) {
-		this.sns_1 = sns_1;
+	public void setSns1(String sns1) {
+		this.sns1 = sns1;
 	}
-	public String getSns_2() {
-		return sns_2;
+	public String getSns2() {
+		return sns2;
 	}
-	public void setSns_2(String sns_2) {
-		this.sns_2 = sns_2;
+	public void setSns2(String sns2) {
+		this.sns2 = sns2;
 	}
-	public int getTaste_1() {
-		return taste_1;
+	public int getTaste1() {
+		return taste1;
 	}
-	public void setTaste_1(int taste_1) {
-		this.taste_1 = taste_1;
+	public void setTaste1(int taste1) {
+		this.taste1 = taste1;
 	}
-	public int getTaste_2() {
-		return taste_2;
+	public int getTaste2() {
+		return taste2;
 	}
-	public void setTaste_2(int taste_2) {
-		this.taste_2 = taste_2;
+	public void setTaste2(int taste2) {
+		this.taste2 = taste2;
 	}
-	public int getTaste_3() {
-		return taste_3;
+	public int getTaste3() {
+		return taste3;
 	}
-	public void setTaste_3(int taste_3) {
-		this.taste_3 = taste_3;
+	public void setTaste3(int taste3) {
+		this.taste3 = taste3;
 	}
-	public int getTaste_4() {
-		return taste_4;
+	public int getTaste4() {
+		return taste4;
 	}
-	public void setTaste_4(int taste_4) {
-		this.taste_4 = taste_4;
+	public void setTaste4(int taste4) {
+		this.taste4 = taste4;
 	}
-	public int getTaste_5() {
-		return taste_5;
+	public int getTaste5() {
+		return taste5;
 	}
-	public void setTaste_5(int taste_5) {
-		this.taste_5 = taste_5;
+	public void setTaste5(int taste5) {
+		this.taste5 = taste5;
 	}
-	public int getTaste_6() {
-		return taste_6;
+	public int getTaste6() {
+		return taste6;
 	}
-	public void setTaste_6(int taste_6) {
-		this.taste_6 = taste_6;
+	public void setTaste6(int taste6) {
+		this.taste6 = taste6;
 	}
-	public int getTaste_7() {
-		return taste_7;
+	public int getTaste7() {
+		return taste7;
 	}
-	public void setTaste_7(int taste_7) {
-		this.taste_7 = taste_7;
+	public void setTaste7(int taste7) {
+		this.taste7 = taste7;
 	}
 	public String getAbout() {
 		return about;
@@ -168,8 +168,8 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", birthday=" + birthday + ", gender=" + gender + ", nickname=" + nickname
-				+ ", user_name=" + user_name + ", phone=" + phone + ", email=" + email + ", companion_count="
-				+ companion_count + ", companion_grade=" + companion_grade + ", authority=" + authority
+				+ ", username=" + username + ", phone=" + phone + ", email=" + email + ", companioncount="
+				+ companionCount + ", companiongrade=" + companionGrade + ", authority=" + authority
 				+ ", walletAddress=" + walletAddress + "]";
 	}
 }
