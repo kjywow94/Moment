@@ -1,0 +1,34 @@
+package com.troublemaker.domain;
+
+import java.time.LocalDateTime;
+
+import com.troublemaker.domain.enumeration.Authority;
+import com.troublemaker.domain.enumeration.Gender;
+
+public class User {
+	int id;
+	LocalDateTime birthday;
+	Enum<Gender> gender;
+	String nickname;
+	String user_name;
+	String phone;
+	String email;
+	int companion_count;
+	int companion_grade;
+	String password;
+	String sns_1;
+	String sns_2;
+	int taste_1;
+	int taste_2;
+	int taste_3;
+	int taste_4;
+	int taste_5;
+	int taste_6;
+	int taste_7;
+	String about;
+	Enum<Authority> authority;
+	String walletAddress;
+	
+	
+	
+}

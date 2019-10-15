@@ -1,0 +1,166 @@
+package com.troublemaker.domain;
+
+import java.time.LocalDateTime;
+
+import com.troublemaker.domain.enumeration.Authority;
+import com.troublemaker.domain.enumeration.Gender;
+
+public class User {
+	int id;
+	LocalDateTime birthday;
+	Enum<Gender> gender;
+	String nickname;
+	String user_name;
+	String phone;
+	String email;
+	int companion_count;
+	int companion_grade;
+	String password;
+	String sns_1;
+	String sns_2;
+	int taste_1;
+	int taste_2;
+	int taste_3;
+	int taste_4;
+	int taste_5;
+	int taste_6;
+	int taste_7;
+	String about;
+	Enum<Authority> authority;
+	String walletAddress;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public LocalDateTime getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(LocalDateTime birthday) {
+		this.birthday = birthday;
+	}
+	public Enum<Gender> getGender() {
+		return gender;
+	}
+	public void setGender(Enum<Gender> gender) {
+		this.gender = gender;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getCompanion_count() {
+		return companion_count;
+	}
+	public void setCompanion_count(int companion_count) {
+		this.companion_count = companion_count;
+	}
+	public int getCompanion_grade() {
+		return companion_grade;
+	}
+	public void setCompanion_grade(int companion_grade) {
+		this.companion_grade = companion_grade;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getSns_1() {
+		return sns_1;
+	}
+	public void setSns_1(String sns_1) {
+		this.sns_1 = sns_1;
+	}
+	public String getSns_2() {
+		return sns_2;
+	}
+	public void setSns_2(String sns_2) {
+		this.sns_2 = sns_2;
+	}
+	public int getTaste_1() {
+		return taste_1;
+	}
+	public void setTaste_1(int taste_1) {
+		this.taste_1 = taste_1;
+	}
+	public int getTaste_2() {
+		return taste_2;
+	}
+	public void setTaste_2(int taste_2) {
+		this.taste_2 = taste_2;
+	}
+	public int getTaste_3() {
+		return taste_3;
+	}
+	public void setTaste_3(int taste_3) {
+		this.taste_3 = taste_3;
+	}
+	public int getTaste_4() {
+		return taste_4;
+	}
+	public void setTaste_4(int taste_4) {
+		this.taste_4 = taste_4;
+	}
+	public int getTaste_5() {
+		return taste_5;
+	}
+	public void setTaste_5(int taste_5) {
+		this.taste_5 = taste_5;
+	}
+	public int getTaste_6() {
+		return taste_6;
+	}
+	public void setTaste_6(int taste_6) {
+		this.taste_6 = taste_6;
+	}
+	public int getTaste_7() {
+		return taste_7;
+	}
+	public void setTaste_7(int taste_7) {
+		this.taste_7 = taste_7;
+	}
+	public String getAbout() {
+		return about;
+	}
+	public void setAbout(String about) {
+		this.about = about;
+	}
+	public Enum<Authority> getAuthority() {
+		return authority;
+	}
+	public void setAuthority(Enum<Authority> authority) {
+		this.authority = authority;
+	}
+	public String getWalletAddress() {
+		return walletAddress;
+	}
+	public void setWalletAddress(String walletAddress) {
+		this.walletAddress = walletAddress;
+	}
+	
+	
+	
+}

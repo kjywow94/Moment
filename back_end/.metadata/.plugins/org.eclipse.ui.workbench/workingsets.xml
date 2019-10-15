@@ -7,4 +7,5 @@
 <workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1571033442729_1" label="Java Test Sources" name="Java Test Sources">
 <item elementID="=TravelMaker/src\/test\/java" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1571041529541_2" label="Window Working Set" name="Aggregate for window 1571041529541"/>
 </workingSetManager>

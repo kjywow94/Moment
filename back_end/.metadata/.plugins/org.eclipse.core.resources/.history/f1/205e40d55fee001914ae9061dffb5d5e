@@ -1,0 +1,14 @@
+package com.troublemaker.domain.enumeration;
+
+/**
+ * 
+ * @author 김선일
+ * 
+ */
+public enum Authority {
+	/**
+	 * 관리자 권한(Admin)
+	 */
+	A, 
+	U
+}
