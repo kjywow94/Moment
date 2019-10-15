@@ -1,4 +1,4 @@
-package com.troublemaker.domain.enumeration;
+package com.travelmaker.dto.enumeration;
 
 public enum Gender {
 	/**

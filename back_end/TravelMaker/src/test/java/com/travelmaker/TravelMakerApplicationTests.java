@@ -5,8 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.troublemaker.TravelMakerApplication;
-import com.troublemaker.domain.User;
+import com.travelmaker.dto.User;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TravelMakerApplication.class)
@@ -16,14 +15,4 @@ public class TravelMakerApplicationTests {
 	public void contextLoads() {
 
 	}
-	@Test
-	public void myTest() {
-		
-		User user = new User();
-		System.out.println();
-		user.useEnum();
-		int a = 1 ;
-		assert 1 == a;
-	}
-
 }
