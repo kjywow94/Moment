@@ -1,14 +1,14 @@
-package com.troublemaker.domain;
+package com.travelmaker.dto;
 
 import java.time.LocalDateTime;
 
-import com.troublemaker.domain.enumeration.Authority;
-import com.troublemaker.domain.enumeration.Gender;
+import com.travelmaker.dto.enumeration.Authority;
+import com.travelmaker.dto.enumeration.Gender;
 
 public class User {
 	int id;
 	LocalDateTime birthday;
-	Enum<Gender> gender;
+	Gender gender;
 	String nickname;
 	String user_name;
 	String phone;
@@ -26,8 +26,13 @@ public class User {
 	int taste_6;
 	int taste_7;
 	String about;
-	Enum<Authority> authority;
+	Authority authority;
 	String walletAddress;
+	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public int getId() {
 		return id;
 	}
@@ -40,10 +45,10 @@ public class User {
 	public void setBirthday(LocalDateTime birthday) {
 		this.birthday = birthday;
 	}
-	public Enum<Gender> getGender() {
+	public Gender getGender() {
 		return gender;
 	}
-	public void setGender(Enum<Gender> gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 	public String getNickname() {
@@ -148,10 +153,10 @@ public class User {
 	public void setAbout(String about) {
 		this.about = about;
 	}
-	public Enum<Authority> getAuthority() {
+	public Authority getAuthority() {
 		return authority;
 	}
-	public void setAuthority(Enum<Authority> authority) {
+	public void setAuthority(Authority authority) {
 		this.authority = authority;
 	}
 	public String getWalletAddress() {
@@ -166,47 +171,5 @@ public class User {
 				+ ", user_name=" + user_name + ", phone=" + phone + ", email=" + email + ", companion_count="
 				+ companion_count + ", companion_grade=" + companion_grade + ", authority=" + authority
 				+ ", walletAddress=" + walletAddress + "]";
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public void useEnum() {
-		
-		Enum<Authority> auth = Authority.A;
-		Enum<Authority> auth2 = Authority.U;
-		System.out.println(auth);
-		System.out.println(auth2);
-		
 	}
 }

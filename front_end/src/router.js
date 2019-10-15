@@ -22,8 +22,8 @@ export default new Router({
       }
     },
     {
-      path: "/AccompanyList",
-      name: "AccompanyList",
+      path: "/accompanyList",
+      name: "accompanyList",
       components: { default: AccompanyList, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },

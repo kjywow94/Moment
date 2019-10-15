@@ -1,4 +1,4 @@
-package com.travelMaker.dto.enumeration;
+package com.travelmaker.dto.enumeration;
 /**
  * <p>현재 동행 게시물의 상태를 나타내는 enum
  * <p>APPLY, CANCEL, START, END 네가지 속성이 존재함

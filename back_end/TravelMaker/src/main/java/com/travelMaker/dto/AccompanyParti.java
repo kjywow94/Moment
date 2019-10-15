@@ -1,8 +1,8 @@
-package com.travelMaker.dto;
+package com.travelmaker.dto;
 
 import java.time.LocalDateTime;
 
-import com.travelMaker.dto.enumeration.Status;
+import com.travelmaker.dto.enumeration.Status;
 
 public class AccompanyParti {
 	private int id;

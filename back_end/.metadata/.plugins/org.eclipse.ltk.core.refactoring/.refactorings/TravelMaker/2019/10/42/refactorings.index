@@ -20,3 +20,5 @@
 1571123630977	Rename local variable 'contract_address'
 1571123636418	Rename method 'setContract_address'
 1571123753382	Rename package 'com.travelMaker.domain.enumeration'
+1571126704939	Rename field 'companioncount'
+1571126708461	Rename field 'companiongrade'

@@ -1,4 +1,4 @@
-package com.travelMaker.dto;
+package com.travelmaker.dto;
 
 public class TravelReview {
 

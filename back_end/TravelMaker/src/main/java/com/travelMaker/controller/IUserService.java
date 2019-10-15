@@ -1,10 +1,10 @@
-package com.travelMaker.controller;
+package com.travelmaker.controller;
 
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.travelMaker.dto.User;
+import com.travelmaker.dto.User;
 public interface IUserService {
 	
 	List<User> selectAllUser();

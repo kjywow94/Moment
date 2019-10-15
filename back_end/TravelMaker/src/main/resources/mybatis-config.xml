@@ -1,14 +1,11 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.travelMaker.domain.User" alias="user" />
-		<typeAlias type="com.travelMaker.domain.Travel" alias="travel" />
+		<typeAlias type="com.travelmaker.dto.User" alias="user" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="resource/mapper/userMapper.xml" />
-		<mapper resource="resource/mapper/travelMapper.xml" />
+		<mapper resource="mapper/userMapper.xml" />
 	</mappers>
 </configuration>
