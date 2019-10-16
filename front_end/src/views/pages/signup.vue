@@ -2,6 +2,7 @@
   <div class="wrapper">
     <div class="section page-header header-filter" :style="headerStyle">
       <div class="container">
+          <h1 class="title">회원가입</h1>
         <div class="md-layout"  style="background:white;">
             <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;">
             <tabs
@@ -36,7 +37,7 @@
                         </md-field>
                         <md-field>
                             <label>이메일</label>
-                            <md-input v-model="emailLabel" type="text"></md-input>
+                            <md-input v-model="emaillabel" type="text"></md-input>
                         </md-field>
                         <md-button class="md-primary md-round">이메일 인증</md-button>
                         <md-datepicker v-model="selectedDate">
@@ -48,8 +49,59 @@
                 </template>
              
                 <template slot="tab-pane-2">
+                    <label>사진등록</label>
+                    <br>
                     <input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
                     <input type="file" />
+                    <md-field>
+                        <label>소개글</label>
+                        <md-textarea v-model="aboutme"></md-textarea>
+                    </md-field> 
+                    <br>
+                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> 내성적이다
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> 외향적이다
+                        </label>
+                    </div>
+                    <br>
+                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> 시끌버쩍한 곳
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> 한적한 곳
+                        </label>
+                    </div>
+                    <br>
+                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> 사진찍기
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> 먹방여행
+                        </label>
+                    </div>
+                    <br>
+                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> 쇼핑하기
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> 기념품사기
+                        </label>
+                    </div>
+                    <br>
+                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> 계획적이다
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> 즉흥적이다
+                        </label>
+                    </div>
                 </template>
                 <template slot="tab-pane-3">
                 Completely synergize resource taxing relationships via premier
@@ -79,10 +131,14 @@ export default {
       idlabel: "",
       namelabel: "",
       passwordlabel: "",
+      passwordcheck: "",
       phonelabel: "",
       emaillabel: "",
       selectedDate: new Date(),
       radio: null,
+      aboutme: "",
+      checked1: true,
+      checked2: true,
     };
   },
   props: {
@@ -101,4 +157,6 @@ export default {
 };
 </script>
 
-<style lang="css"></style>
+<style lang="css">
+    @import url("../../assets/bootstrap/bootstrap.css");
+</style>
