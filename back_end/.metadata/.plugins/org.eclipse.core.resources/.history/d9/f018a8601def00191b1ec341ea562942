@@ -1,0 +1,13 @@
+package com.travelMaker.dto;
+
+import java.time.LocalDateTime;
+
+public class AccompanyParti {
+	private int id;
+	private int tid;
+	private int uid;
+	private LocalDateTime participate_time;
+	private LocalDateTime real_start_date;
+	private LocalDateTime real_end_date;
+	private char status;
+}

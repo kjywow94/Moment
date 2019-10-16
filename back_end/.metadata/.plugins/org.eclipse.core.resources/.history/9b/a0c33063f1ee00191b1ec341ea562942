@@ -1,0 +1,19 @@
+package com.troublemaker.controller;
+
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.troublemaker.domain.User;
+
+public interface IUserService {
+	
+	List<User> selectAllUser();
+	User selectByUid(int uid);
+	User selectByEmail(String email);
+	
+	@Transactional
+	User insertUser(User user);
+	@Transactional
+	User deleteUser(int uid);
+}

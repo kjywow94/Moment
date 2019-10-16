@@ -4,5 +4,19 @@
 <fullyQualifiedTypeName name="java.lang.Enum"/>
 <fullyQualifiedTypeName name="com.troublemaker.domain.enumeration.Gender"/>
 <fullyQualifiedTypeName name="java.lang.AutoCloseable"/>
+<fullyQualifiedTypeName name="junit.framework.Assert"/>
+<fullyQualifiedTypeName name="org.springframework.boot.ApplicationArguments"/>
+<fullyQualifiedTypeName name="com.travelmaker.TravelMakerApplicationTests"/>
 <fullyQualifiedTypeName name="com.troublemaker.domain.enumeration.Authority"/>
+<fullyQualifiedTypeName name="com.troublemaker.domain.User"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+<fullyQualifiedTypeName name="org.springframework.boot.context.logging.LoggingApplicationListener"/>
+<fullyQualifiedTypeName name="org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.EnableAutoConfiguration"/>
+<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+<fullyQualifiedTypeName name="com.travelMaker.dto.enumeration.Status"/>
 </qualifiedTypeNameHistroy>
