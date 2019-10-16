@@ -8,8 +8,10 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="&lt;"/>
 			<item value="_"/>
+			<item value="="/>
+			<item value="=="/>
+			<item value="&lt;"/>
 			<item value="mysql"/>
 			<item value="jdbc"/>
 			<item value="5.1"/>
