@@ -5,7 +5,7 @@
         <div class="md-layout">
           <div class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100">
             <h1 class="title">내 동행</h1>
-            <h4>현재 등록된 동행 목록을 보여주는 페이지 입니다.</h4>
+            <h4>현재 모집중인 동행 목록을 보여주는 페이지 입니다.</h4>
             <br />
             <md-button href="#" class="md-success md-lg" target="_blank">
               <i class="fas fa-play"></i> 동행 등록
@@ -19,7 +19,7 @@
         <div class="container">
           <div class="md-layout">
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
-              <h2 class="text-center title">Accompany List</h2>
+              <h2 class="text-center title">동행 목록</h2>
               <AccompanyBoard />
             </div>
           </div>
