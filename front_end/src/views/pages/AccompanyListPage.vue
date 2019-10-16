@@ -36,6 +36,15 @@
                     ><i class="fab fa-pinterest"></i
                   ></md-button>
                 </div>
+                <div class="md-layout">
+                  <div class="md-layout-item md-size-70 mx-auto">
+                    <router-link to="/AccompanyRegist">
+                      <md-button class="md-primary"
+                        ><md-icon>favorite</md-icon>동행작성</md-button
+                      >
+                    </router-link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
