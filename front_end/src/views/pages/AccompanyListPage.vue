@@ -86,4 +86,18 @@ export default {
 .md-has-textarea + .md-layout {
   margin-top: 15px;
 }
+
+@media (min-width: 481px) {
+  .mdquery-xs {
+    display: none;
+  }
+}
+
+/* 모바일*/
+@media (max-width: 480px) {
+  .mdquery-md {
+    display: none;
+  }
+}
+
 </style>

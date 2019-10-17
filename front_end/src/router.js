@@ -8,6 +8,7 @@ import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
 import AccompanyList from "./views/pages/AccompanyListPage.vue";
 import AccompanyDetail from "./views/pages/AccompanyDetailPage.vue";
+import AccompanyRegist from "./views/pages/AccompanyRegistPage.vue";
 
 Vue.use(Router);
 
@@ -35,6 +36,15 @@ export default new Router({
       path: "/accompanyDetail/:id",
       name: "accompanyDetail",
       components: { default: AccompanyDetail, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/AccompanyRegist",
+      name: "AccompanyRegist",
+      components: { default: AccompanyRegist, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }

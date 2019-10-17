@@ -16,6 +16,7 @@
    - Group : 도메인 명 입력(ex com.ssafy)
    - Artifact: Maven 아티팩트 명
    - Package : 프로젝트 디폴트 패키지
+   - Version : 프로젝트 버전
    
    
    
@@ -26,3 +27,59 @@
 > dependency 설정 페이지
 
 Finish 버튼을 눌러 프로젝트 생성을 완료한다.
+
+
+
+# enum
+
+> 참고 블로그 : https://opentutorials.org/module/1226/8025
+
+enum은 클래스처럼 보이게 하는 상수이다.
+
+자바 1.5 버전 이전에는 클래스에 final static 키워드나 interface를 선언하여 상수로 정의하는 등의 불편한 방식을 사용했어야 했다. 이러한 부분을 개선하여 코드의 중복을 방지하기 위해 enum이 도입되었다.
+
+```java
+
+/**
+ * 
+ * <p> 성별 정보를 나타내는 enum
+ * @author 김선일
+ *
+ */
+
+public enum Gender {
+	/**
+	 * 남성 (Man)
+	 */
+	M,
+	/**
+	 * 여성 (Woman)
+	 */
+	W,
+	/**
+	 * 성별 정보없음
+	 */
+	X
+}
+
+```
+
+> enum 생성
+
+```java
+		Enum<Authority> S1 = Authority.M;
+		Enum<Authority> S2 = Authority.valueOf("M");
+		Authority S3 = Authority.M;
+```
+
+> enum의 선언. S1과 S2, S3는 완전히 동일한 값이다.
+
+```java
+	S1.ordinal() // 열거된 순서를 정수값으로 반환. 배열과 동일하게 인덱스 적용
+	S1.valueOf("String") //String에 해당하는 원소를 반환 (주어진 String과 일치하는 원소가 없는 경우 IllegalArgumentException 예외 발생)
+    S1.values() // 모든 원소를 배열에 담아 반환.
+```
+
+> enum의 주요 메소드
+
+toString 메소드를 사용하면 원소의 이름 그대로 반환받을 수 있다.
