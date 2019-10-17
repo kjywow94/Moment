@@ -10,7 +10,7 @@ public class User {
 	LocalDateTime birthday;
 	Gender gender;
 	String nickname;
-	String username;
+	String userName;
 	String phone;
 	String email;
 	int companionCount;
@@ -28,10 +28,8 @@ public class User {
 	String about;
 	Authority authority;
 	String walletAddress;
-	
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
@@ -57,11 +55,11 @@ public class User {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPhone() {
 		return phone;
@@ -75,17 +73,17 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getCompanioncount() {
+	public int getCompanionCount() {
 		return companionCount;
 	}
-	public void setCompanioncount(int companioncount) {
-		this.companionCount = companioncount;
+	public void setCompanionCount(int companionCount) {
+		this.companionCount = companionCount;
 	}
-	public int getCompaniongrade() {
+	public int getCompanionGrade() {
 		return companionGrade;
 	}
-	public void setCompaniongrade(int companiongrade) {
-		this.companionGrade = companiongrade;
+	public void setCompanionGrade(int companionGrade) {
+		this.companionGrade = companionGrade;
 	}
 	public String getPassword() {
 		return password;
@@ -168,8 +166,14 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", birthday=" + birthday + ", gender=" + gender + ", nickname=" + nickname
-				+ ", username=" + username + ", phone=" + phone + ", email=" + email + ", companioncount="
-				+ companionCount + ", companiongrade=" + companionGrade + ", authority=" + authority
-				+ ", walletAddress=" + walletAddress + "]";
+				+ ", userName=" + userName + ", phone=" + phone + ", email=" + email + ", companionCount="
+				+ companionCount + ", companionGrade=" + companionGrade + ", password=" + password + ", sns1=" + sns1
+				+ ", sns2=" + sns2 + ", taste1=" + taste1 + ", taste2=" + taste2 + ", taste3=" + taste3 + ", taste4="
+				+ taste4 + ", taste5=" + taste5 + ", taste6=" + taste6 + ", taste7=" + taste7 + ", about=" + about
+				+ ", authority=" + authority + ", walletAddress=" + walletAddress + "]";
 	}
+	
+	
+
+	
 }
