@@ -4,7 +4,7 @@
       <div class="container">
         <div class="md-layout">
           <div class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100">
-            <h1 class="title">동행 모집</h1>
+            <h1 class="title">동행 자세히보기 페이지 예정</h1>
             <h4>현재 모집중인 동행 목록을 보여주는 페이지 입니다.</h4>
             <br />
             <md-button href="#" class="md-success md-lg" target="_blank">
@@ -20,7 +20,6 @@
           <div class="md-layout">
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
               <h2 class="text-center title">동행 목록</h2>
-              <AccompanyBoard />
             </div>
           </div>
         </div>
@@ -86,18 +85,4 @@ export default {
 .md-has-textarea + .md-layout {
   margin-top: 15px;
 }
-
-@media (min-width: 481px) {
-  .mdquery-xs {
-    display: none;
-  }
-}
-
-/* 모바일*/
-@media (max-width: 480px) {
-  .mdquery-md {
-    display: none;
-  }
-}
-
 </style>
