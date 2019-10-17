@@ -10,7 +10,7 @@ public class User {
 	LocalDateTime birthday;
 	Gender gender;
 	String nickname;
-	String username;
+	String userName;
 	String phone;
 	String email;
 	int companionCount;
@@ -58,10 +58,10 @@ public class User {
 		this.nickname = nickname;
 	}
 	public String getUsername() {
-		return username;
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(String userName) {
+		this.userName = userName;
 	}
 	public String getPhone() {
 		return phone;
@@ -168,7 +168,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", birthday=" + birthday + ", gender=" + gender + ", nickname=" + nickname
-				+ ", username=" + username + ", phone=" + phone + ", email=" + email + ", companioncount="
+				+ ", userName=" + userName + ", phone=" + phone + ", email=" + email + ", companioncount="
 				+ companionCount + ", companiongrade=" + companionGrade + ", authority=" + authority
 				+ ", walletAddress=" + walletAddress + "]";
 	}

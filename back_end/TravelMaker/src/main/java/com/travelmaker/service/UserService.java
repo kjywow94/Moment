@@ -13,28 +13,28 @@ public class UserService {
 	
 	@Autowired
 	private UserMapper userMapper;
-
+	
+	//회원전체조회
 	public List<User> selectAllUser(){
 		return userMapper.selectAllUser();
 	}
+	//로그인&회원조회
+	public User selectOneUser(User user) {
+		return userMapper.selectOneUser(user);
+	}
 	
-//	public UserDto searchOnceUser(String eamil) {
-//		return userMapper.searchOnceUser(eamil);
-//	}
-//	
-//	public int deleteUser(String email) {
-//		return userMapper.deleteUser(email);
-//	}
-//	
-//	public int updateUser(UserDto user) {
-//		return userMapper.updateUser(user);
-//	}
-//	
-//	public int insertUser(UserDto user) {
-//		return userMapper.insertUser(user);
-//	}
-//	public int countUserAdmin() {
-//		return userMapper.countUserAdmin();
-//	}
-
+	//회원가입
+	public int insertUser(User user) {
+		return userMapper.insertUser(user);
+	}
+	
+	//회원수정
+	public int updateUser(User user) {
+		return userMapper.updateUser(user);
+	}
+	
+	//회원탈퇴
+	public int deleteUser(int id) {
+		return userMapper.deleteUser(id);
+	}
 }
