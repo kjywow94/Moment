@@ -20,7 +20,7 @@
                 <md-input v-model="password"></md-input>
               </md-field>
               <md-button slot="footer" class="md-simple md-success md-lg">
-                로그인
+                로그인인
               </md-button>
               <md-button slot="footer" class="md-simple md-success md-lg">
                 회원가입
