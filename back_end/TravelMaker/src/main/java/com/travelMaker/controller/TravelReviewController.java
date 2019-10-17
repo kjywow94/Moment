@@ -4,14 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.travelmaker.dto.TravelReview;
-import com.travelmaker.dto.User;
 import com.travelmaker.service.TravelReviewService;
-import com.travelmaker.service.UserService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = { "*" })
 @RestController
@@ -22,10 +25,28 @@ public class TravelReviewController {
 	private TravelReviewService travelReviewService;
 
 	@RequestMapping(value = "/travelReviewAll", method = RequestMethod.GET)
+	@ApiOperation(value="모든 여행 리뷰 리턴")
 	public List<TravelReview> selectAllReview() throws Exception {
 		return travelReviewService.selectAllReview();
 	}
 	
+	@RequestMapping(value = "/travelReviewAllByTid/{tid}", method = RequestMethod.GET)
+	@ApiOperation(value="동행에 해당하는 리뷰 리턴")
+	public List<TravelReview> selectAllReviewByTid(@PathVariable int tid) throws Exception {
+		return travelReviewService.selectAllReviewByTid(tid);
+	}
+	
+	@RequestMapping(value ="/updateReview", method = RequestMethod.PUT)
+	@ApiOperation(value="여행 리뷰 수정")
+	public int updateReview(@RequestBody TravelReview tr) {
+		return travelReviewService.updateReview(tr);
+	}
+	
+	@RequestMapping(value = "/deleteReview/{id}", method = RequestMethod.DELETE)
+	@ApiOperation(value="여행 리뷰 삭제")
+	public int deleteReviewById(@PathVariable int id) {
+		return travelReviewService.deleteReviewById(id);
+	}
 //	@RequestMapping(value = "/userSelect", method = RequestMethod.GET)
 //	public UserDto userSelect(@RequestParam String email) throws Exception {
 //		return userService.searchOnceUser(email);

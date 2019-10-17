@@ -20,6 +20,18 @@ public class TravelReviewService {
 		return travelReviewMapper.selectAllReview();
 	}
 	
+	public List<TravelReview> selectAllReviewByTid(int tid){
+		return travelReviewMapper.selectAllReviewByTid(tid);
+	}
+	
+	public int updateReview(TravelReview tr) {
+		return travelReviewMapper.updateReview(tr);
+	}
+	
+	public int deleteReviewById(int id) {
+		return travelReviewMapper.deleteReviewById(id);
+	}
+	
 //	public UserDto searchOnceUser(String eamil) {
 //		return userMapper.searchOnceUser(eamil);
 //	}
