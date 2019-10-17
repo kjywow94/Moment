@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="com.travelmaker.TravelMakerApplicationTests"/>
 <fullyQualifiedTypeName name="com.troublemaker.domain.enumeration.Authority"/>
 <fullyQualifiedTypeName name="com.troublemaker.domain.User"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
@@ -19,4 +18,13 @@
 <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.EnableAutoConfiguration"/>
 <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 <fullyQualifiedTypeName name="com.travelMaker.dto.enumeration.Status"/>
+<fullyQualifiedTypeName name="com.travelmaker.TravelMakerApplication"/>
+<fullyQualifiedTypeName name="com.travelmaker.dao.UserMapper"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.travelMaker.dto.User"/>
+<fullyQualifiedTypeName name="com.travelMaker.dao.UserMapper"/>
+<fullyQualifiedTypeName name="com.travelmaker.dto.User"/>
+<fullyQualifiedTypeName name="com.travelmaker.dao.TravelReviewMapper"/>
+<fullyQualifiedTypeName name="com.travelmaker.service.TravelReviewService"/>
+<fullyQualifiedTypeName name="com.travelmaker.dto.TravelReview"/>
 </qualifiedTypeNameHistroy>
