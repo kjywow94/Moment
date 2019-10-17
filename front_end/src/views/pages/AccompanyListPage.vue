@@ -1,109 +1,29 @@
 <template>
   <div class="wrapper">
-    <parallax
-      class="section page-header header-filter"
-      :style="headerStyle"
-    ></parallax>
+    <parallax class="section page-header header-filter" :style="headerStyle">
+      <div class="container">
+        <div class="md-layout">
+          <div class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100">
+            <h1 class="title">내 동행</h1>
+            <h4>현재 등록된 동행 목록을 보여주는 페이지 입니다.</h4>
+            <br />
+            <md-button href="#" class="md-success md-lg" target="_blank">
+              <i class="fas fa-play"></i> 동행 등록
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </parallax>
     <div class="main main-raised">
-      <div class="section profile-content">
+      <div class="section section-contacts">
         <div class="container">
           <div class="md-layout">
-            <div class="md-layout-item md-size-50 mx-auto">
-              <div class="profile">
-                <div class="avatar">
-                  <img
-                    :src="img"
-                    alt="Circle Image"
-                    class="img-raised rounded-circle img-fluid"
-                  />
-                </div>
-                <div class="name">
-                  <h3 class="title">Carla Hortensia</h3>
-                  <h6>동행목록 예정</h6>
-                  <md-button
-                    href="javascript:void(0)"
-                    class="md-just-icon md-simple md-dribbble"
-                    ><i class="fab fa-dribbble"></i
-                  ></md-button>
-                  <md-button
-                    href="javascript:void(0)"
-                    class="md-just-icon md-simple md-twitter"
-                    ><i class="fab fa-twitter"></i
-                  ></md-button>
-                  <md-button
-                    href="javascript:void(0)"
-                    class="md-just-icon md-simple md-pinterest"
-                    ><i class="fab fa-pinterest"></i
-                  ></md-button>
-                </div>
-                <div class="md-layout">
-                  <div class="md-layout-item md-size-70 mx-auto">
-                    <router-link to="/AccompanyRegist">
-                      <md-button class="md-primary"
-                        ><md-icon>favorite</md-icon>동행작성</md-button
-                      >
-                    </router-link>
-                  </div>
-                </div>
+            <div class="md-layout">
               </div>
+            <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
+              <h2 class="text-center title">Accompany List</h2>
+              <AccompanyBoard />
             </div>
-          </div>
-          <div class="description text-center">
-            <p>
-              An artist of considerable range, Chet Faker — the name taken by
-              Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs
-              and records all of his own music, giving it a warm, intimate feel
-              with a solid groove structure.
-            </p>
-          </div>
-          <div class="profile-tabs">
-            <tabs
-              :tab-name="['Studio', 'Work', 'Favorite']"
-              :tab-icon="['camera', 'palette', 'favorite']"
-              plain
-              nav-pills-icons
-              color-button="success"
-            >
-              <!-- here you can add your content for tab-content -->
-              <template slot="tab-pane-1">
-                <div class="md-layout">
-                  <div class="md-layout-item md-size-25 ml-auto">
-                    <img :src="tabPane1[0].image" class="rounded" />
-                    <img :src="tabPane1[1].image" class="rounded" />
-                  </div>
-                  <div class="md-layout-item md-size-25 mr-auto">
-                    <img :src="tabPane1[3].image" class="rounded" />
-                    <img :src="tabPane1[2].image" class="rounded" />
-                  </div>
-                </div>
-              </template>
-              <template slot="tab-pane-2">
-                <div class="md-layout">
-                  <div class="md-layout-item md-size-25 ml-auto">
-                    <img :src="tabPane2[0].image" class="rounded" />
-                    <img :src="tabPane2[1].image" class="rounded" />
-                    <img :src="tabPane2[2].image" class="rounded" />
-                  </div>
-                  <div class="md-layout-item md-size-25 mr-auto">
-                    <img :src="tabPane2[3].image" class="rounded" />
-                    <img :src="tabPane2[4].image" class="rounded" />
-                  </div>
-                </div>
-              </template>
-              <template slot="tab-pane-3">
-                <div class="md-layout">
-                  <div class="md-layout-item md-size-25 ml-auto">
-                    <img :src="tabPane3[0].image" class="rounded" />
-                    <img :src="tabPane3[1].image" class="rounded" />
-                  </div>
-                  <div class="md-layout-item md-size-25 mr-auto">
-                    <img :src="tabPane3[2].image" class="rounded" />
-                    <img :src="tabPane3[3].image" class="rounded" />
-                    <img :src="tabPane3[4].image" class="rounded" />
-                  </div>
-                </div>
-              </template>
-            </tabs>
           </div>
         </div>
       </div>
@@ -112,45 +32,39 @@
 </template>
 
 <script>
-import { Tabs } from "@/components";
+import AccompanyCalendar from "../components/AccompanyCalendar";
+import AccompanyBoard from "../components/AccompanyBoard";
+
 export default {
   components: {
-    Tabs
+    AccompanyCalendar,
+    AccompanyBoard
   },
-  bodyClass: "profile-page",
-  data() {
-    return {
-      tabPane1: [
-        { image: require("@/assets/img/examples/studio-1.jpg") },
-        { image: require("@/assets/img/examples/studio-2.jpg") },
-        { image: require("@/assets/img/examples/studio-4.jpg") },
-        { image: require("@/assets/img/examples/studio-5.jpg") }
-      ],
-      tabPane2: [
-        { image: require("@/assets/img/examples/olu-eletu.jpg") },
-        { image: require("@/assets/img/examples/clem-onojeghuo.jpg") },
-        { image: require("@/assets/img/examples/cynthia-del-rio.jpg") },
-        { image: require("@/assets/img/examples/mariya-georgieva.jpg") },
-        { image: require("@/assets/img/examples/clem-onojegaw.jpg") }
-      ],
-      tabPane3: [
-        { image: require("@/assets/img/examples/mariya-georgieva.jpg") },
-        { image: require("@/assets/img/examples/studio-3.jpg") },
-        { image: require("@/assets/img/examples/clem-onojeghuo.jpg") },
-        { image: require("@/assets/img/examples/olu-eletu.jpg") },
-        { image: require("@/assets/img/examples/studio-1.jpg") }
-      ]
-    };
-  },
+  bodyClass: "landing-page",
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/city-profile.jpg")
+      default: require("@/assets/img/bg7.jpg")
     },
-    img: {
+    teamImg1: {
+      type: String,
+      default: require("@/assets/img/faces/avatar.jpg")
+    },
+    teamImg2: {
       type: String,
       default: require("@/assets/img/faces/christian.jpg")
+    },
+    teamImg3: {
+      type: String,
+      default: require("@/assets/img/faces/kendall.jpg")
     }
+  },
+  data() {
+    return {
+      name: null,
+      email: null,
+      message: null
+    };
   },
   computed: {
     headerStyle() {
@@ -163,22 +77,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section {
-  padding: 0;
+.md-card-actions.text-center {
+  display: flex;
+  justify-content: center !important;
+}
+.contact-form {
+  margin-top: 30px;
 }
 
-.profile-tabs /deep/ {
-  .md-card-tabs .md-list {
-    justify-content: center;
-  }
-
-  [class*="tab-pane-"] {
-    margin-top: 3.213rem;
-    padding-bottom: 50px;
-
-    img {
-      margin-bottom: 2.142rem;
-    }
-  }
+.md-has-textarea + .md-layout {
+  margin-top: 15px;
 }
 </style>

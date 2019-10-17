@@ -29,7 +29,7 @@
               <!-- Here you can add your items from the section-start of your toolbar -->
             </mobile-menu>
             <md-list>
-              <md-list-item href="#/AccompanyList">
+              <md-list-item href="#/accompanyList">
                 <i class="material-icons">flight</i>
                 <p>동행 목록</p>
               </md-list-item>

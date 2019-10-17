@@ -1,0 +1,11 @@
+package com.troublemaker.controller;
+
+import java.util.List;
+
+import com.troublemaker.domain.User;
+
+public interface IUserService {
+
+	List<User> selectAllUser();
+	
+}
