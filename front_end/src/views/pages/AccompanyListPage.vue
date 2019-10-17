@@ -18,6 +18,8 @@
       <div class="section section-contacts">
         <div class="container">
           <div class="md-layout">
+            <div class="md-layout">
+              </div>
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
               <h2 class="text-center title">Accompany List</h2>
               <AccompanyBoard />
