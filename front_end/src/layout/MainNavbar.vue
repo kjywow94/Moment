@@ -44,9 +44,14 @@
                 <p>여행 리뷰</p>
               </md-list-item>
 
-              <md-list-item href="javascript:void(0)">
+              <md-list-item href="#/login">
                 <i class="material-icons">account_circle</i>
                 <p>로그인</p>
+              </md-list-item>
+
+               <md-list-item href="#/signup">
+                <i class="material-icons">how_to_reg</i>
+                <p>회원가입</p>
               </md-list-item>
 
               <md-list-item href="https://lab.ssafy.com/s1-final/" target="_blank">
