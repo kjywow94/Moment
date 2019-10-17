@@ -10,12 +10,14 @@ import com.travelmaker.dto.User;
 
 @Mapper
 public interface UserMapper {
+	//회원전체조회
 	public List<User> selectAllUser();
-	
-//	public UserDto selectOnceUser(String eamil);
-//	public int deleteUser(String email);
-//	public int updateUser(UserDto user);
-//	public int insertUser(UserDto user);
-//	public int countUserAdmin();
-
+	//로그인
+	public User selectOneUser(User user);
+	//회원가입
+	public int insertUser(User user);
+	//회원수정
+	public int updateUser(User user);
+	//회원탈퇴
+	public int deleteUser(int id);
 }
