@@ -19,13 +19,7 @@ public class AccompanyRegist {
 	private int max;
 	private String hashtag;
 	private Status isRemove;
-	
-	public Status getIsRemove() {
-		return isRemove;
-	}
-	public void setIsRemove(Status isRemove) {
-		this.isRemove = isRemove;
-	}
+	private int user;
 	public int getId() {
 		return id;
 	}
@@ -98,9 +92,28 @@ public class AccompanyRegist {
 	public void setHashtag(String hashtag) {
 		this.hashtag = hashtag;
 	}
+	public Status getIsRemove() {
+		return isRemove;
+	}
+	public void setIsRemove(Status isRemove) {
+		this.isRemove = isRemove;
+	}
+	public int getUser() {
+		return user;
+	}
+	public void setUser(int user) {
+		this.user = user;
+	}
+	@Override
+	public String toString() {
+		return "AccompanyRegist [id=" + id + ", title=" + title + ", content=" + content + ", process=" + process
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", city=" + city + ", region=" + region
+				+ ", thema=" + thema + ", view=" + view + ", max=" + max + ", hashtag=" + hashtag + ", isRemove="
+				+ isRemove + ", user=" + user + "]";
+	}
 	public AccompanyRegist(int id, String title, String content, Process process, LocalDateTime startDate,
 			LocalDateTime endDate, String city, Region region, String thema, int view, int max, String hashtag,
-			Status isRemove) {
+			Status isRemove, int user) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -115,19 +128,9 @@ public class AccompanyRegist {
 		this.max = max;
 		this.hashtag = hashtag;
 		this.isRemove = isRemove;
+		this.user = user;
 	}
-	@Override
-	public String toString() {
-		return "AccompanyRegist [id=" + id + ", title=" + title + ", content=" + content + ", process=" + process
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", city=" + city + ", region=" + region
-				+ ", thema=" + thema + ", view=" + view + ", max=" + max + ", hashtag=" + hashtag + ", isRemove="
-				+ isRemove + ", getIsRemove()=" + getIsRemove() + ", getId()=" + getId() + ", getTitle()=" + getTitle()
-				+ ", getContent()=" + getContent() + ", getProcess()=" + getProcess() + ", getStartDate()="
-				+ getStartDate() + ", getEndDate()=" + getEndDate() + ", getCity()=" + getCity() + ", getRegion()="
-				+ getRegion() + ", getThema()=" + getThema() + ", getView()=" + getView() + ", getMax()=" + getMax()
-				+ ", getHashtag()=" + getHashtag() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
-	}
-
+	
+	
 
 }
