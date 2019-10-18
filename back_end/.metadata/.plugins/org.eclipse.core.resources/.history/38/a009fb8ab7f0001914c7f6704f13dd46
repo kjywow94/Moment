@@ -1,0 +1,23 @@
+package com.travelmaker.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.travelmaker.dto.UserReview;
+
+
+
+@Mapper
+public interface UserReviewMapper {
+	public List<UserReview> selectAllReview();
+	public List<UserReview> selectAllReviewByTid(int tid);
+	public int updateReview(UserReview tr);
+	public int deleteReviewById(int id);
+//	public UserDto selectOnceUser(String eamil);
+//	public int deleteUser(String email);
+//	public int updateUser(UserDto user);
+//	public int insertUser(UserDto user);
+//	public int countUserAdmin();
+
+}
