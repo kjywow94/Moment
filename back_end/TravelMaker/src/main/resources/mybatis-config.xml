@@ -5,9 +5,11 @@
 	<typeAliases>
 		<typeAlias type="com.travelmaker.dto.User" alias="user" />
 		<typeAlias type="com.travelmaker.dto.TravelReview" alias="travelReview" />
+		<typeAlias type="com.travelmaker.dto.AccompanyRegist" alias="accompanyRegist" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />
 		<mapper resource="mapper/travelReviewMapper.xml" />
+		<mapper resource="mapper/accompanyRegistMapper.xml" />
 	</mappers>
 </configuration>

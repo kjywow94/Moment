@@ -4,20 +4,24 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.travelmaker.dto.User;
-
-
+import com.travelmaker.dto.AccompanyRegist;
 
 @Mapper
-public interface UserMapper {
-	//회원전체조회
-	public List<User> selectAllUser();
-	//로그인
-	public User selectOneUser(User user);
-	//회원가입
-	public int insertUser(User user);
-	//회원수정
-	public int updateUser(User user);
-	//회원탈퇴
-	public int deleteUser(int id);
+public interface AccompanyRegistMapper {
+	// 동행 모집 목록 조회
+	public List<AccompanyRegist> selectAllAccompanyRegist();
+	
+	public List<AccompanyRegist> selectAllAccompanyRegistNotRemoved();
+
+	// 동행 모집 선택
+	public AccompanyRegist selectAccompanyRegistByID(int id);
+
+	// 동행 모집 등록
+	public int insertAccompanyRegist(AccompanyRegist accompanyRegist);
+
+	// 동행 모집 수정
+	public int updateAccompanyRegist(AccompanyRegist accompanyRegist);
+
+	// 동행 모집 삭제
+	public int deleteAccompanyRegist(int id);
 }
