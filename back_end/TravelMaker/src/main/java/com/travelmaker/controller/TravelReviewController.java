@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.travelmaker.dto.TravelReview;
 import com.travelmaker.service.TravelReviewService;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = { "*" })

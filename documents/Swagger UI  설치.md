@@ -60,3 +60,8 @@
 
    4. {스프링 주소}/swagger-ui.html 로 접속하여 사용
 
+- @ApiOperation(value="{설명}") 
+
+  - Controller 클래스의 메소드 위에 부착하면 Swagger 페이지에서 설명이 표시됨
+
+    ![1571300217215](C:\Users\multicampus\AppData\Roaming\Typora\typora-user-images\1571300217215.png)
