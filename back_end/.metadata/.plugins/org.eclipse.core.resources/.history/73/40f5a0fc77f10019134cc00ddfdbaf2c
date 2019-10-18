@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travelmaker.dao.ChatMapper">
+	<select id="selectAllNotRemovedReview" parameterType="Integer" resultType="chat">
+		SELECT * FROM
+		chat where is_remove = N and room_number =#{roomNumber};
+	</select>
+	
+	<select id="selectAll" parameterType="Integer" resultType="chat">
+		SELECT * FROM
+		user_review where room_number =#{roomNumber};
+	</select>
+	<insert id="insertChat" parameterType="chat">
+		INSERT INTO chat (UID,context,room_number) VALUES (#{uid},#{context},#{room_number});
+	</insert>
+	<update id="updateChat" parameterType="chat">
+		update chat set
+		context=#{context}, is_remove = #{isRemove} where ID =
+		#{id};
+	</update>
+	<delete id="deleteChatById" parameterType="Integer">
+		delete from chat where ID = #{id}
+	</delete>
+	
+	
+</mapper>

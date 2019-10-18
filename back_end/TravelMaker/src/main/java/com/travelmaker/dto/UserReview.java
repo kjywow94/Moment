@@ -15,14 +15,16 @@ public class UserReview {
 		super();
 	}
 
-	public UserReview(int id, int uid, String review, int grade, int tid) {
+	public UserReview(int id, int uid, String review, int grade, int tid, Status status) {
 		super();
 		this.id = id;
 		this.uid = uid;
 		this.review = review;
 		this.grade = grade;
 		this.tid = tid;
+		this.isRemove = status;
 	}
+
 
 	public int getId() {
 		return id;
@@ -74,7 +76,8 @@ public class UserReview {
 	@Override
 	public String toString() {
 		return "UserReview [id=" + id + ", uid=" + uid + ", review=" + review + ", grade=" + grade + ", tid=" + tid
-				+ ", isRemove=" + isRemove +"]";
+				+ ", isRemove=" + isRemove + "]";
+
 	}
 
 }
