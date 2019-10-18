@@ -10,7 +10,10 @@ public class UserReview {
 	private int grade;
 	private int tid;
 	private Status isRemove;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8ea4476a511a55d4c83e8e1f71175723bea445e8
 	public UserReview() {
 		super();
 	}
@@ -25,6 +28,13 @@ public class UserReview {
 		this.isRemove = status;
 	}
 
+	public Status getIsRemove() {
+		return isRemove;
+	}
+
+	public void setIsRemove(Status isRemove) {
+		this.isRemove = isRemove;
+	}
 
 	public int getId() {
 		return id;
@@ -76,8 +86,11 @@ public class UserReview {
 	@Override
 	public String toString() {
 		return "UserReview [id=" + id + ", uid=" + uid + ", review=" + review + ", grade=" + grade + ", tid=" + tid
+<<<<<<< HEAD
 				+ ", isRemove=" + isRemove + "]";
-
+=======
+				+ ", isRemove=" + isRemove +"]";
+>>>>>>> 8ea4476a511a55d4c83e8e1f71175723bea445e8
 	}
 
 }

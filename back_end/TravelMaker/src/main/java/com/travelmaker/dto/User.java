@@ -4,30 +4,32 @@ import java.time.LocalDateTime;
 
 import com.travelmaker.dto.enumeration.Authority;
 import com.travelmaker.dto.enumeration.Gender;
+import com.travelmaker.dto.enumeration.Status;
 
 public class User {
-	int id;
-	LocalDateTime birthday;
-	Gender gender;
-	String nickname;
-	String userName;
-	String phone;
-	String email;
-	int companionCount;
-	int companionGrade;
-	String password;
-	String sns1;
-	String sns2;
-	int taste1;
-	int taste2;
-	int taste3;
-	int taste4;
-	int taste5;
-	int taste6;
-	int taste7;
-	String about;
-	Authority authority;
-	String walletAddress;
+	private int id;
+	private LocalDateTime birthday;
+	private Gender gender;
+	private String nickname;
+	private String userName;
+	private String phone;
+	private String email;
+	private int companionCount;
+	private int companionGrade;
+	private String password;
+	private String sns1;
+	private String sns2;
+	private int taste1;
+	private int taste2;
+	private int taste3;
+	private int taste4;
+	private int taste5;
+	private int taste6;
+	private int taste7;
+	private String about;
+	private Authority authority;
+	private String walletAddress;
+	private Status isRemove;
 	
 	public User() {
 		super();
@@ -165,11 +167,17 @@ public class User {
 	public void setWalletAddress(String walletAddress) {
 		this.walletAddress = walletAddress;
 	}
+	public Status getIsRemove() { 
+		return isRemove;
+	}
+	public void setIsRemove(Status isRemove) {
+		this.isRemove = isRemove;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", birthday=" + birthday + ", gender=" + gender + ", nickname=" + nickname
 				+ ", userName=" + userName + ", phone=" + phone + ", email=" + email + ", companioncount="
 				+ companionCount + ", companiongrade=" + companionGrade + ", authority=" + authority
-				+ ", walletAddress=" + walletAddress + "]";
+				+ ", walletAddress=" + walletAddress +", isRemove=" + isRemove +"]";
 	}
 }

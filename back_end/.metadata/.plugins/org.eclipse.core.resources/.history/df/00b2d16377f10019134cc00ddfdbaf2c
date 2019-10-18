@@ -76,6 +76,7 @@ public class UserReview {
 	@Override
 	public String toString() {
 		return "UserReview [id=" + id + ", uid=" + uid + ", review=" + review + ", grade=" + grade + ", tid=" + tid
+
 				+ ", isRemove=" + isRemove + "]";
 
 	}

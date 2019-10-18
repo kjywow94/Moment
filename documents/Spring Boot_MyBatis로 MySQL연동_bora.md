@@ -40,41 +40,58 @@ server.port=9090
 
 - src/main/resource 경로에 mapper 폴더 추가
 
+  - userMapper.xml 파일 생성
+  
   ~~~ 
   <?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
   <mapper namespace="com.travelmaker.dao.UserMapper">
+  	<!-- 회원 전체 조회 -->
   	<select id="selectAllUser" resultType="user">
   		SELECT * FROM user;
   	</select>
   	
-  	<!-- <select id="searchOnceUser" parameterType="String" resultType="user">
-  		SELECT * FROM user WHERE email=#{email};
+  	<!-- 정상 회원 전체 조회 -->
+  	<select id="selectNotRemovedAllUser" resultType="user">
+  		SELECT * FROM user WHERE is_remove = 'N';
   	</select>
-  
-  	<delete id="deleteUser" parameterType="String">
-  		DELETE FROM user
-  		WHERE email=#{email};
-  	</delete>
-  
-  	<update id="updateUser" parameterType="user">
-  		UPDATE user set
-  		authority=#{authority} WHERE email=#{email};
-  	</update>
-  
+  	
+  	<!-- 로그인&회원조회 -->
+  	<select id="selectOneUser" parameterType="user" resultType="user">
+  		SELECT * FROM user WHERE email=#{email} and password=#{password} and is_remove = #{isRemove};
+  	</select>
+  		
+  	<!-- 회원가입 -->
   	<insert id="insertUser" parameterType="user">
-  		INSERT INTO user values (#{email}, default, #{authority}, 0);
+  		INSERT INTO user(birthday, gender, nickname, user_name, phone
+                     , email, password, sns_1, sns_2, taste_1, taste_2
+                     , taste_3, taste_4, taste_5, taste_6, taste_7, about) 
+  			   VALUES(#{birthday}, #{gender}, #{nickname}, #{userName}, #{phone}
+  	                   , #{email}, #{password}, #{sns1}, #{sns2}, #{taste1}, #{taste2}
+  	                   , #{taste3}, #{taste4}, #{taste5}, #{taste6}, #{taste7}, #{about});
   	</insert>
   	
-  	<select id="countUserAdmin" resultType="int">
-  		SELECT count(*) FROM user WHERE authority ='admin'
-  	</select> -->
+  	<!-- 회원수정/회원삭제 -->
+  	<update id="updateUser" parameterType="user">
+  		UPDATE user SET birthday = #{birthday} , phone = #{phone} , email = #{email} , password = #{password}
+  			     , sns_1 = #{sns1}  , sns_2 = #{sns2} , taste_1 = #{taste1}  , taste_2 = #{taste2} , taste_3  = #{taste3}  
+  			     , taste_4  = #{taste4}  , taste_5 = #{taste5}  , taste_6 = #{taste6}  , taste_7 = #{taste7}  , about = #{about}
+  			     , is_remove = #{isRemove}
+  		 WHERE id = #{id};
+  	</update>
+  	
+  	<!-- 회원탈퇴(보류) -->	
+  	<delete id="deleteUser" parameterType="int">
+  		DELETE FROM USER WHERE id = #{id};
+  	</delete>
   </mapper>
+  
   ~~~
 
 
 
-[[DAO\] DAO, DTO, Entity Class의 차이]: https://gmlwjd9405.github.io/2018/12/25/difference-dao-dto-entity.html	"[DAO] DAO, DTO, Entity Class의 차이"
+- [[DAO\] DAO, DTO, Entity Class의 차이]: https://gmlwjd9405.github.io/2018/12/25/difference-dao-dto-entity.html	"[DAO] DAO, DTO, Entity Class의 차이"
 
 - com.travelmaker.dto  에 dto(Data Transfer Object) 추가 --> DB getter, setter
   - 데이터를 오브젝트로 변환
@@ -97,16 +114,21 @@ server.port=9090
 ~~~ 
 package com.travelmaker.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.travelmaker.dto.User;
 import com.travelmaker.service.UserService;
+
+import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = { "*" })
 @RestController
@@ -116,63 +138,49 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/userAll", method = RequestMethod.GET)
-	public List<User> userAll() throws Exception {
+	//회원 전체 조회
+	@RequestMapping(value = "/userAllAdmin", method = RequestMethod.GET)
+	@ApiOperation(value = "회원전체조회")
+	public List<User> selectAllUser() throws Exception {
 		return userService.selectAllUser();
 	}
 	
-//	@RequestMapping(value = "/userSelect", method = RequestMethod.GET)
-//	public UserDto userSelect(@RequestParam String email) throws Exception {
-//		return userService.searchOnceUser(email);
-//	}
-//
-//	@RequestMapping(value = "/userDelete", method = RequestMethod.DELETE)
-//	public HashMap<String, Object> userDelect(@RequestParam String email) throws Exception {
-//		int res = userService.deleteUser(email);
-//		HashMap<String, Object> result = new HashMap<>();
-//		if (res > 0) {
-//			result.put("state", "1");
-//		} else {
-//			result.put("state", "-1");
-//		}
-//		return result;
-//	}
-//
-//	@RequestMapping(value = "/userUpdate", method = RequestMethod.PUT)
-//	public HashMap<String, Object> userUpdate(@RequestBody UserDto user) throws Exception {
-//		String user_authority = userService.searchOnceUser(user.getEmail()).getAuthority();
-//		int res = -1;
-//		HashMap<String, Object> result = new HashMap<>();
-//		result.put("state", "-1");
-//		if (user_authority.equals("admin")) {
-//			int admin_num = userService.countUserAdmin();
-//			if (admin_num == 1) {
-//				return result;
-//			}
-//		}
-//		user.setEmail(user.getEmail());
-//		user.setAuthority(user.getAuthority());
-//		res = userService.updateUser(user);
-//		if (res > 0) {
-//			result.put("state", "1");
-//		}
-//		return result;
-//
-//	}
-//
-//	@RequestMapping(value = "/userInsert", method = RequestMethod.POST)
-//	public HashMap<String, Object> userInsert(@RequestBody UserDto user) throws Exception {
-//		int res = userService.insertUser(user);
-//		HashMap<String, Object> result = new HashMap<>();
-//		if (res > 0) {
-//			result.put("state", "1");
-//		} else {
-//			result.put("state", "-1");
-//		}
-//		return result;
-//	}
-
+	//정상 회원 전체 조회
+	@RequestMapping(value = "/userAll", method = RequestMethod.GET)
+	@ApiOperation(value = "정상 회원 전체 조회")
+	public List<User> selectNotRemovedAllUser() throws Exception {
+		return userService.selectNotRemovedAllUser();
+	}
+	
+	//로그인&회원조회
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@ApiOperation(value = "로그인&회원조회")
+	public User userSelect(@RequestBody User user) throws Exception {
+		return userService.selectOneUser(user);
+	}
+	
+	//회원가입
+	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@ApiOperation(value = "회원가입")
+	public int userInsert(@RequestBody User user) throws Exception {
+		return userService.insertUser(user);
+	}
+	
+	//회원수정/회원삭제
+	@RequestMapping(value = "/user", method = RequestMethod.PUT)
+	@ApiOperation(value = "회원수정/삭제")
+	public int userUpdate(@RequestBody User user) throws Exception {
+		return userService.updateUser(user);
+	}
+	
+	//회원삭제
+	@RequestMapping(value = "/user", method = RequestMethod.DELETE)
+	@ApiOperation(value = "회원삭제")
+	public int userDelect(@RequestParam int id) throws Exception {
+		return userService.deleteUser(id);
+	}
 }
+
 ~~~
 
 
@@ -186,71 +194,54 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.travelmaker.dao.UserMapper;
 import com.travelmaker.dto.User;
 
 @Service
+@Transactional
 public class UserService {
 	
 	@Autowired
 	private UserMapper userMapper;
-
+	
+	//회원 전체 조회
 	public List<User> selectAllUser(){
 		return userMapper.selectAllUser();
 	}
 	
-//	public UserDto searchOnceUser(String eamil) {
-//		return userMapper.searchOnceUser(eamil);
-//	}
-//	
-//	public int deleteUser(String email) {
-//		return userMapper.deleteUser(email);
-//	}
-//	
-//	public int updateUser(UserDto user) {
-//		return userMapper.updateUser(user);
-//	}
-//	
-//	public int insertUser(UserDto user) {
-//		return userMapper.insertUser(user);
-//	}
-//	public int countUserAdmin() {
-//		return userMapper.countUserAdmin();
-//	}
-
+	//정상 회원 전체 조회
+	public List<User> selectNotRemovedAllUser(){
+		return userMapper.selectNotRemovedAllUser();
+	}
+	
+	//로그인&회원조회
+	public User selectOneUser(User user) {
+		return userMapper.selectOneUser(user);
+	}
+	
+	//회원가입
+	public int insertUser(User user) {
+		return userMapper.insertUser(user);
+	}
+	
+	//회원수정/회원삭제
+	public int updateUser(User user) {
+		return userMapper.updateUser(user);
+	}
+	
+	//회원탈퇴(보류)
+	public int deleteUser(int id) {
+		return userMapper.deleteUser(id);
+	}
 }
+
 ~~~
 
 
 
 - com.travelmaker.dao 에 인터페이스 UserMapper.java 추가
-
-~~~ 
-package com.travelmaker.dao;
-
-import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
-
-import com.travelmaker.dto.User;
-
-@Mapper
-public interface UserMapper {
-	public List<User> selectAllUser();
-	
-//	public UserDto selectOnceUser(String eamil);
-//	public int deleteUser(String email);
-//	public int updateUser(UserDto user);
-//	public int insertUser(UserDto user);
-//	public int countUserAdmin();
-
-}
-~~~
-
-
-
-- com.travelmaker.dao에 UserMapper.java 추가
   - 계층간 데이터 교환을 위한 객체(Java Beans)이다.
   - Service와 DB를 연결하는 고리의 역할을 한다.
   - SQL를 사용(개발자가 직접 코딩)하여 DB에 접근한 후 적절한 CRUD API를 제공
@@ -264,20 +255,25 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.travelmaker.dto.User;
 
+
+
 @Mapper
 public interface UserMapper {
+	//회원 전체 조회
 	public List<User> selectAllUser();
-	
-//	public UserDto selectOnceUser(String eamil);
-//	public int deleteUser(String email);
-//	public int updateUser(UserDto user);
-//	public int insertUser(UserDto user);
-//	public int countUserAdmin();
-
+	//정상 회원 전체 조회 
+	public List<User> selectNotRemovedAllUser();
+	//로그인/회원조회
+	public User selectOneUser(User user);
+	//회원가입
+	public int insertUser(User user);
+	//회원수정/회원삭제
+	public int updateUser(User user);
+	//회원탈퇴(보류)
+	public int deleteUser(int id);
 }
+
 ~~~
-
-
 
 
 
