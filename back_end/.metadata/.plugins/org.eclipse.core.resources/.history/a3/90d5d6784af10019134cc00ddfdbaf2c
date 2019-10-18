@@ -21,7 +21,7 @@ public class TravelReviewService {
 	}
 	
 	public List<TravelReview> selectNotRemovedReview(){
-		return travelReviewMapper.selectNotRemovedReview();
+		return travelReviewMapper.selectNotRemovedReview()
 	}
 	
 	public List<TravelReview> selectAllReviewByTid(int tid){
@@ -35,7 +35,7 @@ public class TravelReviewService {
 	public int deleteReviewById(int id) {
 		return travelReviewMapper.deleteReviewById(id);
 	}
-
+	
 	public int insertReview(TravelReview tr) {
 		return travelReviewMapper.insertReview(tr);
 	}

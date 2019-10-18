@@ -5,19 +5,13 @@
 		SELECT * FROM
 		travel_review;
 	</select>
-	
-	<select id="selectNotRemovedReview" resultType="travelReview">
-		SELECT * FROM
-		travel_review where is_remove = N;
-	</select>
-	
 	<select id="selectAllReviewByTid" resultType="travelReview"
 		parameterType="Integer">
 		SELECT * FROM travel_review WHERE tid = #{tid};
 	</select>
 	<update id="updateReview" parameterType="travelReview">
 		update travel_review set
-		title = #{title}, hashtag=#{hashtag}, review=#{review}, is_remove = #{isRemove} where id =
+		title = #{title}, hashtag=#{hashtag}, review=#{review} where id =
 		#{id};
 	</update>
 	<delete id="deleteReviewById" parameterType="Integer">

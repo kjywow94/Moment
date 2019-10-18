@@ -14,7 +14,7 @@ public class TravelReview {
 	public TravelReview() {
 		super();
 	}
-	
+
 	public TravelReview(int id, int tid, String title, String hashtag, String review, Status isRemove) {
 		super();
 		this.id = id;
@@ -75,10 +75,8 @@ public class TravelReview {
 
 	@Override
 	public String toString() {
-		return "TravelReview [id=" + id + ", tid=" + tid + ", title=" + title + ", hashtag=" + hashtag + ", review="
-				+ review + ", isRemove=" + isRemove + "]";
+		return "Travel [id=" + id + ", tid=" + tid + ", title=" + title + ", hashtag=" + hashtag + ", review=" + review
+				+ "]";
 	}
-
-	
 
 }

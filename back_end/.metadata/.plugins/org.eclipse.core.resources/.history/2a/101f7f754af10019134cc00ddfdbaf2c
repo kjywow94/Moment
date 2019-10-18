@@ -20,10 +20,6 @@ public class TravelReviewService {
 		return travelReviewMapper.selectAllReview();
 	}
 	
-	public List<TravelReview> selectNotRemovedReview(){
-		return travelReviewMapper.selectNotRemovedReview();
-	}
-	
 	public List<TravelReview> selectAllReviewByTid(int tid){
 		return travelReviewMapper.selectAllReviewByTid(tid);
 	}
@@ -35,7 +31,7 @@ public class TravelReviewService {
 	public int deleteReviewById(int id) {
 		return travelReviewMapper.deleteReviewById(id);
 	}
-
+	
 	public int insertReview(TravelReview tr) {
 		return travelReviewMapper.insertReview(tr);
 	}

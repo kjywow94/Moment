@@ -17,9 +17,16 @@
 	</select>
 	<update id="updateReview" parameterType="travelReview">
 		update travel_review set
-		title = #{title}, hashtag=#{hashtag}, review=#{review}, is_remove = #{isRemove} where id =
+		title = #{title}, hashtag=#{hashtag}, review=#{review} where id =
 		#{id};
 	</update>
+	
+	<update id="deleteReview" parameterType="Integer">
+		update travel_review set
+		is_remove = #{isRemove} where id =
+		#{id};
+	</update>
+	
 	<delete id="deleteReviewById" parameterType="Integer">
 		delete from
 		travel_review where id = #{id}

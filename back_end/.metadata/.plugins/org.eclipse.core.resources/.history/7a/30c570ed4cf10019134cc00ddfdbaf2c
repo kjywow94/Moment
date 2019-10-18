@@ -17,7 +17,7 @@
 	</select>
 	<update id="updateReview" parameterType="travelReview">
 		update travel_review set
-		title = #{title}, hashtag=#{hashtag}, review=#{review}, is_remove = #{isRemove} where id =
+		title = #{title}, hashtag=#{hashtag}, review=#{review} where id =
 		#{id};
 	</update>
 	<delete id="deleteReviewById" parameterType="Integer">

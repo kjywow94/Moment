@@ -28,11 +28,6 @@ public class TravelReviewController {
 	public List<TravelReview> selectAllReview() throws Exception {
 		return travelReviewService.selectAllReview();
 	}
-	@RequestMapping(value = "/travelReview/N", method = RequestMethod.GET)
-	@ApiOperation(value="삭제되지 않은 여행 리뷰 리턴")
-	public List<TravelReview> selectNotRemovedReview() throws Exception {
-		return travelReviewService.selectNotRemovedReview();
-	}
 	
 	@RequestMapping(value = "/travelReviewTid/{tid}", method = RequestMethod.GET)
 	@ApiOperation(value="동행에 해당하는 리뷰 리턴")
@@ -47,8 +42,8 @@ public class TravelReviewController {
 	}
 	
 	@RequestMapping(value = "/travelReview/{id}", method = RequestMethod.DELETE)
-	@ApiOperation(value="여행 리뷰 영구 삭제")
-	public int deleteForceReviewById(@PathVariable int id) {
+	@ApiOperation(value="여행 리뷰 삭제")
+	public int deleteReviewById(@PathVariable int id) {
 		return travelReviewService.deleteReviewById(id);
 	}
 

@@ -75,10 +75,8 @@ public class TravelReview {
 
 	@Override
 	public String toString() {
-		return "TravelReview [id=" + id + ", tid=" + tid + ", title=" + title + ", hashtag=" + hashtag + ", review="
-				+ review + ", isRemove=" + isRemove + "]";
+		return "Travel [id=" + id + ", tid=" + tid + ", title=" + title + ", hashtag=" + hashtag + ", review=" + review
+				+ "]";
 	}
-
-	
 
 }

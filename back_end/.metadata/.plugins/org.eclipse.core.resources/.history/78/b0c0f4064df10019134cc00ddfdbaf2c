@@ -29,7 +29,7 @@ public class TravelReviewController {
 		return travelReviewService.selectAllReview();
 	}
 	@RequestMapping(value = "/travelReview/N", method = RequestMethod.GET)
-	@ApiOperation(value="삭제되지 않은 여행 리뷰 리턴")
+	@ApiOperation(value="동행에 해당하는 리뷰 리턴")
 	public List<TravelReview> selectNotRemovedReview() throws Exception {
 		return travelReviewService.selectNotRemovedReview();
 	}

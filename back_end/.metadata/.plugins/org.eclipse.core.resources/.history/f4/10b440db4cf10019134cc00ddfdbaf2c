@@ -35,7 +35,14 @@ public class TravelReviewService {
 	public int deleteReviewById(int id) {
 		return travelReviewMapper.deleteReviewById(id);
 	}
-
+	
+	public int deleteReview(int id) {
+		return travelReviewMapper.deleteReview(id);
+	}
+	
+	public int recoverReview(int id) {
+		return travelReviewMapper.recoverReview(id);
+	}
 	public int insertReview(TravelReview tr) {
 		return travelReviewMapper.insertReview(tr);
 	}
