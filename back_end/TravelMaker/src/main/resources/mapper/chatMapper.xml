@@ -11,7 +11,7 @@
 		user_review where room_number =#{roomNumber};
 	</select>
 	<insert id="insertChat" parameterType="chat">
-		INSERT INTO chat (UID,context,room_number) VALUES (#{uid},#{context},#{room_number});
+		INSERT INTO chat (UID,context,room_number) VALUES (#{uid},#{context},#{roomNumber});
 	</insert>
 	<update id="updateChat" parameterType="chat">
 		update chat set
@@ -24,3 +24,4 @@
 	
 	
 </mapper>
+

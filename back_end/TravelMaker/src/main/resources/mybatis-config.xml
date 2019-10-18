@@ -12,6 +12,8 @@
 			alias="userReview" />
 		<typeAlias type="com.travelmaker.dto.Chat"
 			alias="chat" />
+		<typeAlias type="com.travelmaker.dto.Chat"
+			alias="chatRoom" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />
@@ -19,5 +21,6 @@
 		<mapper resource="mapper/accompanyRegistMapper.xml" />
 		<mapper resource="mapper/userReviewMapper.xml" />
 		<mapper resource="mapper/chatMapper.xml" />
+		<mapper resource="mapper/chatRoomMapper.xml" />
 	</mappers>
 </configuration>
