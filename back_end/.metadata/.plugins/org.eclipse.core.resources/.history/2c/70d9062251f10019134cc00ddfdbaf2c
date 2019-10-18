@@ -5,10 +5,6 @@
 		SELECT * FROM
 		user_review;
 	</select>
-	<select id="selectAllNotRemovedReview" resultType="userReview">
-		SELECT * FROM
-		user_review where is_remove = N;
-	</select>
 	<select id="selectAllReviewByTid" resultType="userReview"
 		parameterType="Integer">
 		SELECT * FROM user_review WHERE TID = #{tid};
