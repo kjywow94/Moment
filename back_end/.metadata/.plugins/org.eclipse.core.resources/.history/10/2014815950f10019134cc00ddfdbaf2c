@@ -15,7 +15,7 @@
 	</select>
 	<update id="updateReview" parameterType="userReview">
 		update user_review set
-		grade=#{grade}, review=#{review}, is_remove = #{isRemove} where ID =
+		grade=#{grade}, review=#{review} where ID =
 		#{id};
 	</update>
 	<delete id="deleteReviewById" parameterType="Integer">

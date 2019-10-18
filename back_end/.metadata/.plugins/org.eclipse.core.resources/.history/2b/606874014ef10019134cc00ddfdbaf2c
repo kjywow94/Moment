@@ -6,7 +6,7 @@
 		travel_review;
 	</select>
 	
-	<select id="selectAllNotRemovedReview" resultType="travelReview">
+	<select id="selectNotRemovedReview" resultType="travelReview">
 		SELECT * FROM
 		travel_review where is_remove = N;
 	</select>

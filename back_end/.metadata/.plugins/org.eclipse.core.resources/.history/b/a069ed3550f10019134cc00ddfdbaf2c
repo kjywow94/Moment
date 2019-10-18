@@ -23,12 +23,12 @@ public class TravelReviewController {
 	@Autowired
 	private TravelReviewService travelReviewService;
 
-	@RequestMapping(value = "/travelReviewAdmin", method = RequestMethod.GET)
+	@RequestMapping(value = "/travelReview", method = RequestMethod.GET)
 	@ApiOperation(value="모든 여행 리뷰 리턴")
 	public List<TravelReview> selectAllReview() throws Exception {
 		return travelReviewService.selectAllReview();
 	}
-	@RequestMapping(value = "/travelReview", method = RequestMethod.GET)
+	@RequestMapping(value = "/travelReview/N", method = RequestMethod.GET)
 	@ApiOperation(value="삭제되지 않은 여행 리뷰 리턴")
 	public List<TravelReview> selectNotRemovedReview() throws Exception {
 		return travelReviewService.selectNotRemovedReview();
