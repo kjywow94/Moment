@@ -14,8 +14,10 @@ public interface UserMapper {
 	public List<User> selectAllUser();
 	//정상 회원 전체 조회 
 	public List<User> selectNotRemovedAllUser();
-	//로그인/회원조회
-	public User selectOneUser(User user);
+	//로그인
+	public User loginUser(User user);
+	//회원조회
+	public User selectOneUser(int id);
 	//회원가입
 	public int insertUser(User user);
 	//회원수정/회원삭제

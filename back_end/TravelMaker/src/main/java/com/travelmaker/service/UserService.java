@@ -26,9 +26,14 @@ public class UserService {
 		return userMapper.selectNotRemovedAllUser();
 	}
 	
-	//로그인&회원조회
-	public User selectOneUser(User user) {
-		return userMapper.selectOneUser(user);
+	//로그인
+	public User loginUser(User user) {
+		return userMapper.loginUser(user);
+	}
+	
+	//회원조회
+	public User selectOneUser(int id) {
+		return userMapper.selectOneUser(id);
 	}
 	
 	//회원가입
@@ -45,4 +50,5 @@ public class UserService {
 	public int deleteUser(int id) {
 		return userMapper.deleteUser(id);
 	}
+
 }

@@ -12,11 +12,16 @@
 		SELECT * FROM user WHERE is_remove = 'N';
 	</select>
 	
-	<!-- 로그인&회원조회 -->
-	<select id="selectOneUser" parameterType="user" resultType="user">
-		SELECT * FROM user WHERE email=#{email} and password=#{password} and is_remove = #{isRemove};
+	<!-- 로그인 -->
+	<select id="loginUser" parameterType="user" resultType="user">
+		SELECT * FROM user WHERE email=#{email} and password=#{password} and is_remove = 'N';
 	</select>
 		
+	<!-- 회원조회 -->
+	<select id="selectOneUser" parameterType="int" resultType="user">
+		SELECT * FROM user WHERE id = #{id};
+	</select>
+	
 	<!-- 회원가입 -->
 	<insert id="insertUser" parameterType="user">
 		INSERT INTO user(birthday, gender, nickname, user_name, phone

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,11 +39,18 @@ public class UserController {
 		return userService.selectNotRemovedAllUser();
 	}
 	
-	//로그인&회원조회
+	//로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	@ApiOperation(value = "로그인&회원조회")
+	@ApiOperation(value = "로그인")
 	public User userSelect(@RequestBody User user) throws Exception {
-		return userService.selectOneUser(user);
+		return userService.loginUser(user);
+	}
+	
+	//회원 조회
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+	@ApiOperation(value = "회원조회")
+	public User selectOneUser(@PathVariable int id) throws Exception {
+		return userService.selectOneUser(id);
 	}
 	
 	//회원가입
