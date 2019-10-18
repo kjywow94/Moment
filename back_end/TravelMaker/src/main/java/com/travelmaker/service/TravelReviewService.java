@@ -32,23 +32,7 @@ public class TravelReviewService {
 		return travelReviewMapper.deleteReviewById(id);
 	}
 	
-//	public UserDto searchOnceUser(String eamil) {
-//		return userMapper.searchOnceUser(eamil);
-//	}
-//	
-//	public int deleteUser(String email) {
-//		return userMapper.deleteUser(email);
-//	}
-//	
-//	public int updateUser(UserDto user) {
-//		return userMapper.updateUser(user);
-//	}
-//	
-//	public int insertUser(UserDto user) {
-//		return userMapper.insertUser(user);
-//	}
-//	public int countUserAdmin() {
-//		return userMapper.countUserAdmin();
-//	}
-
+	public int insertReview(TravelReview tr) {
+		return travelReviewMapper.insertReview(tr);
+	}
 }

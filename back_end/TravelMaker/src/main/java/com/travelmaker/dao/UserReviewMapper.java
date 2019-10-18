@@ -15,5 +15,6 @@ public interface UserReviewMapper {
 	public List<UserReview> selectAllReviewByUid(int uid);
 	public int updateReview(UserReview ur);
 	public int deleteReviewById(int id);
+	public int insertReview(UserReview ur);
 
 }

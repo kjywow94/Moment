@@ -15,6 +15,11 @@
 		#{id};
 	</update>
 	<delete id="deleteReviewById" parameterType="Integer">
-		delete from travel_review where id = #{id}
+		delete from
+		travel_review where id = #{id}
 	</delete>
+	<insert id="insertReview" parameterType="travelReview">
+		INSERT INTO travel_review (tid, title, hashtag, review) VALUES (#{tid},#{title},#{hashtag},#{review});
+
+	</insert>
 </mapper>

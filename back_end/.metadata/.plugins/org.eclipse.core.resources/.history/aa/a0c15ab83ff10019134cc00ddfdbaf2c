@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travelmaker.dao.UserReviewMapper">
+	<select id="selectAllReview" resultType="userReview">
+		SELECT * FROM
+		user_review;
+	</select>
+	<select id="selectAllReviewByTid" resultType="userReview"
+		parameterType="Integer">
+		SELECT * FROM user_review WHERE TID = #{tid};
+	</select>
+	<select id="selectAllReviewByUid" resultType="userReview"
+		parameterType="Integer">
+		SELECT * FROM user_review WHERE UID = #{uid};
+	</select>
+	<update id="updateReview" parameterType="userReview">
+		update user_review set
+		grade=#{grade}, review=#{review} where ID =
+		#{id};
+	</update>
+	<delete id="deleteReviewById" parameterType="Integer">
+		delete from user_review where ID = #{id}
+	</delete>
+	<delete id="insertReview" parameterType="userReview">
+		INSERT INTO user_review (UID, review, grade, TID) VALUES (#{uid},#{review},#{grade},#{tid});
+	</delete>
+	
+	
+</mapper>

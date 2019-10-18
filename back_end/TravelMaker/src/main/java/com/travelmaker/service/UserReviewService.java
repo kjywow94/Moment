@@ -35,6 +35,9 @@ public class UserReviewService {
 		return userReviewMapper.deleteReviewById(id);
 	}
 	
+	public int insertReview(UserReview ur) {
+		return userReviewMapper.insertReview(ur);
+	}
 
 
 }
