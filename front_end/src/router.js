@@ -11,6 +11,7 @@ import AccompanyList from "./views/pages/AccompanyListPage.vue";
 import AccompanyDetail from "./views/pages/AccompanyDetailPage.vue";
 import AccompanyRegist from "./views/pages/AccompanyRegistPage.vue";
 import AccompanyRevise from "./views/pages/AccompanyRevisePage.vue";
+import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
 
 Vue.use(Router);
 
@@ -90,6 +91,15 @@ export default new Router({
       path: "/profile",
       name: "profile",
       components: { default: Profile, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/mypage/passwordchange",
+      name: "passwordchange",
+      components: { default: PasswordChange, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }

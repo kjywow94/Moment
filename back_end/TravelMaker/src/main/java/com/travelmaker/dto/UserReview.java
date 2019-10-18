@@ -1,5 +1,7 @@
 package com.travelmaker.dto;
 
+import com.travelmaker.dto.enumeration.Status;
+
 public class UserReview {
 
 	private int id;
@@ -7,6 +9,7 @@ public class UserReview {
 	private String review;
 	private int grade;
 	private int tid;
+	private Status isRemove;
 
 	public UserReview() {
 		super();
@@ -60,11 +63,18 @@ public class UserReview {
 	public void setTid(int tid) {
 		this.tid = tid;
 	}
+	
+	public Status getIsRemove() { 
+		return isRemove;
+	}
+	public void setIsRemove(Status isRemove) {
+		this.isRemove = isRemove;
+	}
 
 	@Override
 	public String toString() {
 		return "UserReview [id=" + id + ", uid=" + uid + ", review=" + review + ", grade=" + grade + ", tid=" + tid
-				+ "]";
+				+ ", isRemove=" + isRemove +"]";
 	}
 
 }

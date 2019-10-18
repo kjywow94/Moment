@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.travelmaker.dao.TravelReviewMapper;
-import com.travelmaker.dao.UserMapper;
+import com.travelmaker.dao.AccompanyRegistMapper;
 import com.travelmaker.dto.TravelReview;
 import com.travelmaker.dto.User;
 
@@ -20,6 +20,10 @@ public class TravelReviewService {
 		return travelReviewMapper.selectAllReview();
 	}
 	
+	public List<TravelReview> selectNotRemovedReview(){
+		return travelReviewMapper.selectAllNotRemovedReview();
+	}
+	
 	public List<TravelReview> selectAllReviewByTid(int tid){
 		return travelReviewMapper.selectAllReviewByTid(tid);
 	}
@@ -31,24 +35,8 @@ public class TravelReviewService {
 	public int deleteReviewById(int id) {
 		return travelReviewMapper.deleteReviewById(id);
 	}
-	
-//	public UserDto searchOnceUser(String eamil) {
-//		return userMapper.searchOnceUser(eamil);
-//	}
-//	
-//	public int deleteUser(String email) {
-//		return userMapper.deleteUser(email);
-//	}
-//	
-//	public int updateUser(UserDto user) {
-//		return userMapper.updateUser(user);
-//	}
-//	
-//	public int insertUser(UserDto user) {
-//		return userMapper.insertUser(user);
-//	}
-//	public int countUserAdmin() {
-//		return userMapper.countUserAdmin();
-//	}
 
+	public int insertReview(TravelReview tr) {
+		return travelReviewMapper.insertReview(tr);
+	}
 }
