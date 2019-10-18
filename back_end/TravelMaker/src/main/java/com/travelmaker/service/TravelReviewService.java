@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.travelmaker.dao.TravelReviewMapper;
-import com.travelmaker.dao.UserMapper;
+import com.travelmaker.dao.AccompanyRegistMapper;
 import com.travelmaker.dto.TravelReview;
 import com.travelmaker.dto.User;
 
