@@ -22,8 +22,11 @@
           </router-link>
         </div>
       </div>
+      <div class="row" v-if="isLoding">
+        <img src="../../assets/img/loding.gif" style="margin:auto;" />
+      </div>
 
-      <div class="row">
+      <div class="row" v-if="!isLoding">
         <div class="col-md-12">
           <!-- 데스크탑 테이블 -->
           <table class="table table-hover table-striped accompany-list-table mdquery-md">
@@ -38,31 +41,31 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in showList" v-bind:key="item.num">
-                <td>{{item.num}}</td>
+              <tr v-for="item in showList" v-bind:key="item.id">
+                <td>{{item.id}}</td>
                 <td>{{item.region}}</td>
                 <td>
                   <router-link
-                    :to="{name:'accompanyDetail', params: { id: item.num }}"
+                    :to="{name:'accompanyDetail', params: { id: item.id }}"
                     class="my-table-content"
                   >{{item.title}}</router-link>
                 </td>
                 <td>
-                  <p class="my-table-content">{{item.writer}}</p>
+                  <p class="my-table-content">{{item.nickname}}</p>
                 </td>
-                <td>{{item.date}}</td>
-                <td>{{item.views}}</td>
+                <td>{{item.startDate}}</td>
+                <td>{{item.view}}</td>
               </tr>
             </tbody>
           </table>
           <!-- 모바일 테이블 -->
           <table class="accompany-list-table mdquery-xs mobile-table">
-            <tbody v-for="item in showList" v-bind:key="item.num">
+            <tbody v-for="item in showList" v-bind:key="item.id">
               <tr class="mobile-table-top">
                 <td style="width:28%;">{{item.region}}</td>
                 <td>
                   <router-link
-                    :to="{name:'accompanyDetail', params: { id: item.num }}"
+                    :to="{name:'accompanyDetail', params: { id: item.id }}"
                     class="my-table-content"
                   >{{item.title}}</router-link>
                 </td>
@@ -70,7 +73,7 @@
 
               <tr class="mobile-table-bottom">
                 <td></td>
-                <td>{{item.date}}</td>
+                <td>{{item.startDate}}</td>
               </tr>
             </tbody>
           </table>
@@ -89,11 +92,13 @@
 <script>
 import { Pagination } from "@/components";
 import AccompanyService from "@/services/AccompanyService.js";
+import UserService from "@/services/UserService.js";
 
 export default {
   components: { Pagination },
   data() {
     return {
+      isLoding: true,
       region: "전체",
       listPagination: 1,
       pageCount: 1,
@@ -112,12 +117,29 @@ export default {
     }
   },
   mounted() {
-    AccompanyService.getAccompanyList(result => {
-      this.allAccompanyList = result;
-      this.regionList = result;
-      this.pageCount = Math.floor(this.regionList.length / 10 + 1);
-      this.showList = this.regionList.slice(0, this.itemCount);
-    });
+    AccompanyService.getAccompanyRegistList()
+      .then(accompanyList => {
+        this.allAccompanyList = accompanyList.data;
+        this.allAccompanyList.forEach(element => {
+          UserService.getUserById(element.user).then(user => {
+            element.nickname = user.data.nickname;
+            var date = new Date(element.startDate);
+            element.startDate =
+              date.getFullYear() +
+              "-" +
+              (date.getMonth() + 1) +
+              "-" +
+              date.getDate();
+            this.regionList = this.allAccompanyList;
+            this.pageCount = Math.floor(this.regionList.length / 10 + 1);
+            this.showList = this.regionList.slice(0, this.itemCount);
+          });
+        });
+        this.isLoding = false;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   },
   watch: {
     listPagination: function() {

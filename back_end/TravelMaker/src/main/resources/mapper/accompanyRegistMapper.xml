@@ -25,11 +25,11 @@
 		parameterType="accompanyRegist">
 		INSERT INTO accompany_regist(title, content, process,
 		start_date, end_date, city, region, thema, view,
-		max, hashtag)
+		max, hashtag, user)
 		VALUES(#{title}, #{content}, #{process}, #{startDate}, #{endDate}
 		,
 		#{city}, #{region}, #{thema}, #{view}, #{max}
-		, #{hashtag});
+		, #{hashtag}, #{user});
 	</insert>
 
 	<!-- 동행 모집 수정 -->
@@ -42,7 +42,7 @@
 		#{thema}
 		, view = #{view} , max =
 		#{max} , hashtag = #{hashtag},
-		is_remove = #{isRemove}
+		is_remove = #{isRemove}, user = #{user}
 		WHERE id
 		= #{id};
 	</update>

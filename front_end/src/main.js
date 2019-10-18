@@ -18,6 +18,11 @@ import router from "./router";
 
 import MaterialKit from "./plugins/material-kit";
 
+/* 테스트중
+import Constants from "./assets/constants";
+const BaseURL = Constants.BaseURL;
+*/
+
 Vue.config.productionTip = false;
 
 Vue.use(MaterialKit);
@@ -25,6 +30,7 @@ Vue.use(MaterialKit);
 const NavbarStore = {
   showNavbar: false
 };
+
 
 Vue.mixin({
   data() {
