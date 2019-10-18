@@ -30,7 +30,7 @@ public class TravelReviewController {
 	}
 	@RequestMapping(value = "/travelReview", method = RequestMethod.GET)
 	@ApiOperation(value="삭제되지 않은 여행 리뷰 리턴")
-	public List<TravelReview> selectNotRemovedReview() throws Exception {
+	public List<TravelReview> selectAllNotRemovedReview() throws Exception {
 		return travelReviewService.selectNotRemovedReview();
 	}
 	
@@ -48,7 +48,7 @@ public class TravelReviewController {
 	
 	@RequestMapping(value = "/travelReview/{id}", method = RequestMethod.DELETE)
 	@ApiOperation(value="여행 리뷰 영구 삭제")
-	public int deleteForceReviewById(@PathVariable int id) {
+	public int deleteForceReviewById(@RequestBody int id) {
 		return travelReviewService.deleteReviewById(id);
 	}
 

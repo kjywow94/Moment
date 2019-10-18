@@ -1,0 +1,12 @@
+package com.travelmaker.dto;
+
+public class ChatRoom {
+
+
+
+	private int id;
+	private int participation;
+	private int travelNumber;
+	
+	
+}

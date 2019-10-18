@@ -7,9 +7,11 @@
             <h1 class="title">동행 모집</h1>
             <h4>현재 모집중인 동행 목록을 보여주는 페이지 입니다.</h4>
             <br />
-            <md-button href="#" class="md-success md-lg" target="_blank">
-              <i class="fas fa-play"></i> 동행 등록
-            </md-button>
+            <router-link to="/AccompanyRegist">
+              <md-button href="#" class="md-success md-lg" target="_blank">
+                <i class="fas fa-play"></i> 동행 등록
+              </md-button>
+            </router-link>
           </div>
         </div>
       </div>

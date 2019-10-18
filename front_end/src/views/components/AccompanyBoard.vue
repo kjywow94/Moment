@@ -17,7 +17,9 @@
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-3 col-xs-1">
-          <button type="button" class="btn btn-success mdquery-md">동행 등록</button>
+          <router-link to="/AccompanyRegist">
+            <button type="button" class="btn btn-success mdquery-md">동행 등록</button>
+          </router-link>
         </div>
       </div>
       <div class="row" v-if="isLoding">
