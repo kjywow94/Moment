@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.travelmaker.dto.TravelReview;
 import com.travelmaker.dto.UserReview;
 
 
@@ -15,5 +16,7 @@ public interface UserReviewMapper {
 	public List<UserReview> selectAllReviewByUid(int uid);
 	public int updateReview(UserReview ur);
 	public int deleteReviewById(int id);
+	public int insertReview(UserReview ur);
+	public List<UserReview> selectAllNotRemovedReview();
 
 }

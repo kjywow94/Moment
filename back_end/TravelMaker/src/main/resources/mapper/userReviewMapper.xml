@@ -5,6 +5,10 @@
 		SELECT * FROM
 		user_review;
 	</select>
+	<select id="selectAllNotRemovedReview" resultType="userReview">
+		SELECT * FROM
+		user_review where is_remove = N;
+	</select>
 	<select id="selectAllReviewByTid" resultType="userReview"
 		parameterType="Integer">
 		SELECT * FROM user_review WHERE TID = #{tid};
@@ -15,10 +19,15 @@
 	</select>
 	<update id="updateReview" parameterType="userReview">
 		update user_review set
-		grade=#{grade}, review=#{review} where ID =
+		grade=#{grade}, review=#{review}, is_remove = #{isRemove} where ID =
 		#{id};
 	</update>
 	<delete id="deleteReviewById" parameterType="Integer">
 		delete from user_review where ID = #{id}
 	</delete>
+	<insert id="insertReview" parameterType="userReview">
+		INSERT INTO user_review (UID, review, grade, TID) VALUES (#{uid},#{review},#{grade},#{tid});
+	</insert>
+	
+	
 </mapper>
