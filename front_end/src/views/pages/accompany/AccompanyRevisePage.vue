@@ -106,12 +106,9 @@ export default {
       region : "America",
       city : "paris",
       hash : [
-        {id : 1,
-        tag : "꾸르잼"},
-        {id : 2,
-        tag : "대존잼"},
-        {id : 3,
-        tag : "핵잼"},
+        {tag : "꾸르잼"},
+        {tag : "대존잼"},
+        {tag : "핵잼"},
       ],
       content : "이번 여행은 사진도찍고 영화도보고 연탄구이도 할겁니다. 정말 재미있는 여행이 될거에요. 함께해요 사람들아"
     };
