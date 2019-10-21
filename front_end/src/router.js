@@ -7,10 +7,10 @@ import Signup from "./views/pages/signup.vue";
 import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
-import AccompanyList from "./views/pages/AccompanyListPage.vue";
-import AccompanyDetail from "./views/pages/AccompanyDetailPage.vue";
-import AccompanyRegist from "./views/pages/AccompanyRegistPage.vue";
-import AccompanyRevise from "./views/pages/AccompanyRevisePage.vue";
+import AccompanyList from "./views/pages/accompany/AccompanyListPage.vue";
+import AccompanyDetail from "./views/pages/accompany/AccompanyDetailPage.vue";
+import AccompanyRegist from "./views/pages/accompany/AccompanyRegistPage.vue";
+import AccompanyRevise from "./views/pages/accompany/AccompanyRevisePage.vue";
 import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
 import Admin from "./views/pages/adminPage/Admin.vue";
 

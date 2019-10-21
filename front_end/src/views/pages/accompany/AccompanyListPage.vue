@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import AccompanyCalendar from "../components/AccompanyCalendar";
-import AccompanyBoard from "../components/AccompanyBoard";
+import AccompanyCalendar from "../../components/accompany/AccompanyCalendar";
+import AccompanyBoard from "../../components/accompany/AccompanyBoard";
 
 export default {
   components: {
