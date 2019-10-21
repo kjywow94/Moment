@@ -8,10 +8,8 @@
       <div class="section profile-content">
         <div class="container">
           <div class="md-layout">
-            <div class="md-layout-item md-size-50 mx-auto">
-              <div class="profile">
+            <div class="md-layout-item md-size-100 mx-auto">
                 <MyAccompanyCard/>
-              </div>
             </div>
           </div>
           </div>

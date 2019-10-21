@@ -5,22 +5,16 @@ const apiServer = axios.create({
 })
 
 export default {
-    getMyAccompanyList(id) {
-
-    }
-    // getAccompanyRegistList() {
-    //     return apiServer.get('/api/accompanyRegist/');
-    // },
-    // getAccompanyRegistListAdmin() {
-    //     return apiServer.get('/api/accompanyRegistAdmin/');
-    // },
-    // getAccompanyRegistById(id) {
-    //     return apiServer.get('/api/accompanyRegist/' + id);
-    // },
-    // insertAccompanyRegist(accompanyRegist) {
-    //     return apiServer.post('/api/accompanyRegist/' , accompanyRegist);
-    // },
-    // updateAccompanyRegist(accompanyRegist) {
-    //     return apiServer.put('/api/accompanyRegist/' , accompanyRegist);
-    // }
+    getMyAccompanyListbyUid(uid) {
+        return apiServer.get('/api/accompanyParti/' + uid);
+    },
+    getMyAccompanyListbyTid(tid) {
+        return apiServer.get('/api/accompanyPartiByTid/' + tid);
+    },
+    insertAccompanyParti(accompanyParti) {
+        return apiServer.post('/api/accompanyParti/', accompanyParti);
+    },
+    updateAccompanyParti(accompanyParti) {
+        return apiServer.put('/api/accompanyParti/', accompanyParti);
+    },
 }
