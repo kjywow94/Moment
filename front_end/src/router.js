@@ -12,6 +12,7 @@ import AccompanyDetail from "./views/pages/accompany/AccompanyDetailPage.vue";
 import AccompanyRegist from "./views/pages/accompany/AccompanyRegistPage.vue";
 import AccompanyRevise from "./views/pages/accompany/AccompanyRevisePage.vue";
 import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
+import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
 
 Vue.use(Router);
 
@@ -57,6 +58,15 @@ export default new Router({
       path: "/accompanyRevise/:id",
       name: "accompanyRevise",
       components: { default: AccompanyRevise, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/myAccompany",
+      name: "myAccompany",
+      components: { default: MyAccompany, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
