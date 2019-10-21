@@ -2,9 +2,15 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+<<<<<<< HEAD
+   <settings>
+      <setting name="mapUnderscoreToCamelCase" value="true"/>
+   </settings>
+=======
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
+>>>>>>> 2ad41e0f0f82f20427fd423eb6d0895a18587561
 	<typeAliases>
 		<typeAlias type="com.travelmaker.dto.User" alias="user" />
 		<typeAlias type="com.travelmaker.dto.TravelReview"

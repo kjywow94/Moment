@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.travelmaker.dao.AccompanyPartiMapper">
+	<!-- 동행 파티 by uid -->
+	<select id="selectAccompanyPartiByUid" parameterType="int"
+		resultType="accompanyParti">
+		SELECT * FROM accompany_parti where uid
+		= #{uid};
+	</select>
+	
+		<!-- 동행 파티 by tid -->
+	<select id="selectAccompanyPartiByTid" parameterType="int"
+		resultType="accompanyParti">
+		SELECT * FROM accompany_parti where tid
+		= #{tid};
+	</select>
+
+	<!-- 동행 파티 수정 -->
+	<update id="updateAccompanyParti" parameterType="accompanyParti">
+		UPDATE accompany_parti
+		SET tid = #{tid}, participate_time = #{participateTime},
+		real_start_date = #{realStartDate}, real_end_date = #{realEndDate},
+		status = #{status}
+		WHERE id
+		= #{id};
+	</update>
+
+	<!-- 동행 모집 등록 -->
+	<insert id="insertAccompanyParti"
+		parameterType="accompanyparti">
+		INSERT INTO accompany_parti(tid, uid, participate_time,
+		real_start_date, real_end_date, status)
+		VALUES(#{tid}, #{uid}, #{participateTime}, #{realStartDate}, #{realEndDate}, #{status})
+	</insert>
+
+</mapper>

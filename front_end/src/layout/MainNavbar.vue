@@ -39,7 +39,7 @@
                 <p>동행 목록</p>
               </md-list-item>
 
-              <md-list-item href="#/profile">
+              <md-list-item href="#/myAccompany">
                 <i class="material-icons">star_border</i>
                 <p>내 동행</p>
               </md-list-item>
