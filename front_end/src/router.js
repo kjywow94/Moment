@@ -15,12 +15,19 @@ import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
 
 Vue.use(Router);
 
+const requireAuth = (to, from, next) => {
+  const isAuth = localStorage.getItem('token')
+  const loginPath = '/login?rPath=${encodeURIComponent(to.path)}'
+  isAuth ? next() : next(loginPath)
+}
+
 export default new Router({
   routes: [
     {
       path: "/",
       name: "index",
       components: { default: Index, header: MainNavbar, footer: MainFooter },
+      beforeEnter : requireAuth,
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }

@@ -12,10 +12,10 @@
 //
 // * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-
+import Vue from "vue"
+import App from "./App.vue"
+import router from "./router"
+import axios from 'axios'
 import MaterialKit from "./plugins/material-kit";
 
 /* 테스트중
