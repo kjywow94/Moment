@@ -10,10 +10,9 @@
 			alias="accompanyRegist" />
 		<typeAlias type="com.travelmaker.dto.UserReview"
 			alias="userReview" />
-		<typeAlias type="com.travelmaker.dto.Chat"
-			alias="chat" />
-		<typeAlias type="com.travelmaker.dto.Chat"
-			alias="chatRoom" />
+		<typeAlias type="com.travelmaker.dto.Chat" alias="chat" />
+		<typeAlias type="com.travelmaker.dto.Chat" alias="chatRoom" />
+		<typeAlias type="com.travelmaker.dto.AccompanyParti" alias="accompanyParti" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />
@@ -22,5 +21,6 @@
 		<mapper resource="mapper/userReviewMapper.xml" />
 		<mapper resource="mapper/chatMapper.xml" />
 		<mapper resource="mapper/chatRoomMapper.xml" />
+		<mapper resource="mapper/accompanyPartiMapper.xml" />
 	</mappers>
 </configuration>
