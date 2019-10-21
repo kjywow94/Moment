@@ -7,5 +7,8 @@ const apiServer = axios.create({
 export default {
     getUserById(id) {
         return apiServer.get('/api/user/' + id);
+    },
+    getAllUsers(){
+        return apiServer.get('/api/userAllAdmin')
     }
 }

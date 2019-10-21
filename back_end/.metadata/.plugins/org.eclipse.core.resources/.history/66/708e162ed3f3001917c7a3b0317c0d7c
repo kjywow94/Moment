@@ -23,4 +23,4 @@ logging.pattern.console=%d{HH:mm:ss} %clr(%5p) [%c] %m%n
 # Logging pattern for file
 logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
 
-logging.file = logs/travelMaker.log
+logging.file = logs/haribo.log

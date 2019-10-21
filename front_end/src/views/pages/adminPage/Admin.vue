@@ -22,10 +22,10 @@
         <h3><small>With Icons</small></h3>
       </div>
       <div class="md-layout">
-        <div class="md-layout-item md-size-50 md-small-size-100">
+        <div>
           <tabs
-            :tab-name="['Dashboard', 'Schedule', 'Tasks']"
-            :tab-icon="['dashboard', 'schedule', 'list']"
+            :tab-name="['USER', 'Schedule', 'Logs']"
+            :tab-icon="['account_box', 'schedule', 'update']"
             plain
             nav-pills-icons
             color-button="primary"
@@ -35,44 +35,36 @@
                <table class="table table-bordered" style="word-break:break-all;table-layout:fixed;">
                                     <thead>
                                         <tr class="text-center">
-                                            <th scope="col">작품명</th>
-                                            <th scope="col">작품설명</th>
-                                            <th scope="col">작품주인ID</th>
-                                            <th scope="col">작품공개</th>
-                                            <th scope="col">작품상태</th>
-                                            <th scope="col">기타</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">이름</th>
+                                            <th scope="col">닉네임</th>
+                                            <th scope="col">지갑주소</th>
+                                            <th scope="col">동행횟수</th>
+                                            <th scope="col">평점</th>
+                                            <th scope="col">권한</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       <tr class="text-center">
-                                            <td class="text-overflow">1</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-center">5</td>
-                                            <td class="text-center">5</td>
+                                       <tr v-for="user in users" :key='user.id' class="text-center" >
+                                            <td class="text-overflow">{{user['email']}}</td>
+                                            <td class="text-center">{{user['userName']}}</td>
+                                            <td class="text-center">{{user['nickname']}}</td>
+                                            <td class="text-center">{{user['walletAddress']}}</td>
+                                            <td class="text-center">{{user['companionCount']}}</td>
+                                            <td class="text-center">{{user['companionGrade']}}</td>
+                                            <td class="text-center">{{user['authority']}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
             </template>
             <template slot="tab-pane-2">
-              Efficiently unleash cross-media information without cross-media
-              value. Quickly maximize timely deliverables for real-time schemas.
-              <br /><br />
-              Dramatically maintain clicks-and-mortar solutions without
-              functional solutions.
             </template>
             <template slot="tab-pane-3">
-              Completely synergize resource taxing relationships via premier
-              niche markets. Professionally cultivate one-to-one customer
-              service with robust ideas.
-              <br /><br />
-              Dynamically innovate resource-leveling customer service for state
-              of the art customer service.
+              {{log}}
             </template>
           </tabs>
         </div>
-        <div class="md-layout-item md-size-50 md-small-size-100">
+        <!-- <div class="md-layout-item md-size-50 md-small-size-100">
           <tabs
             :tab-name="['Dashboard', 'Schedule']"
             :tab-icon="['dashboard', 'schedule']"
@@ -80,8 +72,8 @@
             flex-column
             nav-pills-icons
             color-button="primary"
-          >
-            <!-- here you can add your content for tab-content -->
+          > -->
+            <!-- here you can add your content for tab-content --><!--
             <template slot="tab-pane-1">
               Collaboratively administrate empowered markets via plug-and-play
               networks. Dynamically procrastinate B2C users after installed base
@@ -98,7 +90,7 @@
               functional solutions.
             </template>
           </tabs>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -110,16 +102,13 @@
 </template>
 
 <script>
-import AccompanyCalendar from "../../components/AccompanyCalendar";
-import AccompanyBoard from "../../components/AccompanyBoard";
 import { Tabs } from "@/components";
-import { UserService } from "../../../services/AccompanyService.js";
-
+import UserService from "@/services/UserService.js";
+import LogService from "@/services/LogService.js";
 export default {
   components: {
-    AccompanyCalendar,
-    AccompanyBoard,
-    Tabs
+    Tabs,
+    UserService
   },
   bodyClass: "landing-page",
   props: {
@@ -142,9 +131,8 @@ export default {
   },
   data() {
     return {
-      name: null,
-      email: null,
-      message: null
+      users:[{}],
+      log:null
     };
   },
   computed: {
@@ -152,6 +140,17 @@ export default {
       return {
         backgroundImage: `url(${this.header})`
       };
+    }
+  },
+  mounted(){
+    this.init();
+    
+  },
+  methods : {
+    async init(){
+      this.users = await UserService.getAllUsers();
+      this.users = this.users['data'];
+      this.log = await LogService.getLog();
     }
   }
 };
