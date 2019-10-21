@@ -9,24 +9,12 @@ public class AccompanyParti {
 	private int tid;
 	private int uid;
 	private LocalDateTime participateTime;
-	private LocalDateTime realStartDDate;
+	private LocalDateTime realStartDate;
 	private LocalDateTime realEndDate;
 	private Status status;
 
 	public AccompanyParti() {
 		super();
-	}
-
-	public AccompanyParti(int id, int tid, int uid, LocalDateTime participateTime, LocalDateTime realStartDDate,
-			LocalDateTime realEndDate, Status status) {
-		super();
-		this.id = id;
-		this.tid = tid;
-		this.uid = uid;
-		this.participateTime = participateTime;
-		this.realStartDDate = realStartDDate;
-		this.realEndDate = realEndDate;
-		this.status = status;
 	}
 
 	public int getId() {
@@ -61,12 +49,12 @@ public class AccompanyParti {
 		this.participateTime = participateTime;
 	}
 
-	public LocalDateTime getRealStartDDate() {
-		return realStartDDate;
+	public LocalDateTime getRealStartDate() {
+		return realStartDate;
 	}
 
-	public void setRealStartDDate(LocalDateTime realStartDDate) {
-		this.realStartDDate = realStartDDate;
+	public void setRealStartDate(LocalDateTime realStartDate) {
+		this.realStartDate = realStartDate;
 	}
 
 	public LocalDateTime getRealEndDate() {
@@ -88,7 +76,21 @@ public class AccompanyParti {
 	@Override
 	public String toString() {
 		return "AccompanyParti [id=" + id + ", tid=" + tid + ", uid=" + uid + ", participateTime=" + participateTime
-				+ ", realStartDDate=" + realStartDDate + ", realEndDate=" + realEndDate + ", status=" + status + "]";
+				+ ", realStartDate=" + realStartDate + ", realEndDate=" + realEndDate + ", status=" + status + "]";
 	}
+
+	public AccompanyParti(int id, int tid, int uid, LocalDateTime participateTime, LocalDateTime realStartDate,
+			LocalDateTime realEndDate, Status status) {
+		super();
+		this.id = id;
+		this.tid = tid;
+		this.uid = uid;
+		this.participateTime = participateTime;
+		this.realStartDate = realStartDate;
+		this.realEndDate = realEndDate;
+		this.status = status;
+	}
+
+	
 
 }

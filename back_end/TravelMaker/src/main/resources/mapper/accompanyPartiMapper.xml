@@ -20,7 +20,7 @@
 	<update id="updateAccompanyParti" parameterType="accompanyParti">
 		UPDATE accompany_parti
 		SET tid = #{tid}, participate_time = #{participateTime},
-		real_start_date = #{realStartDDate}, real_end_date = #{realEndDate},
+		real_start_date = #{realStartDate}, real_end_date = #{realEndDate},
 		status = #{status}
 		WHERE id
 		= #{id};
@@ -31,7 +31,7 @@
 		parameterType="accompanyparti">
 		INSERT INTO accompany_parti(tid, uid, participate_time,
 		real_start_date, real_end_date, status)
-		VALUES(#{tid}, #{uid}, #{participateTime}, #{realStartDDate}, #{realEndDate}, #{status})
+		VALUES(#{tid}, #{uid}, #{participateTime}, #{realStartDate}, #{realEndDate}, #{status})
 	</insert>
 
 </mapper>
