@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="row" v-if="isLoding">
-        <img src="../../assets/img/loding.gif" style="margin:auto;" />
+        <img src="../../../assets/img/loding.gif" style="margin:auto;" />
       </div>
 
       <div class="row" v-if="!isLoding">
@@ -166,7 +166,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import url("../../assets/bootstrap/bootstrap.css");
+@import url("../../../assets/bootstrap/bootstrap.css");
 #region-select {
   width: 60%;
 }
