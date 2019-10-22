@@ -3,6 +3,7 @@ package com.travelmaker.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,7 +39,12 @@ public class UserService {
 	
 	//회원가입
 	public int insertUser(User user) {
-		return userMapper.insertUser(user);
+		try {
+			return userMapper.insertUser(user);
+		} catch(DuplicateKeyException e) {
+			System.out.println("Duplicate error : "+e);
+			return 0;
+		}
 	}
 	
 	//회원수정/회원삭제
