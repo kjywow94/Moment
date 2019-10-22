@@ -134,6 +134,15 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
+    },
+    {
+      path: "/userprofile",
+      name: "userprofile",
+      components: { default: UserProfile, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
     }
   ],
   scrollBehavior: to => {
