@@ -12,6 +12,8 @@ import AccompanyDetail from "./views/pages/accompany/AccompanyDetailPage.vue";
 import AccompanyRegist from "./views/pages/accompany/AccompanyRegistPage.vue";
 import AccompanyRevise from "./views/pages/accompany/AccompanyRevisePage.vue";
 import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
+import Admin from "./views/pages/adminPage/Admin.vue";
+import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
 import UserProfile from "./views/pages/profile/UsersProfilePage.vue";
 
 
@@ -65,6 +67,15 @@ export default new Router({
       }
     },
     {
+      path: "/myAccompany",
+      name: "myAccompany",
+      components: { default: MyAccompany, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
       path: "/landing",
       name: "landing",
       components: { default: Landing, header: MainNavbar, footer: MainFooter },
@@ -102,6 +113,15 @@ export default new Router({
       path: "/mypage/passwordchange",
       name: "passwordchange",
       components: { default: PasswordChange, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/admin",
+      name: "admin",
+      components: { default: Admin, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
