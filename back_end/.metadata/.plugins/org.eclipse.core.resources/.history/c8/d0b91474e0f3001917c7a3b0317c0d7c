@@ -8,7 +8,7 @@
 	
 	<select id="selectAllNotRemovedReview" resultType="travelReview">
 		SELECT * FROM
-		travel_review where is_remove = 'N';
+		travel_review where is_remove = N;
 	</select>
 	
 	<select id="selectAllReviewByTid" resultType="travelReview"

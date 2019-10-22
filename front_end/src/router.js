@@ -14,6 +14,7 @@ import AccompanyRevise from "./views/pages/accompany/AccompanyRevisePage.vue";
 import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
 import Admin from "./views/pages/adminPage/Admin.vue";
 import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
+import TravelReview from "./views/pages/travelReview/TravelReviewPage.vue";
 
 Vue.use(Router);
 
@@ -120,6 +121,15 @@ export default new Router({
       path: "/admin",
       name: "admin",
       components: { default: Admin, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/travelReview",
+      name: "trabelReview",
+      components: { default: TravelReview, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
