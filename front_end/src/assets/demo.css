@@ -204,3 +204,10 @@
   width: 15%;
   left: -11px;
 }
+
+.text-overflow-l5{
+    
+    -webkit-line-clamp: 3; /* 라인수 */
+    -webkit-box-orient: vertical; /* 박스의 흐름의 방향을 지정 */
+    background-color: red;
+}

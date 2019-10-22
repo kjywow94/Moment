@@ -32,7 +32,7 @@
           >
             <!-- here you can add your content for tab-content -->
             <template slot="tab-pane-1">
-               <table class="table table-bordered md-table-head-label" style="word-break:break-all;table-layout:fixed;">
+               <table class="table table-bordered table-head-label" style="word-break:break-all;table-layout:fixed;">
                                     <thead>
                                         <tr class="text-center">
                                             <th scope="col">Email</th>
