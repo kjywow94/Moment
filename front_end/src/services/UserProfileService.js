@@ -7,15 +7,11 @@ const apiServer = axios.create({
 export default {
     getUserProfile(id) {
         return apiServer.get('/api/user/' + id);
+    },
+    getUserReview(id) {
+        return apiServer.get('/api/userReviewUid/' + id);
     }
 
-
-    // getAccompanyRegistList() {
-    //     return apiServer.get('/api/accompanyRegist/');
-    // },
-    // getAccompanyRegistListAdmin() {
-    //     return apiServer.get('/api/accompanyRegistAdmin/');
-    // },
     // getAccompanyRegistById(id) {
     //     return apiServer.get('/api/accompanyRegist/' + id);
     // },
