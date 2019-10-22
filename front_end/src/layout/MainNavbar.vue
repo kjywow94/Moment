@@ -49,14 +49,19 @@
                 <p>여행 리뷰</p>
               </md-list-item>
 
-              <md-list-item href="#/login">
+              <md-list-item href="#/login" v-if="!isLogined">
                 <i class="material-icons">account_circle</i>
                 <p>로그인</p>
               </md-list-item>
 
-               <md-list-item href="#/signup">
+               <md-list-item href="#/signup" v-if="!isLogined">
                 <i class="material-icons">how_to_reg</i>
                 <p>회원가입</p>
+              </md-list-item>
+
+              <md-list-item href="#/signup" v-if="isLogined">
+                <i class="material-icons">how_to_reg</i>
+                <p>로그아웃</p>
               </md-list-item>
 
               <md-list-item href="https://lab.ssafy.com/s1-final/" target="_blank">
@@ -167,9 +172,15 @@ export default {
   },
   mounted() {
     document.addEventListener("scroll", this.scrollListener);
+    // this.$store.state.isLogin = true;
   },
   beforeDestroy() {
     document.removeEventListener("scroll", this.scrollListener);
+  },
+  computed : {
+    isLogined(){
+      return this.$store.state.isLogin;
+    }
   }
 };
 </script>

@@ -1,7 +1,6 @@
 import axios from "axios";
-import { request } from "https";
 import router from "../router";
-import { async } from "q";
+
 
 const UNAUTHORIZED = 401
 const onUnauthorized = () => {
@@ -12,40 +11,25 @@ const apiServer = axios.create({
     baseURL: "http://localhost:9090"
 })
 
-const Request = async (method, url, data) =>{
-    return axios({
-        method,
-        url: apiServer + url,
-        data
-    }).then(result => result.data)
-        .catch(result => {
-            const {status} = result.response
-            if(status === UNAUTHORIZED) onUnauthorized()
-            throw result.response
-        })
-}
-
 export default {
     getUserById(id) {
         return apiServer.get('/api/user/' + id);
     },
-<<<<<<< HEAD
-    login(email, password) {
+    Login(email, password) {
         var body = {
-            "이메일": email,
-            "비밀번호": password
+            email : email,
+            password : password
         }
-    return apiServer.post('/api/login', body);
-}
 
+        return apiServer.post('/api/login', body)
+    }
 }
 
 export const auth = {
-
-}
-=======
     getAllUsers(){
         return apiServer.get('/api/userAllAdmin')
+    },
+    Login(email, password) {
+        return Request('post', '/api/login', {email, password})
     }
 }
->>>>>>> 0ed785a069439f1405a1a7373bd0f2f9fc59606b

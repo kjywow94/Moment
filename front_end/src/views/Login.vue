@@ -18,7 +18,7 @@
                 <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
                 <label>비밀번호를 입력해주세요...</label>
-                <md-input v-model="password" @keyup.enter="login"></md-input>
+                <md-input v-model="password" @keyup.enter="submit"></md-input>
               </md-field>
               <md-button slot="footer" class="md-simple md-success md-lg" :class="{'btn-success' : !invalidForm}" type="submit"
                 :disabled="invalidForm">
@@ -29,6 +29,7 @@
               </md-button>
             </login-card>
           </form>
+          <p class="error" v-if="error">{{error}}</p>
           </div>
         </div>
       </div>
@@ -38,7 +39,9 @@
 
 <script>
 import { LoginCard } from "@/components";
-import UserService, { auth } from '../services/UserService.js'
+import UserService from "@/services/UserService.js";
+import { auth } from "@/services/UserService.js";
+
 
 export default {
   components: {
@@ -48,27 +51,14 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      error: ""
     };
   },
   props: {
     header: {
       type: String,
       default: require("@/assets/img/profile_city.jpg")
-    }
-  },
-  methods: {
-    onSubmit() {
-      console.log(this.email, this.password);
-      UserService.login(this.email, this.password)
-        .then(data => {
-          console.log(data);
-          alert("로그인");
-        })
-        .catch(err => {
-          console.log(err);
-          alert("에러");
-        })
     }
   },
   computed: {
@@ -80,7 +70,32 @@ export default {
     invalidForm(){
       return !this.email || !this.password
     }
-  }
+  },
+  create(){
+    this.rPath = this.$router.query.rPath || '/'
+  },
+  methods: {
+    onSubmit() {
+      console.log(this.$store.state);
+      console.log(this.email, this.password);
+      UserService.Login(this.email, this.password)
+        .then(data => {
+          if(data.data !== ""){
+     
+            this.$store.commit("login", data.data)
+            // this.$store.commit("login", {data.data.email, data.data.password}), 
+            alert("로그인");
+            
+            
+          }
+          else {
+            console.log(data);
+            alert("다시 확인해주세요...");
+          }
+        })
+    }
+  },
+ 
 };
 </script>
 
