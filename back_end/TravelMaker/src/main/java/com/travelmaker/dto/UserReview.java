@@ -1,5 +1,7 @@
 package com.travelmaker.dto;
 
+import java.time.LocalDateTime;
+
 import com.travelmaker.dto.enumeration.Status;
 
 public class UserReview {
@@ -10,6 +12,7 @@ public class UserReview {
 	private int grade;
 	private int tid;
 	private Status isRemove;
+	private LocalDateTime endDate;
 
 	public UserReview() {
 		super();
@@ -69,10 +72,18 @@ public class UserReview {
 	public Status getIsRemove() { 
 		return isRemove;
 	}
+	
 	public void setIsRemove(Status isRemove) {
 		this.isRemove = isRemove;
 	}
-
+	
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
+	
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
+	}
 	@Override
 	public String toString() {
 		return "UserReview [id=" + id + ", uid=" + uid + ", review=" + review + ", grade=" + grade + ", tid=" + tid

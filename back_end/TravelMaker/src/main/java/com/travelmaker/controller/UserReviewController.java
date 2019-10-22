@@ -44,7 +44,7 @@ public class UserReviewController {
 	@RequestMapping(value = "/userReviewUid/{uid}", method = RequestMethod.GET)
 	@ApiOperation(value="유저의 리뷰 리턴")
 	public List<UserReview> selectAllReviewByUid(@PathVariable int uid) throws Exception {
-		return userReviewService.selectAllReviewByTid(uid);
+		return userReviewService.selectAllReviewByUid(uid);
 	}
 	
 	@RequestMapping(value ="/userReview", method = RequestMethod.PUT)
