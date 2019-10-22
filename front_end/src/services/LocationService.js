@@ -5,16 +5,13 @@ const apiServer = axios.create({
 })
 
 export default {
-    registStartLocation(id) {
-        navigator.geolocation.getCurrentPosition(pos => {
-            // 위도
-            var latitude = pos.coords.latitude;
-            // 경도
-            var longitude = pos.coords.longitude;
-
-
-        });
+    getLocation() {
+        return navigator.geolocation.getCurrentPosition();
     },
+    // 위도
+    // var latitude = pos.coords.latitude;
+    // // 경도
+    // var longitude = pos.coords.longitude;
 
     computeDistance(startCoords, destCoords) {
         var startLatRads = degreesToRadians(startCoords.latitude);

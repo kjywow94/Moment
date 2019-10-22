@@ -71,7 +71,7 @@
                     </router-link>
                   </div>
                   <div class="card-footer bg-transparent border-success">
-                    <md-button class="md-info" @click="accompanyStart(item.id)">동행 시작</md-button>
+                    <md-button class="md-info" @click="accompanyStart(item)">동행 시작</md-button>
                     <md-button class="md-rose">채팅</md-button>
                   </div>
                 </div>
@@ -117,7 +117,9 @@
 import MyAccompanyService from "@/services/MyAccompanyService.js";
 import AccompanyService from "@/services/AccompanyService.js";
 import LocationService from "@/services/LocationService.js";
+import TimeConvertService from "@/services/TimeConvertService.js";
 import { Tabs } from "@/components";
+import { async } from "q";
 
 export default {
   components: { Tabs },
@@ -131,8 +133,25 @@ export default {
     };
   },
   methods: {
-    accompanyStart(id) {
-      LocationService.registStartLocation(id);
+    accompanyStart(item) {
+      console.log(item.tid);
+      var startTime = TimeConvertService.timeToUnix(new Date(item.startDate));
+      var endTime = TimeConvertService.timeToUnix(new Date(item.endDate));
+      var curDate = TimeConvertService.timeToUnix(new Date());
+      if (endTime < curDate) {
+        alert("이미 종료된 일정입니다.");
+      } else if (curDate < startDate) {
+        alert("아직 동행 시간이 아닙니다.");
+      } else {
+        LocationService.getLocation().then(location => {
+          // 위도
+          var latitude = location.coords.latitude;
+          // 경도
+          var longitude = location.coords.longitude;
+          
+          // 서버와 통신, 리턴값으로 시작인지 이미 시작됫는지 파악하고 적절한 컨트랙트 함수 호출
+        });
+      }
     }
   },
   mounted() {
@@ -140,8 +159,8 @@ export default {
       .then(response => {
         this.allAccompany = response.data;
 
-        response.data.forEach(element => {
-          AccompanyService.getAccompanyRegistById(element.tid).then(
+        response.data.forEach(async element => {
+          await AccompanyService.getAccompanyRegistById(element.tid).then(
             accompanyRegist => {
               element.title = accompanyRegist.data.title;
               element.startDate = accompanyRegist.data.startDate;
