@@ -9,7 +9,7 @@
     <div class="md-toolbar-row md-collapse-lateral">
       <router-link :to="{name:'index'}">
         <div class="md-toolbar-section-start">
-          <h3 class="md-title">Vue Material Kit</h3>
+          <h3 class="md-title">Travel Maker</h3>
         </div>
       </router-link>
       <div class="md-toolbar-section-end">

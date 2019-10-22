@@ -14,6 +14,8 @@ import AccompanyRevise from "./views/pages/accompany/AccompanyRevisePage.vue";
 import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
 import Admin from "./views/pages/adminPage/Admin.vue";
 import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
+import UserProfile from "./views/pages/profile/UsersProfilePage.vue";
+
 
 Vue.use(Router);
 
@@ -103,8 +105,8 @@ export default new Router({
       name: "profile",
       components: { default: Profile, header: MainNavbar, footer: MainFooter },
       props: {
-        header: { colorOnScroll: 400 },
-        footer: { backgroundColor: "black" }
+        header: { colorOnScroll: 1000 },
+        footer: { backgroundColor: "red" }
       }
     },
     {
@@ -120,6 +122,15 @@ export default new Router({
       path: "/admin",
       name: "admin",
       components: { default: Admin, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/userprofile",
+      name: "userprofile",
+      components: { default: UserProfile, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
