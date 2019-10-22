@@ -27,6 +27,12 @@
               </div>
               <div class="tim-typo">
                 <h2 class="title" v-text="period"></h2>
+              </div>
+              <div class="title">
+                <h3>현재상태</h3>
+              </div>
+              <div class="tim-typo">
+                <h2 class="title" v-text="process"></h2>
               </div>    
               <div class="title">
                 <h3>최대참가인원</h3>
@@ -55,8 +61,8 @@
               <div class="title">
                 <h3>해쉬태그</h3>
               </div>
-              <div class="tim-typo" v-for="item in hash" v-bind:key="item.id">
-                <h2 class="title">#{{item.tag}}</h2>
+              <div class="tim-typo">
+                <h2 class="title" v-for="item in hash">#{{item.tag}}</h2>
               </div>
               <div class="title">
                 <h3>여행내용</h3>
@@ -119,17 +125,15 @@ export default {
       id : this.$route.params.id,
       title : "this is dummy title", 
       period : "2019/10/11"+" ~ "+"2019/10/18", //추후 startDate, endDate 조회후 생성하는 방식으로 변경
+      process : "모집중",
       max : 10,
       thema : ["Picture","Restaurant"],
       region : "America",
       city : "paris",
       hash : [
-        {id : 1,
-        tag : "꾸르잼"},
-        {id : 2,
-        tag : "대존잼"},
-        {id : 3,
-        tag : "핵잼"},
+        {tag : "꾸르잼"},
+        {tag : "대존잼"},
+        {tag : "핵잼"},
       ],
       content : "이번 여행은 사진도찍고 영화도보고 연탄구이도 할겁니다. 정말 재미있는 여행이 될거에요. 함께해요 사람들아"
     };

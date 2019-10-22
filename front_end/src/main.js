@@ -26,6 +26,7 @@ const BaseURL = Constants.BaseURL;
 Vue.config.productionTip = false;
 
 Vue.use(MaterialKit);
+Vue.use(require('vue-moment'));
 
 const NavbarStore = {
   showNavbar: false

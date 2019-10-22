@@ -29,6 +29,7 @@ export default {
     getUserById(id) {
         return apiServer.get('/api/user/' + id);
     },
+<<<<<<< HEAD
     login(email, password) {
         var body = {
             "이메일": email,
@@ -42,3 +43,9 @@ export default {
 export const auth = {
 
 }
+=======
+    getAllUsers(){
+        return apiServer.get('/api/userAllAdmin')
+    }
+}
+>>>>>>> 0ed785a069439f1405a1a7373bd0f2f9fc59606b
