@@ -27,4 +27,8 @@
 <fullyQualifiedTypeName name="com.travelmaker.dao.TravelReviewMapper"/>
 <fullyQualifiedTypeName name="com.travelmaker.service.TravelReviewService"/>
 <fullyQualifiedTypeName name="com.travelmaker.dto.TravelReview"/>
+<fullyQualifiedTypeName name="org.apache.tomcat.jni.File"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.javassist.bytecode.ByteArray"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.core.io.UTF8Writer"/>
 </qualifiedTypeNameHistroy>

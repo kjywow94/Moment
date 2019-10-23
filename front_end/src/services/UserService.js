@@ -9,6 +9,6 @@ export default {
         return apiServer.get('/api/user/' + id);
     },
     getAllUsers(){
-        return apiServer.get('/api/userAllAdmin')
+        return apiServer.get('/api/userAllAdmin');
     }
 }

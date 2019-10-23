@@ -44,7 +44,7 @@
                 <p>내 동행</p>
               </md-list-item>
 
-              <md-list-item href="javascript:void(0)">
+              <md-list-item href="#/travelReview">
                 <i class="material-icons">rate_review</i>
                 <p>여행 리뷰</p>
               </md-list-item>

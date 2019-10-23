@@ -14,9 +14,9 @@ import AccompanyRevise from "./views/pages/accompany/AccompanyRevisePage.vue";
 import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
 import Admin from "./views/pages/adminPage/Admin.vue";
 import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
+import TravelReview from "./views/pages/travelReview/TravelReviewPage.vue";
 import UserProfile from "./views/pages/profile/UsersProfilePage.vue";
-
-
+import TravelReviewDetail from "./views/pages/travelReview/TravelReviewDetail.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -105,8 +105,8 @@ export default new Router({
       name: "profile",
       components: { default: Profile, header: MainNavbar, footer: MainFooter },
       props: {
-        header: { colorOnScroll: 1000 },
-        footer: { backgroundColor: "red" }
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
       }
     },
     {
@@ -128,6 +128,15 @@ export default new Router({
       }
     },
     {
+      path: "/travelReview",
+      name: "trabelReview",
+      components: { default: TravelReview, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
       path: "/userprofile",
       name: "userprofile",
       components: { default: UserProfile, header: MainNavbar, footer: MainFooter },
@@ -135,7 +144,17 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
+    },
+    {
+      path: "/travelReviewDetail/:id",
+      name: "travelReviewDetail",
+      components: { default: TravelReviewDetail, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
     }
+    
   ],
   scrollBehavior: to => {
     if (to.hash) {
