@@ -41,14 +41,12 @@
     >
       <template slot="tab-pane-1">
         <div class="md-layout">
-          <div class="md-layout-item md-size-25 ml-auto">
-            <img :src="tabPane1[0].image" class="rounded" />
-            <img :src="tabPane1[1].image" class="rounded" />
-          </div>
-          <div class="md-layout-item md-size-25 mr-auto">
-            <img :src="tabPane1[3].image" class="rounded" />
-            <img :src="tabPane1[2].image" class="rounded" />
-          </div>
+
+          <!-- test -->
+          <input type="file" @change="">
+          <button type="button" v-on:click="uploadImg()">~</button>
+        
+
         </div>
       </template>
 
@@ -151,6 +149,10 @@ export default {
     getDate: function(dates) {
       let date = new Date(dates);
       return date.getUTCFullYear() + "." + (date.getMonth()) + "." + date.getDate();
+    },
+    uploadImg(){
+      console.log("refs : ", this.$refs);
+      this.$refs.inputRef.click();
     }
   },
   mounted() {
