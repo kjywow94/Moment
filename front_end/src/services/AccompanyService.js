@@ -27,4 +27,6 @@ export default {
         return apiServer.get('/api/accompany/' + cid);
     }
 
+
+
 }

@@ -346,33 +346,27 @@ const FACTORY_CONTRACT_ADDRESS = "0xa3E5b010Ce92f20562196c16f743db7026470463";
 const web3 = new Web3(new Web3.providers.HttpProvider(TravelMakerNet));
 const FactoryContract = new web3.eth.Contract(FACTORY_ABI, FACTORY_CONTRACT_ADDRESS);
 const walletAddress = "0x1e5b2735b89EF05298bc18A92dBFDec7174Beb60";
-const privateKey = "2BE25D87F453C7A9357A2B9C4E0A98991025D45CF5200BF0EC8D1A28D67ABC80";
+const privateKey = '0x' + "2BE25D87F453C7A9357A2B9C4E0A98991025D45CF5200BF0EC8D1A28D67ABC80";
 export default {
     /** uint _accompanyId, uint ownerId, uint _startDate, string latitude, string longitude */
+
     deployContract(_accompanyId, ownerId, _startDate, latitude, longitude, callback) {
         var encodedABI = FactoryContract.methods.createAccompany(_accompanyId, ownerId, _startDate, latitude, longitude).encodeABI();
         var tx = {
             from: walletAddress,
             to: FACTORY_CONTRACT_ADDRESS,
-            gas: web3.utils.toHex(3000000),
-            gasLimit: web3.utils.toHex(3000000),
+            gas: "3000000",
             data: encodedABI,
             chainId: 30507
         }
         web3.eth.accounts.signTransaction(tx, privateKey).then(response => {
-            console.log("sign");
-            console.log(response);
             web3.eth.sendSignedTransaction(response.rawTransaction).then(response => {
-                console.log("send");
-                console.log(response);
-                FactoryContract.methods.allAccompanys().call().then(response => {
+                FactoryContract.methods.allAccompany().call().then(response => {
                     var responseAddress = response[response.length - 1];
-                    console.log(responseAddress);
-                    // onConfirm(responseAddress);
+                    callback(responseAddress);
                 });
             });
         });
-
 
     },
     AccompanyContract(contractAddress) {

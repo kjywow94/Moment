@@ -139,12 +139,6 @@ export default {
       var startDate = TimeConvertService.timeToUnix(new Date(item.startDate));
       var endDate = TimeConvertService.timeToUnix(new Date(item.endDate));
       var curDate = TimeConvertService.timeToUnix(new Date());
-      console.log("startDate");
-      console.log(new Date(startDate * 1000));
-      console.log("endDate");
-      console.log(new Date(endDate * 1000));
-      console.log("curDate");
-      console.log(new Date(curDate * 1000));
       if (endDate < curDate) {
         alert("이미 종료된 일정입니다.");
       } else if (curDate < startDate) {
@@ -156,21 +150,21 @@ export default {
         // 서버와 통신, 리턴값으로 시작인지 이미 시작됫는지 파악하고 적절한 컨트랙트 함수 호출
         LocationService.getLocation((latitude, longitude) => {
           AccompanyService.getAccompanyByCid(item.tid).then(response => {
-            /**스마트 컨트랙트 배포*/
-            SmartContractService.deployContract(
-              item.tid,
-              this.uid,
-              curDate,
-              String(latitude),
-              String(longitude),
-              receipt => {
-                alert("배포");
-              }
-            );
-
             if (response.data == "") {
-              /** 컨트랙트 접근 후 시작 등록 */
+              /**스마트 컨트랙트 배포*/
+              SmartContractService.deployContract(
+                item.tid,
+                this.uid,
+                curDate,
+                String(latitude),
+                String(longitude),
+                contractAddress => {
+                  console.log(contractAddress);
+                  alert("등록되었습니다.");
+                }
+              );
             } else {
+              /** 컨트랙트 접근 후 시작 등록 */
             }
           });
         });
