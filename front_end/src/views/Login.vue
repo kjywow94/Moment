@@ -24,9 +24,10 @@
                 :disabled="invalidForm">
                 로그인
               </md-button>
-              <md-button slot="footer" class="md-simple md-success md-lg">
-                회원가입
+              <md-button v-on:clicl="signup()" slot="footer" class="md-simple md-success md-lg">
+                <router-link to="/signup">회원가입</router-link>
               </md-button>
+           
             </login-card>
           </form>
           <p class="error" v-if="error">{{error}}</p>
@@ -76,23 +77,32 @@ export default {
   },
   methods: {
     onSubmit() {
+      var scope = this;
       console.log(this.$store.state);
       console.log(this.email, this.password);
       UserService.Login(this.email, this.password)
         .then(data => {
           if(data.data !== ""){
-     
             this.$store.commit("login", data.data)
+            console.log(data.data);
+            
             // this.$store.commit("login", {data.data.email, data.data.password}), 
+            if(window.sessionStorage){
+              sessionStorage.setItem('Auth', data.data.authority);
+              sessionStorage.setItem('ID', data.data.email);
+              sessionStorage.setItem('PW', data.data.password);
+            }
+            scope.$router.push('/');
             alert("로그인");
-            
-            
           }
           else {
             console.log(data);
             alert("다시 확인해주세요...");
           }
         })
+    },
+    signup(){
+      scope.$router.push("/signup");
     }
   },
  

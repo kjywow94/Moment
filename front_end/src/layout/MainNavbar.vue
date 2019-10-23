@@ -22,29 +22,29 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </md-button>
-
+         {{$store.state.user.authority}}
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
             <mobile-menu nav-mobile-section-start="false">
               <!-- Here you can add your items from the section-start of your toolbar -->
             </mobile-menu>
             <md-list>
-              <md-list-item href="#/admin">
+              <md-list-item href="#/admin" v-if="$store.state.user.authority === 'U'">
                 <i class="material-icons">settings_applications</i>
                 <p>관리자</p>
               </md-list-item>
 
-              <md-list-item href="#/accompanyList">
+              <md-list-item href="#/accompanyList" v-if="isLogined">
                 <i class="material-icons">flight</i>
                 <p>동행 목록</p>
               </md-list-item>
 
-              <md-list-item href="#/myAccompany">
+              <md-list-item href="#/myAccompany" v-if="isLogined">
                 <i class="material-icons">star_border</i>
                 <p>내 동행</p>
               </md-list-item>
 
-              <md-list-item href="javascript:void(0)">
+              <md-list-item href="javascript:void(0)" v-if="isLogined">
                 <i class="material-icons">rate_review</i>
                 <p>여행 리뷰</p>
               </md-list-item>
@@ -59,7 +59,7 @@
                 <p>회원가입</p>
               </md-list-item>
 
-              <md-list-item href="#/signup" v-if="isLogined">
+              <md-list-item href="#/" v-on:click="isLogout" v-if="isLogined">
                 <i class="material-icons">how_to_reg</i>
                 <p>로그아웃</p>
               </md-list-item>
@@ -168,6 +168,19 @@ export default {
       if (element_id) {
         element_id.scrollIntoView({ block: "end", behavior: "smooth" });
       }
+    },
+    isLogout(){
+      console.log(this.$store.state.user);
+      this.$store.commit("logout")
+      this.$store.state.isLogin = false;
+      this.$store.state.user = "";
+      console.log(this.$store.state.isLogin);
+      
+      sessionStorage.clear();
+      console.log(sessionStorage)
+      alert("정상적으로 로그아웃 되었습니다.");
+      this.$router.push("/login");
+      location.reload();
     }
   },
   mounted() {
@@ -179,8 +192,9 @@ export default {
   },
   computed : {
     isLogined(){
+      console.log("here is my code : " + this.$store.state.isLogin)
       return this.$store.state.isLogin;
-    }
+    },
   }
 };
 </script>

@@ -2,10 +2,12 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Axios from 'axios';
 import router from './router';
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+    plugins: [createPersistedState()],
     state: {
       isSigned: false,
       user: {
@@ -29,14 +31,11 @@ export default new Vuex.Store({
         login(state, payload){
             state.user = payload
             state.isLogin = true
-            state.isLoginError = false
-            console.log(state);
-            console.log(this);
         },
         logout(state){
-            state.user = ""
             state.isLogin = false
-        }
+            state.user = ""
+        },
     },
     actions: {
         //로그인 시도
