@@ -16,4 +16,5 @@ public interface TravelReviewMapper {
 	public int deleteReviewById(int id);
 	public int insertReview(TravelReview tr);
 	public List<TravelReview> selectAllNotRemovedReview();
+	public TravelReview selectReview(int id);
 }

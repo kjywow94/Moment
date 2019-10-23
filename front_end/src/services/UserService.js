@@ -27,9 +27,13 @@ export default {
 
 export const auth = {
     getAllUsers(){
+<<<<<<< HEAD
         return apiServer.get('/api/userAllAdmin')
     },
     Login(email, password) {
         return Request('post', '/api/login', {email, password})
+=======
+        return apiServer.get('/api/userAllAdmin');
+>>>>>>> d708a8f5e6ccb50d242ad6b7b7c63095526cb353
     }
 }
