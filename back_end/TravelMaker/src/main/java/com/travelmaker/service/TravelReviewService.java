@@ -39,4 +39,8 @@ public class TravelReviewService {
 	public int insertReview(TravelReview tr) {
 		return travelReviewMapper.insertReview(tr);
 	}
+	
+	public TravelReview selectReview(int id) {
+		return travelReviewMapper.selectReview(id);
+	}
 }

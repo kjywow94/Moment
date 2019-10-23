@@ -83,3 +83,32 @@ public enum Gender {
 > enum의 주요 메소드
 
 toString 메소드를 사용하면 원소의 이름 그대로 반환받을 수 있다.
+
+
+
+# 로깅
+
+application.properties에 다음을 추가하면 사용할 수 있다.
+
+> 출처: https://engkimbs.tistory.com/767 [새로비]
+>
+> blockchain-sub3 by BORACOIN - AUCTION B
+
+```properties
+# ===============================
+# = LOGGING
+# ===============================
+# 패키지별 로깅 레벨 설정
+logging.level.org.springframework.web=TRACE
+logging.level.com.bcauction=DEBUG
+
+
+# Logging pattern for the console
+logging.pattern.console=%d{HH:mm:ss} %clr(%5p) [%c] %m%n
+
+# Logging pattern for file
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+# 로그 파일 경로
+logging.file = logs/travelMaker.log
+```
+
