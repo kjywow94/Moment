@@ -16,6 +16,7 @@ import Admin from "./views/pages/adminPage/Admin.vue";
 import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
 import TravelReview from "./views/pages/travelReview/TravelReviewPage.vue";
 import UserProfile from "./views/pages/profile/UsersProfilePage.vue";
+import TravelReviewDetail from "./views/pages/travelReview/TravelReviewDetail.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -143,7 +144,17 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
+    },
+    {
+      path: "/travelReviewDetail/:id",
+      name: "travelReviewDetail",
+      components: { default: TravelReviewDetail, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
     }
+    
   ],
   scrollBehavior: to => {
     if (to.hash) {

@@ -15,10 +15,6 @@
 		parameterType="Integer">
 		SELECT * FROM travel_review WHERE tid = #{tid};
 	</select>
-	<select id="selectReview" resultType="travelReview"
-		parameterType="Integer">
-		SELECT * FROM travel_review WHERE id = #{id};
-	</select>
 	<update id="updateReview" parameterType="travelReview">
 		update travel_review set
 		title = #{title}, hashtag=#{hashtag}, review=#{review}, is_remove = #{isRemove} where id =

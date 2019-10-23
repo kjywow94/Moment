@@ -40,12 +40,6 @@ public class TravelReviewController {
 		return travelReviewService.selectAllReviewByTid(tid);
 	}
 	
-	@RequestMapping(value = "/travelReview/{id}", method = RequestMethod.GET)
-	@ApiOperation(value="동행에 해당하는 리뷰 리턴")
-	public TravelReview selectReviewById(@PathVariable int id) throws Exception {
-		return travelReviewService.selectReview(id);
-	}
-	
 	@RequestMapping(value ="/travelReview", method = RequestMethod.PUT)
 	@ApiOperation(value="여행 리뷰 수정")
 	public int updateReview(@RequestBody TravelReview tr) {

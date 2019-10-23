@@ -9,8 +9,8 @@
             <div>
 
 
-
-<div class = "md-layout">
+              {{review}}
+<!-- <div class = "md-layout">
 <div class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100" v-for="r in review" :key='r.id' >
   <router-link :to="{name:'travelReviewDetail', params: { id: r.id }}">
   <div class="md-card md-card-blog md-theme-default text-left list-inline"  >
@@ -33,7 +33,7 @@
           </div>
         </router-link>
       </div>
-    </div>
+    </div> -->
    </div>
             </div>
           </div>
@@ -89,15 +89,8 @@ export default {
   },
   methods : {
     async init(){
-      let data  = await TravelReviewService.getReviews();
-      data = data['data'];
-      for(let i = 0 ; i < data.length ; i++){
-        
-        let temp = await AccompanyService.getAccompanyRegistById(data[i]['tid']);
-        data[i]['tname'] = temp['data']['title'];
-      }
-      this.review = data;
-        console.log(this.review)
+      this.review  = await TravelReviewService.getReview(this.$route.params.id);
+      console.log(this.review)
     }
   }
 };
