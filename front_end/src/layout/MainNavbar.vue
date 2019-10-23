@@ -22,7 +22,6 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </md-button>
-         {{$store.state.user.authority}}
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
             <mobile-menu nav-mobile-section-start="false">
@@ -44,11 +43,7 @@
                 <p>내 동행</p>
               </md-list-item>
 
-<<<<<<< HEAD
-              <md-list-item href="javascript:void(0)" v-if="isLogined">
-=======
-              <md-list-item href="#/travelReview">
->>>>>>> d708a8f5e6ccb50d242ad6b7b7c63095526cb353
+              <md-list-item href="#/travelReview" v-if="isLogined">
                 <i class="material-icons">rate_review</i>
                 <p>여행 리뷰</p>
               </md-list-item>
@@ -66,6 +61,10 @@
               <md-list-item href="#/" v-on:click="isLogout" v-if="isLogined">
                 <i class="material-icons">how_to_reg</i>
                 <p>로그아웃</p>
+              </md-list-item>
+
+              <md-list-item v-if="isLogined">
+                <p>{{$store.state.user.nickname}}님</p>
               </md-list-item>
 
               <md-list-item href="https://lab.ssafy.com/s1-final/" target="_blank">
@@ -174,11 +173,7 @@ export default {
       }
     },
     isLogout(){
-      console.log(this.$store.state.user);
       this.$store.commit("logout")
-      this.$store.state.isLogin = false;
-      this.$store.state.user = "";
-      console.log(this.$store.state.isLogin);
       
       sessionStorage.clear();
       console.log(sessionStorage)
