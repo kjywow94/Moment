@@ -19,12 +19,33 @@ public class User {
 	private String password;
 	private String sns1;
 	private String sns2;
+	/**
+	 * taste1.구경  : 0 - 번화가 좋아요 / 1 - 자연이 좋아요
+	 */
 	private int taste1;
+	/**
+	 * taste2.사진  : 0 - 남는건 사진뿐 / 1 - 눈으로 찍을래
+	 */
 	private int taste2;
+	/**
+	 * taste3.음식  : 0 - 맛집 좋아요 / 1 - 아무거나 잘먹어요
+	 */
 	private int taste3;
+	/**
+	 * taste4.사람  : 0 - 다양한 사람과 많이 만나기 / 1 - 소수의 사람과 친밀하게
+	 */
 	private int taste4;
+	/**
+	 * taste5.계획  : 0 - 계획적인 여행 / 1 - 즉흥적인 여행
+	 */
 	private int taste5;
+	/**
+	 * taste6.쇼핑  : 0 - 쇼핑 좋아요 / 1 - 쇼핑 싫어요 
+	 */
 	private int taste6;
+	/**
+	 * taste7.경비  : 0 - 경비는 여유롭게 사용 / 1 - 경비는 알뜰살뜰하게 사용
+	 */
 	private int taste7;
 	private String about;
 	private Authority authority;
@@ -59,10 +80,10 @@ public class User {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public String getUsername() {
+	public String getUserName() {
 		return userName;
 	}
-	public void setUsername(String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 	public String getPhone() {
@@ -77,16 +98,16 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getCompanioncount() {
+	public int getCompanionCount() {
 		return companionCount;
 	}
-	public void setCompanioncount(int companioncount) {
+	public void setCompanionCount(int companioncount) {
 		this.companionCount = companioncount;
 	}
-	public int getCompaniongrade() {
+	public int getCompanionGrade() {
 		return companionGrade;
 	}
-	public void setCompaniongrade(int companiongrade) {
+	public void setCompanionGrade(int companiongrade) {
 		this.companionGrade = companiongrade;
 	}
 	public String getPassword() {
