@@ -10,6 +10,7 @@ export default new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
       isSigned: false,
+      userinfo : null,
       user: {
           email: "",
           password: ""
@@ -31,6 +32,8 @@ export default new Vuex.Store({
         login(state, payload){
             state.user = payload
             state.isLogin = true
+            state.userinfo = payload
+            
         },
         logout(state){
             state.isLogin = false
@@ -40,8 +43,7 @@ export default new Vuex.Store({
     actions: {
         //로그인 시도
         login({state, commit}, signObj){
-           commit("loginSuccess")
-           console.log("로그인");
+           let selectUser = null
            
         }
     }

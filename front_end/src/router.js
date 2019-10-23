@@ -25,6 +25,19 @@ const requireAuth = (to, from, next) => {
   isAuth ? next() : next(loginPath)
 }
 
+const loginAuth = (to, from, next) => {
+  if(sessionStorage.length === 0)
+    var isAuth =  true;
+  const loginNo = '/'
+  isAuth ? next() : next(loginNo)
+}
+
+const adminAuth = (to, from, next) => {
+  var aminAuth = sessionStorage.getItem('Auth');
+  const adminYes = '/admin'
+  aminAuth !== ( 'U' ) ? next(adminYes) : next('/')  
+}
+
 export default new Router({
   routes: [
     {
@@ -100,6 +113,7 @@ export default new Router({
     {
       path: "/login",
       name: "login",
+      beforeEnter : loginAuth,
       components: { default: Login, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 }
@@ -108,6 +122,7 @@ export default new Router({
     {
       path: "/signup",
       name: "signup",
+      beforeEnter : loginAuth,
       components: { default: Signup, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 }
@@ -136,7 +151,7 @@ export default new Router({
     {
       path: "/admin",
       name: "admin",
-      beforeEnter : requireAuth,
+      beforeEnter : adminAuth,
       components: { default: Admin, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },

@@ -95,6 +95,7 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 import MobileMenu from "@/layout/MobileMenu";
+
 export default {
   components: {
     MobileMenu
@@ -126,7 +127,6 @@ export default {
       toggledClass: false
     };
   },
-  computed: {},
   methods: {
     bodyClick() {
       let bodyClick = document.getElementById("bodyClick");

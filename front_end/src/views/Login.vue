@@ -92,6 +92,8 @@ export default {
               sessionStorage.setItem('ID', data.data.email);
               sessionStorage.setItem('PW', data.data.password);
             }
+            console.log(sessionStorage.length);
+            
             scope.$router.push('/');
             alert("로그인");
           }
