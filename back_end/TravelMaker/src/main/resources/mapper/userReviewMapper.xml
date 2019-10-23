@@ -7,15 +7,21 @@
 	</select>
 	<select id="selectAllNotRemovedReview" resultType="userReview">
 		SELECT * FROM
-		user_review where is_remove = N;
+		user_review where is_remove = 'N';
 	</select>
 	<select id="selectAllReviewByTid" resultType="userReview"
 		parameterType="Integer">
-		SELECT * FROM user_review WHERE TID = #{tid};
+		SELECT * FROM user_review WHERE TID = #{tid} and is_remove = 'N';
 	</select>
 	<select id="selectAllReviewByUid" resultType="userReview"
 		parameterType="Integer">
-		SELECT * FROM user_review WHERE UID = #{uid};
+		<!--  SELECT * FROM user_review WHERE UID = #{uid} and is_remove = 'N'; -->
+		SELECT A.*, B.end_date 
+		  FROM user_review A, accompany_regist B 
+		 WHERE A.TID = B.ID
+		   AND A.UID = #{uid}
+		   AND A.is_remove = 'N'
+		   AND A.is_remove = B.is_remove;
 	</select>
 	<update id="updateReview" parameterType="userReview">
 		update user_review set

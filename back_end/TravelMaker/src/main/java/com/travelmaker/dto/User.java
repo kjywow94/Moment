@@ -28,7 +28,7 @@ public class User {
 	 */
 	private int taste2;
 	/**
-	 * taste3.음식  : 0 - 맛집 좋아요 / 1 - 아무거나 잘먹어 
+	 * taste3.음식  : 0 - 맛집 좋아요 / 1 - 아무거나 잘먹어요
 	 */
 	private int taste3;
 	/**
