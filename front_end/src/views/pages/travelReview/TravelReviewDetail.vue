@@ -7,39 +7,47 @@
         <div class="container">
           <div class="md-layout">
             <div>
-
-
-              {{review}}
-<!-- <div class = "md-layout">
-<div class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100" v-for="r in review" :key='r.id' >
-  <router-link :to="{name:'travelReviewDetail', params: { id: r.id }}">
-  <div class="md-card md-card-blog md-theme-default text-left list-inline"  >
-    <span class="overlay"><div style="position: absolute;">
-
-<div class="alert alert-info">
-        <div class="container">
-          <b>{{r['tname']}} </b>
+            <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
+              <div class="title">
+                <img src="@/assets/img/default.jpg" class="img" >
+                <h3>해쉬태그</h3>
+              </div>
+              <div class="tim-typo">
+                <h2 class="title" v-for="hash in hashtag" :key="hash.none">#{{hash}}</h2>
+              </div>
+              <div class="title">
+                <h3>여행내용</h3>
+              </div>
+              <div class="tim-typo">
+                <div class="blockquote undefined">
+                  <p>
+                    {{review['review']}}
+                  </p>
+                </div>
+              </div>
+              <!-- <div id = "inputButton">
+                <div class="md-layout-item md-size-70 mx-auto">
+                  <router-link
+                    :to="{name:'accompanyRevise', params: { id: id }}"
+                    class="my-table-content"
+                  ><md-button class="md-primary"
+                      ><md-icon>favorite</md-icon>동행수정
+                    </md-button></router-link>
+                </div> 
+              </div> -->
+            </div>
+          </div>
         </div>
       </div>
 
-      </div>
-      <img src="@/assets/img/default.jpg" class="img" >
-    </span>
-    <div class="md-card-content">
-      <h6 class="card-category text-rose">
-                {{r['title']}}
-              </h6>
-            </div>
-          </div>
-        </router-link>
-      </div>
-    </div> -->
+
+
+
+
+
    </div>
             </div>
           </div>
-        </div>
-      </div>
-      </div>
 </template>
 
 <script>
@@ -73,7 +81,16 @@ export default {
   },
   data() {
     return {
-      review:[{}]
+      review:[{
+        id:null,
+        tid:null,
+        title:null,
+        hashtag:null,
+        review:null,
+        is_remove:null
+      }],
+      hashtag:[{}]
+
     };
   },
   computed: {
@@ -89,37 +106,10 @@ export default {
   },
   methods : {
     async init(){
-      this.review  = await TravelReviewService.getReview(this.$route.params.id);
-      console.log(this.review)
+      let temp  = await TravelReviewService.getReview(this.$route.params.id);
+      this.review = temp['data'];
+      this.hashtag = this.review['hashtag'].split(',');
     }
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.md-card-actions.text-center {
-  display: flex;
-  justify-content: center !important;
-}
-.contact-form {
-  margin-top: 30px;
-}
-
-.md-has-textarea + .md-layout {
-  margin-top: 15px;
-}
-
-@media (min-width: 481px) {
-  .mdquery-xs {
-    display: none;
-  }
-}
-
-/* 모바일*/
-@media (max-width: 480px) {
-  .mdquery-md {
-    display: none;
-  }
-}
-
-</style>
