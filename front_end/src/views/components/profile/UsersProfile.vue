@@ -92,6 +92,47 @@
                 </div>
               </div>
             </div> 
+            <!-- Modal for Accompany Review -->
+            <div class="md-layout">
+              <div class="md-layout-item md-size-30 mx-auto">
+                <md-button
+                  class="md-info md-block"
+                  @click="ModalAccompanyReview = true"
+                  ><md-icon>edit</md-icon> 동행후기작성</md-button
+                >
+                <modal v-if="ModalAccompanyReview" @close="ModalAccompanyReviewHide">
+                  <template slot="header">
+                    <h4 class="modal-title">동행후기작성</h4>
+                    <md-button
+                      class="md-simple md-just-icon md-round modal-default-button"
+                      @click="ModalAccompanyReviewHide"
+                    >
+                      <md-icon>clear</md-icon>
+                    </md-button>
+                  </template>
+
+                  <template slot="body">
+                    <md-datepicker v-model="date">
+                      <label>날짜선택</label>
+                    </md-datepicker>       
+                    <md-field class="md-form-group" slot="inputs">
+                      <md-icon>edit</md-icon>
+                      <md-textarea v-model="review" md-autogrow></md-textarea>
+                    </md-field>
+                  </template>
+
+                  <template slot="footer">
+                    <md-button class="md-simple">등록</md-button>
+                    <md-button
+                      class="md-danger md-simple"
+                      @click="ModalAccompanyReviewHide"
+                      >닫기</md-button
+                    >
+                  </template>
+                </modal>
+              </div>
+            </div>
+            <!-- Modal for Accompany Review -->
           </div>
         </div>  
       </template>
@@ -103,10 +144,12 @@
 <script>
 import { Tabs } from "@/components";
 import UserProfileService from '@/services/UserProfileService.js';
+import { Modal } from "@/components";
 
 export default {
   components: {
-    Tabs
+    Tabs,
+    Modal
   },
   bodyClass: "profile-page",
   data() {
@@ -126,7 +169,10 @@ export default {
         { image: require("@/assets/img/examples/studio-2.jpg") },
         { image: require("@/assets/img/examples/studio-4.jpg") },
         { image: require("@/assets/img/examples/studio-5.jpg") }
-      ]
+      ],
+      ModalAccompanyReview: false,
+      review: null,
+      date:null
     };
   },
   props: {
@@ -151,6 +197,9 @@ export default {
     getDate: function(dates) {
       let date = new Date(dates);
       return date.getUTCFullYear() + "." + (date.getMonth()) + "." + date.getDate();
+    },
+    ModalAccompanyReviewHide() {
+      this.ModalAccompanyReview = false;
     }
   },
   mounted() {
