@@ -51,7 +51,7 @@
                 <div
                   class="card border-success"
                   style="max-width: 18rem;"
-                  v-for="item in processAccompany"
+                  v-for="item in toAccompany"
                   v-bind:key="item.id"
                 >
                   <div class="card-header bg-transparent border-success">
@@ -83,7 +83,7 @@
                 <div
                   class="card border-warning"
                   style="max-width: 18rem;"
-                  v-for="item in processAccompany"
+                  v-for="item in endAccompany"
                   v-bind:key="item.id"
                 >
                   <div class="card-header bg-transparent border-warning">
@@ -118,6 +118,7 @@ import MyAccompanyService from "@/services/MyAccompanyService.js";
 import AccompanyService from "@/services/AccompanyService.js";
 import LocationService from "@/services/LocationService.js";
 import TimeConvertService from "@/services/TimeConvertService.js";
+import SmartContractService from "@/services/SmartContractService.js";
 import { Tabs } from "@/components";
 import { async } from "q";
 
@@ -134,22 +135,44 @@ export default {
   },
   methods: {
     accompanyStart(item) {
-      console.log(item.tid);
-      var startTime = TimeConvertService.timeToUnix(new Date(item.startDate));
-      var endTime = TimeConvertService.timeToUnix(new Date(item.endDate));
+      console.log(item);
+      var startDate = TimeConvertService.timeToUnix(new Date(item.startDate));
+      var endDate = TimeConvertService.timeToUnix(new Date(item.endDate));
       var curDate = TimeConvertService.timeToUnix(new Date());
-      if (endTime < curDate) {
+      console.log("startDate");
+      console.log(new Date(startDate * 1000));
+      console.log("endDate");
+      console.log(new Date(endDate * 1000));
+      console.log("curDate");
+      console.log(new Date(curDate * 1000));
+      if (endDate < curDate) {
         alert("이미 종료된 일정입니다.");
       } else if (curDate < startDate) {
         alert("아직 동행 시간이 아닙니다.");
       } else {
-        LocationService.getLocation().then(location => {
-          // 위도
-          var latitude = location.coords.latitude;
-          // 경도
-          var longitude = location.coords.longitude;
-          
-          // 서버와 통신, 리턴값으로 시작인지 이미 시작됫는지 파악하고 적절한 컨트랙트 함수 호출
+        // 위도 : latitude
+        // 경도 : longitude
+
+        // 서버와 통신, 리턴값으로 시작인지 이미 시작됫는지 파악하고 적절한 컨트랙트 함수 호출
+        LocationService.getLocation((latitude, longitude) => {
+          AccompanyService.getAccompanyByCid(item.tid).then(response => {
+            /**스마트 컨트랙트 배포*/
+            SmartContractService.deployContract(
+              item.tid,
+              this.uid,
+              curDate,
+              String(latitude),
+              String(longitude),
+              receipt => {
+                alert("배포");
+              }
+            );
+
+            if (response.data == "") {
+              /** 컨트랙트 접근 후 시작 등록 */
+            } else {
+            }
+          });
         });
       }
     }

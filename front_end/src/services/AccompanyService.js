@@ -5,6 +5,7 @@ const apiServer = axios.create({
 })
 
 export default {
+    /** AccompanyRegist */
     getAccompanyRegistList() {
         return apiServer.get('/api/accompanyRegist/');
     },
@@ -15,9 +16,15 @@ export default {
         return apiServer.get('/api/accompanyRegist/' + id);
     },
     insertAccompanyRegist(accompanyRegist) {
-        return apiServer.post('/api/accompanyRegist/' , accompanyRegist);
+        return apiServer.post('/api/accompanyRegist/', accompanyRegist);
     },
     updateAccompanyRegist(accompanyRegist) {
-        return apiServer.put('/api/accompanyRegist/' , accompanyRegist);
+        return apiServer.put('/api/accompanyRegist/', accompanyRegist);
+    },
+
+    /** Accompany */
+    getAccompanyByCid(cid) {
+        return apiServer.get('/api/accompany/' + cid);
     }
+
 }
