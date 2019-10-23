@@ -10,6 +10,7 @@
   
   - sudo apt update : 설치는 apt를 이용해서 설치할 것임.
 - sudo apt install apt-transport-https
+  
   - sudo apt install ca-certificates
 - sudo apt install curl : 컬은 특정한 웹사이트에서 데이터를 다운받을때 사용.
   - sudo apt install software-properties-common
@@ -31,7 +32,7 @@
     
   
 ##### 도커설치
-  
+
 - apt-cache policy docker-ce 
   - sudo apt install docker-ce 
 
@@ -54,7 +55,7 @@
 
   ##### 어떤 컨테이너가 동작했는지 확인
 
-  - sudo docker ps -a
+  - sudo docker ps -a (모든 컨테이너 조회)(현재 실행중인 것만 조회 하려면 -a 생략)
 
     (CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES) 
 
@@ -66,26 +67,44 @@
 
   
 
+  ##### 컨테이너 중지
+
+  sudo docker stop 7c4d1bf58537(CONTAINER ID 입력)
+
+  
+  
   ##### 이미지 파일 확인
-
+  
   - sudo docker images(REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE)
-
+  
   
   
 ## 도커에 MySQL 설치
-  
+
   MySQL의 경우는 docker에 기본적으로 탑재되어 있는 이미지이므로 설치없이 다운받아 바로 실행 가능
-  
+
   ##### boracoin(동행) mysql 실행
-  
-  - 사용자 아이디와 비번 = boracoin1/ssafy
-  
+
   - docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=ssafy -d mysql:8.0
   
     (도커허브에서 mysql 8.0버전 다운받기)
   
-    (CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES
-    2186c22774d2        mysql:8.0           "docker-entrypoint.s…"   29 minutes ago      Up 29 minutes       0.0.0.0:3306->3306/tcp, 33060/tcp   bold_lederberg) 이렇게 나오면 성공
+    ###### 컨테이너의 데이터를 호스트 OS에 저장하기
+    
+  - 컨테이너를 제거하면 데이터도 함께 제거된다.
+  - 그래서 컨테이너의 데이터를 호스트 OS에 저장하기
+    - 도커는 컨테이너를 docker run 명령어로 생성할 때 컨테이너의 특정 디렉터리와 호스트 OS의 특정 디렉터리를 서로 공유할 수 있도록 -v [호스트의 디렉터리]:[컨테이너의 디렉터리] (또는 --volume)옵션을 제공
+  - aws 우분투에 폴더만들고, 기존 컨테이너를 종료 후 -v 옵션을 추가해 마운트 시킨다.( 컨테이너와 호스트가 디렉터리를 공유한다 라는 말이 맞을 수 있지만 그보다는 호스트의 특정 디렉터리(지정해준)를 컨테이너의 특정 경로에 마운트 시킨다 라고 할 수 있다.)
+    - sudo docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=ssafy -d -v /home/ubuntu/mysql:/var/lib/mysql --name boraCoin-mysql mysql:8.0
+  
+  (도커허브에서 mysql 8.0버전 다운받고) (mysql 호스트 os 디렉토리 연결)
+  
+  
+  
+  docker ps -a 로 컨테이너 실행정보 조회하기
+  
+  (CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES
+  2186c22774d2        mysql:8.0           "docker-entrypoint.s…"   29 minutes ago      Up 29 minutes       0.0.0.0:3306->3306/tcp, 33060/tcp   bold_lederberg) 이렇게 나오면 성공
   
   - docker exec -it 2186c22774d2(mysql 컨테이너 ID) /bin/bash (도커 mysql 컨테이너 실행, bash 형태)
   
@@ -96,177 +115,34 @@
   - sudo apt install mysql-client-core-5.7 (AWS ubuntu 인스턴스에 mysql 설치)
   
   - mysql -u root -p --host 172.17.0.2(ip address) --port 3306(AWS에서 바로 mysql 접속하기)
-  
-  - MYSQL>CREATE USER 'boracoin1'@'%' IDENTIFIED BY 'ssafy';
-  
-    (MySQL boracoin1, 암호 ssafy로 설정)
-  
-    
-  
-    sudo docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=ssafy -d -v /home/ubuntu/mysql:/var/lib/mysql --name boraCoin-mysql mysql:8.0
-  
-    (mysql 호스트 os 디렉토리 연결)
-  
-    
-  
-    
-  
-    
-  
-  
-  
-  
-  
-  
-  
-  - sudo docker run -d -p 3306:3306 --name haribo-mysql emblockit/haribo-mysql
-  
-  - docker container의 세부정보로 아이피 주소 확인
-  
-    - sudo docker inspect 6f83c1840f9d
-  
-  - mysql client  설치 후 접속
-  
-  - sudo apt install mysql-client-core-5.7
-    - mysql -u root -p --host 172.17.0.2 --port 3306
-  
-    
-  
-  ##### 컨테이너의 데이터를 호스트 OS에 저장하기
-  
-  - 컨테이너를 제거하면 데이터도 함께 제거된다.
-  
-- 그래서 컨테이너의 데이터를 호스트 OS에 저장하기
-  
-  - 도커는 컨테이너를 docker run 명령어로 생성할 때 컨테이너의 특정 디렉터리와 호스트 OS의 특정 디렉터리를 서로 공유할 수 있도록 -v [호스트의 디렉터리]:[컨테이너의 디렉터리] (또는 --volume)옵션을 제공
-  
-- aws 우분투에 폴더만들고, 기존 컨테이너를 종료 후 -v 옵션을 추가해 마운트 시킨다.( 컨테이너와 호스트가 디렉터리를 공유한다 라는 말이 맞을 수 있지만 그보다는 호스트의 특정 디렉터리(지정해준)를 컨테이너의 특정 경로에 마운트 시킨다 라고 할 수 있다.)
-  - sudo docker run -d -p 3306:3306 -v /home/ubuntu/boraCoin/mysql:/var/lib/mysql --name boraCoin-mysql emblockit/haribo-mysql
+
+
+
+##### 테이블 생성 및 사용자 권한 부여
+
+###### 사용자생성 및 권한 부여
+
+사용자 아이디와 비번 = boracoin1/ssafy
+
+###### 유저생성
+
+  - CREATE USER 'boracoin1'@'%' IDENTIFIED BY 'ssafy';(MySQL boracoin1, 암호 ssafy로 설정, 외부에서 접속가능하기 위해 %)
+
+###### 유저권한부여
+
+  -  grant all privileges on *.* to 'boracoin1'@'%'; (권한주기)
+  -  show grants for 'boracoin1'@'%';(권한보기)
+
+###### 스키마 생성
+
+- create database boracoin;
+
+###### 이후 덤프파일로 테이블 생성
+
+
 
   
 
-  
-
-  ## Jupyter Notebook 설치, HTTPS 적용, 시스템 서비스 설정하기
-
-  - gui 환경으로 서버를 관리하는 쥬피터 노트북 설치.
-  
-  - 쥬피터 노트북은 웹브라우져 환경에서 해당 서버에 바로 접근해서 서버를 관리할 수 있게 해줌
-  - sudo apt-get update
-  - python3 //그냥 확인
-  - 파이썬 관련 패키지를 설치할 수 있도록 도와주는 pip설치
-    
-    - sudo apt-get install python3-pip 
-  
-- sudo pip3 install notebook
-    - 이제 만들어진 쥬피터 노트북을 이용해서, 서버의 외부에서 웹브라우저를 이용해서 해당 서버의  접속할 수 있도록. 하지만 아무나 접속하면 안되니까 비밀번호를 설정하자.
-    쥬피터 노트북은 기본적으로 sha-1이라는 일종의 해쉬알고리즘을 이용해서 비밀번호를 기록할 수 있게 해줌.
-  
-- python3
-  
-- from notebook.auth import passwd
-  
-- passwd() //0506
-  
-- 비번 해쉬값 : sha1:4847ead73c9b:9b65efec05a0f436d73e53204514b5168b4e6d9c
-  
-  
-  
-- 서버에서 쥬피터노트북을 실행해서 외부에서 접속을 했을때 비밀번호를 입력해야만 접속할 수 있는 쥬피터 환경설정
-  
-  - 이를 위해서 쥬피터 환경설정 파일을 만듬.
-  
-    - jupyter notebook --generate-config
-    - vi /root/.jupyter/jupyter_notebook_config.py
-    - 맨 밑에 붙임.
-      c = get_config()
-    c.NotebookApp.password = u'sha1:4847ead73c9b:9b65efec05a0f436d73e53204514b5168b4e6d9c'
-      c.NotebookApp.ip='172.26.15.32'
-    c.NotebookApp.notebook_dir = '/'
-  
-  
-  
-- 쥬피터 노트북을 루트 권한으로 실행
-  
-  - sudo jupyter-notebook --allow-root
-  
-- 퍼플리 ip:port로 브라우져로 접속하면 이용가능해짐
-  
-  - 13.125.178.26:8888
-  
-  
-  
-  - 쥬피터 노트북을 항상 실행시키고 싶으면,
-  
-    - ctrl + Z키로 해당 서버를 잠시 종료시켜주고,
-  - bg //백그라운상태로 돌아가게 하고
-    - disown -h //소유권을 포기?하면 쥬피터 노트북이 항상 실행중으로 사용할 수 있음.
-  - ls
-  
-  
-  
-- ssl 인증서가 적용되지 않은 상태라서 https를 적용하는 방법
-  
-  - 현재 실행중인 주피터 노트북을 종료.
-  
-      - sudo netstat -nap | grep 8888
-  
-      - sudo kill -9 23465
-  
-  - mkdir ssl_jupyter
-  
-  - cd ssl
-  
-  - 사설 인증서를 만듦
-  
-      - sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout "cert.key" -out "cert.pem" -batch
-  
-      - vi /root/.jupyter/jupyter_notebook_config.py
-  
-      - 내용추가
-        c.NotebookApp.certfile = u'/home/ubuntu/boraCoin/ssl_jupyter/cert.pem'
-        c.NotebookApp.keyfile = u'/home/ubuntu/boraCoin/ssl_jupyter/cert.key'
-
-      - sudo jupyter-notebook --allow-root
-  
-        - 사설인증서라서 크롬이 우리 인증서를 신뢰하지 못하는데, 그냥 무시하고 실행함.
-        이제 우리는 ssl이 적용된 상태로 우리의 서버에 접속할 수 있게 됨.
-  
-        
-  
-  - 쥬피터 노트북을 시스템 서비스로서 등록을 하고자 함.(이 부분은 넘어감)
-      우리의 재부팅하면 노트북도 자동으로 종료가 되니까 다시 실행하는 명령어를 넣어줘야함.
-    재부팅됐을때도 자동으로 이런한 쥬피터 노트북을 자동실행할 수 있도록 처리하기 위해서 시스템서비스로서 등록.
-  
-    - which jupyter-notebook //위치 확인
-
-      - sudo vi/etc/systemd/system/system/jupyter.service //서비스 파일을 작성
-  
-        [Unit]
-        Description=Jupyter Notebook Server
-  
-        [Service]
-        Type=simple
-      User=ubuntu
-        ExeStart=경로~
-      //환경설정 파일을 작성 후.
-  
-  
-  
-- sudo systemctl daemon-reload
-  
-- sudo systemctl enable jupyter
-  
-- sudo systemctl start jupyter
-  
-- sudo systemctl status jupyter
-  
-- sudo systemctl  
-  
-- 쥬피터 주소 : https://13.125.178.26:8888 
-  
-
-  
 # 백엔드, 프론트엔드 배포
 
 ## 백엔드 배포
