@@ -69,8 +69,9 @@
               <div class="title">
                 <h3>여행내용</h3>
               </div>
-              <md-field>
-                <md-input v-model="content" placeholder="여행내용"></md-input>
+              <md-field class="md-form-group" slot="inputs">
+                <md-icon>edit</md-icon>
+                <md-textarea v-model="content" md-autogrow placeholder="여행내용"></md-textarea>
               </md-field>
               <div id = "inputButton">
                 <div class="md-layout-item md-size-70 mx-auto">
