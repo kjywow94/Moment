@@ -7,7 +7,7 @@
           <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;">
             <MainNav></MainNav>
             <template>
-              11111
+              
             </template>
           </div>
         </div>
