@@ -3,12 +3,15 @@ package com.travelmaker.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.HtmlUtils;
 
 import com.travelmaker.dto.Chat;
 import com.travelmaker.dto.UserReview;
@@ -51,5 +54,11 @@ public class ChatController {
 	public int forceDeleteChat(@RequestBody int id) throws Exception {
 		return chatService.deleteChatById(id);
 	}
+	
+
+	
+	
+	
+	
 
 }

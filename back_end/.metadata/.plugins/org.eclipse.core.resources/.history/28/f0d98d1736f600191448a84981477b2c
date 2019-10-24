@@ -1,0 +1,27 @@
+package com.travelmaker.controller;
+
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.util.HtmlUtils;
+
+import com.travelmaker.dto.Chat;
+@Controller
+public class MessagingController {
+	
+	@MessageMapping("/hello")
+	@SendTo("/topic/greetings")
+	public Chat greeting(Chat message) throws Exception {
+		Chat chat = new Chat();
+		chat.setContext("HEELO from SERVER");
+		return chat;
+	}
+	
+	@MessageMapping("/chat")
+	@SendTo("/topic/chat")
+	public Chat chat(Chat message) throws Exception {
+		message.setContext(HtmlUtils.htmlEscape(message.getContext()));
+		System.err.println( message);
+		return message;
+	}
+}

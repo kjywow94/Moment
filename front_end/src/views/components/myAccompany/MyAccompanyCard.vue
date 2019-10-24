@@ -72,7 +72,11 @@
                   </div>
                   <div class="card-footer bg-transparent border-success">
                     <md-button class="md-info" @click="accompanyStart(item.id)">동행 시작</md-button>
-                    <md-button class="md-rose">채팅</md-button>
+                    <router-link
+                      :to="{name:'accompanyChat'}"
+                    ><md-button class="md-rose" >채팅</md-button>
+                    <!-- , params: { id: item.id } -->
+                    </router-link>
                   </div>
                 </div>
               </div>

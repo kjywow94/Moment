@@ -1,0 +1,29 @@
+package com.travelmaker.controller;
+
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.travelmaker.dto.Chat;
+@CrossOrigin(origins = { "*" })
+@Controller
+public class MessagingController {
+	
+	@MessageMapping("/hello")
+	@SendTo("/topic/greetings")
+	public Chat greeting(Chat message) throws Exception {
+		Chat chat = new Chat();
+		chat.setContext("HEELO from SERVER");
+		return chat;
+	}
+	
+	@MessageMapping("/chat")
+	@SendTo("/topic/chat/{id}")
+	public Chat chat(@PathVariable int id, Chat message) throws Exception {
+		System.out.println(message);
+		return message;
+	}
+}

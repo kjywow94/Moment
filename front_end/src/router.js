@@ -11,6 +11,7 @@ import AccompanyList from "./views/pages/accompany/AccompanyListPage.vue";
 import AccompanyDetail from "./views/pages/accompany/AccompanyDetailPage.vue";
 import AccompanyRegist from "./views/pages/accompany/AccompanyRegistPage.vue";
 import AccompanyRevise from "./views/pages/accompany/AccompanyRevisePage.vue";
+import AccompanyChat from "./views/pages/accompany/AccompanyChatPage.vue";
 import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
 import Admin from "./views/pages/adminPage/Admin.vue";
 import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
@@ -42,6 +43,16 @@ export default new Router({
       name: "accompanyList",
       beforeEnter : requireAuth,
       components: { default: AccompanyList, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/accompanyChat",
+      name: "accompanyChat",
+      beforeEnter : requireAuth,
+      components: { default: AccompanyChat, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
