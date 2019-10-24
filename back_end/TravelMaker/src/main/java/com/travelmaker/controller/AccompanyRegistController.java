@@ -28,7 +28,7 @@ public class AccompanyRegistController {
 	public List<AccompanyRegist> selectAllAccompanyRegistNotRemoved() throws Exception {
 		return accompanyRegistService.selectAllAccompanyRegistNotRemoved();
 	}
-	
+
 	@RequestMapping(value = "/accompanyRegistAdmin", method = RequestMethod.GET)
 	@ApiOperation(value = "동행 등록 리스트 관리자")
 	public List<AccompanyRegist> selectAllAccompanyRegist() throws Exception {
@@ -51,5 +51,11 @@ public class AccompanyRegistController {
 	@ApiOperation(value = "동행 등록 수정")
 	public int accompanyRegist(@RequestBody AccompanyRegist accompanyRegist) {
 		return accompanyRegistService.updateAccompanyRegist(accompanyRegist);
+	}
+
+	@RequestMapping(value = "/accompanyRegistSuccess/{id}", method = RequestMethod.GET)
+	@ApiOperation(value = "동행 등록 완료체크")
+	public int successAccompanyRegist(@PathVariable int id) {
+		return accompanyRegistService.successAccompanyRegist(id);
 	}
 }

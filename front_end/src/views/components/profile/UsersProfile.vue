@@ -37,7 +37,7 @@
       :tab-icon="['camera', 'favorite', 'message']"
       plain
       nav-pills-icons
-      color-button="success"
+      color-button="info"
     >
       <template slot="tab-pane-1">
         <div class="md-layout">
@@ -51,31 +51,89 @@
           </div>
         </div>
       </template>
+
       <template slot="tab-pane-2">
-        <div class="md-layout">
-          <div class="md-layout-item md-size-25 ml-auto">
-            <img :src="tabPane2[0].image" class="rounded" />
-            <img :src="tabPane2[1].image" class="rounded" />
-            <img :src="tabPane2[2].image" class="rounded" />
+        <div align="center">
+          <div class = "col-10 col-md-6 col-xl-6 font-size">
+            <div v-for="n in tasteIdx">
+              <div class="alert alert-info" style="background-color: rgba(255, 174, 236, 0.72); color:#076e7f;" >
+                <div class="container">
+                  <div style="font-weight: bold;">{{tasteTitle[n-1]}}</div>
+                  <div>{{tasteName[n-1][tasteSelect[n-1]]}}</div>
+                </div>
+              </div>
+            </div> 
           </div>
-          <div class="md-layout-item md-size-25 mr-auto">
-            <img :src="tabPane2[3].image" class="rounded" />
-            <img :src="tabPane2[4].image" class="rounded" />
-          </div>
-        </div>
+        </div>  
       </template>
+
       <template slot="tab-pane-3">
-        <div class="md-layout">
-          <div class="md-layout-item md-size-25 ml-auto">
-            <img :src="tabPane3[0].image" class="rounded" />
-            <img :src="tabPane3[1].image" class="rounded" />
+        <div align="center">
+          <div class = "col-10 col-md-6 col-xl-6">
+            <div v-for="item in userReview">
+              <div class="alert alert-info" style="background-color: #3ddcf080; color:black;" >
+                <div class="container" align="left">
+                  <div>
+                    <b>날짜 : {{item.endDate}}</b>
+                    <div class="star-size"> <b>평점 :</b>
+                      <span style="color:yellow">
+                        <template v-for="n in item.grade">
+                          ★ 
+                        </template>
+                        <template v-for="n in (5-item.grade)">
+                          ☆ 
+                        </template>
+                      </span>
+                      <b>({{item.grade}}/5)</b>
+                    </div>
+                  </div>
+                  <hr class="hrColor">
+                  <div>{{item.review}}</div>
+                </div>
+              </div>
+            </div> 
+            <!-- Modal for Accompany Review -->
+            <div class="md-layout">
+              <div class="md-layout-item md-size-30 mx-auto">
+                <md-button
+                  class="md-info md-block"
+                  @click="ModalAccompanyReview = true"
+                  ><md-icon>edit</md-icon> 동행후기작성</md-button
+                >
+                <modal v-if="ModalAccompanyReview" @close="ModalAccompanyReviewHide">
+                  <template slot="header">
+                    <h4 class="modal-title">동행후기작성</h4>
+                    <md-button
+                      class="md-simple md-just-icon md-round modal-default-button"
+                      @click="ModalAccompanyReviewHide"
+                    >
+                      <md-icon>clear</md-icon>
+                    </md-button>
+                  </template>
+
+                  <template slot="body">
+                    <md-icon>grade</md-icon>
+                    <star-rating></star-rating>
+                    <md-field class="md-form-group" slot="inputs">
+                      <md-icon>edit</md-icon>
+                      <md-textarea v-model="review" md-autogrow></md-textarea>
+                    </md-field>
+                  </template>
+
+                  <template slot="footer">
+                    <md-button class="md-simple">등록</md-button>
+                    <md-button
+                      class="md-danger md-simple"
+                      @click="ModalAccompanyReviewHide"
+                      >닫기</md-button
+                    >
+                  </template>
+                </modal>
+              </div>
+            </div>
+            <!-- Modal for Accompany Review -->
           </div>
-          <div class="md-layout-item md-size-25 mr-auto">
-            <img :src="tabPane3[2].image" class="rounded" />
-            <img :src="tabPane3[3].image" class="rounded" />
-            <img :src="tabPane3[4].image" class="rounded" />
-          </div>
-        </div>
+        </div>  
       </template>
     </tabs>
   </div>
@@ -85,35 +143,42 @@
 <script>
 import { Tabs } from "@/components";
 import UserProfileService from '@/services/UserProfileService.js';
+import { Modal } from "@/components";
+import StarRating from 'vue-star-rating';
+
 
 export default {
   components: {
-    Tabs
+    Tabs,
+    Modal,
+    StarRating
   },
   bodyClass: "profile-page",
   data() {
     return {
+      uid: 2,
       userProfile: [],
+      tasteIdx : 7,
+      tasteTitle: ['구경', '사진', '음식', '사람', '계획', '쇼핑' ,'경비'],
+      tasteName:[['번화가 좋아요','자연이 좋아요'],['남는건 사진뿐','눈으로 찍을래']
+                ,['맛집 좋아요','아무거나 잘먹어요'],['다양한 사람과 많이 만나기','소수의 사람과 친밀하게']
+                ,['계획적인 여행','즉흥적인 여행'],['쇼핑 좋아요','쇼핑 싫어요']
+                ,['경비는 여유롭게 사용','경비는 알뜰살뜰하게 사용']],
+      tasteSelect: [],
+      userReview: [],
       tabPane1: [
         { image: require("@/assets/img/examples/studio-1.jpg") },
         { image: require("@/assets/img/examples/studio-2.jpg") },
         { image: require("@/assets/img/examples/studio-4.jpg") },
         { image: require("@/assets/img/examples/studio-5.jpg") }
       ],
-      tabPane2: [
-        { image: require("@/assets/img/examples/olu-eletu.jpg") },
-        { image: require("@/assets/img/examples/clem-onojeghuo.jpg") },
-        { image: require("@/assets/img/examples/cynthia-del-rio.jpg") },
-        { image: require("@/assets/img/examples/mariya-georgieva.jpg") },
-        { image: require("@/assets/img/examples/clem-onojegaw.jpg") }
-      ],
-      tabPane3: [
-        { image: require("@/assets/img/examples/mariya-georgieva.jpg") },
-        { image: require("@/assets/img/examples/studio-3.jpg") },
-        { image: require("@/assets/img/examples/clem-onojeghuo.jpg") },
-        { image: require("@/assets/img/examples/olu-eletu.jpg") },
-        { image: require("@/assets/img/examples/studio-1.jpg") }
-      ]
+      ModalAccompanyReview: false,
+      review: null,
+      date: new Date(),
+      rating: "No Rating Selected",
+      currentRating: "No Rating",
+      currentSelectedRating: "No Current Rating",
+      boundRating: 3,
     };
   },
   props: {
@@ -131,23 +196,61 @@ export default {
       birth.setFullYear(today.getFullYear());
       if(today < birth) years--; 
       return years;
+    },
+    getTasteContent: function(index) {
+      return "taste" + index + "";
+    },
+    getDate: function(dates) {
+      let date = new Date(dates);
+      return date.getUTCFullYear() + "." + (date.getMonth()) + "." + date.getDate();
+    },
+    ModalAccompanyReviewHide() {
+      this.ModalAccompanyReview = false;
+      this.review = null;
+    },
+    setRating: function(rating) {
+      this.rating = "You have Selected: " + rating + " stars";
+    },
+    showCurrentRating: function(rating) {
+      this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " stars"
+    },
+    setCurrentSelectedRating: function(rating) {
+      this.currentSelectedRating = "You have Selected: " + rating + " stars";
     }
   },
   mounted() {
-    UserProfileService.getUserProfile(2)
+    //사용자의 정보를 가져온다.
+    UserProfileService.getUserProfile(this.uid)
       .then(userProfile => {
         userProfile.data.gender = (userProfile.data.gender == 'M' ? '남자' : '여자');
         userProfile.data.age = this.getCalculateAge(userProfile.data.birthday);
         this.userProfile = userProfile.data;
-        console.log("userProfile : ", this.userProfile);
+
+        //선택한 여행스타일 번호를 배열에 담아준다.
+        for(let i = 1; i <= this.tasteIdx; i++){
+          this.tasteSelect[i-1] = userProfile.data[this.getTasteContent(i)];
+        } 
+        //console.log("userProfile : ", this.userProfile);
       })
       .catch(err => {
-        console.log(err);
+        console.log("userProfile error : ", err);
+      });
+    //사용자 후기를 가져온다.
+    UserProfileService.getUserReview(this.uid)
+      .then(userReview => {
+        this.userReview = userReview.data;
+        for(let i = 0; i < this.userReview.length; i++){
+          this.userReview[i].endDate = this.getDate(this.userReview[i].endDate);
+        }
+      })
+      .catch(err => {
+        console.log("userReview error : ", err);
       });
   }
 };
 </script>
 <style lang="scss" scoped>
+@import url("../../../assets/bootstrap/bootstrap.css");
   .profile-tabs /deep/ {
     .md-card-tabs .md-list {
       justify-content: center;
@@ -161,5 +264,14 @@ export default {
         margin-bottom: 2.142rem;
       }
     }
+  }
+  .font-size {
+    font-size: 1.2em;
+  }
+  .star-size {
+    font-size: 1.0em;
+  }
+  .hrColor {
+    border: thin solid #17a2b8;
   }
 </style>
