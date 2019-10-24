@@ -112,9 +112,8 @@
                   </template>
 
                   <template slot="body">
-                    <md-datepicker v-model="date">
-                      <label>날짜선택</label>
-                    </md-datepicker>       
+                    <md-icon>grade</md-icon>
+                    <star-rating></star-rating>
                     <md-field class="md-form-group" slot="inputs">
                       <md-icon>edit</md-icon>
                       <md-textarea v-model="review" md-autogrow></md-textarea>
@@ -145,11 +144,14 @@
 import { Tabs } from "@/components";
 import UserProfileService from '@/services/UserProfileService.js';
 import { Modal } from "@/components";
+import StarRating from 'vue-star-rating';
+
 
 export default {
   components: {
     Tabs,
-    Modal
+    Modal,
+    StarRating
   },
   bodyClass: "profile-page",
   data() {
@@ -172,7 +174,11 @@ export default {
       ],
       ModalAccompanyReview: false,
       review: null,
-      date:null
+      date: new Date(),
+      rating: "No Rating Selected",
+      currentRating: "No Rating",
+      currentSelectedRating: "No Current Rating",
+      boundRating: 3,
     };
   },
   props: {
@@ -200,6 +206,16 @@ export default {
     },
     ModalAccompanyReviewHide() {
       this.ModalAccompanyReview = false;
+      this.review = null;
+    },
+    setRating: function(rating) {
+      this.rating = "You have Selected: " + rating + " stars";
+    },
+    showCurrentRating: function(rating) {
+      this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " stars"
+    },
+    setCurrentSelectedRating: function(rating) {
+      this.currentSelectedRating = "You have Selected: " + rating + " stars";
     }
   },
   mounted() {

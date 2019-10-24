@@ -22,7 +22,7 @@
                 <md-input v-model="title" placeholder="갑시다갑시다디지몬세계로"></md-input>
               </md-field>
               <div id = "datePick">
-                <div class="title" @click="dateInitialize">
+                <div class="title">
                   <h3>동행시작일</h3>
                 </div>
                 <md-datepicker v-model="startDate">
@@ -81,13 +81,14 @@
                 <div class="title">
                   <h3>여행내용</h3>
                 </div>
-                <md-field>
-                  <md-input v-model="content" placeholder="여행내용"></md-input>
+                <md-field class="md-form-group" slot="inputs">
+                  <md-icon>edit</md-icon>
+                  <md-textarea v-model="content" md-autogrow placeholder="여행내용"></md-textarea>
                 </md-field>
               </div>
               <div id = "inputButton">
                 <div class="md-layout-item md-size-70 mx-auto">
-                  <md-button class="md-primary"
+                  <md-button class="md-primary" @click="accompanyRegist"
                     ><md-icon>favorite</md-icon>동행등록
                   </md-button>
                 </div> 
@@ -102,6 +103,8 @@
 
 <script>
 import { Tabs } from "@/components";
+import AccompanyService from '@/services/AccompanyService.js';
+
 export default {
   components: {
     Tabs
@@ -142,17 +145,40 @@ export default {
       this.dateInitialize();
   },
   methods : {
-      dateInitialize(){
-          var today = new Date();
-          var year = today.getUTCFullYear();
-          var month = today.getUTCMonth()+1;
-          var date = today.getUTCDate();
+    dateInitialize(){
+      var today = new Date();
+      var year = today.getUTCFullYear();
+      var month = today.getUTCMonth()+1;
+      var date = today.getUTCDate();
 
-          var target = year+"/"+month+"/"+date;
+      var target = year+"/"+month+"/"+date;
 
-          this.startDate = new Date(target); 
-          this.endDate = new Date(target);
+      this.startDate = new Date(target); 
+      this.endDate = new Date(target);
+    },
+    accompanyRegist(){
+
+      var them ="";
+      for(var i = 0; i < this.thema.length-1;i++){
+        them += this.thema[i]+",";
       }
+      them += this.thema[this.thema.length-1];
+
+      var accompany = {
+        title : this.title,
+        content : this.content,
+        process : "모집중",
+        startDate : this.startDate,
+        endDate : this.endDate,
+        city : this.city,
+        region : this.region,
+        thema : them,
+        max : this.max,
+        hashtag : this.hash,
+        user : sessionStorage.getItem("UID")
+      }
+      AccompanyService.insertAccompanyRegist(accompany);
+    }
   }
 };
 </script>
