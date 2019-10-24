@@ -21,10 +21,19 @@ export default {
     updateAccompanyRegist(accompanyRegist) {
         return apiServer.put('/api/accompanyRegist/', accompanyRegist);
     },
+    successAccompanyRegist(id) {
+        return apiServer.get('/api/accompanyRegistSuccess/' + id);
+    },
 
     /** Accompany */
     getAccompanyByCid(cid) {
         return apiServer.get('/api/accompany/' + cid);
+    },
+    insertAccompany(accompany) {
+        return apiServer.post('/api/accompany/', accompany);
+    },
+    endAccompany(id) {
+        return apiServer.put('/api/accompany/', { id: id });
     }
 
 

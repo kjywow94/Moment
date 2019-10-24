@@ -126,7 +126,7 @@ export default {
   components: { Tabs },
   data() {
     return {
-      uid: 2,
+      uid: 4,
       allAccompany: [],
       processAccompany: [],
       endAccompany: [],
@@ -135,7 +135,6 @@ export default {
   },
   methods: {
     accompanyStart(item) {
-      console.log(item);
       var startDate = TimeConvertService.timeToUnix(new Date(item.startDate));
       var endDate = TimeConvertService.timeToUnix(new Date(item.endDate));
       var curDate = TimeConvertService.timeToUnix(new Date());
@@ -152,6 +151,8 @@ export default {
           AccompanyService.getAccompanyByCid(item.tid).then(response => {
             if (response.data == "") {
               /**스마트 컨트랙트 배포*/
+              /**  계약을 생성중입니다 로딩창 필요*/
+
               SmartContractService.deployContract(
                 item.tid,
                 this.uid,
@@ -160,44 +161,78 @@ export default {
                 String(longitude),
                 contractAddress => {
                   console.log(contractAddress);
-                  alert("등록되었습니다.");
+                  /** 계약 주소 디비에 저장 */
+                  AccompanyService.insertAccompany({
+                    cid: item.tid,
+                    contractAddress: contractAddress
+                  }).then(response => {
+                    /** 내 동행 업데이트후 진행중으로 이동 */
+                    this.toStart(item);
+                  });
                 }
               );
             } else {
+              /** 시작된 동행의 경우 */
               /** 컨트랙트 접근 후 시작 등록 */
+              console.log("시작된 동행 정보");
+              console.log(response.data);
             }
           });
         });
       }
+    },
+    toStart(item) {
+      MyAccompanyService.updateAccompanyParti({
+        id: item.id,
+        tid: item.tid,
+        participateTime: item.startDate,
+        realStartDate: new Date(),
+        realEndDate: new Date(0),
+        status: "시작"
+      }).then(response => {
+        /** 등록자가 완료변경을 안했을 수도 있으니 동행 등록을 완료로 변경 */
+        AccompanyService.successAccompanyRegist(item.tid).then(response => {
+          /** 화면 갱신 */
+          this.initList();
+          alert("등록되었습니다.");
+        });
+      });
+    },
+    initList() {
+      this.allAccompany = [];
+      this.processAccompany = [];
+      this.endAccompany = [];
+      this.toAccompany = [];
+      MyAccompanyService.getMyAccompanyListbyUid(this.uid)
+        .then(response => {
+          this.allAccompany = response.data;
+
+          response.data.forEach(async element => {
+            await AccompanyService.getAccompanyRegistById(element.tid).then(
+              accompanyRegist => {
+                element.title = accompanyRegist.data.title;
+                element.startDate = accompanyRegist.data.startDate;
+                element.endDate = accompanyRegist.data.endDate;
+                element.region = accompanyRegist.data.region;
+                element.city = accompanyRegist.data.city;
+                if (element.status == "시작") {
+                  this.processAccompany.push(element);
+                } else if (element.status == "종료") {
+                  this.endAccompany.push(element);
+                } else {
+                  this.toAccompany.push(element);
+                }
+              }
+            );
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   },
   mounted() {
-    MyAccompanyService.getMyAccompanyListbyUid(this.uid)
-      .then(response => {
-        this.allAccompany = response.data;
-
-        response.data.forEach(async element => {
-          await AccompanyService.getAccompanyRegistById(element.tid).then(
-            accompanyRegist => {
-              element.title = accompanyRegist.data.title;
-              element.startDate = accompanyRegist.data.startDate;
-              element.endDate = accompanyRegist.data.endDate;
-              element.region = accompanyRegist.data.region;
-              element.city = accompanyRegist.data.city;
-              if (element.status == "시작") {
-                this.processAccompany.push(element);
-              } else if (element.status == "종료") {
-                this.endAccompany.push(element);
-              } else {
-                this.toAccompany.push(element);
-              }
-            }
-          );
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.initList();
   }
 };
 </script>
