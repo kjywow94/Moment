@@ -126,6 +126,7 @@ export default {
   components: { Tabs },
   data() {
     return {
+      isProccessing: false,
       uid: 4,
       allAccompany: [],
       processAccompany: [],
@@ -145,7 +146,7 @@ export default {
       } else {
         // 위도 : latitude
         // 경도 : longitude
-
+        this.isProccessing = true;
         // 서버와 통신, 리턴값으로 시작인지 이미 시작됫는지 파악하고 적절한 컨트랙트 함수 호출
         LocationService.getLocation((latitude, longitude) => {
           AccompanyService.getAccompanyByCid(item.tid).then(response => {
@@ -160,7 +161,6 @@ export default {
                 String(latitude),
                 String(longitude),
                 contractAddress => {
-                  console.log(contractAddress);
                   /** 계약 주소 디비에 저장 */
                   AccompanyService.insertAccompany({
                     cid: item.tid,
@@ -174,8 +174,17 @@ export default {
             } else {
               /** 시작된 동행의 경우 */
               /** 컨트랙트 접근 후 시작 등록 */
-              console.log("시작된 동행 정보");
-              console.log(response.data);
+              let contractAddress = response.data.contractAddress;
+              SmartContractService.startAccompany(
+                contractAddress,
+                this.uid,
+                curDate,
+                String(latitude),
+                String(longitude),
+                () => {
+                  this.toStart(item);
+                }
+              );
             }
           });
         });
@@ -194,7 +203,8 @@ export default {
         AccompanyService.successAccompanyRegist(item.tid).then(response => {
           /** 화면 갱신 */
           this.initList();
-          alert("등록되었습니다.");
+          this.isProccessing = false;
+          alert("동행이 시작되었습니다.");
         });
       });
     },

@@ -1,5 +1,19 @@
 const ABI = [
     {
+        "constant": true,
+        "inputs": [],
+        "name": "getStartCount",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "constant": false,
         "inputs": [
             {
@@ -23,20 +37,6 @@ const ABI = [
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getEndUser",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256[]"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -182,6 +182,20 @@ const ABI = [
         "type": "function"
     },
     {
+        "constant": true,
+        "inputs": [],
+        "name": "getEndCount",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "constant": false,
         "inputs": [
             {
@@ -201,7 +215,7 @@ const ABI = [
                 "type": "string"
             }
         ],
-        "name": "endStart",
+        "name": "setEnd",
         "outputs": [
             {
                 "name": "",
@@ -215,7 +229,7 @@ const ABI = [
     {
         "constant": true,
         "inputs": [],
-        "name": "getStartUser",
+        "name": "allStartUser",
         "outputs": [
             {
                 "name": "",
@@ -239,6 +253,20 @@ const ABI = [
             {
                 "name": "",
                 "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "allEndUser",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256[]"
             }
         ],
         "payable": false,
@@ -376,8 +404,7 @@ const FactoryContract = new web3.eth.Contract(FACTORY_ABI, FACTORY_CONTRACT_ADDR
 const walletAddress = "0x1e5b2735b89EF05298bc18A92dBFDec7174Beb60";
 const privateKey = '0x' + "2BE25D87F453C7A9357A2B9C4E0A98991025D45CF5200BF0EC8D1A28D67ABC80";
 export default {
-    /** uint _accompanyId, uint ownerId, uint _startDate, string latitude, string longitude */
-
+    /** 동행참가 처음 누르면 컨트랙트 배포 */
     deployContract(_accompanyId, ownerId, _startDate, latitude, longitude, callback) {
         var encodedABI = FactoryContract.methods.createAccompany(_accompanyId, ownerId, _startDate, latitude, longitude).encodeABI();
         var tx = {
@@ -395,14 +422,73 @@ export default {
                 });
             });
         });
-
     },
+    /** 컨트랙트 생성 함수 */
     AccompanyContract(contractAddress) {
         var Contract = new web3.eth.Contract(ABI, contractAddress);
         return Contract;
     },
-    startAccompany(contractAddress, latitude, longitude) {
+    /** 이미 동행 컨트랙트가 만들어져있으면 컨트랙트에 새 여행자 정보 추가하는 함수 */
+    startAccompany(contractAddress, userId, _startDate, latitude, longitude, callback) {
         var contract = this.AccompanyContract(contractAddress);
-        
+        var encodedABI = contract.methods.setStart(userId, _startDate, latitude, longitude).encodeABI();
+
+        var tx = {
+            from: walletAddress,
+            to: contractAddress,
+            gas: "3000000",
+            data: encodedABI,
+            chainId: 30507
+        }
+
+        web3.eth.accounts.signTransaction(tx, privateKey).then(response => {
+
+            web3.eth.sendSignedTransaction(response.rawTransaction).then(response => {
+                callback();
+            });
+        });
+    },
+    /** 동행 종료 */
+    endAccompany(contractAddress, userId, _endDate, latitude, longitude, callback) {
+        var contract = this.AccompanyContract(contractAddress);
+        contract.methods.setEnd(userId, _endDate, latitude, longitude).call().then(isEnd => {
+            callback(isEnd);
+        })
+    },
+
+    getStartUserList(contractAddress, callback) {
+        var contract = this.AccompanyContract(contractAddress);
+        contract.methods.allStartUser().call().then(startUserList => {
+            callback(startUserList);
+        })
+    },
+    getEndUserList(contractAddress, callback) {
+        var contract = this.AccompanyContract(contractAddress);
+        contract.methods.allEndUser().call().then(endUserList => {
+            callback(endUserList);
+        })
+    },
+    getUserInfo(contractAddress, userId, callback) {
+        var contract = this.AccompanyContract(contractAddress);
+        contract.methods.startDate(userId).call().then(startDate => {
+            contract.methods.startLatitude(userId).call().then(startLatitude => {
+                contract.methods.startLongitude(userId).call().then(startLongitude => {
+                    contract.methods.endDate(userId).call().then(endDate => {
+                        contract.methods.endLatitude(userId).call().then(endLatitude => {
+                            contract.methods.endLongitude(userId).call().then(endLongitude => {
+                                callback({
+                                    startDate: startDate,
+                                    endDate: endDate,
+                                    startLatitude: startLatitude,
+                                    startLongitude: startLongitude,
+                                    endLatitude: endLatitude,
+                                    endLongitude: endLongitude
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
     }
 }
