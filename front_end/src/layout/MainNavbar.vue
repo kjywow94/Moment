@@ -63,9 +63,12 @@
                 <p>로그아웃</p>
               </md-list-item>
 
-              <md-list-item v-if="isLogined">
+              <md-list-item href="#/mypage/mywallet" v-if="isLogined">
+                <i class="material-icons">person_pin</i>
                 <p>{{$store.state.user.nickname}}님</p>
+                <md-tooltip md-direction="bottom">내 정보</md-tooltip>
               </md-list-item>
+
 
               <md-list-item href="https://lab.ssafy.com/s1-final/" target="_blank">
                 <i class="fab fa-github"></i>

@@ -39,6 +39,10 @@ export default new Vuex.Store({
             state.isLogin = false
             state.user = ""
         },
+        update(state, payload){
+            state.user = payload
+            state.userinfo = payload
+        }
     },
     actions: {
         //로그인 시도

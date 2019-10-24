@@ -22,6 +22,12 @@ export default {
         }
 
         return apiServer.post('/api/login', body)
+    },
+    update(password, body){
+        
+        var temp = body;
+        temp.password = password;
+        return apiServer.put("/api/user", temp);
     }
 }
 

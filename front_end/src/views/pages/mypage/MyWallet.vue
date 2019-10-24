@@ -4,9 +4,11 @@
       <div class="container">
           <h1 class="title">내 지갑</h1>
         <div class="md-layout"  style="background:white;">
-            <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;">
-              <template>
-              </template>>
+          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;">
+            <MainNav></MainNav>
+            <template>
+              11111
+            </template>
           </div>
         </div>
       </div>
@@ -18,6 +20,7 @@
 import { LoginCard } from "@/components";
 import { Tabs } from "@/components";
 import { log } from 'util';
+import MainNav from "../../../layout/MypageNavbar";
 
 export default {
   components: {
@@ -29,6 +32,9 @@ export default {
     return {
 
     };
+  },
+  components: {
+    MainNav
   },
   props: {
     header: {

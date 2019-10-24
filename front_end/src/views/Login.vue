@@ -6,7 +6,7 @@
           <div
             class="md-layout-item md-size-33 md-small-size-66 md-xsmall-size-100 md-medium-size-40 mx-auto"
           >
-          <form @submit.prevent="onSubmit">
+          <form @submit.prevent="onSubmit()">
             <login-card header-color="green">
               <h4 slot="title" class="card-title" style="font-size:30px;">로그인</h4>
               <p slot="description" class="description">Or Be Classical</p>
@@ -18,7 +18,7 @@
                 <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
                 <label>비밀번호를 입력해주세요...</label>
-                <md-input v-model="password" @keyup.enter="submit"></md-input>
+                <md-input v-model="password" @keyup.enter="onSubmit()"></md-input>
               </md-field>
               <md-button slot="footer" class="md-simple md-success md-lg" :class="{'btn-success' : !invalidForm}" type="submit"
                 :disabled="invalidForm">
@@ -41,7 +41,6 @@
 <script>
 import { LoginCard } from "@/components";
 import UserService from "@/services/UserService.js";
-import { auth } from "@/services/UserService.js";
 
 
 export default {
@@ -78,8 +77,6 @@ export default {
   methods: {
     onSubmit() {
       var scope = this;
-      console.log(this.$store.state);
-      console.log(this.email, this.password);
       UserService.Login(this.email, this.password)
         .then(data => {
           if(data.data !== ""){
@@ -92,13 +89,11 @@ export default {
               sessionStorage.setItem('ID', data.data.email);
               sessionStorage.setItem('PW', data.data.password);
             }
-            console.log(sessionStorage.length);
             
             scope.$router.push('/');
             alert("로그인");
           }
           else {
-            console.log(data);
             alert("다시 확인해주세요...");
           }
         })
