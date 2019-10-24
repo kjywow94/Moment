@@ -8,7 +8,13 @@ export default {
     getUserById(id) {
         return apiServer.get('/api/user/' + id);
     },
-    getAllUsers(){
+    getAllUsers() {
         return apiServer.get('/api/userAllAdmin')
+    },
+    signUp(user) {
+        return apiServer.post('/api/user', user);
+    },
+    uploadImage(userImage) {
+        return apiServer.post('api/user/image', userImage);
     }
 }

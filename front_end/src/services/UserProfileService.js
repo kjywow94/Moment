@@ -11,6 +11,7 @@ export default {
     getUserReview(id) {
         return apiServer.get('/api/userReviewUid/' + id);
     }
+    
 
     // getAccompanyRegistById(id) {
     //     return apiServer.get('/api/accompanyRegist/' + id);

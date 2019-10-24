@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.travelmaker.dto.User;
+import com.travelmaker.dto.UserImage;
 import com.travelmaker.service.UserService;
 
 import io.swagger.annotations.ApiOperation;
@@ -72,5 +73,12 @@ public class UserController {
 	@ApiOperation(value = "회원삭제")
 	public int userDelect(@RequestParam int id) throws Exception {
 		return userService.deleteUser(id);
+	}
+	
+	//회원 이미지 등록
+	@RequestMapping(value = "/user/image", method = RequestMethod.POST)
+	@ApiOperation(value = "회원 이미지 등록")
+	public int uploadImage(@RequestBody UserImage image) {
+		return userService.uploadImage(image);
 	}
 }

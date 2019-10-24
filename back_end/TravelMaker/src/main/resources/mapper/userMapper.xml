@@ -34,15 +34,30 @@
 	
 	<!-- 회원수정/회원삭제 -->
 	<update id="updateUser" parameterType="user">
-		UPDATE user SET birthday = #{birthday} , phone = #{phone} , email = #{email} , password = #{password}
-			     , sns_1 = #{sns1}  , sns_2 = #{sns2} , taste_1 = #{taste1}  , taste_2 = #{taste2} , taste_3  = #{taste3}  
-			     , taste_4  = #{taste4}  , taste_5 = #{taste5}  , taste_6 = #{taste6}  , taste_7 = #{taste7}  , about = #{about}
+		UPDATE user SET birthday = #{birthday}, phone = #{phone}, email = #{email}, password = #{password}
+			     , sns_1 = #{sns1}, sns_2 = #{sns2}, taste_1 = #{taste1}, taste_2 = #{taste2}, taste_3  = #{taste3}  
+			     , taste_4  = #{taste4}, taste_5 = #{taste5}, taste_6 = #{taste6}, taste_7 = #{taste7}, about = #{about}
 			     , is_remove = #{isRemove}
 		 WHERE id = #{id};
 	</update>
 	
 	<!-- 회원탈퇴(보류) -->	
 	<delete id="deleteUser" parameterType="int">
-		DELETE FROM USER WHERE id = #{id};
+		DELETE FROM user WHERE id = #{id};
 	</delete>
+	
+	<!-- 회원 사진 카운트 조회 -->
+	<select id="selectCountUserImage" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM user_image WHERE email = #{email};
+	</select>
+	
+	<!-- 회원 사진 삭제 -->
+	<delete id="deleteUserImage" parameterType="String">
+		DELETE FROM user_image WHERE email = #{email};
+	</delete>
+	
+	<!-- 회원 사진 등록 -->
+	<insert id="insertUserImage" parameterType="userImage">
+		INSERT INTO user_image(email, img_name) VALUES(#{email}, #{imgName}); 	
+	</insert>
 </mapper>
