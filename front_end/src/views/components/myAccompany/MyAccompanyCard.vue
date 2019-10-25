@@ -41,7 +41,10 @@
                       <md-button class="md-primary md-block">자세히 보기</md-button>
                     </router-link>
                   </div>
-                  <div class="card-footer bg-transparent border-primary">종료, 채팅방</div>
+                  <div class="card-footer bg-transparent border-primary">
+                    <md-button class="md-info" @click="accompanyEnd(item)">동행 종료</md-button>
+                    <md-button class="md-info">채팅방</md-button>
+                  </div>
                 </div>
               </div>
             </template>
@@ -126,8 +129,8 @@ export default {
   components: { Tabs },
   data() {
     return {
+      uid: 0,
       isProccessing: false,
-      uid: 4,
       allAccompany: [],
       processAccompany: [],
       endAccompany: [],
@@ -190,6 +193,31 @@ export default {
         });
       }
     },
+    accompanyEnd(item) {
+      var startDate = TimeConvertService.timeToUnix(new Date(item.startDate));
+      var endDate = TimeConvertService.timeToUnix(new Date(item.endDate));
+      var curDate = TimeConvertService.timeToUnix(new Date());
+      if (curDate < endDate) {
+        alert("아직 종료예정 시간이 아닙니다.");
+      } else {
+        LocationService.getLocation((latitude, longitude) => {
+          AccompanyService.getAccompanyByCid(item.tid).then(response => {
+            let contractAddress = response.data.contractAddress;
+            SmartContractService.endAccompany(
+              contractAddress,
+              this.uid,
+              curDate,
+              String(latitude),
+              String(longitude),
+              response => {
+                console.log(response);
+                /** isEnd */
+              }
+            );
+          });
+        });
+      }
+    },
     toStart(item) {
       MyAccompanyService.updateAccompanyParti({
         id: item.id,
@@ -242,6 +270,7 @@ export default {
     }
   },
   mounted() {
+    this.uid = this.$store.state.user.id;
     this.initList();
   }
 };
