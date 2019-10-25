@@ -2,11 +2,13 @@
   <div class="wrapper">
     <div class="section page-header header-filter" :style="headerStyle">
       <div class="container">
-          <h1 class="title">프로필수정</h1>
+          <h1 class="title">내 정보</h1>
         <div class="md-layout"  style="background:white;">
             <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;">
+              <MainNav></MainNav>
               <template>
-              </template>>
+                1111
+              </template>
           </div>
         </div>
       </div>
@@ -18,6 +20,7 @@
 import { LoginCard } from "@/components";
 import { Tabs } from "@/components";
 import { log } from 'util';
+import MainNav from "../../../layout/MypageNavbar";
 
 export default {
   components: {
@@ -27,8 +30,11 @@ export default {
   bodyClass: "login-page",
   data() {
     return {
-
+    
     };
+  },
+  components: {
+    MainNav
   },
   props: {
     header: {
@@ -37,7 +43,9 @@ export default {
     }
   },
   methods: {
-  
+    stringclear() {
+      
+    }
   },
   computed: {
     headerStyle() {

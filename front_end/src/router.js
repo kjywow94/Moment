@@ -18,12 +18,34 @@ import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
 import TravelReview from "./views/pages/travelReview/TravelReviewPage.vue";
 import UserProfile from "./views/pages/profile/UsersProfilePage.vue";
 import TravelReviewDetail from "./views/pages/travelReview/TravelReviewDetail.vue";
+import Mywallet from "./views/pages/mypage/MyWallet.vue";
+import UserInfo from "./views/pages/mypage/UserInfo.vue";
+import MyPageNav from "./layout/MypageNavbar.vue";
+
 Vue.use(Router);
 
 const requireAuth = (to, from, next) => {
   const isAuth = sessionStorage.getItem('Auth')
   const loginPath = '/login?rPath=${encodeURIComponent(to.path)}'
   isAuth ? next() : next(loginPath)
+}
+
+const loginAuth = (to, from, next) => {
+  if(sessionStorage.length === 0)
+    var isAuth =  true;
+  const loginNo = '/'
+  isAuth ? next() : next(loginNo)
+}
+
+const adminAuth = (to, from, next) => {
+  if(sessionStorage.Auth === "U"){
+    var aminAuth = true;
+    console.log("uuuuuu");
+    
+  }
+  const adminYes = '/admin'
+  const adminNo = "/"
+  aminAuth ? next() : next(adminYes)  
 }
 
 export default new Router({
@@ -111,6 +133,7 @@ export default new Router({
     {
       path: "/login",
       name: "login",
+      beforeEnter : loginAuth,
       components: { default: Login, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 }
@@ -119,6 +142,7 @@ export default new Router({
     {
       path: "/signup",
       name: "signup",
+      beforeEnter : loginAuth,
       components: { default: Signup, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 }
@@ -135,19 +159,9 @@ export default new Router({
       }
     },
     {
-      path: "/mypage/passwordchange",
-      name: "passwordchange",
-      beforeEnter : requireAuth,
-      components: { default: PasswordChange, header: MainNavbar, footer: MainFooter },
-      props: {
-        header: { colorOnScroll: 400 },
-        footer: { backgroundColor: "black" }
-      }
-    },
-    {
       path: "/admin",
       name: "admin",
-      beforeEnter : requireAuth,
+      beforeEnter : adminAuth,
       components: { default: Admin, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -164,10 +178,38 @@ export default new Router({
       }
     },
     {
-      path: "/userprofile",
-      name: "userprofile",
+      path: "/travelReviewDetail/:id",
+      name: "travelReviewDetail",
+      components: { default: TravelReviewDetail, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/mypage/mywallet",
+      name: "mywallet",
+      components: { default: Mywallet, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/mypage/passwordchange",
+      name: "passwordchange",
       beforeEnter : requireAuth,
-      components: { default: UserProfile, header: MainNavbar, footer: MainFooter },
+      components: { default: PasswordChange, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/mypage/userinfo",
+      name: "userinfo",
+      beforeEnter : requireAuth,
+      components: { default: UserInfo, header: MainNavbar, footer: MainFooter, btnnav : MyPageNav },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -181,7 +223,7 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-    }
+    },
     
   ],
   scrollBehavior: to => {
