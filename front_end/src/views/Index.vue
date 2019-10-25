@@ -9,8 +9,8 @@
             <img :src="leaf2" alt="leaf2" class="leaf2" v-show="leafShow" />
             <img :src="leaf1" alt="leaf1" class="leaf1" v-show="leafShow" />
             <div class="brand">
-              <h1>Vue Material Kit</h1>
-              <h3>A Badass Vue.js UI Kit made with Material Design.</h3>
+              <h1>여행에 미치다</h1>
+              <h3>행복한 여행의 가장 큰 준비물은 가벼운 마음이다.</h3>
             </div>
           </div>
         </div>
