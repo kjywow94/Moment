@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import com.travelmaker.dto.Chat;
 @Controller
 public class MessagingController {
-	@MessageMapping("/greetings")
+	@MessageMapping("/hello")
 	@SendTo("/topic/greetings")
 	public String greeting(Chat message) throws Exception {
 		String nickname = message.getContext();
