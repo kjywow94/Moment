@@ -9,10 +9,13 @@
         <div class="container">
           <div class="md-layout">
                      <md-field>
-                  <md-input v-model="msg" placeholder="default"></md-input>
+                  <md-input v-model="msg" @keydown.enter="send"></md-input>
                 </md-field>
-                        <button @click="send()">전송</button>
+                        <button @click="send">전송</button>
             </div>
+            <div v-for="c in chat">{{c}}</div>
+
+
           </div>
         </div>
       </div>
@@ -51,7 +54,8 @@ export default {
   data() {
     return {
         stompClient: null,
-        msg:""
+        msg:"",
+        chat:[]
     };
   },
   computed: {
@@ -67,61 +71,34 @@ export default {
   },
   methods : {
     async init(){
- var socket = new SockJS('http://localhost:9090/websocket');
-  this.stompClient = Stomp.over(socket);
-  // SockJS와 stomp client를 통해 연결을 시도.
-  let scope = this;
-  this.stompClient.connect({}, function (frame) {
-    console.log('Connected: ' + frame);
-    scope.stompClient.subscribe('http://localhost:9090/topic/in', function (chat) {
-      console.log("in!! :: " , JSON.parse(chat.body).content);
+    var socket = new SockJS('http://localhost:9090/websocket');
+    this.stompClient = Stomp.over(socket);
+    // SockJS와 stomp client를 통해 연결을 시도.
+    let scope = this;
+    await this.stompClient.connect({}, function (frame) {
+      scope.stompClient.subscribe('/topic/greetings', function (chat) {
+        let msg = chat.body
+        scope.chat.push(msg);
+        console.log("HELLO MSG" + msg);
     });
-    scope.stompClient.subscribe('http://localhost:9090/topic/out', function (chat) {
-      console.log("out!! :: " , JSON.parse(chat.body).content);
+    scope.stompClient.subscribe('/topic/chat', function (chat) {
+      let msg = JSON.parse(chat.body);
+      console.log(msg['context']);
+      scope.chat.push(msg['context']);
     });
+      let visit = {'UID' : 11, 'timestamp':new Date(), 'context': scope.$store.state.user.nickname, 'room_number':1};
+      scope.stompClient.send("/app/greetings", {}, JSON.stringify(visit));
   });
 
     },
     send(){
-        // UID
-        // context
-        // timestamp
-        // room_number
-        // is_remove
         let chat = {
-            'UID' : 11, 'timestamp':null, 'context': this.msg, 'room_number':1
+            'UID' : 11, 'timestamp':new Date(), 'context': this.$store.state.user.nickname + " : " + this.msg, 'room_number':1
             }
-        
-        this.stompClient.send("http://localhost:9090/app/in", {}, JSON.stringify(chat));
+        this.stompClient.send("/app/chat", {}, JSON.stringify(chat));
+        this.msg = "";
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
-.md-card-actions.text-center {
-  display: flex;
-  justify-content: center !important;
-}
-.contact-form {
-  margin-top: 30px;
-}
-
-.md-has-textarea + .md-layout {
-  margin-top: 15px;
-}
-
-@media (min-width: 481px) {
-  .mdquery-xs {
-    display: none;
-  }
-}
-
-/* 모바일*/
-@media (max-width: 480px) {
-  .mdquery-md {
-    display: none;
-  }
-}
-
-</style>

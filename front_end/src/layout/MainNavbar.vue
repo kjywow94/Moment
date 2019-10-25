@@ -33,6 +33,11 @@
                 <p>관리자</p>
               </md-list-item>
 
+              <md-list-item href="#/accompanyChat" v-if="isLogined">
+                <i class="material-icons">flight</i>
+                <p>채팅</p>
+              </md-list-item>
+
               <md-list-item href="#/accompanyList" v-if="isLogined">
                 <i class="material-icons">flight</i>
                 <p>동행 목록</p>

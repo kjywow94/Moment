@@ -5,7 +5,7 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-10-24T19:57:55Z</updated>
+  <updated>2019-10-24T19:57:00Z</updated>
   <entry>
     <title>A Bootiful Podcast: Apache Tomcat, Netty and Spring Framework contributor Violeta Georgieva</title>
     <link rel="alternate" href="https://spring.io/blog/2019/10/24/a-bootiful-podcast-apache-tomcat-netty-and-spring-framework-contributor-violeta-georgieva" />
@@ -14,8 +14,8 @@
       <name>Josh Long</name>
     </author>
     <id>tag:spring.io,2019-10-24:3848</id>
-    <updated>2019-10-24T19:57:55Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, Josh Long (@starbuxman) talks to Apache Tomcat, Netty and Spring Framework contributor Violeta Georgieva (@violeta_g_g).&lt;/p&gt;
+    <updated>2019-10-24T19:57:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, Josh Long (&lt;a href="http://twitter.com/starbuxman"&gt;@starbuxman&lt;/a&gt;) talks to Apache Tomcat, Netty and Spring Framework engineer Violeta Georgieva (&lt;a href="http://twitter.com/violeta_g_g"&gt;@violeta_g_g&lt;/a&gt;).&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Violeta on &lt;a href="http://twitter.com/violeta_g_g"&gt;Twitter (@violeta_g_g)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;See her keynote &lt;a href="https://springoneplatform.io/2017/speakers/violeta-georgieva"&gt;with Spencer Gibb at SpringOne Platform 2019&lt;/a&gt;&lt;/li&gt;
