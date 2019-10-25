@@ -19,7 +19,7 @@ public class AccompanyRegistService {
 	public List<AccompanyRegist> selectAllAccompanyRegistNotRemoved() {
 		return accompanyRegistMapper.selectAllAccompanyRegistNotRemoved();
 	}
-	
+
 	public List<AccompanyRegist> selectAllAccompanyRegist() {
 		return accompanyRegistMapper.selectAllAccompanyRegist();
 	}
@@ -38,5 +38,9 @@ public class AccompanyRegistService {
 
 	public int deleteAccompanyRegist(int id) {
 		return accompanyRegistMapper.deleteAccompanyRegist(id);
+	}
+
+	public int successAccompanyRegist(int id) {
+		return accompanyRegistMapper.successAccompanyRegist(id);
 	}
 }
