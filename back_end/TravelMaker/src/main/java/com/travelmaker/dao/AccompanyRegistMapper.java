@@ -24,4 +24,7 @@ public interface AccompanyRegistMapper {
 
 	// 동행 모집 삭제
 	public int deleteAccompanyRegist(int id);
+	
+	// 동행 모집 완료로 변경
+	public int successAccompanyRegist(int id);
 }
