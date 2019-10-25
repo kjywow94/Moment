@@ -117,7 +117,7 @@ public class UserService {
 				String encodeImg = "data:image/" + img.getImgName() + ";base64, "
 						+ Base64.getEncoder().encodeToString(byteArray);
 				
-				System.out.println("encodeImg : "+encodeImg);
+				//System.out.println("encodeImg : "+encodeImg);
 				img.setImgData(encodeImg);
 				fis.close();
 				

@@ -83,9 +83,9 @@ public class UserController {
 	}
 	
 	//회원 이미지 가져오기
-	@RequestMapping(value = "/user/image", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/image/{email}", method = RequestMethod.GET)
 	@ApiOperation(value = "회원 이미지 가져오기")
-	public List<UserImage> uploadImage(@RequestParam String email) {
+	public List<UserImage> uploadImage(@PathVariable String email) {
 		return userService.selectUserImage(email);
 	}
 }

@@ -10,6 +10,9 @@ export default {
     },
     getUserReview(id) {
         return apiServer.get('/api/userReviewUid/' + id);
+    },
+    getUserImage(email) {
+        return apiServer.get('api/user/image/' + email);
     }
     
 

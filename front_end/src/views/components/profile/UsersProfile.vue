@@ -43,8 +43,9 @@
         <div class="md-layout">
 
           <!-- test -->
-          
-        
+           <div v-for="item in userImg">
+            <img :src="item.imgData">
+           </div>
 
         </div>
       </template>
@@ -109,6 +110,8 @@ export default {
   data() {
     return {
       uid: 2,
+      email : 'coin@ggg',
+      userImg: [],
       userProfile: [],
       tasteIdx : 7,
       tasteTitle: ['구경', '사진', '음식', '사람', '계획', '쇼핑' ,'경비'],
@@ -171,6 +174,7 @@ export default {
       .catch(err => {
         console.log("userProfile error : ", err);
       });
+
     //사용자 후기를 가져온다.
     UserProfileService.getUserReview(this.uid)
       .then(userReview => {
@@ -182,6 +186,16 @@ export default {
       .catch(err => {
         console.log("userReview error : ", err);
       });
+
+    //사용자의 사진을 가져온다.
+    UserProfileService.getUserImage(this.email)
+      .then(userImg => {
+        this.userImg = userImg.data;
+        console.log("userImg : ",userImg);
+    })
+    .catch(err => {
+      console.log("UserProfileService error : ", err);
+    });
   }
 };
 </script>
