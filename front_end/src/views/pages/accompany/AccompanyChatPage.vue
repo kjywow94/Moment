@@ -71,7 +71,7 @@ export default {
   },
   methods : {
     async init(){
-    var socket = new SockJS('http://localhost:9090/websocket');
+    var socket = new SockJS('http://192.168.100.49:9090/websocket');
     this.stompClient = Stomp.over(socket);
     // SockJS와 stomp client를 통해 연결을 시도.
     let scope = this;

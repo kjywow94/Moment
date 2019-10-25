@@ -172,14 +172,6 @@ export default {
   },
   methods: {
       register: function () {
-          console.log(1111);
-          console.log("o1 : "+this.options1);
-          console.log("o2 : "+this.options2);
-          console.log("o3 : "+this.options3);
-          console.log("o4 : "+this.options4);
-          console.log("o5 : "+this.options5);
-          console.log(this.radio);
-          
             var scope = this;
             if (this.passwordlabel === this.passwordcheck) {
                 userService.signUp(
