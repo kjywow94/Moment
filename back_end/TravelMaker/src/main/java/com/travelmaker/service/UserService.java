@@ -1,7 +1,11 @@
 package com.travelmaker.service;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.Base64;
 import java.util.Base64.Decoder;
 import java.util.List;
@@ -91,4 +95,36 @@ public class UserService {
 		return result;
 	}
 	
+	//회원 이미지 조회
+	public List<UserImage> selectUserImage(String email) {
+		List<UserImage> userImage = userMapper.selectUserImage(email);
+		
+		System.out.println("userImage : "+userImage);
+		
+		for(UserImage img : userImage) {
+
+			try {
+				File f = new File("image/" + img.getImgName());
+				FileInputStream fis;
+				try {
+					fis = new FileInputStream(f);
+				} catch (FileNotFoundException e) {
+					f = new File("image/tempImg.jpg");
+					fis = new FileInputStream(f);
+				}
+				byte byteArray[] = new byte[(int)f.length()];
+				fis.read(byteArray);
+				String encodeImg = "data:image/" + img.getImgName() + ";base64, "
+						+ Base64.getEncoder().encodeToString(byteArray);
+				
+				System.out.println("encodeImg : "+encodeImg);
+				img.setImgData(encodeImg);
+				fis.close();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return userImage;
+	}
 }

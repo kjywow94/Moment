@@ -60,4 +60,9 @@
 	<insert id="insertUserImage" parameterType="userImage">
 		INSERT INTO user_image(email, img_name) VALUES(#{email}, #{imgName}); 	
 	</insert>
+	
+	<!-- 회원 사진 조회 -->
+	<select id="selectUserImage" parameterType="String" resultType="userImage">
+		SELECT * FROM user_image WHERE email = #{email};
+	</select>
 </mapper>

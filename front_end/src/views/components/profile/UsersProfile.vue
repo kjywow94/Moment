@@ -43,8 +43,7 @@
         <div class="md-layout">
 
           <!-- test -->
-          <input type="file" @change="">
-          <button type="button" v-on:click="uploadImg()">~</button>
+          
         
 
         </div>

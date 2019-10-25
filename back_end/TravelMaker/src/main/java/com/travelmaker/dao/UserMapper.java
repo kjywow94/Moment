@@ -31,4 +31,6 @@ public interface UserMapper {
 	public int deleteUserImage(String email);
 	//회원 사진 등록
 	public int insertUserImage(UserImage userImage);
+	//회원 사진 조회
+	public List<UserImage> selectUserImage(String email);
 }

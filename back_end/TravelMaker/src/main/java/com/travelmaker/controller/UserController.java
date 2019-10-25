@@ -81,4 +81,11 @@ public class UserController {
 	public int uploadImage(@RequestBody UserImage image) {
 		return userService.uploadImage(image);
 	}
+	
+	//회원 이미지 가져오기
+	@RequestMapping(value = "/user/image", method = RequestMethod.GET)
+	@ApiOperation(value = "회원 이미지 가져오기")
+	public List<UserImage> uploadImage(@RequestParam String email) {
+		return userService.selectUserImage(email);
+	}
 }
