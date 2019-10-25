@@ -40,7 +40,7 @@
                   <h3>최대참가인원</h3>
                 </div>
                 <md-field>
-                  <md-input v-model="max" placeholder="10"></md-input>
+                  <md-input v-model="max" placeholder="숫자로 입력해주세요"></md-input>
                 </md-field>
               </div>
               <div id="thema">
@@ -58,7 +58,15 @@
                   <h3>여행지역</h3>
                 </div>
                 <md-field>
-                  <md-input v-model="region" placeholder="여행지역"></md-input>
+                  <md-select v-model="region" name="region" id="region" placeholder="여행지역">
+                    <md-option value="국내">국내</md-option>
+                    <md-option value="아시아">아시아</md-option>
+                    <md-option value="호주">호주</md-option>
+                    <md-option value="북미">북미</md-option>
+                    <md-option value="남미">남미</md-option>
+                    <md-option value="유럽">유럽</md-option>
+                    <md-option value="아프리카">아프리카</md-option>
+                  </md-select>
                 </md-field>
               </div>
               <div id="city">

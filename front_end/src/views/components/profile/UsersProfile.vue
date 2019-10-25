@@ -178,7 +178,7 @@ export default {
       rating: "No Rating Selected",
       currentRating: "No Rating",
       currentSelectedRating: "No Current Rating",
-      boundRating: 3,
+      boundRating: 3
     };
   },
   props: {
