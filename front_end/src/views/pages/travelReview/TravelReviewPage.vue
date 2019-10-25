@@ -97,7 +97,6 @@ export default {
         data[i]['tname'] = temp['data']['title'];
       }
       this.review = data;
-        console.log(this.review)
     }
   }
 };

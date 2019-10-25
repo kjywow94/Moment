@@ -23,16 +23,16 @@ public class Chat {
 		this.roomNumber = room_number;
 		this.isRemove = is_remove;
 	}
-	public int getID() {
+	public int getId() {
 		return id;
 	}
-	public void setID(int iD) {
+	public void setId(int iD) {
 		id = iD;
 	}
-	public int getUID() {
+	public int getUid() {
 		return uid;
 	}
-	public void setUID(int uID) {
+	public void setUid(int uID) {
 		uid = uID;
 	}
 	public String getContext() {
@@ -53,10 +53,10 @@ public class Chat {
 	public void setRoom_number(int room_number) {
 		this.roomNumber = room_number;
 	}
-	public Status getIs_remove() {
+	public Status getIsRemove() {
 		return isRemove;
 	}
-	public void setIs_remove(Status is_remove) {
+	public void setIsRemove(Status is_remove) {
 		this.isRemove = is_remove;
 	}
 	@Override
