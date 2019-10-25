@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.travelmaker.dao.ReviewMapper">
+	<!-- 후기 목록 by 거리 -->
+	<select id="ReviewListByLocation" parameterType="location"
+		resultType="review">
+		SELECT * , ( 6371 * acos( cos( radians( #{latitude} ) ) *
+		cos( radians( latitude ) ) * cos( radians( longitude ) - radians(
+		#{longitude} ) )+ sin( radians( #{latitude} ) ) * sin( radians(
+		latitude ) ) ) ) AS distance FROM review HAVING distance < #{distance}
+		ORDER BY distance DESC;
+	</select>
+
+	<!-- 전체 후기목록 -->
+	<select id="ReviewList" resultType="review">
+		SELECT * FROM review;
+	</select>
+
+	<!-- 후기 하나 선택 -->
+	<select id="selectReviewByid" resultType="review"
+		parameterType="int">
+		SELECT * FROM review where id = #{id};
+	</select>
+
+	<!-- 후기 유저로 선택 -->
+	<select id="selectReviewByUid" resultType="review"
+		parameterType="int">
+		SELECT * FROM review where uid = #{uid};
+	</select>
+
+	<!-- 후기 등록 -->
+	<insert id="insertReview" parameterType="review">
+		INSERT INTO
+		review(uid,
+		date, title, location, latitude, longitude, hash, hashtag, distance)
+		VALUES(#{uid}, #{date}, #{title}, #{location}, #{latitude},
+		#{longitude}, #{hash}, #{hashtag}, #{distance});
+	</insert>
+
+</mapper>
