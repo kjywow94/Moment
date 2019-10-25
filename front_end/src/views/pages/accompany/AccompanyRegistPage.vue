@@ -81,9 +81,7 @@
                 <div class="title">
                   <h3>해쉬태그</h3>
                 </div>
-                <md-field>
-                  <md-input v-model="hash" placeholder="해쉬태그"></md-input>
-                </md-field>
+                <input-tag v-model="hash"></input-tag>
               </div>
               <div id="content">
                 <div class="title">
@@ -112,10 +110,12 @@
 <script>
 import { Tabs } from "@/components";
 import AccompanyService from '@/services/AccompanyService.js';
+import InputTag from 'vue-input-tag';
 
 export default {
   components: {
-    Tabs
+    Tabs,
+    InputTag
   },
   bodyClass: "profile-page",
   data() {
@@ -127,7 +127,7 @@ export default {
       thema: [],
       region : null,
       city : null,
-      hash : null,
+      hash : [],
       content : null,
       tags : null
     };
@@ -153,6 +153,9 @@ export default {
       this.dateInitialize();
   },
   methods : {
+    test(){
+      console.log(this.hash);
+    },
     dateInitialize(){
       var today = new Date();
       var year = today.getUTCFullYear();
@@ -167,10 +170,16 @@ export default {
     accompanyRegist(){
 
       var them ="";
+      var hasi ="";
       for(var i = 0; i < this.thema.length-1;i++){
         them += this.thema[i]+",";
       }
       them += this.thema[this.thema.length-1];
+
+      for(var i = 0; i < this.hash.length-1;i++){
+        hasi += this.hash[i]+",";
+      }
+      hasi += this.hash[this.hash.length-1];
 
       var accompany = {
         title : this.title,
@@ -182,10 +191,22 @@ export default {
         region : this.region,
         thema : them,
         max : this.max,
-        hashtag : this.hash,
+        hashtag : hasi,
         user : sessionStorage.getItem("UID")
       }
       AccompanyService.insertAccompanyRegist(accompany);
+
+      this.title=null;
+      this.content=null;
+      this.startDate = new Date();
+      this.endDate = new Date();
+      this.city = null;
+      this.region = null;
+      this.thema = [];
+      this.max = null;
+      this.hash = [];
+
+      
     }
   }
 };

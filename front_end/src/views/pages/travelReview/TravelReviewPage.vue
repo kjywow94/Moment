@@ -7,39 +7,35 @@
         <div class="container">
           <div class="md-layout">
             <div>
-
-
-
-<div class = "md-layout">
-<div class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100" v-for="r in review" :key='r.id' >
-  <router-link :to="{name:'travelReviewDetail', params: { id: r.id }}">
-  <div class="md-card md-card-blog md-theme-default text-left list-inline"  >
-    <span class="overlay"><div style="position: absolute;">
-
-<div class="alert alert-info">
-        <div class="container">
-          <b>{{r['tname']}} </b>
-        </div>
-      </div>
-
-      </div>
-      <img src="@/assets/img/default.jpg" class="img" >
-    </span>
-    <div class="md-card-content">
-      <h6 class="card-category text-rose">
-                {{r['title']}}
-              </h6>
+              <div class = "md-layout">
+                <div class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100" v-for="r in review" :key='r.id' >
+                  <router-link :to="{name:'travelReviewDetail', params: { id: r.id }}">
+                    <div class="md-card md-card-blog md-theme-default text-left list-inline"  >
+                      <span class="overlay">
+                        <div style="position: absolute;">
+                          <div class="alert alert-info">
+                            <div class="container">
+                              <b>{{r['tname']}} </b>
+                            </div>
+                          </div>
+                        </div>
+                        <img src="@/assets/img/default.jpg" class="img" />
+                      </span>
+                      <div class="md-card-content">
+                        <h6 class="card-category text-rose">
+                          {{r['title']}}
+                        </h6>
+                      </div>
+                    </div>
+                  </router-link>
+                </div>
+              </div>
             </div>
           </div>
-        </router-link>
+        </div>
       </div>
     </div>
-   </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
+  </div>
 </template>
 
 <script>
