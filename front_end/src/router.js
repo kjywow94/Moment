@@ -21,6 +21,8 @@ import TravelReviewDetail from "./views/pages/travelReview/TravelReviewDetail.vu
 import Mywallet from "./views/pages/mypage/MyWallet.vue";
 import UserInfo from "./views/pages/mypage/UserInfo.vue";
 import MyPageNav from "./layout/MypageNavbar.vue";
+import PasswordFind from "./views/pages/login/Passwordfind.vue";
+import IdFind from "./views/pages/login/Idfind.vue";
 
 Vue.use(Router);
 
@@ -216,9 +218,18 @@ export default new Router({
       }
     },
     {
-      path: "/travelReviewDetail/:id",
-      name: "travelReviewDetail",
-      components: { default: TravelReviewDetail, header: MainNavbar, footer: MainFooter },
+      path: "/find/passwordfind",
+      name: "passwordfind",
+      components: { default: PasswordFind, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/find/idfind",
+      name: "idfind",
+      components: { default: IdFind, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }

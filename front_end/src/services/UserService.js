@@ -28,6 +28,22 @@ export default {
         var temp = body;
         temp.password = password;
         return apiServer.put("/api/user", temp);
+    },
+    findid(user_name, phone){
+        var body = {
+            user_name : user_name,
+            phone : phone
+        }
+
+        return apiServer.post("/api/user", body)
+    },
+    findpassword(email, phone){
+        var body = {
+            email : email,
+            phone : phone
+        }
+
+        return apiServer.post("/api/user", body)
     }
 }
 

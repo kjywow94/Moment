@@ -20,10 +20,14 @@
                 <label>비밀번호를 입력해주세요...</label>
                 <md-input v-model="password" @keyup.enter="onSubmit()"></md-input>
               </md-field>
+              <md-fieid>
+                <p>비밀번호 찾기</p>
+              </md-fieid>
               <md-button slot="footer" class="md-simple md-success md-lg" :class="{'btn-success' : !invalidForm}" type="submit"
                 :disabled="invalidForm">
                 로그인
               </md-button>
+              
               <md-button v-on:clicl="signup()" slot="footer" class="md-simple md-success md-lg">
                 <router-link to="/signup">회원가입</router-link>
               </md-button>
@@ -80,21 +84,14 @@ export default {
       UserService.Login(this.email, this.password)
         .then(data => {
           if(data.data !== ""){
-            this.$store.commit("login", data.data)
+         
             console.log(data.data);
             
-            // this.$store.commit("login", {data.data.email, data.data.password}), 
-            if(window.sessionStorage){
-              sessionStorage.setItem('Auth', data.data.authority);
-              sessionStorage.setItem('ID', data.data.email);
-              sessionStorage.setItem('PW', data.data.password);
-            }
             
-            scope.$router.push('/');
-            alert("로그인");
+            alert("성공.....");
           }
           else {
-            alert("다시 확인해주세요...");
+            alert("실패....");
           }
         })
     },
