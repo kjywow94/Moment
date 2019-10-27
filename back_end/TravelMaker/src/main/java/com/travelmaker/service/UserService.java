@@ -56,5 +56,15 @@ public class UserService {
 	public int deleteUser(int id) {
 		return userMapper.deleteUser(id);
 	}
+	
+	//아이디 찾기
+	public User findId(User user) {
+		return userMapper.findId(user);
+	}
+	
+	//비밀번호 찾기
+	public User findpassword(User user) {
+		return userMapper.findpaswword(user);
+	}
 
 }
