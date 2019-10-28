@@ -16,7 +16,12 @@
                 <template slot="tab-pane-1">
                      <div class="md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100">
                         <md-field>
-                            <label>아이디</label>
+                            <label>이메일</label>
+                            <md-input v-model="email" type="text"></md-input>
+                        </md-field>
+                        <md-button class="md-primary md-round">이메일 인증</md-button>
+                        <md-field>
+                            <label>닉네임</label>
                             <md-input v-model="idlabel" type="text"></md-input>
                         </md-field>
                         <md-field>
@@ -35,11 +40,7 @@
                             <label>휴대폰</label>
                             <md-input v-model="phonelabel" type="text"></md-input>
                         </md-field>
-                        <md-field>
-                            <label>이메일</label>
-                            <md-input v-model="emaillabel" type="text"></md-input>
-                        </md-field>
-                        <md-button class="md-primary md-round">이메일 인증</md-button>
+                        
                         <md-datepicker v-model="selectedDate">
                             <label>생년월일</label>
                         </md-datepicker>
@@ -54,13 +55,13 @@
                     <br>
                     <div class="ml-2 col-sm-6">
                         <img :src="img[0]" id="preview" class="img-thumbnail" style="float: left;">
-                        <img :src="img[1]" id="preview" class="img-thumbnail" style="float: right;">
-                        <img :src="img[2]" id="preview" class="img-thumbnail">
+                      <!--  <img :src="img[1]" id="preview" class="img-thumbnail" style="float: right;">
+                        <img :src="img[2]" id="preview" class="img-thumbnail"> -->
                     </div>
                     <div class="ml-2 col-sm-6">
                         <div id="msg"></div>
                         <form method="post" id="image-form">
-                            <input type="file"  ref="inputRef" name="img[]" class="file" accept="image/*" @change="changeFile($event)" multiple style="display:none">
+                            <input type="file"  ref="inputRef" name="img[]" class="file" accept="image/*" @change="changeFile($event)" style="display:none">
                             <div class="input-group my-3">
                             <input type="text" class="form-control" disabled placeholder="Upload File" v-model="imgName">
                             <div class="input-group-append">
@@ -82,50 +83,6 @@
                         <md-textarea v-model="aboutme"></md-textarea>
                     </md-field> 
                     <br>
-                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
-                        <label class="btn btn-secondary active">
-                            <input type="radio" v-model="options1" :value="1" checked> 내성적
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input type="radio" v-model="options1" :value="2"> 외향적
-                        </label>
-                    </div>
-                    <br>
-                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
-                        <label class="btn btn-secondary active">
-                            <input type="radio" v-model="options2" :value="1" checked> 번화가 여행
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input type="radio" v-model="options2" :value="2"> 한적한 여행
-                        </label>
-                    </div>
-                    <br>
-                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
-                        <label class="btn btn-secondary active">
-                            <input type="radio" v-model="options3" :value="1" checked> 사진찍기
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input type="radio" v-model="options3" :value="2"> 먹방여행
-                        </label>
-                    </div>
-                    <br>
-                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
-                        <label class="btn btn-secondary active">
-                            <input type="radio" v-model="options4" :value="1" checked> 쇼핑몰
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input type="radio" v-model="options4" :value="2"> 기념품
-                        </label>
-                    </div>
-                    <br>
-                    <div class="btn-group btn-group-toggle widthbtn" data-toggle="buttons">
-                        <label class="btn btn-secondary active">
-                            <input type="radio" v-model="options5" :value="1" autocomplete="off" checked> 계획적이다
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input type="radio" v-model="options5" :value="1" autocomplete="off"> 즉흥적이다
-                        </label>
-                    </div>
                 </template>
                 <template slot="tab-pane-3">
                     <p>가입을 축하드립니다!!</p>
@@ -161,14 +118,12 @@ export default {
       passwordlabel: "",
       passwordcheck: "",
       phonelabel: "",
-      emaillabel: "",
+      email: "",
      
      ///test
       imgName: ["프로필등록.."],
-      img:["https://placehold.it/50x50","https://placehold.it/50x50","https://placehold.it/50x50"],
+      img:["https://placehold.it/50x50"],
       extension : [],
-      email:"t",
-      imgLen: 1,
 
 
       selectedDate: new Date(),
@@ -260,13 +215,13 @@ export default {
                 "password": "M",
                 "sns1": "인스타그램",
                 "sns2": "페이스북",
-                "taste1": 1,
-                "taste2": 1,
-                "taste3": 1,
-                "taste4": 1,
-                "taste5": 1,
-                "taste6": 1,
-                "taste7": 1,
+                // "taste1": 1,
+                // "taste2": 1,
+                // "taste3": 1,
+                // "taste4": 1,
+                // "taste5": 1,
+                // "taste6": 1,
+                // "taste7": 1,
                 "about":"about~~" 
             }).then(userdata => {
                 console.log("data : ", userdata.data);
@@ -344,5 +299,5 @@ export default {
 </script>
 
 <style lang="css">
-    @import url("../../assets/bootstrap/bootstrap.css");
+    @import url("../../../assets/bootstrap/bootstrap.css");
 </style>

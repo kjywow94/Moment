@@ -3,7 +3,7 @@ import Router from "vue-router";
 import Index from "./views/Index.vue";
 import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
-import Signup from "./views/pages/signup.vue";
+import SignUp from "./views/pages/user/SignUp.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
 import AccompanyList from "./views/pages/accompany/AccompanyListPage.vue";
@@ -139,10 +139,10 @@ export default new Router({
       }
     },
     {
-      path: "/signup",
-      name: "signup",
+      path: "/signUp",
+      name: "signUp",
       beforeEnter : loginAuth,
-      components: { default: Signup, header: MainNavbar, footer: MainFooter },
+      components: { default: SignUp, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 }
       }

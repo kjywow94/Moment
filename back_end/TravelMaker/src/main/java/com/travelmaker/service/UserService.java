@@ -11,7 +11,9 @@ import java.util.Base64.Decoder;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +27,9 @@ public class UserService {
 	
 	@Autowired
 	private UserMapper userMapper;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 	
 	//회원 전체 조회
 	public List<User> selectAllUser(){
@@ -99,8 +104,6 @@ public class UserService {
 	public List<UserImage> selectUserImage(String email) {
 		List<UserImage> userImage = userMapper.selectUserImage(email);
 		
-		System.out.println("userImage : "+userImage);
-		
 		for(UserImage img : userImage) {
 
 			try {
@@ -117,7 +120,6 @@ public class UserService {
 				String encodeImg = "data:image/" + img.getImgName() + ";base64, "
 						+ Base64.getEncoder().encodeToString(byteArray);
 				
-				//System.out.println("encodeImg : "+encodeImg);
 				img.setImgData(encodeImg);
 				fis.close();
 				
@@ -126,5 +128,32 @@ public class UserService {
 			}
 		}
 		return userImage;
+	}
+	
+	@Value("${spring.mail.username}")
+	private String toEmail;
+	public void emailCertification(String email) {
+		
+		
+		try{  
+			  String memberMail = "capsulejay963@naver.com";
+			  EmailService mail = new EmailService(mailSender);
+			  mail.setFrom(toEmail, "0000000");
+			  mail.setTo(memberMail);
+			  mail.setSubject("페이지 회원가입 인증 메일");
+			  mail.setText(new StringBuffer().append("<h1>회원가입 인증메일입니다.</h1>")
+			    .append("<p>밑의 링크를 클릭하면 메일이 인증 됩니다.</p>")
+			    .append("<a href='http://localhost/member/auth? email="+memberMail)
+//			    .append("&authKey="+authKey+"' target='_blank'>메일 인증 링크</a>")
+			    .toString()
+			  );
+			  mail.send();
+//			  msg = "회원가입 성공.. 작성하신 이메일로 인증메일을 전송하였습니다.";
+//			  resultCode = "S-1";
+			}catch(Exception e) {
+			  e.printStackTrace();
+//			  msg = "회원가입 실패";
+//			  resultCode = "F-1";
+			}
 	}
 }

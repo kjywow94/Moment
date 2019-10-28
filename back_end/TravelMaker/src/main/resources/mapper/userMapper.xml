@@ -25,11 +25,9 @@
 	<!-- 회원가입 -->
 	<insert id="insertUser" parameterType="user">
 		INSERT INTO user(birthday, gender, nickname, user_name, phone
-                   , email, password, sns_1, sns_2, taste_1, taste_2
-                   , taste_3, taste_4, taste_5, taste_6, taste_7, about) 
+                   , email, password, sns_1, sns_2, about) 
 			   VALUES(#{birthday}, #{gender}, #{nickname}, #{userName}, #{phone}
-	                   , #{email}, #{password}, #{sns1}, #{sns2}, #{taste1}, #{taste2}
-	                   , #{taste3}, #{taste4}, #{taste5}, #{taste6}, #{taste7}, #{about});
+	                   , #{email}, #{password}, #{sns1}, #{sns2}, #{about});
 	</insert>
 	
 	<!-- 회원수정/회원삭제 -->

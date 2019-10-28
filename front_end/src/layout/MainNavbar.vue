@@ -58,7 +58,7 @@
                 <p>로그인</p>
               </md-list-item>
 
-               <md-list-item href="#/signup" v-if="!isLogined">
+               <md-list-item href="#/signUp" v-if="!isLogined">
                 <i class="material-icons">how_to_reg</i>
                 <p>회원가입</p>
               </md-list-item>

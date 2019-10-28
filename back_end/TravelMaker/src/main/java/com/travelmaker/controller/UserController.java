@@ -88,4 +88,11 @@ public class UserController {
 	public List<UserImage> uploadImage(@PathVariable String email) {
 		return userService.selectUserImage(email);
 	}
+	
+	//회원 가입 메일 인증
+	@RequestMapping(value = "/user/email", method = RequestMethod.GET)
+	@ApiOperation(value = "회원 가입 메일 인증")
+	public void emailCertification(@PathVariable String email) {
+		userService.emailCertification(email);
+	}
 }
