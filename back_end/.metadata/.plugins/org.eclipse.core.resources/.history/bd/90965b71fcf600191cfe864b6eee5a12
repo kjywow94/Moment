@@ -10,6 +10,7 @@ public class MessagingController {
 	@MessageMapping("/greetings")
 	@SendTo("/topic/greetings")
 	public String greeting(Chat message) throws Exception {
+		Thread.sleep(3000);
 		String nickname = message.getContext();
 		return nickname + "님이 들어왔습니다.";
 	}
