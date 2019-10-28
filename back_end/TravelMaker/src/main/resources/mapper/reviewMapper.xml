@@ -4,7 +4,7 @@
 <mapper namespace="com.travelmaker.dao.ReviewMapper">
 	<!-- 후기 목록 by 거리 -->
 	<select id="reviewListByLocation" parameterType="location"
-		resultType="review">
+		resultType="reviewWithDistance">
 		SELECT * , ( 6371 * acos( cos( radians( #{latitude} ) ) * cos(
 		radians( latitude ) ) * cos( radians( longitude ) - radians(
 		#{longitude} ) )+ sin( radians( #{latitude} ) ) * sin( radians(
@@ -30,12 +30,16 @@
 	</select>
 
 	<!-- 후기 등록 -->
-	<insert id="insertReview" parameterType="review">
+	<insert id="insertReview" parameterType="review" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
 		review(uid,
 		date, title, location, latitude, longitude, hash, hashtag)
 		VALUES(#{uid}, #{date}, #{title}, #{location}, #{latitude},
 		#{longitude}, #{hash}, #{hashtag});
 	</insert>
+
+	<update id="likeIt" parameterType="int">
+		UPDATE review set liked=liked+1 WHERE id = #{int}
+	</update>
 
 </mapper>

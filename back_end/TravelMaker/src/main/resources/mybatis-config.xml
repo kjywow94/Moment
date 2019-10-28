@@ -21,7 +21,10 @@
 		<typeAlias type="com.travelmaker.dto.Chat" alias="chatRoom" />
 		<typeAlias type="com.travelmaker.dto.AccompanyParti"
 			alias="accompanyParti" />
-		<typeAlias type="com.travelmaker.dto.UserImage" alias="userImage" />	
+		<typeAlias type="com.travelmaker.dto.ReviewWithDistance"
+			alias="reviewWithDistance" />
+		<typeAlias type="com.travelmaker.dto.UserImage"
+			alias="userImage" />
 		<typeAlias type="com.travelmaker.dto.Review" alias="review" />
 	</typeAliases>
 	<mappers>

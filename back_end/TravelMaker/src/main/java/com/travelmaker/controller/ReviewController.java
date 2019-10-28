@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.travelmaker.dto.Location;
 import com.travelmaker.dto.Review;
+import com.travelmaker.dto.ReviewImage;
+import com.travelmaker.dto.ReviewWithDistance;
+import com.travelmaker.service.ReviewImageService;
 import com.travelmaker.service.ReviewService;
 
 import io.swagger.annotations.ApiOperation;
@@ -24,9 +27,12 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 
+	@Autowired
+	private ReviewImageService reviewImageService;
+
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	@ApiOperation(value = "위도, 경도로 5km 이내의 리뷰 반환")
-	public List<Review> reviewListByLocation(@RequestBody Location location) throws Exception {
+	public List<ReviewWithDistance> reviewListByLocation(@RequestBody Location location) throws Exception {
 		return reviewService.reviewListByLocation(location);
 	}
 
@@ -48,10 +54,22 @@ public class ReviewController {
 		return reviewService.selectReviewByUid(uid);
 	}
 
-	@RequestMapping(value = "writeReview", method = RequestMethod.POST)
+	@RequestMapping(value = "/writeReview", method = RequestMethod.POST)
 	@ApiOperation(value = "리뷰 등록")
 	public int insertReview(@RequestBody Review review) throws Exception {
 		return reviewService.insertReview(review);
+	}
+
+	@RequestMapping(value = "/likeIt/{id}", method = RequestMethod.GET)
+	@ApiOperation(value = "좋아요")
+	public int likeIt(@PathVariable int id) throws Exception {
+		return reviewService.likeIt(id);
+	}
+
+	@RequestMapping(value = "/reviewImg", method = RequestMethod.POST)
+	@ApiOperation(value = "리뷰 이미지")
+	public boolean uploadImg(@RequestBody ReviewImage reviewImage) throws Exception {
+		return reviewImageService.uploadImage(reviewImage);
 	}
 
 }
