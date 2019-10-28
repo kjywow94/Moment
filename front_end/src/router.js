@@ -22,6 +22,8 @@ import Mywallet from "./views/pages/mypage/MyWallet.vue";
 import MyReview from "./views/pages/mypage/MyReviewpage.vue";
 import UserInfo from "./views/pages/mypage/UserInfo.vue";
 import MyPageNav from "./layout/MypageNavbar.vue";
+import PasswordFind from "./views/pages/login/Passwordfind.vue";
+import IdFind from "./views/pages/login/Idfind.vue";
 
 Vue.use(Router);
 
@@ -217,10 +219,25 @@ export default new Router({
       }
     },
     {
+<<<<<<< HEAD
       path: "/mypage/myreview",
       name: "myreview",
       beforeEnter : requireAuth,
       components: { default: MyReview, header: MainNavbar, footer: MainFooter},
+=======
+      path: "/find/passwordfind",
+      name: "passwordfind",
+      components: { default: PasswordFind, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/find/idfind",
+      name: "idfind",
+      components: { default: IdFind, header: MainNavbar, footer: MainFooter },
+>>>>>>> 2f84f793d7b2eec817378a9b142fb6635826bd09
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
