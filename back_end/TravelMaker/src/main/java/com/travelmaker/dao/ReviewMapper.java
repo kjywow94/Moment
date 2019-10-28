@@ -14,16 +14,16 @@ public interface ReviewMapper {
 	 * 위도와 경도로 가까운 리뷰 반환
 	 * 
 	 * @param Location 위도 경도
-	 * @return List<Review>
+	 * @return List<Review> 가까운 5km 이내 리뷰를 반환
 	 */
-	public List<Review> ReviewListByLocation(Location location);
+	public List<Review> reviewListByLocation(Location location);
 
 	/**
 	 * 리뷰 리스트
 	 * 
 	 * @return List<Review>
 	 */
-	public List<Review> ReviewList();
+	public List<Review> reviewList();
 
 	/**
 	 * id로 조회
@@ -31,7 +31,7 @@ public interface ReviewMapper {
 	 * @param id
 	 * @return Review
 	 */
-	public Review selectReviewByid(int id);
+	public Review selectReviewById(int id);
 
 	/**
 	 * uid로 조회
@@ -42,9 +42,9 @@ public interface ReviewMapper {
 	public List<Review> selectReviewByUid(int uid);
 
 	/**
-	 * 리뷰 입력
+	 * 리뷰 입력, 성공시 1, 실패시 0 반환
 	 * 
-	 * @param review
+	 * @param Review
 	 * @return int 1 / 0
 	 */
 	public int insertReview(Review review);

@@ -3,22 +3,22 @@
 
 <mapper namespace="com.travelmaker.dao.ReviewMapper">
 	<!-- 후기 목록 by 거리 -->
-	<select id="ReviewListByLocation" parameterType="location"
+	<select id="reviewListByLocation" parameterType="location"
 		resultType="review">
-		SELECT * , ( 6371 * acos( cos( radians( #{latitude} ) ) *
-		cos( radians( latitude ) ) * cos( radians( longitude ) - radians(
+		SELECT * , ( 6371 * acos( cos( radians( #{latitude} ) ) * cos(
+		radians( latitude ) ) * cos( radians( longitude ) - radians(
 		#{longitude} ) )+ sin( radians( #{latitude} ) ) * sin( radians(
-		latitude ) ) ) ) AS distance FROM review HAVING distance < #{distance}
-		ORDER BY distance DESC;
+		latitude ) ) ) ) AS distance FROM review HAVING distance <![CDATA[ < ]]>
+		#{distance} ORDER BY distance DESC;
 	</select>
 
 	<!-- 전체 후기목록 -->
-	<select id="ReviewList" resultType="review">
+	<select id="reviewList" resultType="review">
 		SELECT * FROM review;
 	</select>
 
 	<!-- 후기 하나 선택 -->
-	<select id="selectReviewByid" resultType="review"
+	<select id="selectReviewById" resultType="review"
 		parameterType="int">
 		SELECT * FROM review where id = #{id};
 	</select>
@@ -33,9 +33,9 @@
 	<insert id="insertReview" parameterType="review">
 		INSERT INTO
 		review(uid,
-		date, title, location, latitude, longitude, hash, hashtag, distance)
+		date, title, location, latitude, longitude, hash, hashtag)
 		VALUES(#{uid}, #{date}, #{title}, #{location}, #{latitude},
-		#{longitude}, #{hash}, #{hashtag}, #{distance});
+		#{longitude}, #{hash}, #{hashtag});
 	</insert>
 
 </mapper>

@@ -7,27 +7,41 @@ public class Review {
 	private int id;
 	private int uid;
 	private LocalDateTime date;
-	private String titie;
+	private String title;
 	private String location;
 	private double latitude;
 	private double longitude;
 	private String hash;
 	private String hashtag;
-	private String distance;
+	private double distance;
 
-	public Review(int id, int uid, LocalDateTime date, String titie, String location, double latitude, double longitude,
-			String hash, String hashtag, String distance) {
+	public Review(int id, int uid, LocalDateTime date, String title, String location, double latitude, double longitude,
+			String hash, String hashtag, double distance) {
 		super();
 		this.id = id;
 		this.uid = uid;
 		this.date = date;
-		this.titie = titie;
+		this.title = title;
 		this.location = location;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.hash = hash;
 		this.hashtag = hashtag;
 		this.distance = distance;
+	}
+
+	public Review(int id, int uid, LocalDateTime date, String title, String location, double latitude, double longitude,
+			String hash, String hashtag) {
+		super();
+		this.id = id;
+		this.uid = uid;
+		this.date = date;
+		this.title = title;
+		this.location = location;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.hash = hash;
+		this.hashtag = hashtag;
 	}
 
 	public int getId() {
@@ -54,12 +68,12 @@ public class Review {
 		this.date = date;
 	}
 
-	public String getTitie() {
-		return titie;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitie(String titie) {
-		this.titie = titie;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getLocation() {
@@ -102,18 +116,19 @@ public class Review {
 		this.hashtag = hashtag;
 	}
 
-	public String getDistance() {
+	public double getDistance() {
 		return distance;
 	}
 
-	public void setDistance(String distance) {
+	public void setDistance(double distance) {
 		this.distance = distance;
 	}
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", uid=" + uid + ", date=" + date + ", titie=" + titie + ", location=" + location
+		return "Review [id=" + id + ", uid=" + uid + ", date=" + date + ", title=" + title + ", location=" + location
 				+ ", latitude=" + latitude + ", longitude=" + longitude + ", hash=" + hash + ", hashtag=" + hashtag
 				+ ", distance=" + distance + "]";
 	}
+
 }
