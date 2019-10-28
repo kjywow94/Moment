@@ -4,7 +4,6 @@ import Index from "./views/Index.vue";
 import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
 import Signup from "./views/pages/signup.vue";
-import Profile from "./views/Profile.vue";
 import MainNavbar from "./layout/MainNavbar.vue";
 import MainFooter from "./layout/MainFooter.vue";
 import AccompanyList from "./views/pages/accompany/AccompanyListPage.vue";
@@ -152,7 +151,7 @@ export default new Router({
       path: "/profile",
       name: "profile",
       beforeEnter : requireAuth,
-      components: { default: Profile, header: MainNavbar, footer: MainFooter },
+      components: { default: UserProfile, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -223,8 +222,7 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-    },
-    
+    }
   ],
   scrollBehavior: to => {
     if (to.hash) {
