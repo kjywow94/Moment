@@ -1,0 +1,5 @@
+package com.travelmaker.controller;
+
+public class MessagingController {
+
+}

@@ -3943,3 +3943,307 @@ org.eclipse.core.runtime.CoreException: Launch configuration TravelMakerApplicat
 2019-10-21 16:39:34,275 [Worker-159: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2019-10-21 16:39:34,276 [Worker-159: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-10-21 16:39:34,276 [Worker-159: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-21 17:20:39,466 [Worker-171: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:20:39,467 [Worker-171: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-21 17:20:39,471 [Worker-171: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-21 17:20:39,471 [Worker-171: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-21 17:20:39,474 [Worker-171: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:20:39,474 [Worker-171: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-21 17:20:51,330 [Worker-177: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:20:51,330 [Worker-177: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-21 17:20:51,331 [Worker-177: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:20:51,331 [Worker-177: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:20:51,332 [Worker-177: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:20:51,332 [Worker-177: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-21 17:20:52,397 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:20:52,397 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:20:52,397 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:20:52,397 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:20:52,398 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:20:52,398 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-21 17:21:00,123 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:21:00,123 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-21 17:21:00,124 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:21:00,124 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:21:00,125 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:21:00,125 [Worker-175: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-21 17:21:01,169 [Worker-176: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:21:01,169 [Worker-176: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:21:01,169 [Worker-176: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:21:01,169 [Worker-176: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:21:01,170 [Worker-176: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:21:01,170 [Worker-176: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-21 17:31:14,785 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:31:14,785 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:31:14,785 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:31:14,786 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:31:14,786 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:31:14,786 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-21 17:31:15,798 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:31:15,798 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:31:15,798 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:31:15,798 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:31:15,799 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:31:15,799 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-21 17:54:55,901 [Worker-185: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:54:55,901 [Worker-185: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-21 17:54:55,902 [Worker-185: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:54:55,903 [Worker-185: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-21 17:54:55,904 [Worker-185: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:54:55,904 [Worker-185: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-21 17:54:56,956 [Worker-188: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:54:56,956 [Worker-188: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:54:56,956 [Worker-188: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:54:56,956 [Worker-188: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-21 17:54:56,957 [Worker-188: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-21 17:54:56,957 [Worker-188: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-22 09:12:07,912 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2019-10-22 09:30:29,136 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 09:30:29,140 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-22 09:30:29,144 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-22 09:30:29,145 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-22 09:30:29,148 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 09:30:29,148 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 09:00:43,420 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-10-23 09:01:04,609 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 09:01:04,616 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-23 09:01:04,654 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 09:01:04,658 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-23 09:01:04,672 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 09:01:04,672 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 10:22:12,829 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:22:12,829 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 10:22:12,829 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-23 10:22:12,829 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 10:22:12,845 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:22:12,845 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 10:22:22,575 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:22:22,575 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 10:22:22,575 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-23 10:22:22,575 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 10:22:22,575 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:22:22,575 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 10:31:37,665 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:31:37,665 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-23 10:31:37,665 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 10:31:37,665 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-23 10:31:37,665 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:31:37,665 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 10:32:17,217 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:32:17,217 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-23 10:32:17,233 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 10:32:17,233 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-23 10:32:17,233 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:32:17,233 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 10:32:50,717 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:32:50,717 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-23 10:32:50,717 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 10:32:50,717 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-23 10:32:50,717 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:32:50,717 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 10:33:35,948 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:33:35,948 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-23 10:33:35,948 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 10:33:35,948 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-23 10:33:35,948 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 10:33:35,948 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 11:09:09,539 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 11:09:09,539 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-23 11:09:09,539 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 11:09:09,539 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-23 11:09:09,539 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 11:09:09,539 [Worker-50: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 11:33:32,265 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 11:33:32,265 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-23 11:33:32,265 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-23 11:33:32,265 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-23 11:33:32,265 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 11:33:32,265 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-23 13:46:16,718 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 13:46:16,720 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-23 13:46:16,721 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-23 13:46:16,722 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-23 13:46:16,724 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 13:46:16,724 [Worker-90: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:20:41,283 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2019-10-24 11:20:46,606 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:20:46,609 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:20:46,633 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:20:46,635 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:20:46,643 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:20:46,643 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:38:14,874 [Worker-19: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.travelmaker:TravelMaker:0.0.1-SNAPSHOT @ C:\Workspace\TravelMaker\back_end\TravelMaker\pom.xml.
+2019-10-24 11:38:16,057 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/2.1.9.RELEASE/spring-boot-starter-websocket-2.1.9.RELEASE.pom
+2019-10-24 11:38:16,213 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/2.1.9.RELEASE/spring-boot-starter-websocket-2.1.9.RELEASE.pom
+2019-10-24 11:38:16,372 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/5.1.10.RELEASE/spring-messaging-5.1.10.RELEASE.pom
+2019-10-24 11:38:16,527 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/5.1.10.RELEASE/spring-messaging-5.1.10.RELEASE.pom
+2019-10-24 11:38:16,681 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/5.1.10.RELEASE/spring-websocket-5.1.10.RELEASE.pom
+2019-10-24 11:38:16,835 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/5.1.10.RELEASE/spring-websocket-5.1.10.RELEASE.pom
+2019-10-24 11:38:16,988 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/webjars/webjars-locator-core/0.35/webjars-locator-core-0.35.pom
+2019-10-24 11:38:17,145 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/webjars-locator-core/0.35/webjars-locator-core-0.35.pom
+2019-10-24 11:38:17,297 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.pom
+2019-10-24 11:38:17,607 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.pom
+2019-10-24 11:38:17,763 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.pom
+2019-10-24 11:38:17,918 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.pom
+2019-10-24 11:38:18,081 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/webjars/sockjs-client/1.0.2/sockjs-client-1.0.2.pom
+2019-10-24 11:38:18,240 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/sockjs-client/1.0.2/sockjs-client-1.0.2.pom
+2019-10-24 11:38:18,393 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/webjars/stomp-websocket/2.3.3/stomp-websocket-2.3.3.pom
+2019-10-24 11:38:18,548 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/stomp-websocket/2.3.3/stomp-websocket-2.3.3.pom
+2019-10-24 11:38:18,740 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/2.1.9.RELEASE/spring-boot-starter-websocket-2.1.9.RELEASE.jar
+2019-10-24 11:38:18,893 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/2.1.9.RELEASE/spring-boot-starter-websocket-2.1.9.RELEASE.jar
+2019-10-24 11:38:19,042 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/5.1.10.RELEASE/spring-messaging-5.1.10.RELEASE.jar
+2019-10-24 11:38:19,695 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/5.1.10.RELEASE/spring-messaging-5.1.10.RELEASE.jar
+2019-10-24 11:38:19,974 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/5.1.10.RELEASE/spring-websocket-5.1.10.RELEASE.jar
+2019-10-24 11:38:20,302 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/5.1.10.RELEASE/spring-websocket-5.1.10.RELEASE.jar
+2019-10-24 11:38:20,454 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/webjars/webjars-locator-core/0.35/webjars-locator-core-0.35.jar
+2019-10-24 11:38:20,614 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/webjars-locator-core/0.35/webjars-locator-core-0.35.jar
+2019-10-24 11:38:20,767 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+2019-10-24 11:38:21,002 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+2019-10-24 11:38:21,155 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.jar
+2019-10-24 11:38:21,348 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.jar
+2019-10-24 11:38:21,499 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/webjars/sockjs-client/1.0.2/sockjs-client-1.0.2.jar
+2019-10-24 11:38:21,663 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/sockjs-client/1.0.2/sockjs-client-1.0.2.jar
+2019-10-24 11:38:21,813 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/webjars/stomp-websocket/2.3.3/stomp-websocket-2.3.3.jar
+2019-10-24 11:38:21,969 [Worker-19: Building workspace] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/stomp-websocket/2.3.3/stomp-websocket-2.3.3.jar
+2019-10-24 11:38:22,460 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:38:22,463 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-24 11:38:22,463 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-24 11:38:22,463 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-24 11:38:22,465 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:38:22,465 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:38:24,016 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/2.1.9.RELEASE/spring-boot-starter-websocket-2.1.9.RELEASE-sources.jar
+2019-10-24 11:38:24,173 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/2.1.9.RELEASE/spring-boot-starter-websocket-2.1.9.RELEASE-sources.jar
+2019-10-24 11:38:24,219 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework.boot:spring-boot-starter-websocket:2.1.9.RELEASE
+2019-10-24 11:38:24,908 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/5.1.10.RELEASE/spring-messaging-5.1.10.RELEASE-sources.jar
+2019-10-24 11:38:25,119 [Worker-19: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.travelmaker:TravelMaker:0.0.1-SNAPSHOT @ C:\Workspace\TravelMaker\back_end\TravelMaker\pom.xml.
+2019-10-24 11:38:25,743 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/5.1.10.RELEASE/spring-messaging-5.1.10.RELEASE-sources.jar
+2019-10-24 11:38:25,772 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-messaging:5.1.10.RELEASE
+2019-10-24 11:38:25,888 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:38:25,894 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:38:25,911 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:38:25,913 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:38:25,924 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:38:25,924 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:38:26,963 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/5.1.10.RELEASE/spring-websocket-5.1.10.RELEASE-sources.jar
+2019-10-24 11:38:27,785 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/5.1.10.RELEASE/spring-websocket-5.1.10.RELEASE-sources.jar
+2019-10-24 11:38:27,857 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-websocket:5.1.10.RELEASE
+2019-10-24 11:38:28,512 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/webjars/webjars-locator-core/0.35/webjars-locator-core-0.35-sources.jar
+2019-10-24 11:38:28,812 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/webjars-locator-core/0.35/webjars-locator-core-0.35-sources.jar
+2019-10-24 11:38:28,860 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.webjars:webjars-locator-core:0.35
+2019-10-24 11:38:29,529 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1-sources.jar
+2019-10-24 11:38:30,615 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1-sources.jar
+2019-10-24 11:38:30,643 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.commons:commons-lang3:3.8.1
+2019-10-24 11:38:31,299 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9-sources.jar
+2019-10-24 11:38:32,220 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9-sources.jar
+2019-10-24 11:38:32,243 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.commons:commons-compress:1.9
+2019-10-24 11:38:32,905 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/sockjs-client/1.0.2/sockjs-client-1.0.2-sources.jar
+2019-10-24 11:38:32,910 [Worker-20: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for org.webjars:sockjs-client:1.0.2
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:sockjs-client:jar:sources:1.0.2
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:801) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:769) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:746) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:328) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:302) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:267) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:231) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:159) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:159) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.10.400.v20190506-1457.jar:na]
+2019-10-24 11:38:33,568 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/stomp-websocket/2.3.3/stomp-websocket-2.3.3-sources.jar
+2019-10-24 11:38:33,569 [Worker-20: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for org.webjars:stomp-websocket:2.3.3
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:stomp-websocket:jar:sources:2.3.3
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:801) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:769) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:746) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:328) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:302) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:267) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:231) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:159) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374) ~[org.eclipse.m2e.core_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:159) [org.eclipse.m2e.jdt_1.12.0.20190529-1916.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.10.400.v20190506-1457.jar:na]
+2019-10-24 11:38:33,572 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-messaging:5.1.10.RELEASE
+2019-10-24 11:38:33,574 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-websocket:5.1.10.RELEASE
+2019-10-24 11:38:33,576 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.webjars:webjars-locator-core:0.35
+2019-10-24 11:38:33,579 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.commons:commons-lang3:3.8.1
+2019-10-24 11:38:33,581 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.commons:commons-compress:1.9
+2019-10-24 11:38:34,233 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/webjars/sockjs-client/1.0.2/sockjs-client-1.0.2-javadoc.jar
+2019-10-24 11:38:34,845 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/sockjs-client/1.0.2/sockjs-client-1.0.2-javadoc.jar
+2019-10-24 11:38:34,870 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded javadoc for org.webjars:sockjs-client:1.0.2
+2019-10-24 11:38:35,536 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/webjars/stomp-websocket/2.3.3/stomp-websocket-2.3.3-javadoc.jar
+2019-10-24 11:38:35,689 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/webjars/stomp-websocket/2.3.3/stomp-websocket-2.3.3-javadoc.jar
+2019-10-24 11:38:35,721 [Worker-20: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded javadoc for org.webjars:stomp-websocket:2.3.3
+2019-10-24 11:38:35,969 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:38:35,969 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-24 11:38:35,969 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-24 11:38:35,969 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-24 11:38:35,970 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:38:35,970 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:40:26,578 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:40:26,579 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-24 11:40:26,579 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-24 11:40:26,579 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-24 11:40:26,580 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:40:26,581 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:41:28,194 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:41:28,195 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:41:28,197 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:41:28,198 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:41:28,201 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:41:28,201 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:43:00,807 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:43:00,808 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:43:00,810 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:43:00,810 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:43:00,813 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:43:00,813 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:43:43,717 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:43:43,718 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:43:43,719 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:43:43,720 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:43:43,722 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:43:43,722 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:45:20,232 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:45:20,233 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:45:20,234 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:45:20,234 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:45:20,236 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:45:20,236 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:45:27,627 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:45:27,628 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:45:27,629 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:45:27,630 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:45:27,633 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:45:27,633 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:46:03,246 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:46:03,247 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:46:03,248 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:46:03,249 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:46:03,251 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:46:03,251 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:46:21,518 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:46:21,519 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:46:21,521 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:46:21,521 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:46:21,523 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:46:21,524 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-24 11:48:18,116 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:48:18,117 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2019-10-24 11:48:18,118 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-24 11:48:18,119 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2019-10-24 11:48:18,121 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-24 11:48:18,121 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources

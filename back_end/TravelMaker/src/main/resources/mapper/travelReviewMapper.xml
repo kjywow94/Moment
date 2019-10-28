@@ -8,12 +8,16 @@
 	
 	<select id="selectAllNotRemovedReview" resultType="travelReview">
 		SELECT * FROM
-		travel_review where is_remove = N;
+		travel_review where is_remove = 'N';
 	</select>
 	
 	<select id="selectAllReviewByTid" resultType="travelReview"
 		parameterType="Integer">
 		SELECT * FROM travel_review WHERE tid = #{tid};
+	</select>
+	<select id="selectReview" resultType="travelReview"
+		parameterType="Integer">
+		SELECT * FROM travel_review WHERE id = #{id};
 	</select>
 	<update id="updateReview" parameterType="travelReview">
 		update travel_review set

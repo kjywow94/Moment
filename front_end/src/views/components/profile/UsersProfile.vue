@@ -44,7 +44,6 @@
            <div v-for="item in userImg">
             <img :src="item.imgData">
            </div>-->
-
         </div>
       </template>
 
@@ -56,10 +55,15 @@
 <script>
 import { Tabs } from "@/components";
 import UserProfileService from '@/services/UserProfileService.js';
+import { Modal } from "@/components";
+import StarRating from 'vue-star-rating';
+
 
 export default {
   components: {
-    Tabs
+    Tabs,
+    Modal,
+    StarRating
   },
   bodyClass: "profile-page",
   data() {
@@ -107,6 +111,19 @@ export default {
     getDate: function(dates) {
       let date = new Date(dates);
       return date.getUTCFullYear() + "." + (date.getMonth()) + "." + date.getDate();
+    },
+    ModalAccompanyReviewHide() {
+      this.ModalAccompanyReview = false;
+      this.review = null;
+    },
+    setRating: function(rating) {
+      this.rating = "You have Selected: " + rating + " stars";
+    },
+    showCurrentRating: function(rating) {
+      this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " stars"
+    },
+    setCurrentSelectedRating: function(rating) {
+      this.currentSelectedRating = "You have Selected: " + rating + " stars";
     }
     // ,
     // uploadImg(){

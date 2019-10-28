@@ -1,2 +1,8 @@
 1571642383923	Delete elements
 1571642457845	Copy compilation unit
+1571894129600	Rename method 'getID'
+1571894135187	Rename method 'setID'
+1571894141152	Rename method 'getUID'
+1571894144661	Rename method 'setUID'
+1571894161302	Rename method 'getIs_remove'
+1571894165610	Rename method 'setIs_remove'
