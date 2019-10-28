@@ -194,7 +194,7 @@ export default {
       this.$store.commit("logout")
       
       sessionStorage.clear();
-      console.log(sessionStorage)
+      localStorage.clear();
       alert("정상적으로 로그아웃 되었습니다.");
       this.$router.push("/login");
       location.reload();

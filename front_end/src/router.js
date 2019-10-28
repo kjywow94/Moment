@@ -24,6 +24,7 @@ import UserInfo from "./views/pages/mypage/UserInfo.vue";
 import MyPageNav from "./layout/MypageNavbar.vue";
 import PasswordFind from "./views/pages/login/Passwordfind.vue";
 import IdFind from "./views/pages/login/Idfind.vue";
+import Kakaomap from "./views/kakaomap/Kakaomap.vue";
 
 Vue.use(Router);
 
@@ -219,12 +220,6 @@ export default new Router({
       }
     },
     {
-<<<<<<< HEAD
-      path: "/mypage/myreview",
-      name: "myreview",
-      beforeEnter : requireAuth,
-      components: { default: MyReview, header: MainNavbar, footer: MainFooter},
-=======
       path: "/find/passwordfind",
       name: "passwordfind",
       components: { default: PasswordFind, header: MainNavbar, footer: MainFooter },
@@ -237,7 +232,15 @@ export default new Router({
       path: "/find/idfind",
       name: "idfind",
       components: { default: IdFind, header: MainNavbar, footer: MainFooter },
->>>>>>> 2f84f793d7b2eec817378a9b142fb6635826bd09
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/map/kakaomap",
+      name: "kakaomap",
+      components: { default: Kakaomap, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }

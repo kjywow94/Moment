@@ -29,13 +29,13 @@ export default {
         temp.password = password;
         return apiServer.put("/api/user", temp);
     },
-    findid(user_name, phone){
+    findid(userName, phone){
         var body = {
-            user_name : user_name,
+            userName : userName,
             phone : phone
         }
 
-        return apiServer.post("/api/user", body)
+        return apiServer.post("/api/user/findId", body)
     },
     findpassword(email, phone){
         var body = {
@@ -43,7 +43,7 @@ export default {
             phone : phone
         }
 
-        return apiServer.post("/api/user", body)
+        return apiServer.post("/api/user/findPass", body)
     }
 }
 
