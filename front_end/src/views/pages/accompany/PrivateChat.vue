@@ -11,7 +11,13 @@
                 </md-field>
                         <button @click="send">전송</button>
             </div>
-            <div v-for="c in chat">{{c}}</div>
+            <div v-for="c in chat">
+              <div :class="c['uid'] == uid ? 'right' : 'left'">
+                {{c['context']}}
+                  <br><span>{{c['timestamp']}}</span>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -52,7 +58,8 @@ export default {
         stompClient: null,
         msg:"",
         chat:[],
-        id: this.$route.params.id
+        id: this.$route.params.id,
+        uid: this.$store.state.user.id
     };
   },
   computed: {
@@ -75,9 +82,9 @@ export default {
     // SockJS와 stomp client를 통해 연결을 시도.
     let scope = this;
     await this.stompClient.connect({}, function (frame) {
-      scope.stompClient.subscribe('/topic/chat/' + scope.id, function (chat) {
+      scope.stompClient.subscribe('/topic/privateChat/' + scope.id, function (chat) {
         let msg = JSON.parse(chat.body);
-        scope.chat.push(msg['context']);
+        scope.chat.push(msg);
       });
   });
 
@@ -87,12 +94,22 @@ export default {
         return;
       }
         let chat = {
-            'UID' : 0,'timestamp':new Date(), 'context': this.$store.state.user.nickname + " : " + this.msg, 'roomNumber':this.id,
+          'uid' : this.uid ,'timestamp':new Date(), 'context': this.$store.state.user.nickname + " : " + this.msg, 'roomNumber':this.id,
             'isRemoved' : 'N'}
-        this.stompClient.send("/app/chat", {}, JSON.stringify(chat));
+        this.stompClient.send("/app/privateChat", {}, JSON.stringify(chat));
         this.msg = "";
     }
   }
 };
 </script>
 
+<style>
+
+.right{
+  text-align: right;
+}
+.left{
+  text-align: left;
+}
+
+</style>

@@ -1,6 +1,5 @@
 package com.travelmaker.controller;
 
-import org.apache.logging.log4j.message.SimpleMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -16,19 +15,17 @@ import com.travelmaker.dto.Chat;
 public class MessagingController {
 	@Autowired
 	private SimpMessageSendingOperations messagingTemplate;
+	
 	@MessageMapping("/greetings")
 	@SendTo("/topic/greetings")
 	public void greeting(Chat chat) throws Exception {
-		chat.setContext(chat.getContext() + "님이 입장하셨습니다.");
-		messagingTemplate.convertAndSend("/topic/greetings/" + chat.getRoomNumber(), chat);
+		messagingTemplate.convertAndSend("/topic/greetings/" + chat.getRoomNumber(), chat.getContext() + "님이 입장하셨습니다.");
 	}
 	
 	@MessageMapping("/goodbye")
 	@SendTo("/topic/goodbye")
 	public void goodbye(Chat chat) throws Exception {
-		chat.setContext(chat.getContext() + "님이 퇴장하셨습니다.");
-		messagingTemplate.convertAndSend("/topic/goodbye/" + chat.getRoomNumber(), chat);
-		
+		messagingTemplate.convertAndSend("/topic/goodbye/" + chat.getRoomNumber(), chat.getContext() + "님이 퇴장하셨습니다.");
 	}
 	
 	@MessageMapping("/chat")
@@ -40,7 +37,6 @@ public class MessagingController {
 	@MessageMapping("/privateChat")
 	@SendTo("/topic/privateChat")
 	public void privateChat(Chat chat) throws Exception {
-		System.out.println(chat);
 		messagingTemplate.convertAndSend("/topic/privateChat/" + chat.getRoomNumber(), chat);
 	}
 }

@@ -126,6 +126,7 @@ import AccompanyService from "@/services/AccompanyService.js";
 import LocationService from "@/services/LocationService.js";
 import TimeConvertService from "@/services/TimeConvertService.js";
 import SmartContractService from "@/services/SmartContractService.js";
+import EthereumService from "@/services/EthereumService.js";
 import { Tabs } from "@/components";
 import { async } from "q";
 

@@ -11,7 +11,14 @@
                 </md-field>
                         <button @click="send">전송</button>
             </div>
-            <div v-for="c in chat">{{c}}</div>
+            <div v-for="c in chat">
+              <div :class="c['uid'] == uid ? 'right' : 'left'">
+                {{c['context']}}
+                  <br><span>{{c['timestamp']}}</span>
+              </div>
+
+
+            </div>
           </div>
         </div>
       </div>
@@ -52,7 +59,8 @@ export default {
         stompClient: null,
         msg:"",
         chat:[],
-        id: this.$route.params.id
+        id: this.$route.params.id,
+        uid: this.$store.state.user.id
     };
   },
   computed: {
@@ -79,18 +87,18 @@ export default {
     let scope = this;
     await this.stompClient.connect({}, function (frame) {
       scope.stompClient.subscribe('/topic/greetings/' + scope.id , function (chat) {
-        let msg = chat.body
+        let msg = JSON.parse(chat.body);
         scope.chat.push(msg);
     });
       scope.stompClient.subscribe('/topic/chat/' + scope.id, function (chat) {
         let msg = JSON.parse(chat.body);
-        scope.chat.push(msg['context']);
-      });
-      scope.stompClient.subscribe('/topic/goodbye/' + scope.id, function (chat) {
-        let msg = chat.body
         scope.chat.push(msg);
       });
-        let visit = {'UID' : 0, 'timestamp':new Date(), 'context': scope.$store.state.user.nickname, 'roomNumber':scope.id,
+      scope.stompClient.subscribe('/topic/goodbye/' + scope.id, function (chat) {
+        let msg = JSON.parse(chat.body);
+        scope.chat.push(msg);
+      });
+        let visit = {'uid' : scope.uid, 'timestamp':new Date(), 'context': scope.$store.state.user.nickname, 'roomNumber':scope.id,
         };
         scope.stompClient.send("/app/greetings", {}, JSON.stringify(visit));
   });
@@ -101,16 +109,26 @@ export default {
         return;
       }
         let chat = {
-            'UID' : 0,'timestamp':new Date(), 'context': this.$store.state.user.nickname + " : " + this.msg, 'roomNumber':this.id,
+            'uid' : this.uid,'timestamp':new Date(), 'context': this.$store.state.user.nickname + " : " + this.msg, 'roomNumber':this.id,
             'isRemoved' : 'N'}
         this.stompClient.send("/app/chat", {}, JSON.stringify(chat));
         this.msg = "";
     },
     async exit(){
-      let exit = {'UID' : 0, 'timestamp':new Date(), 'context': this.$store.state.user.nickname, 'roomNumber':this.id};
+      let exit = {'uid' : this.uid, 'timestamp':new Date(), 'context': this.$store.state.user.nickname, 'roomNumber':this.id};
       await this.stompClient.send("/app/goodbye", {}, JSON.stringify(exit));
     }
   }
 };
 </script>
 
+<style>
+
+.right{
+  text-align: right;
+}
+.left{
+  text-align: left;
+}
+
+</style>

@@ -4455,3 +4455,370 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:s
 2019-10-25 17:59:10,311 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
 2019-10-25 17:59:10,313 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-10-25 17:59:10,313 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 09:10:46,817 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2019-10-28 09:26:12,030 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 09:26:12,035 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 09:26:12,044 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 09:26:12,045 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 09:26:12,049 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 09:26:12,049 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:39:43,221 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:39:43,228 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:39:43,232 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:39:43,233 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:39:43,234 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:39:43,234 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:45:03,405 [Worker-54: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:45:03,407 [Worker-54: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:45:03,409 [Worker-54: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:45:03,410 [Worker-54: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:45:03,414 [Worker-54: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:45:03,414 [Worker-54: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:45:10,131 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:45:10,133 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:45:10,136 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:45:10,138 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:45:10,143 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:45:10,143 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:47:04,529 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:47:04,530 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:47:04,533 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:47:04,533 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:47:04,537 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:47:04,537 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:50:22,725 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:50:22,727 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:50:22,729 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:50:22,730 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:50:22,733 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:50:22,734 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:51:40,829 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:51:40,831 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:51:40,834 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:51:40,834 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:51:40,837 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:51:40,837 [Worker-55: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:53:11,087 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:53:11,089 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:53:11,089 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:53:11,089 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:53:11,113 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:53:11,113 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:53:52,715 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:53:52,716 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:53:52,719 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:53:52,720 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:53:52,722 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:53:52,722 [Worker-56: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:59:18,975 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:59:18,976 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:59:18,979 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:59:18,980 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:59:18,980 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:59:18,980 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 11:59:50,384 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:59:50,385 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 11:59:50,387 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 11:59:50,388 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 11:59:50,391 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 11:59:50,391 [Worker-57: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 12:01:51,784 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:01:51,787 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 12:01:51,789 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 12:01:51,790 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 12:01:51,793 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:01:51,793 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 12:02:52,613 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:02:52,614 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 12:02:52,617 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 12:02:52,618 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 12:02:52,621 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:02:52,621 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 12:02:54,272 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:02:54,273 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 12:02:54,275 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 12:02:54,276 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 12:02:54,279 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:02:54,279 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 12:06:52,815 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:06:52,816 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 12:06:52,818 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 12:06:52,818 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 12:06:52,823 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:06:52,823 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 12:06:56,974 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:06:56,975 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 12:06:56,977 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 12:06:56,978 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 12:06:56,980 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:06:56,980 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 12:09:17,457 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:09:17,462 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 12:09:17,466 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 12:09:17,467 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 12:09:17,472 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:09:17,472 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 12:11:33,989 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:11:33,990 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 12:11:33,990 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 12:11:33,990 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 12:11:33,994 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:11:33,994 [Worker-62: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 12:11:35,344 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:11:35,345 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 12:11:35,347 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 12:11:35,348 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 12:11:35,350 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 12:11:35,350 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:24:01,060 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:24:01,061 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:24:01,063 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:24:01,063 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:24:01,065 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:24:01,065 [Worker-59: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:30:34,284 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:30:34,285 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:30:34,287 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:30:34,287 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:30:34,289 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:30:34,289 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:32:40,622 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:32:40,624 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:32:40,625 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:32:40,626 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:32:40,628 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:32:40,628 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:33:24,226 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:33:24,227 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:33:24,228 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:33:24,228 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:33:24,230 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:33:24,230 [Worker-51: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:36:20,595 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:36:20,596 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:36:20,598 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:36:20,598 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:36:20,601 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:36:20,601 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:36:26,631 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:36:26,632 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:36:26,633 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:36:26,634 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:36:26,636 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:36:26,636 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:45:08,813 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:45:08,814 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:45:08,816 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:45:08,816 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:45:08,817 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:45:08,818 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:45:58,167 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:45:58,168 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:45:58,169 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:45:58,170 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:45:58,171 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:45:58,171 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:50:29,655 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:50:29,656 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:50:29,657 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:50:29,657 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:50:29,659 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:50:29,659 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:51:26,926 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:51:26,927 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:51:26,929 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:51:26,929 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:51:26,930 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:51:26,930 [Worker-60: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:51:51,967 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:51:51,968 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:51:51,969 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:51:51,970 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:51:51,972 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:51:51,972 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:53:32,138 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:53:32,139 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:53:32,141 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:53:32,142 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:53:32,144 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:53:32,144 [Worker-67: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:54:11,666 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:54:11,667 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:54:11,669 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:54:11,669 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:54:11,671 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:54:11,671 [Worker-63: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:55:39,505 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:55:39,505 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:55:39,507 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:55:39,507 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:55:39,509 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:55:39,509 [Worker-66: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 13:56:22,111 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:56:22,112 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 13:56:22,114 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 13:56:22,114 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 13:56:22,116 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 13:56:22,116 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:09:12,364 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:09:12,365 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:09:12,366 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:09:12,367 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:09:12,368 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:09:12,368 [Worker-69: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:09:40,967 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:09:40,967 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:09:40,969 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:09:40,969 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:09:40,970 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:09:40,970 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:10:51,658 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:10:51,659 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:10:51,660 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:10:51,660 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:10:51,662 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:10:51,662 [Worker-65: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:14:35,124 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:14:35,124 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:14:35,126 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:14:35,126 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:14:35,127 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:14:35,128 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:16:54,529 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:16:54,530 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:16:54,532 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:16:54,532 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:16:54,534 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:16:54,534 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:17:51,919 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:17:51,920 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:17:51,922 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:17:51,922 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:17:51,924 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:17:51,924 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:17:56,931 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:17:56,931 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:17:56,932 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:17:56,933 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:17:56,934 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:17:56,934 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:18:23,871 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:18:23,872 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:18:23,873 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:18:23,874 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:18:23,875 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:18:23,875 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:18:29,484 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:18:29,484 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:18:29,486 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:18:29,486 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:18:29,488 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:18:29,488 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:19:42,925 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:19:42,926 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:19:42,927 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:19:42,927 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:19:42,929 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:19:42,929 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:24:18,713 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:24:18,714 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:24:18,715 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:24:18,715 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:24:18,717 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:24:18,717 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:25:14,019 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:25:14,020 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:25:14,022 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:25:14,023 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:25:14,025 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:25:14,025 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:28:02,964 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:28:02,965 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:28:02,967 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:28:02,967 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:28:02,969 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:28:02,969 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:28:34,399 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:28:34,400 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:28:34,401 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:28:34,402 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:28:34,403 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:28:34,404 [Worker-78: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:29:32,532 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:29:32,533 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:29:32,536 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:29:32,536 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:29:32,538 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:29:32,538 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:30:46,804 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:30:46,805 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:30:46,806 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:30:46,807 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:30:46,808 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:30:46,808 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:30:49,158 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:30:49,159 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:30:49,160 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:30:49,161 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:30:49,162 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:30:49,162 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:31:00,692 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:31:00,693 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:31:00,694 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:31:00,694 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:31:00,696 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:31:00,696 [Worker-76: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:31:19,380 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:31:19,381 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:31:19,382 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:31:19,383 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:31:19,384 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:31:19,384 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:36:26,345 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:36:26,346 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:36:26,347 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:36:26,347 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:36:26,349 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:36:26,349 [Worker-77: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:36:46,686 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:36:46,687 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:36:46,688 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:36:46,688 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:36:46,690 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:36:46,690 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:36:49,791 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:36:49,792 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:36:49,793 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:36:49,793 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:36:49,795 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:36:49,795 [Worker-73: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:40:47,864 [Worker-79: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:40:47,864 [Worker-79: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:40:47,865 [Worker-79: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:40:47,866 [Worker-79: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:40:47,867 [Worker-79: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:40:47,867 [Worker-79: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 14:46:07,912 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:46:07,913 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 14:46:07,914 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 14:46:07,914 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 14:46:07,916 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 14:46:07,916 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 15:19:00,107 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 15:19:00,109 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 15:19:00,110 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 15:19:00,111 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 15:19:00,112 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 15:19:00,112 [Worker-47: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 15:19:05,337 [Worker-82: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 15:19:05,338 [Worker-82: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 15:19:05,339 [Worker-82: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 15:19:05,339 [Worker-82: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 15:19:05,340 [Worker-82: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 15:19:05,340 [Worker-82: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources
+2019-10-28 15:24:25,114 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 15:24:25,115 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 10 resources
+2019-10-28 15:24:25,116 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-28 15:24:25,116 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2019-10-28 15:24:25,118 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-28 15:24:25,118 [Worker-86: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Workspace\TravelMaker\back_end\TravelMaker\src\test\resources

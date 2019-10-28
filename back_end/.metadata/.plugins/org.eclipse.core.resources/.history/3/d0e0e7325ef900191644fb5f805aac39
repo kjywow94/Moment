@@ -1,6 +1,5 @@
 package com.travelmaker.controller;
 
-import org.apache.logging.log4j.message.SimpleMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -16,6 +15,7 @@ import com.travelmaker.dto.Chat;
 public class MessagingController {
 	@Autowired
 	private SimpMessageSendingOperations messagingTemplate;
+	
 	@MessageMapping("/greetings")
 	@SendTo("/topic/greetings")
 	public void greeting(Chat chat) throws Exception {
@@ -28,7 +28,6 @@ public class MessagingController {
 	public void goodbye(Chat chat) throws Exception {
 		chat.setContext(chat.getContext() + "님이 퇴장하셨습니다.");
 		messagingTemplate.convertAndSend("/topic/goodbye/" + chat.getRoomNumber(), chat);
-		
 	}
 	
 	@MessageMapping("/chat")
