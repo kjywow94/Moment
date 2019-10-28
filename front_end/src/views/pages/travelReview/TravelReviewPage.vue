@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax class="section page-header header-filter" :style="headerStyle">
-    </parallax>
+    <parallax class="section page-header header-filter" :style="headerStyle"></parallax>
     <div class="main main-raised">
       <div class="section section-contacts">
         <div class="container">
@@ -13,38 +12,13 @@
                 md-title="What's your name?"
                 md-input-maxlength="30"
                 md-input-placeholder="Type your name..."
-                md-confirm-text="Done" />
+                md-confirm-text="Done"
+              />
 
               <md-button class="md-primary md-raised" @click="active = true">Prompt</md-button>
               <span v-if="value">Value: {{ value }}</span>
             </div>
-
-            <div>
-              <div class = "md-layout">
-                <div class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100" v-for="r in review" :key='r.id' >
-                  <router-link :to="{name:'travelReviewDetail', params: { id: r.id }}">
-                    <div class="md-card md-card-blog md-theme-default text-left list-inline"  >
-                      <span class="overlay">
-                        <div style="position: absolute;">
-                          <div class="alert alert-info">
-                            <div class="container">
-                              <b>{{r['tname']}} </b>
-                            </div>
-                          </div>
-                        </div>
-                        <img src="@/assets/img/default.jpg" class="img" />
-                      </span>
-                      <div class="md-card-content">
-                        <h6 class="card-category text-rose">
-                          {{r['title']}}
-                        </h6>
-                      </div>
-                    </div>
-                  </router-link>
-                </div>
-              </div>
-            </div>
-
+            <ReviewCard />
           </div>
         </div>
       </div>
@@ -55,12 +29,16 @@
 <script>
 import TravelReviewService from "@/services/TravelReviewService.js";
 import AccompanyService from "@/services/AccompanyService.js";
+import ReviewCard from "@/views/components/review/ReviewCard";
 import { Tabs } from "@/components";
+import { Modal } from "@/components";
+
 export default {
   components: {
     TravelReviewService,
     AccompanyService,
-    Tabs
+    Tabs,
+    ReviewCard
   },
   bodyClass: "landing-page",
   props: {
@@ -83,9 +61,10 @@ export default {
   },
   data() {
     return {
-      review:[{}],
+      review: [{}],
       active: false,
-      value: null
+      value: null,
+      isDetail: false
     };
   },
   computed: {
@@ -95,18 +74,18 @@ export default {
       };
     }
   },
-  mounted(){
+  mounted() {
     this.init();
-    
   },
-  methods : {
-    async init(){
-      let data  = await TravelReviewService.getReviews();
-      data = data['data'];
-      for(let i = 0 ; i < data.length ; i++){
-        
-        let temp = await AccompanyService.getAccompanyRegistById(data[i]['tid']);
-        data[i]['tname'] = temp['data']['title'];
+  methods: {
+    async init() {
+      let data = await TravelReviewService.getReviews();
+      data = data["data"];
+      for (let i = 0; i < data.length; i++) {
+        let temp = await AccompanyService.getAccompanyRegistById(
+          data[i]["tid"]
+        );
+        data[i]["tname"] = temp["data"]["title"];
       }
       this.review = data;
     }
@@ -139,5 +118,4 @@ export default {
     display: none;
   }
 }
-
 </style>
