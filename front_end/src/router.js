@@ -12,6 +12,7 @@ import AccompanyDetail from "./views/pages/accompany/AccompanyDetailPage.vue";
 import AccompanyRegist from "./views/pages/accompany/AccompanyRegistPage.vue";
 import AccompanyRevise from "./views/pages/accompany/AccompanyRevisePage.vue";
 import AccompanyChat from "./views/pages/accompany/AccompanyChatPage.vue";
+import PrivateChat from "./views/pages/accompany/PrivateChat.vue";
 import PasswordChange from "./views/pages/mypage/PasswordChange.vue";
 import Admin from "./views/pages/adminPage/Admin.vue";
 import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
@@ -71,10 +72,20 @@ export default new Router({
       }
     },
     {
-      path: "/accompanyChat",
+      path: "/accompanyChat/:id",
       name: "accompanyChat",
       beforeEnter : requireAuth,
       components: { default: AccompanyChat, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/privateChat/:id",
+      name: "privateChat",
+      beforeEnter : requireAuth,
+      components: { default: PrivateChat, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -223,7 +234,7 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-    },
+    }
     
   ],
   scrollBehavior: to => {
