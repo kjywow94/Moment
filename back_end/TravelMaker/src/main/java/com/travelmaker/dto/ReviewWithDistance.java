@@ -2,7 +2,7 @@ package com.travelmaker.dto;
 
 import java.time.LocalDateTime;
 
-public class Review {
+public class ReviewWithDistance {
 
 	private int id;
 	private int uid;
@@ -13,10 +13,11 @@ public class Review {
 	private double longitude;
 	private String hash;
 	private String hashtag;
+	private double distance;
 	private int liked;
 
-	public Review(int id, int uid, LocalDateTime date, String title, String location, double latitude, double longitude,
-			String hash, String hashtag, int liked) {
+	public ReviewWithDistance(int id, int uid, LocalDateTime date, String title, String location, double latitude, double longitude,
+			String hash, String hashtag, double distance, int liked) {
 		super();
 		this.id = id;
 		this.uid = uid;
@@ -27,8 +28,10 @@ public class Review {
 		this.longitude = longitude;
 		this.hash = hash;
 		this.hashtag = hashtag;
+		this.distance = distance;
 		this.liked = liked;
 	}
+
 
 	public int getId() {
 		return id;
@@ -102,6 +105,14 @@ public class Review {
 		this.hashtag = hashtag;
 	}
 
+	public double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
 	public int getLiked() {
 		return liked;
 	}
@@ -114,7 +125,7 @@ public class Review {
 	public String toString() {
 		return "Review [id=" + id + ", uid=" + uid + ", date=" + date + ", title=" + title + ", location=" + location
 				+ ", latitude=" + latitude + ", longitude=" + longitude + ", hash=" + hash + ", hashtag=" + hashtag
-				+ ", liked=" + liked + "]";
+				+ ", distance=" + distance + ", liked=" + liked + "]";
 	}
 
 }

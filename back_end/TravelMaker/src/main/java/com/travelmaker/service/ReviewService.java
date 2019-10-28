@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.travelmaker.dao.ReviewMapper;
 import com.travelmaker.dto.Location;
 import com.travelmaker.dto.Review;
+import com.travelmaker.dto.ReviewWithDistance;
 
 @Service
 public class ReviewService {
@@ -21,7 +22,7 @@ public class ReviewService {
 	 * @param location (위도, 경도)
 	 * @return List<Review>
 	 */
-	public List<Review> reviewListByLocation(Location location) {
+	public List<ReviewWithDistance> reviewListByLocation(Location location) {
 		return reviewMapper.reviewListByLocation(location);
 	}
 
@@ -57,10 +58,20 @@ public class ReviewService {
 	/**
 	 * 리뷰 입력, 성공시 1, 실패시 0 반환
 	 * 
-	 * @param Review
+	 * @param ReviewWithDistance
 	 * @return int 1 / 0
 	 */
 	public int insertReview(Review review) {
 		return reviewMapper.insertReview(review);
+	}
+
+	/**
+	 * 좋아요 클릭시 호출, 리뷰 아이디 찾아서 +1
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public int likeIt(int id) {
+		return reviewMapper.likeIt(id);
 	}
 }

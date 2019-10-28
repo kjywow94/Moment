@@ -49,15 +49,18 @@
                 </template>
              
                 <template slot="tab-pane-2">
+                    <!-- 사진 TEST START-->
                     <label>사진등록</label>
                     <br>
                     <div class="ml-2 col-sm-6">
-                        <img :src="img" id="preview" class="img-thumbnail">
+                        <img :src="img[0]" id="preview" class="img-thumbnail" style="float: left;">
+                        <img :src="img[1]" id="preview" class="img-thumbnail" style="float: right;">
+                        <img :src="img[2]" id="preview" class="img-thumbnail">
                     </div>
                     <div class="ml-2 col-sm-6">
                         <div id="msg"></div>
                         <form method="post" id="image-form">
-                            <input type="file"  ref="inputRef" name="img[]" class="file" accept="image/*" @change="changeFile($event)" style="display:none">
+                            <input type="file"  ref="inputRef" name="img[]" class="file" accept="image/*" @change="changeFile($event)" multiple style="display:none">
                             <div class="input-group my-3">
                             <input type="text" class="form-control" disabled placeholder="Upload File" v-model="imgName">
                             <div class="input-group-append">
@@ -65,7 +68,15 @@
                             </div>
                             </div>
                         </form>
-                    </div>                    
+                    </div>
+
+                    <!-- SAVE -->
+                    <input type="text"  v-model="email">
+                    <button type="button" class="btn btn-primary" v-on:click="save()">사진 등록 test</button>
+
+
+                    <!--  사진 TEST END-->  
+
                     <md-field>
                         <label>소개글</label>
                         <md-textarea v-model="aboutme"></md-textarea>
@@ -135,6 +146,7 @@
 import { LoginCard } from "@/components";
 import { Tabs } from "@/components";
 import { log } from 'util';
+import UserService from '@/services/UserService.js';
 
 export default {
   components: {
@@ -150,9 +162,17 @@ export default {
       passwordcheck: "",
       phonelabel: "",
       emaillabel: "",
-      imgName: "프로필등록..",
-      img: "https://placehold.it/360x360",
+     
+     ///test
+      imgName: ["프로필등록.."],
+      img:["https://placehold.it/50x50","https://placehold.it/50x50","https://placehold.it/50x50"],
+      extension : [],
+      email:"t",
+      imgLen: 1,
+
+
       selectedDate: new Date(),
+
       radio: null,
       options1 : "",
       options2 : "",
@@ -199,14 +219,119 @@ export default {
             this.$refs.inputRef.click();
         },
         changeFile(event) {
-            this.imgName = event.target.files[0].name;
-            var reader = new FileReader();
-            reader.readAsDataURL(event.target.files[0]);
-            
-            reader.onload = e => {
-                this.img = e.target.result;
-            };
+            console.log("event1 : ",event);
+
+            this.img = [];
+            this.imgName = [];
+            let length = event.target.files.length;
+            length = length > 3 ? 3 : length;
+            this.imgLen = length;
+            for(let i = 0; i < length; i++){
+                // console.log("files : ", event.target.files[i]);
+
+                let eamilLen = this.email.lastIndexOf('@');
+                this.imgName[i] = this.email.substring(0, eamilLen)+'_'+(i+1);
+
+                
+                let filename = event.target.files[i].name;
+                let fileLen = filename.length;
+                let lastDot = filename.lastIndexOf('.');
+                this.extension[i] = filename.substring(lastDot, fileLen).toLowerCase();
+                var reader = new FileReader();
+                reader.readAsDataURL(event.target.files[i]);
+                reader.onload = e => {
+                    this.img.push(e.target.result);
+                        console.log(" this.imgName :",  this.imgName);
+                        console.log("this.img :", this.img);
+                        console.log("this.extension :", this.extension);
+                };
+            }
+        },
+
+        save() {
+            var scope = this;
+            UserService.signUp({
+                "birthday": new Date(),
+                "gender": "M",
+                "nickname": "bora",
+                "userName": "천보라",
+                "phone": "010-6675-7777",
+                "email": scope.email,
+                "password": "M",
+                "sns1": "인스타그램",
+                "sns2": "페이스북",
+                "taste1": 1,
+                "taste2": 1,
+                "taste3": 1,
+                "taste4": 1,
+                "taste5": 1,
+                "taste6": 1,
+                "taste7": 1,
+                "about":"about~~" 
+            }).then(userdata => {
+                console.log("data : ", userdata.data);
+                // console.log("data : ", userdata.data);
+
+                if(userdata.data == 1){
+                    for(let i = 0; i < scope.imgLen; i++){
+
+                        let imgName = scope.imgName[i];
+                        let imgData = scope.img[i];
+                        let extension = scope.extension[i];
+
+                        UserService.uploadImage({
+                            "imgName" : imgName,
+                            "imgData" : imgData,
+                            "extension" : extension,
+                            "email" : scope.email
+                        }).then(uploadImgData => {
+                            console.log("image upload : ", uploadImgData);
+                        }).catch(err => {
+                            console.log(" error : ", err);
+                        });
+                       
+                    }
+                }
+
+            })
+            .catch(err => {
+                console.log(" error : ", err);
+            });
         }
+
+        //사진 저장 TEST 
+        // save: function () {
+        //     var scope = this;
+        //     workService.signUp({
+        //         "about":"about~~"
+        //     },
+        //         function (response) {
+        //             workService.findWorksInfoByOwner(scope.sharedStates.user.id, (workList) => {
+        //                 var workId = workList[workList.length - 1].id;
+
+        //                 var filename = scope.work.imgName;
+        //                 var fileLen = filename.length;
+        //                 var lastDot = filename.lastIndexOf('.');
+        //                 var extension = filename.substring(lastDot, fileLen).toLowerCase();
+
+        //                 workService.uploadImage({
+        //                     "imgName": workId,
+        //                     "extension": extension,
+        //                     "imgData": scope.work.img
+        //                 }, function () {
+        //                     alert('작품이 등록되었습니다.');
+        //                     scope.$router.push('/artworks');
+
+        //                 }, function (error) {
+        //                     alert("작품 이미지 업로드 중 에러가 발생했습니다.");
+        //                     console.log(error);
+        //                 });
+        //             });
+        //         },
+        //         function (error) {
+        //             alert("입력폼을 모두 입력해주세요. 또는 중복된 이메일입니다.");
+        //         });
+        // }
   },
   computed: {
     headerStyle() {

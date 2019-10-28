@@ -15,6 +15,15 @@ export default {
     getUserById(id) {
         return apiServer.get('/api/user/' + id);
     },
+    getAllUsers() {
+        return apiServer.get('/api/userAllAdmin')
+    },
+    signUp(user) {
+        return apiServer.post('/api/user', user);
+    },
+    uploadImage(userImage) {
+        return apiServer.post('api/user/image', userImage);
+    },
     Login(email, password) {
         var body = {
             email : email,
@@ -28,14 +37,5 @@ export default {
         var temp = body;
         temp.password = password;
         return apiServer.put("/api/user", temp);
-    }
-}
-
-export const auth = {
-    getAllUsers(){
-        return apiServer.get('/api/userAllAdmin')
-    },
-    Login(email, password) {
-        return Request('post', '/api/login', {email, password})
     }
 }
