@@ -105,8 +105,7 @@
                     <h4 class="modal-title">동행후기작성</h4>
                     <md-button
                       class="md-simple md-just-icon md-round modal-default-button"
-                      @click="ModalAccompanyReviewHide"
-                    >
+                      @click="ModalAccompanyReviewHide">
                       <md-icon>clear</md-icon>
                     </md-button>
                   </template>
