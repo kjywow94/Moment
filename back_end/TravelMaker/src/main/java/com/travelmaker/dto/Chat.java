@@ -47,10 +47,10 @@ public class Chat {
 	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
 	}
-	public int getRoom_number() {
+	public int getRoomNumber() {
 		return roomNumber;
 	}
-	public void setRoom_number(int room_number) {
+	public void setRoomNumber(int room_number) {
 		this.roomNumber = room_number;
 	}
 	public Status getIsRemove() {
