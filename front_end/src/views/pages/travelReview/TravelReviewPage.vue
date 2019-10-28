@@ -34,31 +34,46 @@
             </modal>
             </div>
 
+            <!--수정한 부분 붙여넣을것-->
             <div>
               <div class = "md-layout">
                 <div class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100" v-for="r in review" :key='r.id' >
-                  <router-link :to="{name:'travelReviewDetail', params: { id: r.id }}">
-                    <div class="md-card md-card-blog md-theme-default text-left list-inline"  >
-                      <span class="overlay">
+                         
+                    <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover"  >
+                      <!-- <span class="overlay">
                         <div style="position: absolute;">
                           <div class="alert alert-info">
                             <div class="container">
                               <b>{{r['tname']}} </b>
                             </div>
                           </div>
+                        </div>      
+                      </span> -->
+                      <div class="md-card-header" style="background-color: rgba(255, 255, 255, 0.7)">
+                        <div class="md-avatar">
+                          <img src="/assets/examples/avatar.png" alt="Avatar"/><!--작성자이미지-->
                         </div>
-                        <img src="@/assets/img/default.jpg" class="img" />
-                      </span>
-                      <div class="md-card-content">
-                        <h6 class="card-category text-rose">
-                          {{r['title']}}
-                        </h6>
+
+                        <div class="md-title">{{r['title']}}<!--작성자--></div>
+                        <div class="md-subhead">{{r['tname']}}<!--장소--></div>
                       </div>
+                      <div class="md-card-content">
+                        <img src="@/assets/img/default.jpg" class="img" />
+                        <!-- <h6 class="card-category text-rose">
+                          {{r['title']}}
+                        </h6> -->
+                        <hr/>
+                        <h3 style="text-align:center">
+                          Lorem ipsum dolor
+                          <!--title-->
+                        </h3>
+                      </div>
+                      
                     </div>
-                  </router-link>
                 </div>
               </div>
             </div>
+            <!--수정한 부분 붙여넣을것-->
 
           </div>
         </div>
@@ -140,6 +155,45 @@ export default {
       this.img = null;
     }
   }
+  // //사용자의 정보를 가져온다.
+  //   UserProfileService.getUserProfile(this.uid)
+  //     .then(userProfile => {
+  //       // userProfile.data.gender = (userProfile.data.gender == 'M' ? '남자' : '여자');
+  //       // userProfile.data.age = this.getCalculateAge(userProfile.data.birthday);
+  //       this.userProfile = userProfile.data;
+
+  //       //선택한 여행스타일 번호를 배열에 담아준다.
+  //       for(let i = 1; i <= this.tasteIdx; i++){
+  //         this.tasteSelect[i-1] = userProfile.data[this.getTasteContent(i)];
+  //       } 
+  //       //console.log("userProfile : ", this.userProfile);
+  //     })
+  //     .catch(err => {
+  //       console.log("userProfile error : ", err);
+  //     });
+
+  //   //사용자 후기를 가져온다.
+  //   // UserProfileService.getUserReview(this.uid)
+  //   //   .then(userReview => {
+  //   //     this.userReview = userReview.data;
+  //   //     for(let i = 0; i < this.userReview.length; i++){
+  //   //       this.userReview[i].endDate = this.getDate(this.userReview[i].endDate);
+  //   //     }
+  //   //   })
+  //   //   .catch(err => {
+  //   //     console.log("userReview error : ", err);
+  //   //   });
+
+  //   //사용자의 사진을 가져온다.
+  //   // UserProfileService.getUserImage(this.email)
+  //   //   .then(userImg => {
+  //   //     this.userImg = userImg.data;
+  //   //     console.log("userImg : ",userImg);
+  //   // })
+  //   // .catch(err => {
+  //   //   console.log("UserProfileService error : ", err);
+  //   // });
+  // }
 };
 </script>
 
