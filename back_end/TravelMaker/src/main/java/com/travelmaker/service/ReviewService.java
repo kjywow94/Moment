@@ -62,7 +62,8 @@ public class ReviewService {
 	 * @return int 1 / 0
 	 */
 	public int insertReview(Review review) {
-		return reviewMapper.insertReview(review);
+		reviewMapper.insertReview(review);
+		return review.getId();
 	}
 
 	/**

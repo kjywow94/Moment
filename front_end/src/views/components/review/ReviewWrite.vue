@@ -37,7 +37,7 @@
         <md-field class="md-form-group" slot="inputs">
           <md-file v-model="imgName" accept="image/*" placeholder="사진" v-on:click="clickUpload()" />
         </md-field>
-        <img :src="imgData" id="preview" class="img-thumbnail img-size">
+        <img :src="imgData" id="preview" class="img-thumbnail img-size" />
         <input-tag v-model="hashtag" placeholder="태그"></input-tag>
       </template>
       <template slot="footer">
@@ -85,13 +85,10 @@ export default {
 
       reader.onload = e => {
         this.imgData = e.target.result;
-        console.log(this.imgData);
       };
     },
     doWrite() {
       LocationService.getLocation((latitude, longitude) => {
-        console.log(latitude);
-        console.log(longitude);
         this.latitude = latitude;
         this.longitude = longitude;
       });
@@ -99,21 +96,11 @@ export default {
     },
     submit() {
       let title = this.content.substring(0, 20) + "...";
-      console.log("title : ", title);
-      console.log(this.img);
       let hashtagToSTring = "";
       this.hashtag.forEach(element => {
         hashtagToSTring = hashtagToSTring + element + " ";
       });
-      console.log("hashtag : ", hashtagToSTring);
-      // EthereumService.write(
-      //   "0x1e5b2735b89ef05298bc18a92dbfdec7174beb60",
-      //   "ssafy",
-      //   data,
-      //   receipt => {
-      //     console.log("트랜잭션 주소 : ", receipt.transactionHash);
-      //   }
-      // );
+
       EthereumService.write(
         this.$store.state.user.walletAddress,
         "ssafy",
@@ -130,7 +117,14 @@ export default {
             distance: this.distance,
             uid: this.$store.state.user.id
           }).then(response => {
-            console.log(response);
+            ReviewService.uploadImage({
+              imageData: this.imgData,
+              imageNum: response.data
+            }).then(response => {
+              alert("등록되었습니다.");
+              this.classicModalHide();
+              /** 새로고침 이벤트 추가 필요 */
+            });
           });
         }
       );
@@ -148,12 +142,12 @@ export default {
 };
 </script>
 <style scoped>
-.img-size{
-    max-height: 50%;
-    max-width: 50%;
+.img-size {
+  max-height: 50%;
+  max-width: 50%;
 }
 .file {
-    display:none;
+  display: none;
 }
 .md-card-actions.text-center {
   display: flex;

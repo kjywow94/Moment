@@ -24,5 +24,8 @@ export default {
     },
     likeIt(id) {
         return apiServer.get('/api/likeIt/' + id);
+    },
+    uploadImage(image) {
+        return apiServer.post('api/reviewImg/', image);
     }
 }

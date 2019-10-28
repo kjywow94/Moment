@@ -30,7 +30,7 @@
 	</select>
 
 	<!-- 후기 등록 -->
-	<insert id="insertReview" parameterType="review">
+	<insert id="insertReview" parameterType="review" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
 		review(uid,
 		date, title, location, latitude, longitude, hash, hashtag)

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.travelmaker.dto.Location;
 import com.travelmaker.dto.Review;
+import com.travelmaker.dto.ReviewImage;
 import com.travelmaker.dto.ReviewWithDistance;
+import com.travelmaker.service.ReviewImageService;
 import com.travelmaker.service.ReviewService;
 
 import io.swagger.annotations.ApiOperation;
@@ -24,6 +26,9 @@ public class ReviewController {
 
 	@Autowired
 	private ReviewService reviewService;
+
+	@Autowired
+	private ReviewImageService reviewImageService;
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	@ApiOperation(value = "위도, 경도로 5km 이내의 리뷰 반환")
@@ -59,6 +64,12 @@ public class ReviewController {
 	@ApiOperation(value = "좋아요")
 	public int likeIt(@PathVariable int id) throws Exception {
 		return reviewService.likeIt(id);
+	}
+
+	@RequestMapping(value = "/reviewImg", method = RequestMethod.POST)
+	@ApiOperation(value = "리뷰 이미지")
+	public boolean uploadImg(@RequestBody ReviewImage reviewImage) throws Exception {
+		return reviewImageService.uploadImage(reviewImage);
 	}
 
 }
