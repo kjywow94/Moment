@@ -7,6 +7,19 @@
         <div class="container">
           <div class="md-layout">
             <div>
+              <md-dialog-prompt
+                :md-active.sync="active"
+                v-model="value"
+                md-title="What's your name?"
+                md-input-maxlength="30"
+                md-input-placeholder="Type your name..."
+                md-confirm-text="Done" />
+
+              <md-button class="md-primary md-raised" @click="active = true">Prompt</md-button>
+              <span v-if="value">Value: {{ value }}</span>
+            </div>
+
+            <div>
               <div class = "md-layout">
                 <div class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100" v-for="r in review" :key='r.id' >
                   <router-link :to="{name:'travelReviewDetail', params: { id: r.id }}">
@@ -31,6 +44,7 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -69,7 +83,9 @@ export default {
   },
   data() {
     return {
-      review:[{}]
+      review:[{}],
+      active: false,
+      value: null
     };
   },
   computed: {
