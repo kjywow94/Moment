@@ -34,5 +34,10 @@ public class ChatService {
 	public int updateChat(Chat c) {
 		return chatMapper.updateChat(c);
 	}
+	
+	public List<Chat> selectPrivateChat(int uid1, int uid2){
+		return chatMapper.selectPrivateChat(uid1, uid2);
+		
+	}
 
 }

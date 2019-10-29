@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.travelmaker.dto.Chat;
+import com.travelmaker.service.ChatService;
 
 
 @CrossOrigin(origins = { "*" })
@@ -16,31 +17,31 @@ import com.travelmaker.dto.Chat;
 public class MessagingController {
 	@Autowired
 	private SimpMessageSendingOperations messagingTemplate;
+	@Autowired
+	private ChatService chatService;
+	
 	@MessageMapping("/greetings")
-	@SendTo("/topic/greetings")
+	@SendTo("/topic/greetings/{roomNumber}")
 	public void greeting(Chat chat) throws Exception {
-		chat.setContext(chat.getContext() + "님이 입장하셨습니다.");
 		messagingTemplate.convertAndSend("/topic/greetings/" + chat.getRoomNumber(), chat);
 	}
 	
 	@MessageMapping("/goodbye")
-	@SendTo("/topic/goodbye")
+	@SendTo("/topic/goodbye/{roomNumber}")
 	public void goodbye(Chat chat) throws Exception {
-		chat.setContext(chat.getContext() + "님이 퇴장하셨습니다.");
 		messagingTemplate.convertAndSend("/topic/goodbye/" + chat.getRoomNumber(), chat);
 		
 	}
 	
 	@MessageMapping("/chat")
-	@SendTo("/topic/chat")
+	@SendTo("/topic/chat/{roomNumber}")
 	public void outChat(Chat chat) throws Exception {
 		messagingTemplate.convertAndSend("/topic/chat/" + chat.getRoomNumber(), chat);
 	}
 	
 	@MessageMapping("/privateChat")
-	@SendTo("/topic/privateChat")
+	@SendTo("/topic/privateChat/{uid}")
 	public void privateChat(Chat chat) throws Exception {
-		System.out.println(chat);
-		messagingTemplate.convertAndSend("/topic/privateChat/" + chat.getRoomNumber(), chat);
+		messagingTemplate.convertAndSend("/topic/privateChat/" + chat.getTarget(), chat);
 	}
 }
