@@ -30,16 +30,25 @@
 	</select>
 
 	<!-- 후기 등록 -->
-	<insert id="insertReview" parameterType="review" useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertReview" parameterType="review"
+		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
 		review(uid,
-		date, title, location, latitude, longitude, hash, hashtag)
-		VALUES(#{uid}, #{date}, #{title}, #{location}, #{latitude},
+		date, title,
+		location, latitude, longitude, hash, hashtag)
+		VALUES(#{uid}, #{date},
+		#{title}, #{location}, #{latitude},
 		#{longitude}, #{hash}, #{hashtag});
 	</insert>
 
 	<update id="likeIt" parameterType="int">
-		UPDATE review set liked=liked+1 WHERE id = #{int}
+		UPDATE review set
+		liked=liked+1 WHERE id = #{int}
+	</update>
+
+	<update id="unLike" parameterType="int">
+		UPDATE review set
+		liked=liked-1 WHERE id = #{int}
 	</update>
 
 </mapper>

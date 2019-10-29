@@ -15,6 +15,9 @@ export default {
     getUserById(id) {
         return apiServer.get('/api/user/' + id);
     },
+    getUserByEmail(email) {
+        return apiServer.get('/api/user/email/' + email);
+    },
     getAllUsers() {
         return apiServer.get('/api/userAllAdmin')
     },

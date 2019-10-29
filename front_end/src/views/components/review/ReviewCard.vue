@@ -68,9 +68,16 @@
 
       <template slot="footer">
         <div>
-          <md-button class="md-simple">
-            <md-icon>favorite</md-icon>{{this.detailModalData.liked}}
+          <md-button class="md-simple md-danger" v-if="isLike" @click="unLike()">
+            <md-icon>favorite</md-icon>
+            {{this.detailModalData.liked}}
           </md-button>
+
+          <md-button class="md-simple" v-if="!isLike" @click="likeIt()">
+            <md-icon>favorite</md-icon>
+            {{this.detailModalData.liked}}
+          </md-button>
+
           <md-button class="md-danger md-simple" @click="detailModalHide">Close</md-button>
         </div>
       </template>
@@ -101,7 +108,8 @@ export default {
       value: null,
       isDetail: false,
       detailModalData: null,
-      distance: 5
+      distance: 5,
+      isLike: false
     };
   },
   mounted() {
@@ -113,33 +121,57 @@ export default {
   methods: {
     init() {
       LocationService.getLocation((latitude, longitude) => {
-        console.log(latitude);
-        console.log(longitude);
         ReviewService.getReviewListByLocation({
           latitude: latitude,
           longitude: longitude,
           distance: this.distance
         }).then(reviewList => {
-          console.log(reviewList);
           this.reviewList = reviewList.data;
-          console.log(this.reviewList);
         });
       });
     },
     detailModalShow(selectedData) {
-      console.log(selectedData);
-
       this.detailModalData = selectedData;
       EthereumService.read(selectedData.hash, content => {
         this.detailModalData.content = content;
         UserService.getUserById(this.detailModalData.uid).then(user => {
           this.detailModalData.nickname = user.data.nickname;
-          this.isDetail = true;
+          ReviewService.isLike({
+            uid: this.$store.state.user.id,
+            rid: selectedData.id
+          }).then(response => {
+            if (response.data == 0) this.isLike = false;
+            else {
+              this.detailModalData.like = response.data;
+              this.isLike = true;
+            }
+            this.isDetail = true;
+          });
         });
       });
     },
     detailModalHide() {
       this.isDetail = false;
+    },
+    likeIt() {
+      ReviewService.likeIt({
+        uid: this.$store.state.user.id,
+        rid: this.detailModalData.id
+      }).then(response => {
+        this.detailModalData.like = response.data;
+        this.detailModalData.liked = this.detailModalData.liked + 1;
+        this.isLike = true;
+      });
+    },
+    unLike() {
+      ReviewService.unLike({
+        uid: this.$store.state.user.id,
+        rid: this.detailModalData.id,
+        id: this.detailModalData.like
+      }).then(response => {
+        this.detailModalData.liked = this.detailModalData.liked - 1;
+        this.isLike = false;
+      });
     }
   }
 };
