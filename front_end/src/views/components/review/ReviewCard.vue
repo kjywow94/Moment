@@ -9,23 +9,36 @@
           @click="detailModalShow(r)"
         >
           <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
-            <div class="md-card-header" style="background-color: rgba(255, 255, 255, 0.7)">
-              <div class="md-avatar">
-                <img :src="r.imageData" alt="Avatar" />
+            <div style="padding : 20px">
+              <div style="display : inline-block">
+                <div>
+                  <img :src="r.imageData" alt="Avatar" class="Avatar_image"/>
+                </div>
               </div>
-              <div class="md-title">
-                {{r.nickname}}
-                <!--작성자-->
+              <div style="display : inline-block; position:absolute; left:80px">
+                <div>
+                  {{r.nickname}}
+                  <!--작성자-->
+                </div>
+                <div>
+                  {{r.location}}
+                  <!--장소-->
+                </div>
               </div>
-              <div class="md-subhead">
-                {{r.location}}
-                <!--장소-->
-              </div>
+              <hr/>
             </div>
             <div class="md-card-content">
-              <img :src="r.imageData" class="img" />
-              <hr />
-              <h4 style="text-align:center">{{r.title}}</h4>
+              <img :src="r.imageData" class="img" style="height : 200px" />
+              <hr/>
+              <div style="display:inline-block">
+                <h4>{{r.title}}</h4>
+              </div>
+              <div style="display:inline-block; float:right">
+                <div style = "text-align: center">
+                  <md-icon style="margin : 0 auto">favorite</md-icon>
+                  <p style="text-align : center">10000<!--좋아요 수--></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -132,6 +145,11 @@ export default {
 };
 </script>
 <style>
+.Avatar_image{
+  max-width: 50px;
+  max-height:50px;
+  border-radius: 50px;
+}
 .modal-img {
   margin-bottom: 5px;
 }
