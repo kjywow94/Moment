@@ -16,7 +16,7 @@
                 </div>
               </div>
             </div> -->
-            <img src="@/assets/img/default.jpg" class="img" />
+            <img :src="r.imageData" class="img" />
           </span>
           <div class="md-card-content">
             <h6 class="card-category text-rose">{{r['title']}}</h6>
