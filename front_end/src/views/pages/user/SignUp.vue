@@ -12,25 +12,24 @@
                 nav-pills-icons
                 color-button="primary"
             >
-                <!-- here you can add your content for tab-content -->
                 <template slot="tab-pane-1">
                      <div class="md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100">
                         <md-field>
                             <label>이메일</label>
                             <md-input v-model="email" type="text"></md-input>
+                            <md-button class="md-primary md-round" v-on:click="idDuplicateChk">중복 체크</md-button>
                         </md-field>
-                        <md-button class="md-primary md-round">이메일 인증</md-button>
                         <md-field>
                             <label>닉네임</label>
-                            <md-input v-model="idlabel" type="text"></md-input>
+                            <md-input v-model="nickname" type="text"></md-input>
                         </md-field>
                         <md-field>
                             <label>이름</label>
-                            <md-input v-model="namelabel" type="text"></md-input>
+                            <md-input v-model="name" type="text"></md-input>
                         </md-field>
                         <md-field>
                             <label>비밀번호</label>
-                            <md-input v-model="passwordlabel" type="text"></md-input>
+                            <md-input v-model="password" type="text"></md-input>
                         </md-field>
                         <md-field>
                             <label>비밀번호 확인</label>
@@ -38,43 +37,38 @@
                         </md-field>
                         <md-field>
                             <label>휴대폰</label>
-                            <md-input v-model="phonelabel" type="text"></md-input>
+                            <md-input v-model="phone" type="text"></md-input>
                         </md-field>
                         
-                        <md-datepicker v-model="selectedDate">
+                        <md-datepicker v-model="birthday">
                             <label>생년월일</label>
                         </md-datepicker>
-                        <md-radio v-model="radio" :value="true">남자</md-radio>
-                        <md-radio v-model="radio" :value="false">여자</md-radio>
+                        <md-radio v-model="gender" value="M">남자</md-radio>
+                        <md-radio v-model="gender" value="W">여자</md-radio>
                     </div>
                 </template>
              
                 <template slot="tab-pane-2">
+
+
                     <!-- 사진 TEST START-->
                     <label>사진등록</label>
                     <br>
                     <div class="ml-2 col-sm-6">
-                        <img :src="img[0]" id="preview" class="img-thumbnail" style="float: left;">
-                      <!--  <img :src="img[1]" id="preview" class="img-thumbnail" style="float: right;">
-                        <img :src="img[2]" id="preview" class="img-thumbnail"> -->
+                        <img :src="img" id="preview" class="img-thumbnail" style="float: left;">
                     </div>
                     <div class="ml-2 col-sm-6">
                         <div id="msg"></div>
                         <form method="post" id="image-form">
                             <input type="file"  ref="inputRef" name="img[]" class="file" accept="image/*" @change="changeFile($event)" style="display:none">
                             <div class="input-group my-3">
-                            <input type="text" class="form-control" disabled placeholder="Upload File" v-model="imgName">
+                            <input type="text" class="form-control" disabled placeholder="Upload File" v-model="fileName">
                             <div class="input-group-append">
                                 <button type="button" class="browse btn btn-primary" v-on:click="uploadImg()">Browse...</button>
                             </div>
                             </div>
                         </form>
                     </div>
-
-                    <!-- SAVE -->
-                    <input type="text"  v-model="email">
-                    <button type="button" class="btn btn-primary" v-on:click="save()">사진 등록 test</button>
-
 
                     <!--  사진 TEST END-->  
 
@@ -85,11 +79,8 @@
                     <br>
                 </template>
                 <template slot="tab-pane-3">
-                    <p>가입을 축하드립니다!!</p>
-                    <br>
-                    여러분들의 여행에 좋은 인연을 만나기를 기원합니다
-                    <br>
-                    <md-button type="submit" class="md-primary md-round" v-on:click="register">회원가입</md-button>
+                    <p>가입을 축하드립니다!</p>
+                    <md-button type="submit" class="md-primary md-round" v-on:click="signUp">회원가입</md-button>
                 </template>
             </tabs>
           </div>
@@ -113,30 +104,22 @@ export default {
   bodyClass: "login-page",
   data() {
     return {
-      idlabel: "",
-      namelabel: "",
-      passwordlabel: "",
+      nickname: "",
+      name: "",
+      password: "",
       passwordcheck: "",
-      phonelabel: "",
+      phone: "",
       email: "",
-     
-     ///test
-      imgName: ["프로필등록.."],
-      img:["https://placehold.it/50x50"],
-      extension : [],
-
-
-      selectedDate: new Date(),
-
-      radio: null,
-      options1 : "",
-      options2 : "",
-      options3 : "",
-      options4 : "",
-      options5 : "",
+      fileName: "프로필등록..",
+      imgName: "",
+      img:"https://placehold.it/150x150",
+      extension : "",
+      birthday: new Date(),
+      gender: "",
       aboutme: "",
-      checked1: true,
-      checked2: true,
+      facebook: "",
+      instagram: "",
+      duplChk: false
     };
   },
   props: {
@@ -146,147 +129,108 @@ export default {
     }
   },
   methods: {
-      register: function () {
-          console.log(1111);
-          console.log("o1 : "+this.options1);
-          console.log("o2 : "+this.options2);
-          console.log("o3 : "+this.options3);
-          console.log("o4 : "+this.options4);
-          console.log("o5 : "+this.options5);
-          console.log(this.radio);
-          
-            var scope = this;
-            if (this.passwordlabel === this.passwordcheck) {
-                userService.signUp(
-                    this.user.email,
-                    this.user.name,
-                    hashingService.SHA256(this.user.password),
-                    function (response) {
-                        alert("회원가입이 완료되었습니다.");
-                        scope.$router.push('/');
-                    }
-                );
-            } else {
-                alert('비밀번호가 일치하지 않습니다.');
-            }
-        },
         uploadImg() {
             this.$refs.inputRef.click();
         },
         changeFile(event) {
             console.log("event1 : ",event);
 
-            this.img = [];
-            this.imgName = [];
-            let length = event.target.files.length;
-            length = length > 3 ? 3 : length;
-            this.imgLen = length;
-            for(let i = 0; i < length; i++){
-                // console.log("files : ", event.target.files[i]);
+            //파일 이름 생성 = 이메일아이디+랜덤값
+            let eamilLen = this.email.lastIndexOf('@');
+            let random = Math.floor(Math.random() * 100000);
+            this.imgName = this.email.substring(0, eamilLen)+'_'+random;
 
-                let eamilLen = this.email.lastIndexOf('@');
-                this.imgName[i] = this.email.substring(0, eamilLen)+'_'+(i+1);
-
-                
-                let filename = event.target.files[i].name;
-                let fileLen = filename.length;
-                let lastDot = filename.lastIndexOf('.');
-                this.extension[i] = filename.substring(lastDot, fileLen).toLowerCase();
-                var reader = new FileReader();
-                reader.readAsDataURL(event.target.files[i]);
-                reader.onload = e => {
-                    this.img.push(e.target.result);
-                        console.log(" this.imgName :",  this.imgName);
-                        console.log("this.img :", this.img);
-                        console.log("this.extension :", this.extension);
-                };
-            }
+            console.log(this.imgName);
+            
+            this.fileName = event.target.files[0].name;
+            let fileLen = this.fileName.length;
+            let lastDot = this.fileName.lastIndexOf('.');
+            this.extension = this.fileName.substring(lastDot, fileLen).toLowerCase();
+            
+            var reader = new FileReader();
+            reader.readAsDataURL(event.target.files[0]);
+            reader.onload = e => {
+                this.img = e.target.result;
+                    //console.log(" this.imgName :",  this.imgName);
+                    // console.log("this.img :", this.img);
+                    // console.log("this.extension :", this.extension);
+            };
         },
-
-        save() {
+        signUp() {
             var scope = this;
+
+            //유효성 체크
+            if (scope.password !== scope.passwordcheck) {
+                alert('비밀번호가 일치하지 않습니다.');
+                return;
+            }
+
+            if(!scope.duplChk){
+                alert('이메일 중복체크를 해주세요.');
+                return;
+            }
+
+            //빈공간 체크 등
+
+            //회원 가입
             UserService.signUp({
-                "birthday": new Date(),
-                "gender": "M",
-                "nickname": "bora",
-                "userName": "천보라",
-                "phone": "010-6675-7777",
                 "email": scope.email,
-                "password": "M",
-                "sns1": "인스타그램",
-                "sns2": "페이스북",
-                // "taste1": 1,
-                // "taste2": 1,
-                // "taste3": 1,
-                // "taste4": 1,
-                // "taste5": 1,
-                // "taste6": 1,
-                // "taste7": 1,
-                "about":"about~~" 
+                "birthday": scope.birthday,
+                "gender": scope.gender,
+                "nickname": scope.nickname,
+                "userName": scope.name,
+                "phone": scope.phone,
+                "password": scope.password,
+                "sns1": scope.facebook,
+                "sns2": scope.instagram,
+                "about": scope.aboutme
             }).then(userdata => {
                 console.log("data : ", userdata.data);
-                // console.log("data : ", userdata.data);
 
                 if(userdata.data == 1){
-                    for(let i = 0; i < scope.imgLen; i++){
 
-                        let imgName = scope.imgName[i];
-                        let imgData = scope.img[i];
-                        let extension = scope.extension[i];
+                    let imgName = scope.imgName;
+                    let imgData = scope.img;
+                    let extension = scope.extension;
+                    // console.log(imgName);
+                    // console.log(imgData);
+                    // console.log(extension);
+                    // console.log(scope.email);
 
-                        UserService.uploadImage({
-                            "imgName" : imgName,
-                            "imgData" : imgData,
-                            "extension" : extension,
-                            "email" : scope.email
-                        }).then(uploadImgData => {
-                            console.log("image upload : ", uploadImgData);
-                        }).catch(err => {
-                            console.log(" error : ", err);
-                        });
-                       
-                    }
+                    UserService.uploadImage({
+                        "imgName" : imgName,
+                        "imgData" : imgData,
+                        "extension" : extension,
+                        "email" : scope.email
+                    }).then(uploadImgData => {
+                        console.log("image upload : ", uploadImgData);
+                    }).catch(err => {
+                        console.log(" error : ", err);
+                    });
                 }
-
             })
             .catch(err => {
                 console.log(" error : ", err);
             });
+        },
+        idDuplicateChk(){
+            let scope = this;
+            if(scope.email != ''){
+                UserService.getUserByEmail(scope.email)
+                .then(result => {
+                    console.log("result : ",result);
+                    if(result.data == "") {
+                        alert('사용가능한 이메일입니다.');
+                    }else {
+                        alert('이미 존재하는 이메일입니다.');
+                    }
+                }).catch(err =>{
+                     console.log("error : ", err);
+                });
+            } else {
+                alert('아이디를 입력해주세요.');
+            }
         }
-
-        //사진 저장 TEST 
-        // save: function () {
-        //     var scope = this;
-        //     workService.signUp({
-        //         "about":"about~~"
-        //     },
-        //         function (response) {
-        //             workService.findWorksInfoByOwner(scope.sharedStates.user.id, (workList) => {
-        //                 var workId = workList[workList.length - 1].id;
-
-        //                 var filename = scope.work.imgName;
-        //                 var fileLen = filename.length;
-        //                 var lastDot = filename.lastIndexOf('.');
-        //                 var extension = filename.substring(lastDot, fileLen).toLowerCase();
-
-        //                 workService.uploadImage({
-        //                     "imgName": workId,
-        //                     "extension": extension,
-        //                     "imgData": scope.work.img
-        //                 }, function () {
-        //                     alert('작품이 등록되었습니다.');
-        //                     scope.$router.push('/artworks');
-
-        //                 }, function (error) {
-        //                     alert("작품 이미지 업로드 중 에러가 발생했습니다.");
-        //                     console.log(error);
-        //                 });
-        //             });
-        //         },
-        //         function (error) {
-        //             alert("입력폼을 모두 입력해주세요. 또는 중복된 이메일입니다.");
-        //         });
-        // }
   },
   computed: {
     headerStyle() {

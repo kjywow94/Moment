@@ -17,9 +17,14 @@
 		SELECT * FROM user WHERE email=#{email} and password=#{password} and is_remove = 'N';
 	</select>
 		
-	<!-- 회원조회 -->
+	<!-- 회원조회 -id -->
 	<select id="selectOneUser" parameterType="int" resultType="user">
 		SELECT * FROM user WHERE id = #{id};
+	</select>
+	
+	<!-- 회원조회-이메일 -->
+	<select id="selectOneUserByEmail" parameterType="String" resultType="user">
+		SELECT * FROM user WHERE email = #{email};
 	</select>
 	
 	<!-- 회원가입 -->

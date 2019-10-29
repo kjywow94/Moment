@@ -46,9 +46,14 @@ public class UserService {
 		return userMapper.loginUser(user);
 	}
 	
-	//회원조회
+	//회원조회 - id
 	public User selectOneUser(int id) {
 		return userMapper.selectOneUser(id);
+	}
+	
+	//회원조회 - 이메일
+	public User selectOneUserByEmail(String email) {
+		return userMapper.selectOneUserByEmail(email);
 	}
 	
 	//회원가입
@@ -73,6 +78,7 @@ public class UserService {
 
 	//회원 이미지 등록
 	public int uploadImage(UserImage image) {
+		
 		int result = 0;
 		String imgData = image.getImgData();
 		String imgName = image.getImgName();
@@ -129,31 +135,22 @@ public class UserService {
 		}
 		return userImage;
 	}
+
 	
-	@Value("${spring.mail.username}")
-	private String toEmail;
-	public void emailCertification(String email) {
-		
-		
-		try{  
-			  String memberMail = "capsulejay963@naver.com";
-			  EmailService mail = new EmailService(mailSender);
-			  mail.setFrom(toEmail, "0000000");
-			  mail.setTo(memberMail);
-			  mail.setSubject("페이지 회원가입 인증 메일");
-			  mail.setText(new StringBuffer().append("<h1>회원가입 인증메일입니다.</h1>")
-			    .append("<p>밑의 링크를 클릭하면 메일이 인증 됩니다.</p>")
-			    .append("<a href='http://localhost/member/auth? email="+memberMail)
-//			    .append("&authKey="+authKey+"' target='_blank'>메일 인증 링크</a>")
-			    .toString()
-			  );
-			  mail.send();
-//			  msg = "회원가입 성공.. 작성하신 이메일로 인증메일을 전송하였습니다.";
-//			  resultCode = "S-1";
-			}catch(Exception e) {
-			  e.printStackTrace();
-//			  msg = "회원가입 실패";
-//			  resultCode = "F-1";
-			}
-	}
+	/*
+	 * @Value("${spring.mail.username}") private String toEmail; public void
+	 * emailCertification(String email) {
+	 * 
+	 * 
+	 * try{ String memberMail = "capsulejay963@naver.com"; EmailService mail = new
+	 * EmailService(mailSender); mail.setFrom(toEmail, "0000000");
+	 * mail.setTo(memberMail); mail.setSubject("페이지 회원가입 인증 메일"); mail.setText(new
+	 * StringBuffer().append("<h1>회원가입 인증메일입니다.</h1>")
+	 * .append("<p>밑의 링크를 클릭하면 메일이 인증 됩니다.</p>")
+	 * .append("<a href='http://localhost/member/auth? email="+memberMail) //
+	 * .append("&authKey="+authKey+"' target='_blank'>메일 인증 링크</a>") .toString() );
+	 * mail.send(); // msg = "회원가입 성공.. 작성하신 이메일로 인증메일을 전송하였습니다."; // resultCode =
+	 * "S-1"; }catch(Exception e) { e.printStackTrace(); // msg = "회원가입 실패"; //
+	 * resultCode = "F-1"; } }
+	 */
 }
