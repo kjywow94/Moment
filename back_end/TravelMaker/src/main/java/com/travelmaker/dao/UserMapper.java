@@ -17,8 +17,10 @@ public interface UserMapper {
 	public List<User> selectNotRemovedAllUser();
 	//로그인
 	public User loginUser(User user);
-	//회원조회
+	//회원조회-아이디
 	public User selectOneUser(int id);
+	//회원조회-이메일
+	public User selectOneUserByEmail(String email);
 	//회원가입
 	public int insertUser(User user);
 	//회원수정/회원삭제
@@ -37,4 +39,8 @@ public interface UserMapper {
 	public int insertUserImage(UserImage userImage);
 	//회원 사진 조회
 	public List<UserImage> selectUserImage(String email);
+	//회원 인증키 난수 값 생성 
+	public void updateCertKey(User user);
+	//회원 인증키(난수) Y로 변경
+	public void updateCert(User user);
 }
