@@ -9,23 +9,35 @@
           @click="detailModalShow(r)"
         >
           <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
-            <div class="md-card-header" style="background-color: rgba(255, 255, 255, 0.7)">
-              <div class="md-avatar">
-                <img :src="r.imageData" alt="Avatar" />
+            <div class="md-card-content">
+              <div class="review-card-title">
+                <div class="md-avatar" style="margin-bottom: 1.5vw">
+                  <img :src="r.userImgData" alt="Avatar" />
+                </div>
               </div>
-              <div class="md-title">
-                {{r.nickname}}
-                <!--작성자-->
+              <div style="display : inline-block;" >
+                <h4>
+                  {{r.nickname}}
+                  <!--작성자-->
+               </h4>
+                <h5>
+                  {{r.location}}
+                  <!--장소-->
+                </h5>
               </div>
-              <div class="md-subhead">
-                {{r.location}}
-                <!--장소-->
-              </div>
+              <hr />
             </div>
+
             <div class="md-card-content">
               <img :src="r.imageData" class="img" />
               <hr />
-              <h4 style="text-align:center">{{r.title}}</h4>
+              <div style="display:inline-block">
+                <h4>{{r.title}}</h4>
+              </div>
+              <div style="display:inline-block; float:right">
+                <md-icon>favorite</md-icon>
+                <p class="text-rose">{{r.liked}}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -114,6 +126,7 @@ export default {
           distance: this.distance
         }).then(reviewList => {
           this.reviewList = reviewList.data;
+          console.log(this.reviewList);
         });
       });
     },
@@ -164,6 +177,11 @@ export default {
 };
 </script>
 <style>
+.review-card-title{
+    display : inline-block;
+    padding: 5px;
+    margin: 5px;
+}
 .modal-img {
   margin-bottom: 5px;
 }

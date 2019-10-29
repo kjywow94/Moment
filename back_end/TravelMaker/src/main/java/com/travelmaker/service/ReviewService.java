@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.travelmaker.dao.ReviewMapper;
 import com.travelmaker.dto.Location;
 import com.travelmaker.dto.Review;
+import com.travelmaker.dto.ReviewListDTO;
 import com.travelmaker.dto.ReviewWithDistance;
 import com.travelmaker.dto.ReviewWithDistanceImg;
 import com.travelmaker.dto.ReviewWithImage;
@@ -21,6 +22,26 @@ public class ReviewService {
 
 	@Autowired
 	private ReviewImageService reviewImgService;
+
+	@Autowired
+	private UserService userService;
+
+	/**
+	 * 리턴받은 리스트에 사진정보를 추가해 리턴
+	 * 
+	 * @param location
+	 * @return
+	 */
+	public List<ReviewListDTO> mainReviewList(Location location) {
+		List<ReviewListDTO> list = reviewMapper.mainReviewList(location);
+		for (ReviewListDTO review : list) {
+			String userImageData = userService.getUserImage(review.getImgName());
+			String imageData = reviewImgService.getReviewImage(review.getId());
+			review.setUserImgData(userImageData);
+			review.setImageData(imageData);
+		}
+		return list;
+	}
 
 	/**
 	 * 위도와 경도로 5km이내의 리뷰 리스트에 사진을 추가해서 리턴
