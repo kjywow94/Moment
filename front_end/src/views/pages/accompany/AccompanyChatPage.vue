@@ -85,6 +85,7 @@ export default {
   },
   methods : {
     async init(){
+<<<<<<< HEAD
       this.chat = await ChatService.getChats(this.id);
       this.chat = this.chat['data'];
       
@@ -97,6 +98,21 @@ export default {
         scope.stompClient.subscribe('/topic/greetings/' + scope.id , function (chat) {
           let msg = JSON.parse(chat.body);
           scope.chat.push(msg);
+=======
+    var socket = new SockJS('http://localhost:9090/websocket');
+    this.stompClient = Stomp.over(socket);
+    this.stompClient.debug = function(str) {};
+    // SockJS와 stomp client를 통해 연결을 시도.
+    let scope = this;
+    await this.stompClient.connect({}, function (frame) {
+      scope.stompClient.subscribe('/topic/greetings/' + scope.id , function (chat) {
+        let msg = JSON.parse(chat.body);
+        scope.chat.push(msg);
+    });
+      scope.stompClient.subscribe('/topic/chat/' + scope.id, function (chat) {
+        let msg = JSON.parse(chat.body);
+        scope.chat.push(msg);
+>>>>>>> fd995ae0c811e003c57995b3ac8d5a5b4fe88338
       });
         scope.stompClient.subscribe('/topic/chat/' + scope.id, function (chat) {
           let msg = JSON.parse(chat.body);

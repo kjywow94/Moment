@@ -8,21 +8,8 @@
           <div class="md-layout-item md-size-100 md-small-size-100" style="margin: 0 auto; margin-top: 20px; margin-bottom: 20px;">
             <template>
                 <div id="dmap">
-                  <div id="map" style="width:100%; height:500px;"></div>
+                  <div id="map" style="width:100%; height:600px;"></div>
                 </div>
-            </template>
-            <template>
-                <div class="form-group">
-                    <label for="exampleInputEmail1" style="color:black;">위도</label>
-                    <input v-model="w" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="위도">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1" style="color:black;">경도</label>
-                    <input v-model="h" class="form-control" id="exampleInputPassword1" placeholder="경도">
-                </div>
-                <button @click="onclick">클릭</button>
-                {{this.w}}
-                {{this.h}}
             </template>
           </div>
         </div>
@@ -42,7 +29,8 @@
 import { LoginCard } from "@/components";
 import { Tabs } from "@/components";
 import { Modal } from '@/components';
-import UserService from "@/services/UserService.js";
+import LocationService from "@/services/LocationService.js";
+import ReviewService from "@/services/ReviewService.js";
 
 export default {
   components: {
@@ -53,8 +41,10 @@ export default {
   bodyClass: "login-page",
   data() {
     return {
-        w: "",
-        h: "",
+      distance: 5,
+      reviewList: [
+        {}
+      ],
     };
   },
   props: {
@@ -64,43 +54,108 @@ export default {
     }
   },
   mounted() {
-    var container = document.getElementById("map");
-    var mapOptions = {
-      center: new kakao.maps.LatLng(35.204038, 126.810782),
-      level: 5
-    };
-    var map = new kakao.maps.Map(container, mapOptions);
+    this.init();
+    
+
 
    
   },
   methods: {
-    onclick(){
-    var container = document.getElementById("map");
-    var mapOptions = {
-      center: new kakao.maps.LatLng(35.204038, 126.810782),
-      level: 5
-    };
-    //35.199111, 126.834800
-    var map = new kakao.maps.Map(container, mapOptions);
-    if(this.w && this.h){
-      console.log(this.w);
-      console.log(this.h);
-      
-      
-        // 마커가 표시될 위치입니다 
-        var markerPosition  = new kakao.maps.LatLng(this.w, this.h); 
+    init() {
+      LocationService.getLocation((latitude, longitude) => {
+        console.log(latitude);
+        console.log(longitude);
+        ReviewService.getReviewListByLocation({
+          latitude: latitude,
+          longitude: longitude,
+          distance: this.distance
+        }).then(reviewList => {
+          console.log(reviewList);
+          this.reviewList = reviewList.data;
+          console.log(this.reviewList);
 
-        // 마커를 생성합니다
-        var marker = new kakao.maps.Marker({
-            position: markerPosition
+          var container = document.getElementById("map");
+          var mapOptions = {
+            center: new kakao.maps.LatLng(latitude, longitude),
+            level: 2
+          };
+          var map = new kakao.maps.Map(container, mapOptions);
+          
+          for (var i = 0; i < this.reviewList.length; i++) {
+            
+            var marker = new kakao.maps.Marker({
+              map: map,
+              position: new kakao.maps.LatLng(this.reviewList[i].latitude, this.reviewList[i].longitude)
+            });
+
+            // 커스텀 오버레이에 표시할 컨텐츠 입니다
+            // 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
+            // 별도의 이벤트 메소드를 제공하지 않습니다 
+            var content = '<div class="wrap1">' + 
+                        '    <div class="info1">' + 
+                        '        <div class="title1 colorfont">' + 
+                            this.reviewList[i].title + 
+                        '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+                        '        </div>' + 
+                        '        <div class="body">' + 
+                        '            <div class="img">' +
+                        '                <img src="'+this.reviewList[i].imageData+'" width="73" height="70">' +
+                        '           </div>' + 
+                        '            <div class="desc">' + 
+                        '                <div class="ellipsis colorfont">'+this.reviewList[i].location+'</div>' + 
+                        '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' +
+                        '                <div class="elipsis colorfont">좋아요 : '+this.reviewList[i].liked+'</div>'+ 
+                        '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+                        '            </div>' + 
+                        '        </div>' + 
+                        '    </div>' +    
+                        '</div>';
+
+            // 마커 위에 커스텀오버레이를 표시합니다
+            // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+            var overlay = new kakao.maps.CustomOverlay({
+                content: content,
+                position: marker.getPosition()       
+            });
+            
+            kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, overlay));
+
+            kakao.maps.event.addListener(marker, 'click', clip(map, marker, overlay));
+            // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+            kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(overlay));
+
+            kakao.maps.event.addListener(map, 'click', close(overlay));
+          }
+     
+          let flag = false;
+           function makeOverListener(map, marker, overlay) {
+            return function() {
+              
+              overlay.setMap(map, marker);          
+            };
+          }
+           function makeOutListener(overlay) {
+            return function(){
+              if(!flag)
+                overlay.setMap(null);
+            };
+          }
+
+          function close(overlay) {
+            return function(){
+              overlay.setMap(null);
+              flag = false;
+            };
+          }
+
+          function clip() {
+            return function() {
+              flag = true;
+            }
+          }
+   
         });
-
-        // 마커가 지도 위에 표시되도록 설정합니다
-        marker.setMap(map);
-      }
-      else{
-        alert("비어있음")
-      } 
+      });
     }
   },
   computed: {
@@ -118,4 +173,20 @@ export default {
 
 <style lang="css">
     @import url("../../assets/bootstrap/bootstrap.css");
+    .wrap1 {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap1 * {padding: 0;margin: 0;}
+    .wrap1 .info1 {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap1 .info1:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info1 .title1 {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info1 .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info1 .close:hover {cursor: pointer;}
+    .info1 .body {position: relative;overflow: hidden;}
+    .info1 .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap1;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info1 .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info1:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info1 .link {color: #5085BB;}
+    .colorfont {color: #000000;}
 </style>
+
