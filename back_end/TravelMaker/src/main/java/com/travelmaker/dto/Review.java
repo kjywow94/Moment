@@ -13,10 +13,10 @@ public class Review {
 	private double longitude;
 	private String hash;
 	private String hashtag;
-	private double distance;
+	private int liked;
 
 	public Review(int id, int uid, LocalDateTime date, String title, String location, double latitude, double longitude,
-			String hash, String hashtag, double distance) {
+			String hash, String hashtag, int liked) {
 		super();
 		this.id = id;
 		this.uid = uid;
@@ -27,21 +27,7 @@ public class Review {
 		this.longitude = longitude;
 		this.hash = hash;
 		this.hashtag = hashtag;
-		this.distance = distance;
-	}
-
-	public Review(int id, int uid, LocalDateTime date, String title, String location, double latitude, double longitude,
-			String hash, String hashtag) {
-		super();
-		this.id = id;
-		this.uid = uid;
-		this.date = date;
-		this.title = title;
-		this.location = location;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.hash = hash;
-		this.hashtag = hashtag;
+		this.liked = liked;
 	}
 
 	public int getId() {
@@ -116,19 +102,19 @@ public class Review {
 		this.hashtag = hashtag;
 	}
 
-	public double getDistance() {
-		return distance;
+	public int getLiked() {
+		return liked;
 	}
 
-	public void setDistance(double distance) {
-		this.distance = distance;
+	public void setLiked(int liked) {
+		this.liked = liked;
 	}
 
 	@Override
 	public String toString() {
 		return "Review [id=" + id + ", uid=" + uid + ", date=" + date + ", title=" + title + ", location=" + location
 				+ ", latitude=" + latitude + ", longitude=" + longitude + ", hash=" + hash + ", hashtag=" + hashtag
-				+ ", distance=" + distance + "]";
+				+ ", liked=" + liked + "]";
 	}
 
 }

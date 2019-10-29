@@ -1,0 +1,117 @@
+<template>
+      <div class="wrapper">
+    <div class="section page-header header-filter" :style="headerStyle">
+      <div class="container">
+          <h1 class="title">비밀번호 찾기
+          </h1>
+        <div class="md-layout"  style="background:white;">
+          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;">
+
+            <template>
+              <h2 style="color:black; font-weight: bold;">비밀번호 찾기</h2>
+              <p style="color:black; margin-bottom: 55px;">비밀번호를 잊으셨나요?</p>
+            </template>
+            <form @submit.prevent="onSubmit()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" style="color:black;">이메일</label>
+                    <input v-model="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요..">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" style="color:black;">번호</label>
+                    <input v-model="phone" class="form-control" id="exampleInputPassword1" placeholder="010-xxxx-xxxx">
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" :class="{'btn-success' : !invalidForm}" style="margin-bottom: 16px;"  :disabled="invalidForm" @click="classicModal = false">
+                  비밀번호 찾기</button>
+                <modal v-if="classicModal" @close="classicModalHide">
+                  <template slot="header">
+                    <h4 class="modal-title" style="color: black;">비밀번호를 확인해주세요</h4>
+                    <md-button class="md-simple md-just-icon md-round modal-default-button" @click="classicModalHide">
+                      <md-icon>clear</md-icon>
+                    </md-button>
+                  </template>
+
+                  <template slot="body">
+                    <p style="color:black; font-size: 30px; font-weight: bold;">{{this.$store.state.findpass}}</p>
+                  </template>
+
+                  <template slot="footer">
+                    <md-button class="md-simple" @click="clearvuex">홈으로 돌아가기</md-button>
+                    <md-button class="md-danger md-simple" @click="classicModalHide">돌아가기</md-button>
+                  </template>
+                </modal>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { LoginCard } from "@/components";
+import { Tabs } from "@/components";
+import { Modal } from "@/components";
+import UserService from "@/services/UserService.js";
+
+export default {
+  components: {
+    LoginCard,
+    Tabs,
+    Modal
+  },
+  bodyClass: "login-page",
+  data() {
+    return {
+        email : "",
+        phone : "",
+        classicModal : false
+    };
+  },
+  props: {
+    header: {
+      type: String,
+      default: require("@/assets/img/profile_city.jpg")
+    }
+  },
+  methods: {
+    onSubmit() {
+      var scope = this;
+
+      UserService.findpassword(this.email, this.phone)
+        .then(data => {          
+          if(data.data !== ""){
+            this.$store.commit("findpass", data.data);
+            this.classicModal = true;
+          }
+          else {
+            this.classicModal = false;
+            alert("실패...");
+          }
+        })
+    },
+    classicModalHide(){
+      this.classicModal = false;
+      this.$store.commit("clearfind");
+    },
+    clearvuex(){
+      this.$store.commit("clearfind");
+      var scope = this;   
+      scope.$router.push('/');
+    }
+  },
+  computed: {
+    headerStyle() {
+      return {
+        backgroundImage: `url(${this.header})`
+      };
+    },
+    invalidForm(){
+      return !this.email || !this.phone
+    }
+  },
+};
+</script>
+
+<style lang="css">
+    @import url("../../../assets/bootstrap/bootstrap.css");
+</style>

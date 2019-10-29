@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.travelmaker.dao.LikeMapper">
+	<!-- like 검색 -->
+	<select id="selectLike" parameterType="like" resultType="like">
+		SELECT *
+		FROM likeIt where uid = #{uid} and rid = #{rid};
+	</select>
+
+	<!-- like 생성 -->
+	<insert id="insertLike" parameterType="like" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+		likeIt(uid, rid)
+		VALUES(#{uid},#{rid});
+	</insert>
+
+	<!-- like 취소 -->
+	<delete id="deleteLike" parameterType="int">
+		DELETE FROM likeIt WHERE id
+		= #{id};
+	</delete>
+</mapper>
