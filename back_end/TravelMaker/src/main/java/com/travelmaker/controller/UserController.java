@@ -3,6 +3,8 @@ package com.travelmaker.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -97,9 +99,11 @@ public class UserController {
 	}
 	
 	//회원 가입 메일 인증
-//	@RequestMapping(value = "/user/email", method = RequestMethod.GET)
-//	@ApiOperation(value = "회원 가입 메일 인증")
-//	public void emailCertification(@PathVariable String email) {
+	@RequestMapping(value = "/user/email/cert", method = RequestMethod.GET)
+	@ApiOperation(value = "회원 가입 메일 인증")
+	public String emailCertification(@PathVariable String email, @PathVariable String cert) {
 //		userService.emailCertification(email);
-//	}
+		
+		return "www.naver.com";
+	}
 }

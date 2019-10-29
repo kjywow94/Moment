@@ -35,4 +35,8 @@ public interface UserMapper {
 	public int insertUserImage(UserImage userImage);
 	//회원 사진 조회
 	public List<UserImage> selectUserImage(String email);
+	//회원 인증키 난수 값 생성 
+	public void updateCertKey(User user);
+	//회원 인증키(난수) Y로 변경
+	public void updateCert(User user);
 }

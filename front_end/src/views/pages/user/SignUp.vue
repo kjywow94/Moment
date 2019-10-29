@@ -29,11 +29,11 @@
                         </md-field>
                         <md-field>
                             <label>비밀번호</label>
-                            <md-input v-model="password" type="text"></md-input>
+                            <md-input v-model="password" type="password"></md-input>
                         </md-field>
                         <md-field>
                             <label>비밀번호 확인</label>
-                            <md-input v-model="passwordcheck" type="text"></md-input>
+                            <md-input v-model="passwordcheck" type="password"></md-input>
                         </md-field>
                         <md-field>
                             <label>휴대폰</label>
@@ -49,9 +49,6 @@
                 </template>
              
                 <template slot="tab-pane-2">
-
-
-                    <!-- 사진 TEST START-->
                     <label>사진등록</label>
                     <br>
                     <div class="ml-2 col-sm-6">
@@ -69,13 +66,18 @@
                             </div>
                         </form>
                     </div>
-
-                    <!--  사진 TEST END-->  
-
                     <md-field>
                         <label>소개글</label>
                         <md-textarea v-model="aboutme"></md-textarea>
                     </md-field> 
+                    <md-field>
+                            <label>인스타그램</label>
+                            <md-input v-model="instagram" type="text"></md-input>
+                    </md-field>
+                    <md-field>
+                            <label>페이스북</label>
+                            <md-input v-model="facebook" type="text"></md-input>
+                    </md-field>
                     <br>
                 </template>
                 <template slot="tab-pane-3">
@@ -133,14 +135,12 @@ export default {
             this.$refs.inputRef.click();
         },
         changeFile(event) {
-            console.log("event1 : ",event);
-
             //파일 이름 생성 = 이메일아이디+랜덤값
             let eamilLen = this.email.lastIndexOf('@');
             let random = Math.floor(Math.random() * 100000);
             this.imgName = this.email.substring(0, eamilLen)+'_'+random;
 
-            console.log(this.imgName);
+            // console.log(this.imgName);
             
             this.fileName = event.target.files[0].name;
             let fileLen = this.fileName.length;
@@ -151,9 +151,9 @@ export default {
             reader.readAsDataURL(event.target.files[0]);
             reader.onload = e => {
                 this.img = e.target.result;
-                    //console.log(" this.imgName :",  this.imgName);
-                    // console.log("this.img :", this.img);
-                    // console.log("this.extension :", this.extension);
+                //console.log(" this.imgName :",  this.imgName);
+                // console.log("this.img :", this.img);
+                // console.log("this.extension :", this.extension);
             };
         },
         signUp() {
@@ -185,7 +185,7 @@ export default {
                 "sns2": scope.instagram,
                 "about": scope.aboutme
             }).then(userdata => {
-                console.log("data : ", userdata.data);
+                // console.log("data : ", userdata.data);
 
                 if(userdata.data == 1){
 
@@ -203,7 +203,9 @@ export default {
                         "extension" : extension,
                         "email" : scope.email
                     }).then(uploadImgData => {
-                        console.log("image upload : ", uploadImgData);
+                        // console.log("image upload : ", uploadImgData);
+                        alert("회원가입이 완료되었습니다.");
+                        scope.$router.push('/');
                     }).catch(err => {
                         console.log(" error : ", err);
                     });
@@ -218,10 +220,12 @@ export default {
             if(scope.email != ''){
                 UserService.getUserByEmail(scope.email)
                 .then(result => {
-                    console.log("result : ",result);
+                    // console.log("result : ",result);
                     if(result.data == "") {
+                        scope.duplChk = true;
                         alert('사용가능한 이메일입니다.');
                     }else {
+                        scope.duplChk = false;
                         alert('이미 존재하는 이메일입니다.');
                     }
                 }).catch(err =>{
