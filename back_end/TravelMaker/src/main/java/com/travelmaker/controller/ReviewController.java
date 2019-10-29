@@ -79,10 +79,11 @@ public class ReviewController {
 		return likeService.like(like);
 	}
 
-	@RequestMapping(value = "/unLike/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/unLike", method = RequestMethod.POST)
 	@ApiOperation(value = "안좋아요")
-	public int unLike(@PathVariable int id) throws Exception {
-		return likeService.unLike(id);
+	public int unLike(@RequestBody Like like) throws Exception {
+		reviewService.unLike(like.getRid());
+		return likeService.unLike(like.getId());
 	}
 
 	@RequestMapping(value = "/isLike", method = RequestMethod.POST)

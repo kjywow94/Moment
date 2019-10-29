@@ -102,4 +102,14 @@ public class ReviewService {
 	public int likeIt(int id) {
 		return reviewMapper.likeIt(id);
 	}
+
+	/**
+	 * 싫어요 클릭시 호출, 리뷰 아이디로 검색후 -1
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public int unLike(int id) {
+		return reviewMapper.unLike(id);
+	}
 }

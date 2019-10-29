@@ -57,5 +57,13 @@ public interface ReviewMapper {
 	 * @return
 	 */
 	public int likeIt(int id);
+	
+	/**
+	 * 싫어요 버튼 클릭시 호출
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public int unLike(int id);
 
 }
