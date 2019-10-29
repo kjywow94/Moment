@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import { EventBus } from "@/main.js";
 import ReviewService from "@/services/ReviewService.js";
 import LocationService from "@/services/LocationService.js";
 import EthereumService from "@/services/EthereumService.js";
@@ -95,7 +96,8 @@ export default {
       this.classicModal = true;
     },
     submit() {
-      let title = this.content.substring(0, 20) + "...";
+      let title = this.content.substring(0, 20);
+      if (title.length < 17) title = title + "...";
       let hashtagToSTring = "";
       this.hashtag.forEach(element => {
         hashtagToSTring = hashtagToSTring + element + " ";
@@ -124,6 +126,7 @@ export default {
               alert("등록되었습니다.");
               this.classicModalHide();
               /** 새로고침 이벤트 추가 필요 , 이벤트 버스 */
+              EventBus.$emit("reloadReviewList");
             });
           });
         }
