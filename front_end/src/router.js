@@ -237,7 +237,6 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-<<<<<<< HEAD
     },
     {
       path: "/find/idfind",
@@ -256,8 +255,6 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-=======
->>>>>>> 03fe9cb79a98bc3a42a7c6aecc9b42513b4068bf
     }
   ],
   scrollBehavior: to => {
