@@ -16,8 +16,11 @@ export default new Vuex.Store({
           password: ""
       },
       isLogin: false,
-      isLoginError: false
+      isLoginError: false,
+      findid : "",
+      findpass : "",
     },
+
     mutations: {
         // 로그인 성공했을때
         loginSuccess(state){
@@ -33,15 +36,26 @@ export default new Vuex.Store({
             state.user = payload
             state.isLogin = true
             state.userinfo = payload
-            
         },
         logout(state){
             state.isLogin = false
-            state.user = ""
+            state.user = []
+            state.userinfo = ""
+            
         },
         update(state, payload){
             state.user = payload
             state.userinfo = payload
+        },
+        findid(state, payload){
+            state.findid = payload.email;
+        },
+        findpass(state, payload){
+            state.findpass = payload.password;
+        },
+        clearfind(state){
+            state.findid = ""
+            state.findpass = ""
         }
     },
     actions: {

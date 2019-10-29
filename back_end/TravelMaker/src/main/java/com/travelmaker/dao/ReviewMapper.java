@@ -4,8 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.travelmaker.dto.Review;
 import com.travelmaker.dto.Location;
+import com.travelmaker.dto.Review;
+import com.travelmaker.dto.ReviewWithDistance;
 
 @Mapper
 public interface ReviewMapper {
@@ -16,7 +17,7 @@ public interface ReviewMapper {
 	 * @param Location 위도 경도
 	 * @return List<Review> 가까운 5km 이내 리뷰를 반환
 	 */
-	public List<Review> reviewListByLocation(Location location);
+	public List<ReviewWithDistance> reviewListByLocation(Location location);
 
 	/**
 	 * 리뷰 리스트
@@ -44,9 +45,25 @@ public interface ReviewMapper {
 	/**
 	 * 리뷰 입력, 성공시 1, 실패시 0 반환
 	 * 
-	 * @param Review
+	 * @param ReviewWithDistance
 	 * @return int 1 / 0
 	 */
 	public int insertReview(Review review);
+
+	/**
+	 * 좋아요 버튼 클릭시 호출
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public int likeIt(int id);
+	
+	/**
+	 * 싫어요 버튼 클릭시 호출
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public int unLike(int id);
 
 }

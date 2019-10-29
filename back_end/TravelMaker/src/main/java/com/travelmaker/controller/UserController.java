@@ -49,7 +49,21 @@ public class UserController {
 		return userService.loginUser(user);
 	}
 	
-	//회원 조회 - id
+	//아이디 찾가
+	@RequestMapping(value = "/user/findId", method = RequestMethod.POST)
+	@ApiOperation(value = "아이디찾기")
+	public User findId(@RequestBody User user) throws Exception {
+		return userService.findId(user);
+	}
+	
+	//비밀번호 찾기
+	@RequestMapping(value = "/user/findPass", method = RequestMethod.POST)
+	@ApiOperation(value = "비밀번호찾기")
+	public User findPass(@RequestBody User user) throws Exception {
+		return userService.findPass(user);
+	}
+	
+	//회원 조회
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	@ApiOperation(value = "회원조회(id)")
 	public User selectOneUserByID(@PathVariable int id) throws Exception {

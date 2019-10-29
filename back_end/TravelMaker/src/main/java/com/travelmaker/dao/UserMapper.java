@@ -27,6 +27,10 @@ public interface UserMapper {
 	public int updateUser(User user);
 	//회원탈퇴(보류)
 	public int deleteUser(int id);
+	//아이디 찾기
+	public User findId(User user);
+	//비밀번호 찾기
+	public User findPass(User user);
 	//회원 사진 카운트 조회
 	public int selectCountUserImage(String email);
 	//회원 사진 삭제

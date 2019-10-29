@@ -16,8 +16,18 @@
 	<select id="loginUser" parameterType="user" resultType="user">
 		SELECT * FROM user WHERE email=#{email} and password=#{password} and is_remove = 'N' and cert = 'Y';
 	</select>
-		
-	<!-- 회원조회 -id -->
+	
+	<!-- 아이디 찾기 -->
+	<select id="findid"	parameterType="user" resultType="user">
+		SELECT * FROM user WHERE user_name=#{user_name} and phone=#{phone};
+	</select>
+	
+	<!-- 비밀번호  찾기 -->
+	<select id="findpass" parameterType="user" resultType="user">
+		SELECT * FROM user WHERE email=#{email} and phone=#{phone};
+	</select>
+	
+	<!-- 회원조회 -->
 	<select id="selectOneUser" parameterType="int" resultType="user">
 		SELECT * FROM user WHERE id = #{id};
 	</select>
