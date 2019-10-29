@@ -3,6 +3,7 @@ package com.travelmaker.dto;
 import java.time.LocalDateTime;
 
 import com.travelmaker.dto.enumeration.Status;
+import com.travelmaker.dto.enumeration.Type;
 
 public class Chat {
 	private int id;
@@ -11,18 +12,42 @@ public class Chat {
 	private LocalDateTime timestamp;
 	private int roomNumber;
 	private Status isRemove;
+	private int target;
+	private Type type;
 	public Chat() {
 		super();
 	}
-	public Chat(int iD, int uID, String context, LocalDateTime timestamp, int room_number, Status is_remove) {
+	
+	public Chat(int id, int uid, String context, LocalDateTime timestamp, int roomNumber, Status isRemove, int target, Type type) {
 		super();
-		id = iD;
-		uid = uID;
+		this.id = id;
+		this.uid = uid;
 		this.context = context;
 		this.timestamp = timestamp;
-		this.roomNumber = room_number;
-		this.isRemove = is_remove;
+		this.roomNumber = roomNumber;
+		this.isRemove = isRemove;
+		this.target = target;
+		this.type = type;
 	}
+
+	
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public int getTarget() {
+		return target;
+	}
+
+	public void setTarget(int target) {
+		this.target = target;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -62,7 +87,7 @@ public class Chat {
 	@Override
 	public String toString() {
 		return "Chat [id=" + id + ", uid=" + uid + ", context=" + context + ", timestamp=" + timestamp + ", roomNumber="
-				+ roomNumber + ", isRemove=" + isRemove + "]";
+				+ roomNumber + ", isRemove=" + isRemove + ", target=" + target + ", type=" + type + "]";
 	}
 	
 	

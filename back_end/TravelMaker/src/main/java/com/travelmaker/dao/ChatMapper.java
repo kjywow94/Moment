@@ -24,4 +24,6 @@ public interface ChatMapper {
 	public int deleteChatById(int id);
 	
 	public int updateChat(Chat c);
+	
+	public List<Chat> selectPrivateChat(int uid1, int uid2);
 }
