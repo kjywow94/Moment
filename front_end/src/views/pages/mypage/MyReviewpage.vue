@@ -2,13 +2,12 @@
   <div class="wrapper">
     <div class="section page-header header-filter" :style="headerStyle">
       <div class="container">
-          <h1 class="title">내 지갑</h1>
+          <h1 class="title">내 리뷰후기</h1>
         <div class="md-layout"  style="background:white;">
-          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;min-width: 55%;">
-            <MainNav></MainNav>
-            <template>
-              
-            </template>
+            <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto; min-width: 55%;">
+              <MainNav></MainNav>
+              <template>
+              </template>
           </div>
         </div>
       </div>
@@ -30,7 +29,7 @@ export default {
   bodyClass: "login-page",
   data() {
     return {
-
+    
     };
   },
   components: {
@@ -43,7 +42,9 @@ export default {
     }
   },
   methods: {
-  
+    stringclear() {
+      
+    }
   },
   computed: {
     headerStyle() {

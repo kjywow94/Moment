@@ -19,8 +19,12 @@ import TravelReview from "./views/pages/travelReview/TravelReviewPage.vue";
 import UserProfile from "./views/pages/profile/UsersProfilePage.vue";
 import TravelReviewDetail from "./views/pages/travelReview/TravelReviewDetail.vue";
 import Mywallet from "./views/pages/mypage/MyWallet.vue";
+import MyReview from "./views/pages/mypage/MyReviewpage.vue";
 import UserInfo from "./views/pages/mypage/UserInfo.vue";
 import MyPageNav from "./layout/MypageNavbar.vue";
+import PasswordFind from "./views/pages/login/Passwordfind.vue";
+import IdFind from "./views/pages/login/Idfind.vue";
+import Kakaomap from "./views/kakaomap/Kakaomap.vue";
 
 Vue.use(Router);
 
@@ -219,20 +223,41 @@ export default new Router({
       path: "/mypage/userinfo",
       name: "userinfo",
       beforeEnter : requireAuth,
-      components: { default: UserInfo, header: MainNavbar, footer: MainFooter, btnnav : MyPageNav },
+      components: { default: UserInfo, header: MainNavbar, footer: MainFooter},
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
     },
     {
-      path: "/travelReviewDetail/:id",
-      name: "travelReviewDetail",
-      components: { default: TravelReviewDetail, header: MainNavbar, footer: MainFooter },
+      path: "/find/passwordfind",
+      name: "passwordfind",
+      components: { default: PasswordFind, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
+<<<<<<< HEAD
+    },
+    {
+      path: "/find/idfind",
+      name: "idfind",
+      components: { default: IdFind, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/map/kakaomap",
+      name: "kakaomap",
+      components: { default: Kakaomap, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+=======
+>>>>>>> 03fe9cb79a98bc3a42a7c6aecc9b42513b4068bf
     }
   ],
   scrollBehavior: to => {

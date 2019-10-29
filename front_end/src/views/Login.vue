@@ -91,7 +91,6 @@ export default {
             }
             
             scope.$router.push('/');
-            alert("로그인");
           }
           else {
             alert("다시 확인해주세요...");
