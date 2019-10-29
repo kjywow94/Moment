@@ -157,7 +157,7 @@ export default new Router({
       path: "/signup",
       name: "signup",
       beforeEnter: loginAuth,
-      components: { default: Signup, header: MainNavbar, footer: MainFooter },
+      components: { default: SignUp, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 }
       }
