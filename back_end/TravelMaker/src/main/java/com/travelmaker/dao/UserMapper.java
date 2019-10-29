@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.travelmaker.dto.User;
+import com.travelmaker.dto.UserImage;
 
 
 
@@ -28,4 +29,12 @@ public interface UserMapper {
 	public User findId(User user);
 	//비밀번호 찾기
 	public User findpaswword(User user);
+	//회원 사진 카운트 조회
+	public int selectCountUserImage(String email);
+	//회원 사진 삭제
+	public int deleteUserImage(String email);
+	//회원 사진 등록
+	public int insertUserImage(UserImage userImage);
+	//회원 사진 조회
+	public List<UserImage> selectUserImage(String email);
 }

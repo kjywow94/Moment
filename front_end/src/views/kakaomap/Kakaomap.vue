@@ -5,7 +5,7 @@
           <h1 class="title">지도
           </h1>
         <div class="md-layout"  style="background:white;">
-          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto; margin-top: 20px; margin-bottom: 20px;">
+          <div class="md-layout-item md-size-100 md-small-size-100" style="margin: 0 auto; margin-top: 20px; margin-bottom: 20px;">
             <template>
                 <div id="dmap">
                   <div id="map" style="width:100%; height:500px;"></div>

@@ -3,8 +3,6 @@
     <parallax class="section page-header header-filter" :style="headerStyle">
     </parallax>
     <div class="main main-raised">
-        Chat test
-
       <div class="section section-contacts">
         <div class="container">
           <div class="md-layout">
@@ -13,9 +11,14 @@
                 </md-field>
                         <button @click="send">전송</button>
             </div>
-            <div v-for="c in chat">{{c}}</div>
+            <div v-for="c in chat">
+              <div :class="c['uid'] == uid ? 'right' : 'left'">
+                {{c['context']}}
+                  <br><span>{{c['timestamp']}}</span>
+              </div>
 
 
+            </div>
           </div>
         </div>
       </div>
@@ -55,7 +58,9 @@ export default {
     return {
         stompClient: null,
         msg:"",
-        chat:[]
+        chat:[],
+        id: this.$route.params.id,
+        uid: this.$store.state.user.id
     };
   },
   computed: {
@@ -69,36 +74,64 @@ export default {
     this.init();
     
   },
+  beforeDestroy(){
+    this.exit();
+  },
   methods : {
     async init(){
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 03fe9cb79a98bc3a42a7c6aecc9b42513b4068bf
     var socket = new SockJS('http://192.168.100.49:9090/websocket');
     this.stompClient = Stomp.over(socket);
+    this.stompClient.debug = function(str) {};
     // SockJS와 stomp client를 통해 연결을 시도.
     let scope = this;
     await this.stompClient.connect({}, function (frame) {
-      scope.stompClient.subscribe('/topic/greetings', function (chat) {
-        let msg = chat.body
+      scope.stompClient.subscribe('/topic/greetings/' + scope.id , function (chat) {
+        let msg = JSON.parse(chat.body);
         scope.chat.push(msg);
-        console.log("HELLO MSG" + msg);
     });
-    scope.stompClient.subscribe('/topic/chat', function (chat) {
-      let msg = JSON.parse(chat.body);
-      console.log(msg['context']);
-      scope.chat.push(msg['context']);
-    });
-      let visit = {'UID' : 11, 'timestamp':new Date(), 'context': scope.$store.state.user.nickname, 'room_number':1};
-      scope.stompClient.send("/app/greetings", {}, JSON.stringify(visit));
+      scope.stompClient.subscribe('/topic/chat/' + scope.id, function (chat) {
+        let msg = JSON.parse(chat.body);
+        scope.chat.push(msg);
+      });
+      scope.stompClient.subscribe('/topic/goodbye/' + scope.id, function (chat) {
+        let msg = JSON.parse(chat.body);
+        scope.chat.push(msg);
+      });
+        let visit = {'uid' : scope.uid, 'timestamp':new Date(), 'context': scope.$store.state.user.nickname, 'roomNumber':scope.id,
+        };
+        scope.stompClient.send("/app/greetings", {}, JSON.stringify(visit));
   });
 
     },
     send(){
+      if(this.msg == ""){
+        return;
+      }
         let chat = {
-            'UID' : 11, 'timestamp':new Date(), 'context': this.$store.state.user.nickname + " : " + this.msg, 'room_number':1
-            }
+            'uid' : this.uid,'timestamp':new Date(), 'context': this.$store.state.user.nickname + " : " + this.msg, 'roomNumber':this.id,
+            'isRemoved' : 'N'}
         this.stompClient.send("/app/chat", {}, JSON.stringify(chat));
         this.msg = "";
+    },
+    async exit(){
+      let exit = {'uid' : this.uid, 'timestamp':new Date(), 'context': this.$store.state.user.nickname, 'roomNumber':this.id};
+      await this.stompClient.send("/app/goodbye", {}, JSON.stringify(exit));
     }
   }
 };
 </script>
 
+<style>
+
+.right{
+  text-align: right;
+}
+.left{
+  text-align: left;
+}
+
+</style>
