@@ -123,7 +123,7 @@ export default {
             }).then(response => {
               alert("등록되었습니다.");
               this.classicModalHide();
-              /** 새로고침 이벤트 추가 필요 */
+              /** 새로고침 이벤트 추가 필요 , 이벤트 버스 */
             });
           });
         }
