@@ -72,8 +72,8 @@ public class UserService {
 	}
 	
 	//비밀번호 찾기
-	public User findpassword(User user) {
-		return userMapper.findpaswword(user);
+	public User findPass(User user) {
+		return userMapper.findPass(user);
 	}
 
 	//회원 이미지 등록

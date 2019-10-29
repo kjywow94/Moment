@@ -48,17 +48,17 @@ public class UserController {
 	}
 	
 	//아이디 찾가
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@RequestMapping(value = "/user/findId", method = RequestMethod.POST)
 	@ApiOperation(value = "아이디찾기")
 	public User findId(@RequestBody User user) throws Exception {
 		return userService.findId(user);
 	}
 	
 	//비밀번호 찾기
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@RequestMapping(value = "/user/findPass", method = RequestMethod.POST)
 	@ApiOperation(value = "비밀번호찾기")
-	public User findPassword(@RequestBody User user) throws Exception {
-		return userService.findpassword(user);
+	public User findPass(@RequestBody User user) throws Exception {
+		return userService.findPass(user);
 	}
 	
 	//회원 조회
