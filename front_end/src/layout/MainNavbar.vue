@@ -23,7 +23,7 @@
           <span class="icon-bar"></span>
         </md-button>
         <div class="md-collapse">
-          <div class="md-collapse-wrapper">
+          <div class="md-collapse-wrapper ">
             <mobile-menu nav-mobile-section-start="false">
               <!-- Here you can add your items from the section-start of your toolbar -->
             </mobile-menu>
@@ -33,10 +33,54 @@
                 <p>관리자</p>
               </md-list-item>
 
-              <md-list-item href="#/accompanyChat" v-if="isLogined">
-                <i class="material-icons">flight</i>
-                <p>채팅</p>
-              </md-list-item>
+              <li class="md-list-item">
+                    <a
+                      href="javascript:void(0)"
+                      class="md-list-item-router md-list-item-container md-button-clean dropdown"
+                    >
+                      <div class="md-list-item-content">
+                        <drop-down direction="down">
+                          <md-button
+                            slot="title"
+                            class="md-button md-button-link md-white md-simple"
+                          >
+                            <i class="material-icons">flight</i>
+                            <p>채팅</p>
+                          </md-button>
+                          <ul
+                            class="dropdown-menu"
+                            
+                          >
+                            <li class="dropdown-header">Dropdown header</li>
+                            <li>
+                              <a href="#/accompanyChat/0" class="dropdown-item"
+                                >0번</a>
+                            </li>
+                            <li>
+                              <a href="#/accompanyChat/1" class="dropdown-item"
+                                >1번</a>
+                            </li>
+                            <li>
+                              <a href="#/accompanyChat/2" class="dropdown-item"
+                                >2번</a>
+                            </li>
+                            <li>
+                              <a href="#/accompanyChat/3" class="dropdown-item"
+                                >3번</a>
+                            </li>
+                            <li>
+                              <a href="#/accompanyChat/4" class="dropdown-item"
+                                >4번</a>
+                            </li>
+                            <li>
+                              <a href="#/PrivateChat/8" class="dropdown-item"
+                                >김선일이와 대화하기</a>
+                            </li>
+                          </ul>
+                        </drop-down>
+                      </div>
+                    </a>
+                  </li>
 
               <md-list-item href="#/accompanyList" v-if="isLogined">
                 <i class="material-icons">flight</i>
@@ -63,7 +107,17 @@
                 <p>회원가입</p>
               </md-list-item>
 
-              <md-list-item href="#/" v-on:click="isLogout" v-if="isLogined">
+              <md-list-item href="#/find/idfind" v-if="!isLogined">
+                <i class="material-icons">how_to_reg</i>
+                <p>아이디 찾기</p>
+              </md-list-item>
+
+              <md-list-item href="#/find/passwordfind" v-if="!isLogined">
+                <i class="material-icons">how_to_reg</i>
+                <p>비밀번호 찾기</p>
+              </md-list-item>
+
+              <md-list-item href="#/find/idfind" v-on:click="isLogout" v-if="isLogined">
                 <i class="material-icons">how_to_reg</i>
                 <p>로그아웃</p>
               </md-list-item>
@@ -184,7 +238,7 @@ export default {
       this.$store.commit("logout")
       
       sessionStorage.clear();
-      console.log(sessionStorage)
+      localStorage.clear();
       alert("정상적으로 로그아웃 되었습니다.");
       this.$router.push("/login");
       location.reload();

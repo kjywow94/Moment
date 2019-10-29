@@ -4,7 +4,7 @@
       <div class="container">
           <h1 class="title">내 지갑</h1>
         <div class="md-layout"  style="background:white;">
-          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;">
+          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;min-width: 55%;">
             <MainNav></MainNav>
             <template>
               

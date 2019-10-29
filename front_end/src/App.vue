@@ -3,7 +3,7 @@
     <div :class="{ 'nav-open': NavbarStore.showNavbar }">
       <router-view name="header" />
       <div>
-        <router-view />
+        <router-view  :key="$route.fullPath"/>
       </div>
       <router-view name="footer" />
     </div>

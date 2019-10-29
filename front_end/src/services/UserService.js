@@ -37,5 +37,21 @@ export default {
         var temp = body;
         temp.password = password;
         return apiServer.put("/api/user", temp);
+    },
+    findid(userName, phone){
+        var body = {
+            userName : userName,
+            phone : phone
+        }
+
+        return apiServer.post("/api/user/findId", body)
+    },
+    findpassword(email, phone){
+        var body = {
+            email : email,
+            phone : phone
+        }
+
+        return apiServer.post("/api/user/findPass", body)
     }
 }
