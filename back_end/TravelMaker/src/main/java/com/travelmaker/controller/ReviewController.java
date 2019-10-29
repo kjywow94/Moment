@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.travelmaker.dto.Location;
 import com.travelmaker.dto.Review;
 import com.travelmaker.dto.ReviewImage;
-import com.travelmaker.dto.ReviewWithDistance;
+import com.travelmaker.dto.ReviewWithDistanceImg;
+import com.travelmaker.dto.ReviewWithImage;
 import com.travelmaker.service.ReviewImageService;
 import com.travelmaker.service.ReviewService;
 
@@ -32,13 +33,13 @@ public class ReviewController {
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	@ApiOperation(value = "위도, 경도로 5km 이내의 리뷰 반환")
-	public List<ReviewWithDistance> reviewListByLocation(@RequestBody Location location) throws Exception {
+	public List<ReviewWithDistanceImg> reviewListByLocation(@RequestBody Location location) throws Exception {
 		return reviewService.reviewListByLocation(location);
 	}
 
 	@RequestMapping(value = "/review", method = RequestMethod.GET)
 	@ApiOperation(value = "리뷰 목록 전체 반환")
-	public List<Review> reviewList() throws Exception {
+	public List<ReviewWithImage> reviewList() throws Exception {
 		return reviewService.reviewList();
 	}
 
@@ -50,7 +51,7 @@ public class ReviewController {
 
 	@RequestMapping(value = "/reviewByUser/{uid}", method = RequestMethod.GET)
 	@ApiOperation(value = "유저 아이디로 리뷰리스트 반환")
-	public List<Review> selectReviewByUid(@PathVariable int uid) throws Exception {
+	public List<ReviewWithImage> selectReviewByUid(@PathVariable int uid) throws Exception {
 		return reviewService.selectReviewByUid(uid);
 	}
 
