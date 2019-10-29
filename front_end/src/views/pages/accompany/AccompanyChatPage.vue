@@ -79,10 +79,6 @@ export default {
   },
   methods : {
     async init(){
-<<<<<<< HEAD
-=======
-    
->>>>>>> 03fe9cb79a98bc3a42a7c6aecc9b42513b4068bf
     var socket = new SockJS('http://192.168.100.49:9090/websocket');
     this.stompClient = Stomp.over(socket);
     this.stompClient.debug = function(str) {};

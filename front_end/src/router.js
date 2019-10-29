@@ -35,21 +35,21 @@ const requireAuth = (to, from, next) => {
 }
 
 const loginAuth = (to, from, next) => {
-  if(sessionStorage.length === 0)
-    var isAuth =  true;
+  if (sessionStorage.length === 0)
+    var isAuth = true;
   const loginNo = '/'
   isAuth ? next() : next(loginNo)
 }
 
 const adminAuth = (to, from, next) => {
-  if(sessionStorage.Auth === "U"){
+  if (sessionStorage.Auth === "U") {
     var aminAuth = true;
     console.log("uuuuuu");
-    
+
   }
   const adminYes = '/admin'
   const adminNo = "/"
-  aminAuth ? next() : next(adminYes)  
+  aminAuth ? next() : next(adminYes)
 }
 
 export default new Router({
@@ -58,7 +58,7 @@ export default new Router({
       path: "/",
       name: "index",
       components: { default: Index, header: MainNavbar, footer: MainFooter },
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -67,7 +67,7 @@ export default new Router({
     {
       path: "/accompanyList",
       name: "accompanyList",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: AccompanyList, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -77,7 +77,7 @@ export default new Router({
     {
       path: "/accompanyChat/:id",
       name: "accompanyChat",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: AccompanyChat, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -87,7 +87,7 @@ export default new Router({
     {
       path: "/privateChat/:id",
       name: "privateChat",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: PrivateChat, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -97,7 +97,7 @@ export default new Router({
     {
       path: "/accompanyDetail/:id",
       name: "accompanyDetail",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: AccompanyDetail, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -107,7 +107,7 @@ export default new Router({
     {
       path: "/accompanyRegist",
       name: "accompanyRegist",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: AccompanyRegist, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -117,7 +117,7 @@ export default new Router({
     {
       path: "/accompanyRevise/:id",
       name: "accompanyRevise",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: AccompanyRevise, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -127,7 +127,7 @@ export default new Router({
     {
       path: "/myAccompany",
       name: "myAccompany",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: MyAccompany, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -137,7 +137,7 @@ export default new Router({
     {
       path: "/landing",
       name: "landing",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: Landing, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -147,7 +147,7 @@ export default new Router({
     {
       path: "/login",
       name: "login",
-      beforeEnter : loginAuth,
+      beforeEnter: loginAuth,
       components: { default: Login, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 }
@@ -156,7 +156,7 @@ export default new Router({
     {
       path: "/signup",
       name: "signup",
-      beforeEnter : loginAuth,
+      beforeEnter: loginAuth,
       components: { default: Signup, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 }
@@ -165,7 +165,7 @@ export default new Router({
     {
       path: "/profile",
       name: "profile",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: UserProfile, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -175,7 +175,7 @@ export default new Router({
     {
       path: "/admin",
       name: "admin",
-      beforeEnter : adminAuth,
+      beforeEnter: adminAuth,
       components: { default: Admin, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -212,7 +212,7 @@ export default new Router({
     {
       path: "/mypage/passwordchange",
       name: "passwordchange",
-      beforeEnter : requireAuth,
+      beforeEnter: requireAuth,
       components: { default: PasswordChange, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
@@ -222,8 +222,8 @@ export default new Router({
     {
       path: "/mypage/userinfo",
       name: "userinfo",
-      beforeEnter : requireAuth,
-      components: { default: UserInfo, header: MainNavbar, footer: MainFooter},
+      beforeEnter: requireAuth,
+      components: { default: UserInfo, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -237,7 +237,6 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-<<<<<<< HEAD
     },
     {
       path: "/find/idfind",
@@ -256,8 +255,6 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-=======
->>>>>>> 03fe9cb79a98bc3a42a7c6aecc9b42513b4068bf
     }
   ],
   scrollBehavior: to => {
