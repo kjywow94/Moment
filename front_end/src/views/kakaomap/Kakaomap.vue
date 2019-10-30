@@ -2,15 +2,16 @@
  <div class="wrapper">
     <div class="section page-header header-filter" :style="headerStyle">
       <div class="container">
-          <h1 class="title">지도
-          </h1>
-        <div class="md-layout"  style="background:white;">
+        <br><br><br>
+        <div class="md-layout">
           <div class="md-layout-item md-size-100 md-small-size-100" style="margin: 0 auto; margin-top: 20px; margin-bottom: 20px;">
-            <template>
+            <div class="main main-raised">
+              <div class="section section-contacts" style="padding-top: 10px; padding-bottom: 10px; padding-right: 10px; padding-left: 10px;">
                 <div id="dmap">
                   <div id="map" style="width:100%; height:600px;"></div>
                 </div>
-            </template>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -45,40 +46,26 @@ export default {
       reviewList: [
         {}
       ],
-      place : []
     };
   },
   props: {
     header: {
       type: String,
       default: require("@/assets/img/profile_city.jpg")
-    },
-    like: {
-      type: String,
-      default: require("../../assets/img/like.png")
-    },
-
+    }
   },
   mounted() {
     this.init();
-    
-
-
-   
   },
   methods: {
     init() {
       LocationService.getLocation((latitude, longitude) => {
-        console.log(latitude);
-        console.log(longitude);
         ReviewService.getReviewListByLocation({
           latitude: latitude,
           longitude: longitude,
           distance: this.distance
         }).then(reviewList => {
-          console.log(reviewList);
           this.reviewList = reviewList.data;
-          console.log(this.reviewList);
 
           var container = document.getElementById("map");
           var mapOptions = {
@@ -86,6 +73,8 @@ export default {
             level: 2
           };
           var map = new kakao.maps.Map(container, mapOptions);
+
+         
           
           for (var i = 0; i < this.reviewList.length; i++) {
             
@@ -93,7 +82,7 @@ export default {
               map: map,
               position: new kakao.maps.LatLng(this.reviewList[i].latitude, this.reviewList[i].longitude)
             });
-
+            
             var content = '<div class="wrap1">' + 
                         '    <div class="info1">' + 
                         '        <div class="title1 colorfont">' + 
@@ -107,7 +96,7 @@ export default {
                         '            <div class="desc">' + 
                         '                <div class="jibun ellipsis">장소 : '+this.reviewList[i].location+'</div>' + 
                         '                <div class="elipsis colorfont">좋아요<span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Coraz%C3%B3n.svg/174px-Coraz%C3%B3n.svg.png" width="13" height="13"><span> '+this.reviewList[i].liked+'</div>'+ 
-                        '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+                        '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link" title="모달">홈페이지</a></div>' + 
                         '            </div>' + 
                         '        </div>' + 
                         '    </div>' +    
@@ -127,7 +116,9 @@ export default {
             // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
             kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(overlay));
 
-            kakao.maps.event.addListener(map, 'click', close(overlay));
+            kakao.maps.event.addListener(content, 'click', close(overlay));
+
+    
           }
      
           let flag = false;
@@ -153,9 +144,14 @@ export default {
 
           function clip() {
             return function() {
+              console.log(overlay);
+              
               flag = true;
             }
           }
+
+        
+          
    
         });
       });
