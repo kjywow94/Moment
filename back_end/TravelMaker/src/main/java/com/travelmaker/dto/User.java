@@ -27,6 +27,13 @@ public class User {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public User(String email, String cert) {
+		super();
+		this.email = email;
+		this.cert = cert;
+	}
+
 	public int getId() {
 		return id;
 	}

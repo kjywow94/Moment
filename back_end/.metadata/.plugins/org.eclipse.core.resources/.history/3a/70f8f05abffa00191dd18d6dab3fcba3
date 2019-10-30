@@ -1,0 +1,15 @@
+package com.travelmaker.dto;
+
+import lombok.Data;
+
+@ToString
+@Data
+public class ChatList {
+	private int id;
+	private int uid;
+	private int target;
+	private int notification;
+	
+	
+	
+}

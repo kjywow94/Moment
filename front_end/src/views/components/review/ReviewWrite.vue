@@ -96,8 +96,10 @@ export default {
       this.classicModal = true;
     },
     submit() {
-      let title = this.content.substring(0, 20);
-      if (title.length < 17) title = title + "...";
+      let title = this.content.substring(0, 14);
+      if (this.content.length < 14) {
+        title = title + "...";
+      }
       let hashtagToSTring = "";
       this.hashtag.forEach(element => {
         hashtagToSTring = hashtagToSTring + element + " ";
@@ -105,7 +107,7 @@ export default {
 
       EthereumService.write(
         this.$store.state.user.walletAddress,
-        "ssafy",
+        this.$store.state.user.password,
         this.content,
         receipt => {
           ReviewService.writeReview({
