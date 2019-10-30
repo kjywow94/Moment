@@ -149,6 +149,10 @@ public class UserService {
 		return userImage;
 	}
 
+	public void updateCert(User user) {
+		userMapper.updateCert(user);
+	}
+	
 	/**
 	 * 파일 이름으로 유저 프로필을 찾아 스트링 데이터로 리턴해주는 함수
 	 * 
