@@ -107,7 +107,7 @@ export default {
 
       EthereumService.write(
         this.$store.state.user.walletAddress,
-        "ssafy",
+        this.$store.state.user.password,
         this.content,
         receipt => {
           ReviewService.writeReview({
