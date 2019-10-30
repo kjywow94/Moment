@@ -5,7 +5,6 @@
       <div class="section section-contacts">
         <div class="container">
           <div class="md-layout">
-            <ReviewWrite />
             <ReviewCard />
           </div>
         </div>

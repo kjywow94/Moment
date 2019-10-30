@@ -1,10 +1,10 @@
 <template>
   <div class="md-layout-item md-size-100 mx-auto review_button">
-    <md-button class="md-info md-just-icon md-round" @click="doWrite">
+    <!-- <md-button class="md-info md-just-icon md-round" @click="doWrite">
       <md-icon>create</md-icon>
-    </md-button>
+    </md-button> -->
 
-    <modal v-if="classicModal" @close="classicModalHide">
+    <modal v-if="this.$store.state.ReviewWriteOn" @close="classicModalHide">
       <template slot="header">
         <h4 class="modal-title">리뷰쓰기</h4>
         <md-button
@@ -64,7 +64,6 @@ export default {
   data() {
     return {
       hashtag: [],
-      classicModal: false,
       content: null,
       imgName: "이미지를 올려주세요",
       imgData: "https://placehold.it/80x80",
@@ -73,7 +72,9 @@ export default {
       longitude: null
     };
   },
-  mounted() {},
+  mounted() {
+    this.ModalOn();
+  },
   methods: {
     clickUpload() {
       event.preventDefault();
@@ -88,6 +89,7 @@ export default {
         this.imgData = e.target.result;
       };
     },
+
     doWrite() {
       LocationService.getLocation((latitude, longitude) => {
         this.latitude = latitude;
@@ -95,6 +97,7 @@ export default {
       });
       this.classicModal = true;
     },
+
     submit() {
       let title = this.content.substring(0, 20);
       if (title.length < 17) title = title + "...";
@@ -133,13 +136,21 @@ export default {
       );
     },
     classicModalHide() {
-      this.classicModal = false;
+      this.$store.state.ReviewWriteOn = false;
+      this.$store.state.latitude = null;
+      this.$store.state.longitude = null;
       this.hashtag = [];
       this.content = null;
       this.img = null;
       this.location = null;
       this.imgName = null;
       this.imgData = null;
+    },
+    ModalOn(){
+      if(this.$store.state.ReviewWriteOn){
+        this.latitude = this.$store.state.latitude;
+        this.longitude = this.$store.state.longitude;
+      }
     }
   }
 };
