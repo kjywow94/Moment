@@ -113,6 +113,7 @@ export default {
                         '    </div>' +    
                         '</div>';
 
+
             // 마커 위에 커스텀오버레이를 표시합니다
             // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
             var overlay = new kakao.maps.CustomOverlay({
