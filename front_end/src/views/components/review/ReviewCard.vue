@@ -2,6 +2,7 @@
   <div>
     <div>
       <div class="md-layout">
+        <ReviewWrite />
         <div
           class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
           v-for="r in reviewList"
@@ -92,14 +93,14 @@ import ReviewService from "@/services/ReviewService.js";
 import UserService from "@/services/UserService.js";
 import EthereumService from "@/services/EthereumService.js";
 import LocationService from "@/services/LocationService.js";
-import ReviewCard from "@/views/components/review/ReviewCard";
+import ReviewWrite from "@/views/components/review/ReviewWrite";
 import { Tabs } from "@/components";
 import { Modal } from "@/components";
 
 export default {
   components: {
     Tabs,
-    ReviewCard,
+    ReviewWrite,
     Modal
   },
   data() {
