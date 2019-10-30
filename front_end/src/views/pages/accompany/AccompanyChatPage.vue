@@ -86,6 +86,9 @@ export default {
   methods : {
     async init(){
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dafa74905c69ddb176774cb744ed45d49ab22d9e
       this.chat = await ChatService.getChats(this.id);
       this.chat = this.chat['data'];
       
@@ -98,6 +101,7 @@ export default {
         scope.stompClient.subscribe('/topic/greetings/' + scope.id , function (chat) {
           let msg = JSON.parse(chat.body);
           scope.chat.push(msg);
+<<<<<<< HEAD
 =======
     var socket = new SockJS('http://localhost:9090/websocket');
     this.stompClient = Stomp.over(socket);
@@ -113,6 +117,8 @@ export default {
         let msg = JSON.parse(chat.body);
         scope.chat.push(msg);
 >>>>>>> fd995ae0c811e003c57995b3ac8d5a5b4fe88338
+=======
+>>>>>>> dafa74905c69ddb176774cb744ed45d49ab22d9e
       });
         scope.stompClient.subscribe('/topic/chat/' + scope.id, function (chat) {
           let msg = JSON.parse(chat.body);

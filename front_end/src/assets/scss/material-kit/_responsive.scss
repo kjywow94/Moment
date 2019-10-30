@@ -406,9 +406,11 @@
       margin: 0 !important;
     }
   }
-
+// 모바일 wrapper 크기 반응형
   .modal-wrapper .modal-container {
-    max-width: 380px;
+    max-width: 93%;
+    max-height:75%;
+    overflow: auto;
   }
 }
 

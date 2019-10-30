@@ -6,10 +6,19 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.travelmaker.dto.Location;
 import com.travelmaker.dto.Review;
+import com.travelmaker.dto.ReviewListDTO;
 import com.travelmaker.dto.ReviewWithDistance;
 
 @Mapper
 public interface ReviewMapper {
+	
+	/**
+	 * 메인 페이지에 필요한 유저 정보를 포함한 리뷰 리스트 리턴
+	 * 
+	 * @param location
+	 * @return
+	 */
+	public List<ReviewListDTO> mainReviewList(Location location);
 
 	/**
 	 * 위도와 경도로 가까운 리뷰 반환

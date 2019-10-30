@@ -1,0 +1,15 @@
+package com.travelmaker.dto;
+
+@NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
+public class ChatList {
+	@Getter @Setter
+	private int id;
+	private int uid;
+	private int target;
+	private int notification;
+	
+	
+	
+}
