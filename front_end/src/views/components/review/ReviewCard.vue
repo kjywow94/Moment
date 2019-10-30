@@ -3,7 +3,7 @@
     <div>
       <div class="md-layout">
         <div
-          class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100"
+          class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
           v-for="r in reviewList"
           :key="r.id"
           @click="detailModalShow(r)"
@@ -176,6 +176,11 @@ export default {
 };
 </script>
 <style>
+.md-button-content {
+  margin-bottom: auto;
+  display: flex;
+  align-items: center;
+}
 .my-hashtag-div {
   margin-top: 10px;
 }
@@ -209,10 +214,6 @@ export default {
   display: flex;
   justify-content: center !important;
 }
-.contact-form {
-  margin-top: 30px;
-}
-
 .md-has-textarea + .md-layout {
   margin-top: 15px;
 }
@@ -227,6 +228,10 @@ export default {
 @media (max-width: 480px) {
   .mdquery-md {
     display: none;
+  }
+  .my-card-container {
+    margin: auto;
+    height: 380px;
   }
 }
 </style>
