@@ -5,7 +5,7 @@
       <div class="section section-contacts">
         <div class="container">
           <div class="md-layout">
-            <ReviewWrite />
+            <!-- <ReviewWrite /> -->
             <ReviewCard />
           </div>
         </div>
@@ -37,7 +37,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/bg7.jpg")
+      default: require("@/assets/img/beach_3.jpg")
     },
     teamImg1: {
       type: String,

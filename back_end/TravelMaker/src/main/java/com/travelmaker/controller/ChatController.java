@@ -3,18 +3,14 @@ package com.travelmaker.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.HtmlUtils;
 
 import com.travelmaker.dto.Chat;
-import com.travelmaker.dto.UserReview;
 import com.travelmaker.service.ChatService;
 
 import io.swagger.annotations.ApiOperation;
@@ -32,9 +28,9 @@ public class ChatController {
 	public List<Chat> selectAllChat(@RequestBody int rn) throws Exception {
 		return chatService.selectAll(rn);
 	}
-	@RequestMapping(value = "/chatAll", method = RequestMethod.POST)
+	@RequestMapping(value = "/chatAll/{rn}", method = RequestMethod.GET)
 	@ApiOperation(value="모든 채팅  리턴")
-	public List<Chat> selectAllNotRemovedReview(@RequestBody int rn) throws Exception {
+	public List<Chat> selectAllNotRemovedReview(@PathVariable int rn) throws Exception {
 		return chatService.selectAll(rn);
 	}
 	
@@ -49,13 +45,17 @@ public class ChatController {
 		return chatService.updateChat(chat);
 	}
 	
+	@RequestMapping(value = "/chat/private/{uid1}/{uid2}", method = RequestMethod.GET)
+	@ApiOperation(value="채팅 삭제")
+	public List<Chat> forceDeleteChat(@PathVariable int uid1, @PathVariable int uid2) throws Exception {
+		return chatService.selectPrivateChat(uid1, uid2);
+	}
+	
 	@RequestMapping(value = "/chat", method = RequestMethod.DELETE)
 	@ApiOperation(value="채팅 삭제")
 	public int forceDeleteChat(@RequestBody int id) throws Exception {
 		return chatService.deleteChatById(id);
 	}
-	
-
 	
 	
 	

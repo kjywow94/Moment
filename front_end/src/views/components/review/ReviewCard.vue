@@ -3,29 +3,40 @@
     <div>
       <div class="md-layout">
         <div
-          class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100"
+          class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
           v-for="r in reviewList"
           :key="r.id"
           @click="detailModalShow(r)"
         >
           <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
-            <div class="md-card-header" style="background-color: rgba(255, 255, 255, 0.7)">
-              <div class="md-avatar">
-                <img :src="r.imageData" alt="Avatar" />
+            <div class="my-card-title">
+              <div style="display : inline-block">
+                <div>
+                  <img :src="r.userImgData" alt="Avatar" class="Avatar_image" />
+                </div>
               </div>
-              <div class="md-title">
-                {{r.nickname}}
-                <!--작성자-->
+              <div style="display : inline-block; position:absolute; left:80px">
+                <div>
+                  {{r.location}}
+                  <!--장소-->
+                </div>
+                <div>
+                  by {{r.nickname}}
+                  <!--작성자-->
+                </div>
               </div>
-              <div class="md-subhead">
-                {{r.location}}
-                <!--장소-->
-              </div>
-            </div>
-            <div class="md-card-content">
-              <img :src="r.imageData" class="img" />
               <hr />
-              <h4 style="text-align:center">{{r.title}}</h4>
+            </div>
+            <div class="md-card-content" style="padding-top: 0px;">
+              <img :src="r.imageData" class="img" style="height : 200px" />
+              <hr />
+              <div class="my-card-content" style="display:inline-block">
+                <h4 class="my-card-content">{{r.title}}</h4>
+              </div>
+              <div style="display:inline-block; float:right">
+                <md-icon>favorite</md-icon>
+                {{r.liked}}
+              </div>
             </div>
           </div>
         </div>
@@ -50,6 +61,9 @@
           <h5>{{this.detailModalData.date | moment("YYYY MM DD, dddd")}}</h5>
           <p>{{this.detailModalData.content}}</p>
           <small>by {{this.detailModalData.nickname}}</small>
+          <div class="my-hashtag-div">
+            <small class="my-hashtag">{{this.detailModalData.hashtag}}</small>
+          </div>
         </div>
       </template>
 
@@ -121,24 +135,22 @@ export default {
       this.detailModalData = selectedData;
       EthereumService.read(selectedData.hash, content => {
         this.detailModalData.content = content;
-        UserService.getUserById(this.detailModalData.uid).then(user => {
-          this.detailModalData.nickname = user.data.nickname;
-          ReviewService.isLike({
-            uid: this.$store.state.user.id,
-            rid: selectedData.id
-          }).then(response => {
-            if (response.data == 0) this.isLike = false;
-            else {
-              this.detailModalData.like = response.data;
-              this.isLike = true;
-            }
-            this.isDetail = true;
-          });
+        ReviewService.isLike({
+          uid: this.$store.state.user.id,
+          rid: selectedData.id
+        }).then(response => {
+          if (response.data == 0) this.isLike = false;
+          else {
+            this.detailModalData.like = response.data;
+            this.isLike = true;
+          }
+          this.isDetail = true;
         });
       });
     },
     detailModalHide() {
       this.isDetail = false;
+      this.detailModalData = null;
     },
     likeIt() {
       ReviewService.likeIt({
@@ -164,6 +176,37 @@ export default {
 };
 </script>
 <style>
+.md-button-content {
+  margin-bottom: auto;
+  display: flex;
+  align-items: center;
+}
+.my-hashtag-div {
+  margin-top: 10px;
+}
+.my-hashtag {
+  float: left;
+}
+.my-card-content {
+  margin: 0px;
+}
+.my-card-title {
+  padding-top: 15px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.Avatar_image {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50px;
+}
+.review-card-title {
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+}
 .modal-img {
   margin-bottom: 5px;
 }
@@ -171,10 +214,6 @@ export default {
   display: flex;
   justify-content: center !important;
 }
-.contact-form {
-  margin-top: 30px;
-}
-
 .md-has-textarea + .md-layout {
   margin-top: 15px;
 }
@@ -189,6 +228,10 @@ export default {
 @media (max-width: 480px) {
   .mdquery-md {
     display: none;
+  }
+  .my-card-container {
+    margin: auto;
+    height: 380px;
   }
 }
 </style>
