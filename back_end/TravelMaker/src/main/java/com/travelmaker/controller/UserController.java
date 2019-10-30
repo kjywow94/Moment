@@ -3,6 +3,8 @@ package com.travelmaker.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -63,9 +65,16 @@ public class UserController {
 	
 	//회원 조회
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	@ApiOperation(value = "회원조회")
-	public User selectOneUser(@PathVariable int id) throws Exception {
+	@ApiOperation(value = "회원조회(id)")
+	public User selectOneUserByID(@PathVariable int id) throws Exception {
 		return userService.selectOneUser(id);
+	}
+	
+	//회원조회 - 이메일
+	@RequestMapping(value = "/user/email/{email}", method = RequestMethod.GET)
+	@ApiOperation(value = "회원조회(이메일)")
+	public User selectOneUserByEmail(@PathVariable String email) throws Exception {
+		return userService.selectOneUserByEmail(email);
 	}
 	
 	//회원가입
@@ -101,5 +110,14 @@ public class UserController {
 	@ApiOperation(value = "회원 이미지 가져오기")
 	public List<UserImage> uploadImage(@PathVariable String email) {
 		return userService.selectUserImage(email);
+	}
+	
+	//회원 가입 메일 인증
+	@RequestMapping(value = "/user/email/cert", method = RequestMethod.GET)
+	@ApiOperation(value = "회원 가입 메일 인증")
+	public String emailCertification(@PathVariable String email, @PathVariable String cert) {
+//		userService.emailCertification(email);
+		
+		return "www.naver.com";
 	}
 }

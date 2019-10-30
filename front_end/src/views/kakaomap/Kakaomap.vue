@@ -45,13 +45,19 @@ export default {
       reviewList: [
         {}
       ],
+      place : []
     };
   },
   props: {
     header: {
       type: String,
       default: require("@/assets/img/profile_city.jpg")
-    }
+    },
+    like: {
+      type: String,
+      default: require("../../assets/img/like.png")
+    },
+
   },
   mounted() {
     this.init();
@@ -88,9 +94,6 @@ export default {
               position: new kakao.maps.LatLng(this.reviewList[i].latitude, this.reviewList[i].longitude)
             });
 
-            // 커스텀 오버레이에 표시할 컨텐츠 입니다
-            // 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
-            // 별도의 이벤트 메소드를 제공하지 않습니다 
             var content = '<div class="wrap1">' + 
                         '    <div class="info1">' + 
                         '        <div class="title1 colorfont">' + 
@@ -100,11 +103,10 @@ export default {
                         '        <div class="body">' + 
                         '            <div class="img">' +
                         '                <img src="'+this.reviewList[i].imageData+'" width="73" height="70">' +
-                        '           </div>' + 
+                        '            </div>' + 
                         '            <div class="desc">' + 
-                        '                <div class="ellipsis colorfont">'+this.reviewList[i].location+'</div>' + 
-                        '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' +
-                        '                <div class="elipsis colorfont">좋아요 : '+this.reviewList[i].liked+'</div>'+ 
+                        '                <div class="jibun ellipsis">장소 : '+this.reviewList[i].location+'</div>' + 
+                        '                <div class="elipsis colorfont">좋아요<span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Coraz%C3%B3n.svg/174px-Coraz%C3%B3n.svg.png" width="13" height="13"><span> '+this.reviewList[i].liked+'</div>'+ 
                         '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
                         '            </div>' + 
                         '        </div>' + 

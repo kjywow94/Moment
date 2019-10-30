@@ -8,10 +8,14 @@
 	
 	<select id="selectAll" parameterType="Integer" resultType="chat">
 		SELECT * FROM
-		user_review where room_number =#{roomNumber};
+		chat where room_number =#{roomNumber};
+	</select>
+	<select id ="selectPrivateChat" parameterType="Integer" resultType="chat">
+		SELECT * FROM chat where (uid = #{uid1} and target = #{uid2}) or (uid = #{uid2} and target = #{uid1})
+	
 	</select>
 	<insert id="insertChat" parameterType="chat">
-		INSERT INTO chat (UID,context,room_number) VALUES (#{uid},#{context},#{roomNumber});
+		INSERT INTO chat (UID,context,room_number,target,type) VALUES (#{uid},#{context},#{roomNumber},#{target}, #{type});
 	</insert>
 	<update id="updateChat" parameterType="chat">
 		update chat set

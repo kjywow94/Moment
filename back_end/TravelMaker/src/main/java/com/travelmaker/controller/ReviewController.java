@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.travelmaker.dto.Like;
 import com.travelmaker.dto.Location;
 import com.travelmaker.dto.Review;
 import com.travelmaker.dto.ReviewImage;
 import com.travelmaker.dto.ReviewWithDistanceImg;
 import com.travelmaker.dto.ReviewWithImage;
+import com.travelmaker.service.LikeService;
 import com.travelmaker.service.ReviewImageService;
 import com.travelmaker.service.ReviewService;
 
@@ -30,6 +32,9 @@ public class ReviewController {
 
 	@Autowired
 	private ReviewImageService reviewImageService;
+
+	@Autowired
+	private LikeService likeService;
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	@ApiOperation(value = "위도, 경도로 5km 이내의 리뷰 반환")
@@ -61,16 +66,29 @@ public class ReviewController {
 		return reviewService.insertReview(review);
 	}
 
-	@RequestMapping(value = "/likeIt/{id}", method = RequestMethod.GET)
-	@ApiOperation(value = "좋아요")
-	public int likeIt(@PathVariable int id) throws Exception {
-		return reviewService.likeIt(id);
-	}
-
 	@RequestMapping(value = "/reviewImg", method = RequestMethod.POST)
 	@ApiOperation(value = "리뷰 이미지")
 	public boolean uploadImg(@RequestBody ReviewImage reviewImage) throws Exception {
 		return reviewImageService.uploadImage(reviewImage);
 	}
 
+	@RequestMapping(value = "/likeIt", method = RequestMethod.POST)
+	@ApiOperation(value = "좋아요")
+	public int likeIt(@RequestBody Like like) throws Exception {
+		reviewService.likeIt(like.getRid());
+		return likeService.like(like);
+	}
+
+	@RequestMapping(value = "/unLike", method = RequestMethod.POST)
+	@ApiOperation(value = "안좋아요")
+	public int unLike(@RequestBody Like like) throws Exception {
+		reviewService.unLike(like.getRid());
+		return likeService.unLike(like.getId());
+	}
+
+	@RequestMapping(value = "/isLike", method = RequestMethod.POST)
+	@ApiOperation(value = "like 판단")
+	public int isLike(@RequestBody Like like) throws Exception {
+		return likeService.isLike(like);
+	}
 }

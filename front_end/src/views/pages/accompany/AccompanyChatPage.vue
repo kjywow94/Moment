@@ -5,20 +5,30 @@
     <div class="main main-raised">
       <div class="section section-contacts">
         <div class="container">
-          <div class="md-layout">
+          <div id="chat" style="overflowY:scroll; height:400px; padding:10px;">
+            <div v-for="c in chat" style="margin-top:5px;">
+
+              <div v-if="c['type'] == 'SYSTEM'" class="system" >
+                    <span>{{c['context']}}</span>
+                  <br><span>{{c['timestamp']}}</span>
+              </div>
+
+              <div v-else :class="c['uid'] == uid ? 'right' : 'left'" >
+                    <span>{{c['context']}}</span>
+                  <br><span>{{c['timestamp']}}</span>
+              </div>
+
+            </div>
+              <br><br>
+            
+</div>
+<div class="md-layout">
                      <md-field>
                   <md-input v-model="msg" @keydown.enter="send"></md-input>
                 </md-field>
                         <button @click="send">전송</button>
             </div>
-            <div v-for="c in chat">
-              <div :class="c['uid'] == uid ? 'right' : 'left'">
-                {{c['context']}}
-                  <br><span>{{c['timestamp']}}</span>
-              </div>
 
-
-            </div>
           </div>
         </div>
       </div>
@@ -26,14 +36,10 @@
 </template>
 
 <script>
-import TravelReviewService from "@/services/TravelReviewService.js";
-import AccompanyService from "@/services/AccompanyService.js";
-import { Tabs } from "@/components";
+import ChatService from "@/services/ChatService.js";
 export default {
   components: {
-    TravelReviewService,
-    AccompanyService,
-    Tabs
+    ChatService
   },
   bodyClass: "landing-page",
   props: {
@@ -79,43 +85,54 @@ export default {
   },
   methods : {
     async init(){
-    var socket = new SockJS('http://localhost:9090/websocket');
-    this.stompClient = Stomp.over(socket);
-    this.stompClient.debug = function(str) {};
-    // SockJS와 stomp client를 통해 연결을 시도.
-    let scope = this;
-    await this.stompClient.connect({}, function (frame) {
-      scope.stompClient.subscribe('/topic/greetings/' + scope.id , function (chat) {
-        let msg = JSON.parse(chat.body);
-        scope.chat.push(msg);
-    });
-      scope.stompClient.subscribe('/topic/chat/' + scope.id, function (chat) {
-        let msg = JSON.parse(chat.body);
-        scope.chat.push(msg);
+      this.chat = await ChatService.getChats(this.id);
+      this.chat = this.chat['data'];
+      
+      var socket = new SockJS('http://192.168.100.49:9090/websocket');
+      this.stompClient = Stomp.over(socket);
+      this.stompClient.debug = function(str) {};
+      // SockJS와 stomp client를 통해 연결을 시도.
+      let scope = this;
+      await this.stompClient.connect({}, function (frame) {
+        scope.stompClient.subscribe('/topic/greetings/' + scope.id , function (chat) {
+          let msg = JSON.parse(chat.body);
+          scope.chat.push(msg);
       });
-      scope.stompClient.subscribe('/topic/goodbye/' + scope.id, function (chat) {
-        let msg = JSON.parse(chat.body);
-        scope.chat.push(msg);
+        scope.stompClient.subscribe('/topic/chat/' + scope.id, function (chat) {
+          let msg = JSON.parse(chat.body);
+          scope.chat.push(msg);
+        });
+        scope.stompClient.subscribe('/topic/goodbye/' + scope.id, function (chat) {
+          let msg = JSON.parse(chat.body);
+          scope.chat.push(msg);
+        });
+          let visit = {'uid' : scope.uid, 'timestamp':new Date(), 'context': scope.$store.state.user.nickname + "님이 입장하셨습니다.", 'roomNumber':scope.id, 'type' : 'SYSTEM'
+          };
+          scope.stompClient.send("/app/greetings", {}, JSON.stringify(visit));
+          ChatService.insertChat(visit);
       });
-        let visit = {'uid' : scope.uid, 'timestamp':new Date(), 'context': scope.$store.state.user.nickname, 'roomNumber':scope.id,
-        };
-        scope.stompClient.send("/app/greetings", {}, JSON.stringify(visit));
-  });
+          this.setChatDivBottom();
 
-    },
-    send(){
+      },
+    async send(){
       if(this.msg == ""){
         return;
       }
         let chat = {
             'uid' : this.uid,'timestamp':new Date(), 'context': this.$store.state.user.nickname + " : " + this.msg, 'roomNumber':this.id,
-            'isRemoved' : 'N'}
+            'isRemoved' : 'N', 'type' : 'MSG'}
         this.stompClient.send("/app/chat", {}, JSON.stringify(chat));
+        ChatService.insertChat(chat);
         this.msg = "";
+        this.setChatDivBottom();
     },
     async exit(){
-      let exit = {'uid' : this.uid, 'timestamp':new Date(), 'context': this.$store.state.user.nickname, 'roomNumber':this.id};
+      let exit = {'uid' : this.uid, 'timestamp':new Date(), 'context': this.$store.state.user.nickname+ "님이 퇴장하셨습니다.", 'roomNumber':this.id, 'type' : 'SYSTEM'};
       await this.stompClient.send("/app/goodbye", {}, JSON.stringify(exit));
+      ChatService.insertChat(exit);
+    },
+    setChatDivBottom(){
+      document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight; 
     }
   }
 };
@@ -124,10 +141,18 @@ export default {
 <style>
 
 .right{
-  text-align: right;
+  margin-left: 70%;
+  text-align: left;
+  background: yellow;
+  border-radius: 1em;
 }
 .left{
+  margin-right: 70%;
   text-align: left;
+  background: cyan;
+  border-radius: 1em;
 }
-
+.system{
+  text-align: center;
+}
 </style>

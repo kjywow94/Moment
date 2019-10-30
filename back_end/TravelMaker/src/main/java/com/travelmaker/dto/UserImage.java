@@ -7,6 +7,10 @@ public class UserImage {
 	private String extension;
 	private String email;
 
+	public UserImage() {
+		super();
+	}
+
 	public UserImage(int id, String email, String imgData) {
 		super();
 		this.id = id;

@@ -22,10 +22,16 @@ export default {
     writeReview(review) {
         return apiServer.post('/api/writeReview/', review);
     },
-    likeIt(id) {
-        return apiServer.get('/api/likeIt/' + id);
-    },
     uploadImage(image) {
         return apiServer.post('api/reviewImg/', image);
+    },
+    likeIt(like) {
+        return apiServer.post('/api/likeIt/', like);
+    },
+    unLike(like) {
+        return apiServer.post('/api/unLike/', like);
+    },
+    isLike(like) {
+        return apiServer.post('/api/isLike', like);
     }
 }
