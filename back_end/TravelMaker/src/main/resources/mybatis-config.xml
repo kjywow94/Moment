@@ -28,6 +28,7 @@
 		<typeAlias type="com.travelmaker.dto.Review" alias="review" />
 		<typeAlias type="com.travelmaker.dto.Like" alias="like" />
 		<typeAlias type="com.travelmaker.dto.ChatList" alias="chatList" />
+		<typeAlias type="com.travelmaker.dto.ReviewListDTO" alias="reviewList" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/accompanyMapper.xml" />
