@@ -33,9 +33,21 @@
         font-size: 1.5em;
     }
 }
+// section 반응형
 .section{
-  padding: 70px 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 0;
+    padding-left:0;
 }
+@media (max-width: 480px) {
+    .section{
+        padding-top: 0px;
+        padding-bottom: 50px;
+        padding-right: 0;
+        padding-left:0;
+    }
+  }
 .profile-page{
     .page-header{
         height: 380px;

@@ -59,10 +59,10 @@ public class UserService {
 	// 회원가입 & 인증메일
 	public int insertUser(User user) {
 		try {
-			 //회원가입
-			 userMapper.insertUser(user);
-			//인증 메일 보내기
-			 return mailsender.mailSendWithUserKey(user);
+			// 회원가입
+			userMapper.insertUser(user);
+			// 인증 메일 보내기
+			return mailsender.mailSendWithUserKey(user);
 		} catch (DuplicateKeyException e) {
 			System.out.println("Duplicate error : " + e);
 			return 0;
@@ -78,13 +78,13 @@ public class UserService {
 	public int deleteUser(int id) {
 		return userMapper.deleteUser(id);
 	}
-	
-	//아이디 찾기
+
+	// 아이디 찾기
 	public User findId(User user) {
 		return userMapper.findId(user);
 	}
-	
-	//비밀번호 찾기
+
+	// 비밀번호 찾기
 	public User findPass(User user) {
 		return userMapper.findPass(user);
 	}
@@ -148,6 +148,35 @@ public class UserService {
 		}
 		return userImage;
 	}
-	
-	///////////////////////////////////////////////////////////
+
+	/**
+	 * 파일 이름으로 유저 프로필을 찾아 스트링 데이터로 리턴해주는 함수
+	 * 
+	 * @param imgName
+	 * @return
+	 */
+	public String getUserImage(String imgName) {
+		String result = null;
+
+		try {
+			File f = new File("image/" + imgName);
+			FileInputStream fis;
+			try {
+				fis = new FileInputStream(f);
+			} catch (FileNotFoundException e) {
+				f = new File("image/tempImg.jpg");
+				fis = new FileInputStream(f);
+			}
+			byte byteArray[] = new byte[(int) f.length()];
+			fis.read(byteArray);
+			String encodeImg = "data:image/" + imgName + ";base64, " + Base64.getEncoder().encodeToString(byteArray);
+
+			result = encodeImg;
+			fis.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

@@ -2,6 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.travelmaker.dao.ReviewMapper">
+
+	<!-- 메인 리뷰 리스트 -->
+	<select id="mainReviewList" parameterType="location"
+		resultType="reviewList">
+		SELECT C.img_name as imgName, B.nickname, A.*
+		FROM (
+		SELECT *
+		, ( 6371 * acos( cos( radians( #{latitude} ) ) * cos(radians( latitude
+		) ) * cos( radians( longitude ) - radians(#{longitude} ) )+ sin(
+		radians( #{latitude} ) ) * sin( radians(latitude ) ) ) ) AS distance
+		FROM review
+		HAVING distance <![CDATA[ < ]]>
+		#{distance}
+		ORDER BY distance DESC
+		) A, user B, user_image C
+		WHERE A.uid = B.id
+		and B.email = C.email
+		;
+
+
+	</select>
+
 	<!-- 후기 목록 by 거리 -->
 	<select id="reviewListByLocation" parameterType="location"
 		resultType="reviewWithDistance">
