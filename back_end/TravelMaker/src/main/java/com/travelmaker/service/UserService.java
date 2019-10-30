@@ -148,6 +148,9 @@ public class UserService {
 		}
 		return userImage;
 	}
+
+	public void updateCert(User user) {
+		userMapper.updateCert(user);
+	}
 	
-	///////////////////////////////////////////////////////////
 }

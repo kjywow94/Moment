@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.travelmaker.dto.User;
 import com.travelmaker.dto.UserImage;
@@ -113,11 +114,17 @@ public class UserController {
 	}
 	
 	//회원 가입 메일 인증
-	@RequestMapping(value = "/user/email/cert", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/cert", method = RequestMethod.GET)
 	@ApiOperation(value = "회원 가입 메일 인증")
-	public String emailCertification(@PathVariable String email, @PathVariable String cert) {
+	public String emailCertification(@RequestParam String email, @RequestParam String cert) {
 //		userService.emailCertification(email);
+		System.out.println("회원가입인증!!!!!");
+		User user = new User(email, cert);
+		userService.updateCert(user);
 		
-		return "www.naver.com";
+//		RedirectView rv = new RedirectView("intakeDetails.htm?caseNumber=");
+//	    rv.setExposeModelAttributes(false);
+//		return rv;
+		return "forward:www.naver.com";
 	}
 }
