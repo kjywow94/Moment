@@ -32,7 +32,10 @@
                 <i class="material-icons">settings_applications</i>
                 <p>관리자</p>
               </md-list-item>
-
+              <md-list-item href="#/map/kakaomap">
+                <i class="material-icons">gps_fixed</i>
+                <p>지도</p>
+              </md-list-item>
               <li class="md-list-item">
                     <a
                       href="javascript:void(0)"
