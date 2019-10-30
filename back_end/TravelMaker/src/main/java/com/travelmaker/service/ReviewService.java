@@ -2,6 +2,7 @@ package com.travelmaker.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -110,6 +111,13 @@ public class ReviewService {
 	 * @return int 1 / 0
 	 */
 	public int insertReview(Review review) {
+		String hasgtag = review.getHashtag();
+		StringTokenizer st = new StringTokenizer(hasgtag);
+		StringBuilder newHashtag = new StringBuilder();
+		while (st.countTokens() != 0) {
+			newHashtag.append("#").append(st.nextToken()).append(" ");
+		}
+		review.setHashtag(newHashtag.toString());
 		reviewMapper.insertReview(review);
 		return review.getId();
 	}
