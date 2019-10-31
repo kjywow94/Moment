@@ -10,35 +10,33 @@
           @click="detailModalShow(r)"
         >
           <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
-            <div style="padding : 20px">
+            <div class="my-card-title">
               <div style="display : inline-block">
                 <div>
-                  <img :src="r.imageData" alt="Avatar" class="Avatar_image"/>
+                  <img :src="r.userImgData" alt="Avatar" class="Avatar_image" />
                 </div>
               </div>
               <div style="display : inline-block; position:absolute; left:80px">
                 <div>
-                  {{r.nickname}}
-                  <!--작성자-->
-                </div>
-                <div>
                   {{r.location}}
                   <!--장소-->
                 </div>
+                <div>
+                  by {{r.nickname}}
+                  <!--작성자-->
+                </div>
               </div>
-              <hr/>
+              <hr />
             </div>
-            <div class="md-card-content">
-              <img :src="r.imageData" class="img" style="height : 200px" />
-              <hr/>
-              <div style="display:inline-block">
-                <h4>{{r.title}}</h4>
+            <div class="md-card-content" style="padding-top: 0px;">
+              <img :src="r.imageData" class="img" style ="height : 200px" />
+              <hr />
+              <div class="my-card-content" style="display:inline-block">
+                <h4 class="my-card-content">{{r.title}}</h4>
               </div>
               <div style="display:inline-block; float:right">
-                <div style = "text-align: center">
-                  <md-icon style="margin : 0 auto">favorite</md-icon>
-                  <p style="text-align : center">10000<!--좋아요 수--></p>
-                </div>
+                <md-icon>favorite</md-icon>
+                {{r.liked}}
               </div>
             </div>
           </div>
@@ -179,10 +177,36 @@ export default {
 };
 </script>
 <style>
-.Avatar_image{
+/* .md-button-content {
+  margin-bottom: auto;
+  display: flex;
+  align-items: center;
+} */
+.my-hashtag-div {
+  margin-top: 10px;
+}
+.my-hashtag {
+  float: left;
+}
+.my-card-content {
+  margin: 0px;
+}
+.my-card-title {
+  padding-top: 15px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.Avatar_image {
   max-width: 50px;
-  max-height:50px;
+  max-height: 50px;
   border-radius: 50px;
+}
+.review-card-title {
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
 }
 .modal-img {
   margin-bottom: 5px;

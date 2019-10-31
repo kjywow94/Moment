@@ -10,6 +10,7 @@
         <md-button
           class="md-simple md-just-icon md-round modal-default-button"
           @click="classicModalHide"
+          style="height : 8px"
         >
           <md-icon>clear</md-icon>
         </md-button>
