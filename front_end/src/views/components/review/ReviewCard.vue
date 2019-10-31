@@ -2,8 +2,9 @@
   <div>
     <div>
       <div class="md-layout">
+        <ReviewWrite />
         <div
-          class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100"
+          class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
           v-for="r in reviewList"
           :key="r.id"
           @click="detailModalShow(r)"
@@ -63,6 +64,9 @@
           <h5>{{this.detailModalData.date | moment("YYYY MM DD, dddd")}}</h5>
           <p>{{this.detailModalData.content}}</p>
           <small>by {{this.detailModalData.nickname}}</small>
+          <div class="my-hashtag-div">
+            <small class="my-hashtag">{{this.detailModalData.hashtag}}</small>
+          </div>
         </div>
       </template>
 
@@ -91,14 +95,14 @@ import ReviewService from "@/services/ReviewService.js";
 import UserService from "@/services/UserService.js";
 import EthereumService from "@/services/EthereumService.js";
 import LocationService from "@/services/LocationService.js";
-import ReviewCard from "@/views/components/review/ReviewCard";
+import ReviewWrite from "@/views/components/review/ReviewWrite";
 import { Tabs } from "@/components";
 import { Modal } from "@/components";
 
 export default {
   components: {
     Tabs,
-    ReviewCard,
+    ReviewWrite,
     Modal
   },
   data() {
@@ -134,24 +138,22 @@ export default {
       this.detailModalData = selectedData;
       EthereumService.read(selectedData.hash, content => {
         this.detailModalData.content = content;
-        UserService.getUserById(this.detailModalData.uid).then(user => {
-          this.detailModalData.nickname = user.data.nickname;
-          ReviewService.isLike({
-            uid: this.$store.state.user.id,
-            rid: selectedData.id
-          }).then(response => {
-            if (response.data == 0) this.isLike = false;
-            else {
-              this.detailModalData.like = response.data;
-              this.isLike = true;
-            }
-            this.isDetail = true;
-          });
+        ReviewService.isLike({
+          uid: this.$store.state.user.id,
+          rid: selectedData.id
+        }).then(response => {
+          if (response.data == 0) this.isLike = false;
+          else {
+            this.detailModalData.like = response.data;
+            this.isLike = true;
+          }
+          this.isDetail = true;
         });
       });
     },
     detailModalHide() {
       this.isDetail = false;
+      this.detailModalData = null;
     },
     likeIt() {
       ReviewService.likeIt({
@@ -189,10 +191,6 @@ export default {
   display: flex;
   justify-content: center !important;
 }
-.contact-form {
-  margin-top: 30px;
-}
-
 .md-has-textarea + .md-layout {
   margin-top: 15px;
 }
@@ -207,6 +205,10 @@ export default {
 @media (max-width: 480px) {
   .mdquery-md {
     display: none;
+  }
+  .my-card-container {
+    margin: auto;
+    height: 380px;
   }
 }
 </style>

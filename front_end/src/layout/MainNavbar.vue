@@ -38,7 +38,10 @@
                 <i class="material-icons">settings_applications</i>
                 <p>관리자</p>
               </md-list-item>
-
+              <md-list-item href="#/map/kakaomap">
+                <i class="material-icons">gps_fixed</i>
+                <p>지도</p>
+              </md-list-item>
               <li class="md-list-item">
                 <a
                   href="javascript:void(0)"
@@ -113,7 +116,7 @@
                 <p>비밀번호 찾기</p>
               </md-list-item>
 
-              <md-list-item href="#/find/idfind" v-on:click="isLogout" v-if="isLogined">
+              <md-list-item href="#/" v-on:click="isLogout" v-if="isLogined">
                 <i class="material-icons">how_to_reg</i>
                 <p>로그아웃</p>
               </md-list-item>
@@ -237,7 +240,6 @@ export default {
       sessionStorage.clear();
       localStorage.clear();
       alert("정상적으로 로그아웃 되었습니다.");
-      this.$router.push("/login");
       location.reload();
     },
 

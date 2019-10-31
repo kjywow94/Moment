@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.travelmaker.dao.ChatListMapper">
+	<!-- 채팅리스트 선택 by uid -->
+	<select id="selectChatListByUid" parameterType="int"
+		resultType="accompany">
+		SELECT * FROM chat_list where uid = #{id};
+	</select>
+
+	<!-- 자신에게 온 메세지 알림 확인 -->
+	<select id="selectNotiChatListByTarget" parameterType="int"
+		resultType="accompany">
+		SELECT * FROM chat_list where target = #{id};
+	</select>
+
+	<!-- 동행 모집 등록 -->
+	<insert id="insertAccompany" parameterType="accompany">
+		INSERT INTO
+		accompany(cid, contract_address)
+		VALUES(#{cid},#{contractAddress});
+	</insert>
+
+	<!-- 동행 종료 체크 -->
+	<update id="updateAccompany" parameterType="int">
+		UPDATE accompany SET
+		is_end = 1 WHERE id= #{id};
+	</update>
+</mapper>

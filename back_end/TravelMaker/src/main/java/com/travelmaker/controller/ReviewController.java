@@ -14,7 +14,7 @@ import com.travelmaker.dto.Like;
 import com.travelmaker.dto.Location;
 import com.travelmaker.dto.Review;
 import com.travelmaker.dto.ReviewImage;
-import com.travelmaker.dto.ReviewWithDistanceImg;
+import com.travelmaker.dto.ReviewListDTO;
 import com.travelmaker.dto.ReviewWithImage;
 import com.travelmaker.service.LikeService;
 import com.travelmaker.service.ReviewImageService;
@@ -37,9 +37,9 @@ public class ReviewController {
 	private LikeService likeService;
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
-	@ApiOperation(value = "위도, 경도로 5km 이내의 리뷰 반환")
-	public List<ReviewWithDistanceImg> reviewListByLocation(@RequestBody Location location) throws Exception {
-		return reviewService.reviewListByLocation(location);
+	@ApiOperation(value = "위도, 경도로 distance km 이내의 리뷰 반환")
+	public List<ReviewListDTO> reviewListByLocation(@RequestBody Location location) throws Exception {
+		return reviewService.mainReviewList(location);
 	}
 
 	@RequestMapping(value = "/review", method = RequestMethod.GET)
