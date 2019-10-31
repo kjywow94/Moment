@@ -87,7 +87,6 @@ export default {
                         '    <div class="info1">' + 
                         '        <div class="title1 colorfont">' + 
                             this.reviewList[i].title + 
-                        '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
                         '        </div>' + 
                         '        <div class="body">' + 
                         '            <div class="img">' +
@@ -109,6 +108,7 @@ export default {
                 content: content,
                 position: marker.getPosition()       
             });
+
             
             kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, overlay));
 
@@ -116,15 +116,18 @@ export default {
             // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
             kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(overlay));
 
-            kakao.maps.event.addListener(content, 'click', close(overlay));
+            kakao.maps.event.addListener(map, 'dragend', close(overlay));
 
+            function relayout() {    
     
+                map.relayout();
+            }
+                
           }
      
           let flag = false;
            function makeOverListener(map, marker, overlay) {
             return function() {
-              
               overlay.setMap(map, marker);          
             };
           }
@@ -144,8 +147,6 @@ export default {
 
           function clip() {
             return function() {
-              console.log(overlay);
-              
               flag = true;
             }
           }
