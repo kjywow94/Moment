@@ -11,7 +11,6 @@
                 nav-pills-icons
                 color-button="primary"
             >
-                <!-- here you can add your content for tab-content -->
                 <template slot="tab-pane-1" style="background: white;">
                     <div class="card" style="margin-bottom:16px;">
                         <div class="card-header" style="background: linen;">
@@ -31,8 +30,6 @@
                         <button type="button" class="btn btn-outline-success" style="float: right;  margin-right: 10px;" :disabled="invalidform" @click="userupdate()">수정</button>
                         </div>
                     </div>
-
-
                 </template>
              
                 <template slot="tab-pane-2">
@@ -59,7 +56,64 @@
                     </div>
                 </template>
                 <template slot="tab-pane-3">
-                    111
+                    <div class="card" style="margin-bottom:16px;">
+                        <div class="card-header" style="background: linen;">
+                          <h4 style="color:black; font-weight: bold;">프로필 수정</h4>
+                        </div>
+                        <div class="card-body">
+                          <label>사진등록</label>
+                            <br />
+                            <div class="ml-2 col-sm-6">
+                              <img :src="img" id="preview" class="img-thumbnail" style="float: left;" />
+                            </div>
+                            <div class="ml-2 col-sm-6">
+                              <div id="msg"></div>
+                              <form method="post" id="image-form">
+                                <input
+                                  type="file"
+                                  ref="inputRef"
+                                  name="img[]"
+                                  class="file"
+                                  accept="image/*"
+                                  @change="changeFile($event)"
+                                  style="display:none"
+                                />
+                                <div class="input-group my-3">
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    disabled
+                                    placeholder="Upload File"
+                                    v-model="fileName"
+                                  />
+                                  <div class="input-group-append">
+                                    <button
+                                      type="button"
+                                      class="browse btn btn-primary"
+                                      v-on:click="uploadImg()"
+                                    >Browse...</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                            <md-field>
+                              <label>소개글</label>
+                              <md-textarea v-model="aboutme" :disabled="invalidpro"></md-textarea>
+                            </md-field>
+                            <md-field>
+                              <label>인스타그램</label>
+                              <md-input v-model="instagram" type="text" :disabled="invalidpro"></md-input>
+                            </md-field>
+                            <md-field>
+                              <label>페이스북</label>
+                              <md-input v-model="facebook" type="text" :disabled="invalidpro"></md-input>
+                            </md-field>
+                            <br />
+                        <button type="button" class="btn btn-outline-success" v-on:click="profilebtn()">수정 활성화</button>
+                        <button type="button" class="btn btn-outline-danger" style="float: right;" :disabled="invalidpro">초기화</button>
+                        <button type="button" class="btn btn-outline-success" style="float: right;  margin-right: 10px;" :disabled="invalidpro" @click="userupdate()">수정</button>
+                        </div>
+                    </div>
                 </template>
             </tabs>
           </div>
@@ -90,7 +144,15 @@ export default {
         newopass : "",
         chkpass : ""
       },
-      invalidform: true
+      invalidform: true,
+      invalidpro: true,
+      fileName: "프로필등록..",
+      imgName: "",
+      img: "https://placehold.it/150x150",
+      extension: "",
+      aboutme: "",
+      instagram: "",
+      facebook: ""
     };
   },
   props: {
@@ -101,14 +163,22 @@ export default {
   },
   mounted() {
     console.log(this.$store.state.userinfo);
-    this.emaillabel = this.$store.state.userinfo.email;
     this.namelabel = this.$store.state.userinfo.userName;
     this.phonelabel = this.$store.state.userinfo.phone;
-    
+    this.instagram = this.$store.state.userinfo.sns1;
+    this.facebook = this.$store.state.userinfo.sns2;
+    this.aboutme = this.$store.state.userinfo.about;
+    UserService.getImage(this.$store.state.userinfo.email)
+      .then(data => {
+        console.log(data.data);
+        this.img = data.data[0].imgData;
+        this.fileName = data.data[0].imgName;          
+      })
+   
+      
   },
   methods: {
     chkbtn(){
-        
         if(this.invalidform === true){
             this.invalidform = false;
             return;
@@ -116,9 +186,17 @@ export default {
         else if(this.invalidform === false){
             this.invalidform = true;
             return;
+        }  
+    },
+    profilebtn(){
+        if(this.invalidpro === true){
+          this.invalidpro = false;
+          return;
         }
-       
-            
+        else if(this.invalidpro === false){
+          this.invalidpro = true;
+          return;
+        }  
     },
     stringclear() {
       this.input.yesterpass = "";
@@ -175,6 +253,36 @@ export default {
             alert("다시 확인해주세요....")
           }
         })
+    },
+    uploadImg() {
+      this.$refs.inputRef.click();
+    },
+    changeFile(event) {
+      //파일 이름 생성 = 이메일아이디+랜덤값
+      let eamilLen = this.$store.state.userinfo.email.lastIndexOf("@");
+      let random = Math.floor(Math.random() * 100000);
+      this.imgName = this.$store.state.userinfo.email.substring(0, eamilLen) + "_" + random;
+
+      // console.log(this.imgName);
+
+      this.fileName = event.target.files[0].name;
+      let fileLen = this.fileName.length;
+      let lastDot = this.fileName.lastIndexOf(".");
+      this.extension = this.fileName.substring(lastDot, fileLen).toLowerCase();
+
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = e => {
+        this.img = e.target.result;
+        console.log(" this.imgName :",  this.imgName);
+        console.log("this.img :", this.img);
+        console.log("this.extension :", this.extension);
+      };
+    },
+    findImage(){
+      console.log(this.$store.state.userinfo.email);
+      
+    
     }
   },
   computed: {

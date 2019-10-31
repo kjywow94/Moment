@@ -30,6 +30,9 @@ export default {
     delteImage(userImage) {
         return apiServer.delete('api/user/image', userImage);
     },
+    getImage(email){
+        return apiServer.get('api/user/image/' + email);
+    },
     Login(email, password) {
         var body = {
             email : email,
