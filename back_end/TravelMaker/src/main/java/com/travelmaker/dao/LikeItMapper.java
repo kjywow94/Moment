@@ -6,7 +6,7 @@ import com.travelmaker.dto.Accompany;
 import com.travelmaker.dto.Like;
 
 @Mapper
-public interface LikeMapper {
+public interface LikeItMapper {
 	
 	public Like selectLike(Like like);
 	

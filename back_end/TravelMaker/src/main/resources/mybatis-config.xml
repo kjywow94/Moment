@@ -27,7 +27,14 @@
 			alias="userImage" />
 		<typeAlias type="com.travelmaker.dto.Review" alias="review" />
 		<typeAlias type="com.travelmaker.dto.Like" alias="like" />
-		<typeAlias type="com.travelmaker.dto.ReviewListDTO" alias="reviewList" />
+		<typeAlias type="com.travelmaker.dto.ReviewListDTO"
+			alias="reviewList" />
+		<typeAlias type="com.travelmaker.dto.MaxLike"
+			alias="maxLike" />
+		<typeAlias type="com.travelmaker.dto.IsLike" alias="isLike" />
+		<typeAlias type="com.travelmaker.dto.ReviewPoint"
+			alias="reviewPoint" />
+
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/accompanyMapper.xml" />
@@ -39,6 +46,8 @@
 		<mapper resource="mapper/chatRoomMapper.xml" />
 		<mapper resource="mapper/accompanyPartiMapper.xml" />
 		<mapper resource="mapper/reviewMapper.xml" />
-		<mapper resource="mapper/likeMapper.xml" />
+		<mapper resource="mapper/likeItMapper.xml" />
+		<mapper resource="mapper/maxLikeMapper.xml" />
+		<mapper resource="mapper/isLikeMapper.xml" />
 	</mappers>
 </configuration>

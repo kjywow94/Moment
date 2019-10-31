@@ -40,6 +40,22 @@ export default {
             });
         });
     },
+
+    sendPoint(walletAddress, point, callback) {
+        let admin = "0x1e5b2735b89ef05298bc18a92dbfdec7174beb60";
+        let adminPw = "ssafy";
+        var tx = {
+            from: admin,
+            to: walletAddress,
+            value: web3.utils.toWei(String(point), 'ether'),
+        }
+        web3.eth.personal.unlockAccount(admin, adminPw, 600, () => {
+            web3.eth.sendTransaction(tx).then(receipt => {
+                callback(receipt)
+            });
+        });
+    },
+
     // EthereumService.read(
     //   "0xb841fb885e2b2f9ada4f9a42c95616bef9785913c6a779633c001daec9f715ca",
     //   data => {
