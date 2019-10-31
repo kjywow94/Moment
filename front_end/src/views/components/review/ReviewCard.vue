@@ -7,26 +7,25 @@
         infinite-scroll-distance="10"
       >
         <div class="md-layout">
-        <ReviewWrite />
-        <div
-          class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
-          v-for="r in reviewList"
-          :key="r.id"
-          
-        >
-          <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover" >
-            
+          <!-- <ReviewWrite /> -->
+          <div
+            class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
+            v-for="r in reviewList"
+            :key="r.id"
+            @click="detailModalShow(r)"
+          >
+            <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
               <ProfileCard :info="r"></ProfileCard>
-              <hr />
-            <div class="md-card-content" style="padding-top: 0px;" @click="detailModalShow(r)"> 
-              <img :src="r.imageData" class="img" style="height : 200px" />
-              <hr />
-              <div class="my-card-content" style="display:inline-block">
-                <h4 class="my-card-content">{{r.title}}</h4>
-              </div>
-              <div style="display:inline-block; float:right">
-                <md-icon>favorite</md-icon>
-                {{r.liked}}
+              
+              <div class="md-card-content" style="padding-top: 0px;">
+                <img :src="r.imageData" class="img" style="height : 200px" />
+                <hr />
+                <div class="my-card-content" style="display:inline-block">
+                  <h4 class="my-card-content">{{r.title}}</h4>
+                </div>
+                <div style="display:inline-block; float:right">
+                  <md-icon>favorite</md-icon>
+                  {{r.liked}}
                 </div>
               </div>
             </div>
