@@ -8,7 +8,7 @@
               <MainNav></MainNav>
               <template>
                 <div class="card" style="margin-bottom:16px;">
-                <div class="card-header">
+                <div class="card-header" style="background: linen;">
                   <h4 style="color:black; font-weight: bold;">비밀번호를 변경해주세요</h4>
                 </div>
                 <div class="card-body">
