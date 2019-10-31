@@ -291,39 +291,6 @@ export default {
             });
         }
 
-        //사진 저장 TEST 
-        // save: function () {
-        //     var scope = this;
-        //     workService.signUp({
-        //         "about":"about~~"
-        //     },
-        //         function (response) {
-        //             workService.findWorksInfoByOwner(scope.sharedStates.user.id, (workList) => {
-        //                 var workId = workList[workList.length - 1].id;
-
-        //                 var filename = scope.work.imgName;
-        //                 var fileLen = filename.length;
-        //                 var lastDot = filename.lastIndexOf('.');
-        //                 var extension = filename.substring(lastDot, fileLen).toLowerCase();
-
-        //                 workService.uploadImage({
-        //                     "imgName": workId,
-        //                     "extension": extension,
-        //                     "imgData": scope.work.img
-        //                 }, function () {
-        //                     alert('작품이 등록되었습니다.');
-        //                     scope.$router.push('/artworks');
-
-        //                 }, function (error) {
-        //                     alert("작품 이미지 업로드 중 에러가 발생했습니다.");
-        //                     console.log(error);
-        //                 });
-        //             });
-        //         },
-        //         function (error) {
-        //             alert("입력폼을 모두 입력해주세요. 또는 중복된 이메일입니다.");
-        //         });
-        // }
   },
   computed: {
     headerStyle() {

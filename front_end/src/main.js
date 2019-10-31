@@ -5,16 +5,14 @@ import axios from 'axios'
 import MaterialKit from "./plugins/material-kit";
 import store from './store'
 import VueMoment from "vue-moment";
-/* 테스트중
-import Constants from "./assets/constants";
-const BaseURL = Constants.BaseURL;
-*/
+import infiniteScroll from 'vue-infinite-scroll';
 
 Vue.prototype.$Axios = axios;
 Vue.config.productionTip = false;
-
 Vue.use(MaterialKit);
 Vue.use(VueMoment);
+Vue.use(infiniteScroll);
+
 const NavbarStore = {
   showNavbar: false
 };

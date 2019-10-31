@@ -1,7 +1,12 @@
 <template>
   <div>
     <div>
-      <div class="md-layout">
+      <div
+        v-infinite-scroll="loadMore"
+        infinite-scroll-disabled="busy"
+        infinite-scroll-distance="10"
+      >
+        <div class="md-layout">
         <ReviewWrite />
         <div
           class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
@@ -22,8 +27,12 @@
               <div style="display:inline-block; float:right">
                 <md-icon>favorite</md-icon>
                 {{r.liked}}
+                </div>
               </div>
             </div>
+          </div>
+          <div v-if="busy" class="loadingBox md-layout-item md-size-100 mx-auto">
+            <img src="@/assets/img/loading.gif" class="loadingImg" />
           </div>
         </div>
       </div>
@@ -92,13 +101,19 @@ export default {
   },
   data() {
     return {
+      busy: false,
       reviewList: [{}],
+      idx: 0,
       active: false,
       value: null,
       isDetail: false,
       detailModalData: null,
-      distance: 5,
-      isLike: false
+      distance: 10,
+      isLike: false,
+      latitude: 0,
+      longitude: 0,
+      loadingPageNumber: 6,
+      isEnd: false
     };
   },
   mounted() {
@@ -108,15 +123,45 @@ export default {
     });
   },
   methods: {
+    loadMore: function() {
+      if (!this.isEnd) {
+        this.busy = true;
+        setTimeout(() => {
+          this.idx += this.loadingPageNumber;
+          this.loading(reviewList => {
+            if (reviewList.length == 0) this.isEnd = true;
+            for (var i = 0; i < reviewList.length; i++) {
+              this.reviewList.push(reviewList[i]);
+            }
+            this.busy = false;
+          });
+        }, 1000);
+      }
+    },
     init() {
       LocationService.getLocation((latitude, longitude) => {
+        this.latitude = latitude;
+        this.longitude = longitude;
         ReviewService.getReviewListByLocation({
+          start: 0,
+          end: this.loadingPageNumber,
           latitude: latitude,
           longitude: longitude,
           distance: this.distance
         }).then(reviewList => {
           this.reviewList = reviewList.data;
         });
+      });
+    },
+    loading(callback) {
+      ReviewService.getReviewListByLocation({
+        start: this.idx,
+        end: this.loadingPageNumber,
+        latitude: this.latitude,
+        longitude: this.longitude,
+        distance: this.distance
+      }).then(reviewList => {
+        callback(reviewList.data);
       });
     },
     detailModalShow(selectedData) {
@@ -145,7 +190,15 @@ export default {
         uid: this.$store.state.user.id,
         rid: this.detailModalData.id
       }).then(response => {
-        this.detailModalData.like = response.data;
+        var max = response.data.max;
+        if (response.data.point) {
+          let point = max / 10;
+          UserService.getUserById(this.detailModalData.uid).then(userInfo => {
+            let to = userInfo.data.walletAddress;
+            EthereumService.sendPoint(to, point, recept => {});
+          });
+        }
+        this.detailModalData.like = response.data.id;
         this.detailModalData.liked = this.detailModalData.liked + 1;
         this.isLike = true;
       });
@@ -164,11 +217,11 @@ export default {
 };
 </script>
 <style>
-.md-button-content {
+/* .md-button-content {
   margin-bottom: auto;
   display: flex;
   align-items: center;
-}
+} */
 .my-hashtag-div {
   margin-top: 10px;
 }
@@ -221,5 +274,18 @@ export default {
     margin: auto;
     height: 380px;
   }
+  .loadingImg {
+    height: 50px;
+    width: 50px;
+    margin-top: 10%;
+  }
+}
+
+.loadingImg {
+  height: 50px;
+  width: 50px;
+}
+.loadingBox {
+  text-align: center;
 }
 </style>

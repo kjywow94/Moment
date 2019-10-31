@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.travelmaker.dto.Like;
 import com.travelmaker.dto.Location;
+import com.travelmaker.dto.MaxLike;
+import com.travelmaker.dto.ResponseLikeIt;
 import com.travelmaker.dto.Review;
 import com.travelmaker.dto.ReviewImage;
 import com.travelmaker.dto.ReviewListDTO;
@@ -74,7 +76,7 @@ public class ReviewController {
 
 	@RequestMapping(value = "/likeIt", method = RequestMethod.POST)
 	@ApiOperation(value = "좋아요")
-	public int likeIt(@RequestBody Like like) throws Exception {
+	public ResponseLikeIt likeIt(@RequestBody Like like) throws Exception {
 		reviewService.likeIt(like.getRid());
 		return likeService.like(like);
 	}
