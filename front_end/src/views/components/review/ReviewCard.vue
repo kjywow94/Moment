@@ -1,44 +1,53 @@
 <template>
   <div>
     <div>
-      <div class="md-layout">
-        <ReviewWrite />
-        <div
-          class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
-          v-for="r in reviewList"
-          :key="r.id"
-          @click="detailModalShow(r)"
-        >
-          <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
-            <div class="my-card-title">
-              <div style="display : inline-block">
-                <div>
-                  <img :src="r.userImgData" alt="Avatar" class="Avatar_image" />
+      <div
+        v-infinite-scroll="loadMore"
+        infinite-scroll-disabled="busy"
+        infinite-scroll-distance="10"
+      >
+        <div class="md-layout">
+          <!-- <ReviewWrite /> -->
+          <div
+            class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
+            v-for="r in reviewList"
+            :key="r.id"
+            @click="detailModalShow(r)"
+          >
+            <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
+              <div class="my-card-title">
+                <div style="display : inline-block">
+                  <div>
+                    <img :src="r.userImgData" alt="Avatar" class="Avatar_image" />
+                  </div>
+                </div>
+                <div style="display : inline-block; position:absolute; left:80px">
+                  <div>
+                    {{r.location}}
+                    <!--장소-->
+                  </div>
+                  <div>
+                    by {{r.nickname}}
+                    <!--작성자-->
+                  </div>
+                </div>
+                <hr />
+              </div>
+              <div class="md-card-content" style="padding-top: 0px;">
+                <img :src="r.imageData" class="img" style="height : 200px" />
+                <hr />
+                <div class="my-card-content" style="display:inline-block">
+                  <h4 class="my-card-content">{{r.title}}</h4>
+                </div>
+                <div style="display:inline-block; float:right">
+                  <md-icon>favorite</md-icon>
+                  {{r.liked}}
                 </div>
               </div>
-              <div style="display : inline-block; position:absolute; left:80px">
-                <div>
-                  {{r.location}}
-                  <!--장소-->
-                </div>
-                <div>
-                  by {{r.nickname}}
-                  <!--작성자-->
-                </div>
-              </div>
-              <hr />
             </div>
-            <div class="md-card-content" style="padding-top: 0px;">
-              <img :src="r.imageData" class="img" style="height : 200px" />
-              <hr />
-              <div class="my-card-content" style="display:inline-block">
-                <h4 class="my-card-content">{{r.title}}</h4>
-              </div>
-              <div style="display:inline-block; float:right">
-                <md-icon>favorite</md-icon>
-                {{r.liked}}
-              </div>
-            </div>
+          </div>
+          <div v-if="busy" class="loadingBox md-layout-item md-size-100 mx-auto">
+            <img src="@/assets/img/loading.gif" class="loadingImg" />
           </div>
         </div>
       </div>
@@ -105,13 +114,19 @@ export default {
   },
   data() {
     return {
+      busy: false,
       reviewList: [{}],
+      idx: 0,
       active: false,
       value: null,
       isDetail: false,
       detailModalData: null,
-      distance: 5,
-      isLike: false
+      distance: 10,
+      isLike: false,
+      latitude: 0,
+      longitude: 0,
+      loadingPageNumber: 6,
+      isEnd: false
     };
   },
   mounted() {
@@ -121,15 +136,45 @@ export default {
     });
   },
   methods: {
+    loadMore: function() {
+      if (!this.isEnd) {
+        this.busy = true;
+        setTimeout(() => {
+          this.idx += this.loadingPageNumber;
+          this.loading(reviewList => {
+            if (reviewList.length == 0) this.isEnd = true;
+            for (var i = 0; i < reviewList.length; i++) {
+              this.reviewList.push(reviewList[i]);
+            }
+            this.busy = false;
+          });
+        }, 1000);
+      }
+    },
     init() {
       LocationService.getLocation((latitude, longitude) => {
+        this.latitude = latitude;
+        this.longitude = longitude;
         ReviewService.getReviewListByLocation({
+          start: 0,
+          end: this.loadingPageNumber,
           latitude: latitude,
           longitude: longitude,
           distance: this.distance
         }).then(reviewList => {
           this.reviewList = reviewList.data;
         });
+      });
+    },
+    loading(callback) {
+      ReviewService.getReviewListByLocation({
+        start: this.idx,
+        end: this.loadingPageNumber,
+        latitude: this.latitude,
+        longitude: this.longitude,
+        distance: this.distance
+      }).then(reviewList => {
+        callback(reviewList.data);
       });
     },
     detailModalShow(selectedData) {
@@ -185,11 +230,11 @@ export default {
 };
 </script>
 <style>
-.md-button-content {
+/* .md-button-content {
   margin-bottom: auto;
   display: flex;
   align-items: center;
-}
+} */
 .my-hashtag-div {
   margin-top: 10px;
 }
@@ -242,5 +287,18 @@ export default {
     margin: auto;
     height: 380px;
   }
+  .loadingImg {
+    height: 50px;
+    width: 50px;
+    margin-top: 10%;
+  }
+}
+
+.loadingImg {
+  height: 50px;
+  width: 50px;
+}
+.loadingBox {
+  text-align: center;
 }
 </style>
