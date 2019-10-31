@@ -34,7 +34,9 @@
                 <hr />
               </div>
               <div class="md-card-content" style="padding-top: 0px;">
-                <img :src="r.imageData" class="img" style="height : 200px" />
+                <div class="my-card-img-box" style="height:200px;">
+                  <img class="my-card-img" :src="r.imageData" />
+                </div>
                 <hr />
                 <div class="my-card-content" style="display:inline-block">
                   <h4 class="my-card-content">{{r.title}}</h4>
@@ -235,6 +237,20 @@ export default {
   display: flex;
   align-items: center;
 } */
+.my-card-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.my-card-img-box {
+  position: relative;
+  overflow: hidden;
+}
 .my-hashtag-div {
   margin-top: 10px;
 }
@@ -263,6 +279,7 @@ export default {
 }
 .modal-img {
   margin-bottom: 5px;
+  max-height: 500px;
 }
 .md-card-actions.text-center {
   display: flex;
