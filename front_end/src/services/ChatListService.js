@@ -18,7 +18,6 @@ export default {
     ,
     async insertOrUpdateNotification(uid, target, nickname) {
         let chatList = await apiServer.get('/api/chatNoti/' + uid + '/' + target);
-        console.log(nickname)
         if(chatList.data.length == 0){
             chatList = { 'uid' : uid, 'target' : target, 'notification' : 1, 'nickname' : nickname};
             return apiServer.post('api/chatList', chatList)
@@ -34,8 +33,9 @@ export default {
         if(chatList.data.length == 0){
             return;
         }else{
-            chatList = chatList.data[0];
-            return apiServer.delete("api/chatList/"+ chatList['id'])
+            console.log(chatList);
+            chatList['data'][0]['notification'] = 0;
+            return apiServer.put("api/chatList/",chatList.data[0])
         }
     }
 }

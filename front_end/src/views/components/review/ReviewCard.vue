@@ -7,28 +7,13 @@
           class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
           v-for="r in reviewList"
           :key="r.id"
-          @click="detailModalShow(r)"
+          
         >
-          <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
-            <div class="my-card-title">
-              <div style="display : inline-block">
-                <div>
-                  <img :src="r.userImgData" alt="Avatar" class="Avatar_image" />
-                </div>
-              </div>
-              <div style="display : inline-block; position:absolute; left:80px">
-                <div>
-                  {{r.location}}
-                  <!--장소-->
-                </div>
-                <div>
-                  by {{r.nickname}}
-                  <!--작성자-->
-                </div>
-              </div>
+          <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover" >
+            
+              <ProfileCard :info="r"></ProfileCard>
               <hr />
-            </div>
-            <div class="md-card-content" style="padding-top: 0px;">
+            <div class="md-card-content" style="padding-top: 0px;" @click="detailModalShow(r)"> 
               <img :src="r.imageData" class="img" style="height : 200px" />
               <hr />
               <div class="my-card-content" style="display:inline-block">
@@ -96,12 +81,14 @@ import LocationService from "@/services/LocationService.js";
 import ReviewWrite from "@/views/components/review/ReviewWrite";
 import { Tabs } from "@/components";
 import { Modal } from "@/components";
+import  ProfileCard  from "@/views/components/profile/ProfileCard";
 
 export default {
   components: {
     Tabs,
     ReviewWrite,
-    Modal
+    Modal,
+    ProfileCard
   },
   data() {
     return {

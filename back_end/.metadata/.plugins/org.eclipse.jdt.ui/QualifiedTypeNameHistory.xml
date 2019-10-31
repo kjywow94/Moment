@@ -31,4 +31,6 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.javassist.bytecode.ByteArray"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.core.io.UTF8Writer"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 </qualifiedTypeNameHistroy>
