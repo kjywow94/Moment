@@ -27,6 +27,9 @@ export default {
     uploadImage(userImage) {
         return apiServer.post('api/user/image', userImage);
     },
+    delteImage(userImage) {
+        return apiServer.delete('api/user/image', userImage);
+    },
     Login(email, password) {
         var body = {
             email : email,
@@ -35,7 +38,7 @@ export default {
 
         return apiServer.post('/api/login', body)
     },
-    update(password, body){
+    passwordupdate(password, body){
         
         var temp = body;
         temp.password = password;
@@ -56,5 +59,11 @@ export default {
         }
 
         return apiServer.post("/api/user/findPass", body)
+    },
+    userupdate(name, phone, body){
+        var temp = body;
+        temp.name = name;
+        temp.phone = phone;
+        return apiServer.put("/api/user", temp);
     }
 }
