@@ -158,7 +158,15 @@ export default {
         uid: this.$store.state.user.id,
         rid: this.detailModalData.id
       }).then(response => {
-        this.detailModalData.like = response.data;
+        var max = response.data.max;
+        if (response.data.point) {
+          let point = max / 10;
+          UserService.getUserById(this.detailModalData.uid).then(userInfo => {
+            let to = userInfo.data.walletAddress;
+            EthereumService.sendPoint(to, point, recept => {});
+          });
+        }
+        this.detailModalData.like = response.data.id;
         this.detailModalData.liked = this.detailModalData.liked + 1;
         this.isLike = true;
       });
