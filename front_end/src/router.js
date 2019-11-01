@@ -25,6 +25,7 @@ import MyPageNav from "./layout/MypageNavbar.vue";
 import PasswordFind from "./views/pages/login/Passwordfind.vue";
 import IdFind from "./views/pages/login/Idfind.vue";
 import Kakaomap from "./views/kakaomap/Kakaomap.vue";
+import Myuserinfo from "./views/pages/mypage/myUserinfo";
 
 Vue.use(Router);
 
@@ -255,7 +256,16 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
       }
-    }
+    },
+    {
+      path: "/mypage/myuserinfo",
+      name: "myuserinfo",
+      components: { default: Myuserinfo, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
   ],
   scrollBehavior: to => {
     if (to.hash) {

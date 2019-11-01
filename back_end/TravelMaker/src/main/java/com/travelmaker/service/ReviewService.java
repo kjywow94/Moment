@@ -7,8 +7,11 @@ import java.util.StringTokenizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.travelmaker.dao.IsLikeMapper;
+import com.travelmaker.dao.MaxLikeMapper;
 import com.travelmaker.dao.ReviewMapper;
 import com.travelmaker.dto.Location;
+import com.travelmaker.dto.MaxLike;
 import com.travelmaker.dto.Review;
 import com.travelmaker.dto.ReviewListDTO;
 import com.travelmaker.dto.ReviewWithDistance;
@@ -26,6 +29,12 @@ public class ReviewService {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private MaxLikeMapper maxLikeMapper;
+
+	@Autowired
+	private IsLikeMapper isLikeMapper;
 
 	/**
 	 * 리턴받은 리스트에 사진정보를 추가해 리턴
@@ -119,6 +128,8 @@ public class ReviewService {
 		}
 		review.setHashtag(newHashtag.toString());
 		reviewMapper.insertReview(review);
+		maxLikeMapper.insertMaxLike(new MaxLike(0, review.getUid(), review.getId(), 0));
+		isLikeMapper.insertPoint(review.getId());
 		return review.getId();
 	}
 
