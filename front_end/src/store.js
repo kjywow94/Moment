@@ -19,6 +19,10 @@ export default new Vuex.Store({
       isLoginError: false,
       findid : "",
       findpass : "",
+
+      ReviewWriteOn : false,
+      latitude: null,
+      longitude: null
     },
 
     mutations: {
