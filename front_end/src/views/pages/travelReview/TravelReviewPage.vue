@@ -5,7 +5,6 @@
       <div class="section section-contacts">
         <div class="container">
           <div class="md-layout">
-            <!-- <ReviewWrite /> -->
             <ReviewCard />
           </div>
         </div>
@@ -72,34 +71,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-// .md-card-actions.text-center {
-//   display: flex;
-//   justify-content: center !important;
-// }
-// .contact-form {
-//   margin-top: 30px;
-// }
-
-// .md-has-textarea + .md-layout {
-//   margin-top: 15px;
-// }
-
-// .review_button {
-//   text-align: center;
-// }
-
-// @media (min-width: 481px) {
-//   .mdquery-xs {
-//     display: none;
-//   }
-// }
-
-// /* 모바일*/
-// @media (max-width: 480px) {
-//   .mdquery-md {
-//     display: none;
-//   }
-// }
-</style>

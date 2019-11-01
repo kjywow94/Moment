@@ -237,11 +237,6 @@ export default {
 
 
 <style>
-/* .md-button-content {
-  margin-bottom: auto;
-  display: flex;
-  align-items: center;
-} */
 .my-card-img {
   position: absolute;
   left: 50%;
