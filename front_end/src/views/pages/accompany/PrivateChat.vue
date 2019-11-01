@@ -42,6 +42,7 @@
       </div>
       <div style="float:clear;"></div>
 
+      
       </div>
       </div>
 </template>
@@ -50,11 +51,13 @@
 import ChatService from "@/services/ChatService.js";
 import ChatListService from "@/services/ChatListService.js";
 import UserService from "@/services/UserService.js";
+import ProfileCard from "@/views/components/profile/ProfileCard.vue";
 export default {
   components: {
     UserService,
     ChatService,
-    ChatListService
+    ChatListService,
+    ProfileCard
   },
   bodyClass: "landing-page",
   props: {

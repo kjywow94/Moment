@@ -9,19 +9,21 @@
 		SELECT C.img_name as imgName, B.nickname, A.*
 		FROM (
 		SELECT *
-		, ( 6371 * acos( cos( radians( #{latitude} ) ) * cos(radians( latitude
-		) ) * cos( radians( longitude ) - radians(#{longitude} ) )+ sin(
-		radians( #{latitude} ) ) * sin( radians(latitude ) ) ) ) AS distance
+		, ( 6371 *
+		acos( cos( radians( #{latitude} ) ) * cos(radians( latitude
+		) ) * cos(
+		radians( longitude ) - radians(#{longitude} ) )+ sin(
+		radians(
+		#{latitude} ) ) * sin( radians(latitude ) ) ) ) AS distance
 		FROM review
 		HAVING distance <![CDATA[ < ]]>
 		#{distance}
 		ORDER BY distance DESC limit #{start},#{end}
-		) A, user B, user_image C
+		) A, user B,
+		user_image C
 		WHERE A.uid = B.id
 		and B.email = C.email
 		;
-
-
 	</select>
 
 	<!-- 후기 목록 by 거리 -->

@@ -5,35 +5,18 @@
     :data-background-color="backgroundColor"
   >
     <div class="container">
-      <nav>
-        <ul>
-          <li>
-            <a href="https://www.creative-tim.com">
-              Creative Tim
-            </a>
-          </li>
-          <li>
-            <a href="https:///presentation.creative-tim.com">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="https:///blog.creative-tim.com">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a href="https://www.creative-tim.com/license">
-              Licenses
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="copyright">
-        &copy; {{ year }}, made with <md-icon>favorite</md-icon> by
-        <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>
-        for a better web.
+      <div class="copyright" style="margin: 0 auto">
+        &copy; {{ year }}, made by
+        <a href="https://lab.ssafy.com/s1-final/s1p3151008" target="_blank">
+        <i class="fab fa-github"></i>
+        BoraCoin<md-tooltip md-direction="top">Git Page</md-tooltip>
+        </a>
+        for a better travel
+        <h5 style="text-align : center">
+          Since. Oct 2019
+        </h5>
       </div>
+      
     </div>
   </footer>
 </template>
