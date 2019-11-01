@@ -3,7 +3,7 @@
     <div class="section page-header header-filter" :style="headerStyle">
       <div class="container">
         <div class="md-layout" >
-            <div class="md-layout-item md-size-80 md-small-size-100" style="margin: 0 auto;">
+            <div class="md-layout-item md-size-80 md-small-size-100" style="margin: 0 auto; background: floralwhite;">
             <tabs
                 :tab-name="['사용자수정', '비밀번호변경', '프로필수정']"
                 :tab-icon="['supervisor_account', 'enhanced_encryption', 'person_pin']"
@@ -90,6 +90,7 @@
                                     <button
                                       type="button"
                                       class="browse btn btn-primary"
+                                      :disabled="invalidpro"
                                       v-on:click="uploadImg()"
                                     >Browse...</button>
                                   </div>
@@ -111,7 +112,7 @@
                             <br />
                         <button type="button" class="btn btn-outline-success" v-on:click="profilebtn()">수정 활성화</button>
                         <button type="button" class="btn btn-outline-danger" style="float: right;" :disabled="invalidpro">초기화</button>
-                        <button type="button" class="btn btn-outline-success" style="float: right;  margin-right: 10px;" :disabled="invalidpro" @click="userupdate()">수정</button>
+                        <button type="button" class="btn btn-outline-success" style="float: right;  margin-right: 10px;" :disabled="invalidpro" v-on:click="updateimage()">수정</button>
                         </div>
                     </div>
                 </template>
@@ -162,7 +163,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$store.state.userinfo);
     this.namelabel = this.$store.state.userinfo.userName;
     this.phonelabel = this.$store.state.userinfo.phone;
     this.instagram = this.$store.state.userinfo.sns1;
@@ -170,10 +170,9 @@ export default {
     this.aboutme = this.$store.state.userinfo.about;
     UserService.getImage(this.$store.state.userinfo.email)
       .then(data => {
-        console.log(data.data);
         this.img = data.data[0].imgData;
         this.fileName = data.data[0].imgName;          
-      })
+    })
    
       
   },
@@ -258,12 +257,10 @@ export default {
       this.$refs.inputRef.click();
     },
     changeFile(event) {
-      //파일 이름 생성 = 이메일아이디+랜덤값
       let eamilLen = this.$store.state.userinfo.email.lastIndexOf("@");
       let random = Math.floor(Math.random() * 100000);
       this.imgName = this.$store.state.userinfo.email.substring(0, eamilLen) + "_" + random;
 
-      // console.log(this.imgName);
 
       this.fileName = event.target.files[0].name;
       let fileLen = this.fileName.length;
@@ -274,15 +271,39 @@ export default {
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = e => {
         this.img = e.target.result;
-        console.log(" this.imgName :",  this.imgName);
-        console.log("this.img :", this.img);
-        console.log("this.extension :", this.extension);
       };
     },
-    findImage(){
-      console.log(this.$store.state.userinfo.email);
+    updateimage(){
+     var scope = this;
       
-    
+      UserService.delteImage(scope.$store.state.userinfo.email)
+        .then(data => {            
+            var imgName = scope.imgName;
+            var imgData = scope.img;
+            var extension = scope.extension;
+            
+            UserService.uploadImage({
+              imgName: imgName,
+              imgData: imgData,
+              extension: extension,
+              email: scope.$store.state.userinfo.email
+          }).then(uploadImgData => {
+            UserService.userprofile(scope.aboutme, scope.instagram, scope.facebook,  scope.$store.state.user)
+            .then(data => {
+                if(data.config !== ""){
+                    var temp = JSON.parse(data.config.data);
+                    this.$store.commit("update", temp);
+                }
+                else{
+                    alert("다시 확인해주세요...");
+                }
+            })
+            alert("프로필 수정이 되었습니다.");
+          });
+          }
+      );
+      
+
     }
   },
   computed: {

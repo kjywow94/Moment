@@ -172,9 +172,6 @@ export default {
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = e => {
         this.img = e.target.result;
-        //console.log(" this.imgName :",  this.imgName);
-        // console.log("this.img :", this.img);
-        // console.log("this.extension :", this.extension);
       };
     },
     signUp() {
@@ -209,16 +206,10 @@ export default {
           about: scope.aboutme,
           walletAddress: walletAddress
         }).then(userdata => {
-          // console.log("data : ", userdata.data);
-
           if (userdata.data == 1) {
             let imgName = scope.imgName;
             let imgData = scope.img;
             let extension = scope.extension;
-            // console.log(imgName);
-            // console.log(imgData);
-            // console.log(extension);
-            // console.log(scope.email);
 
             UserService.uploadImage({
               imgName: imgName,
@@ -226,7 +217,6 @@ export default {
               extension: extension,
               email: scope.email
             }).then(uploadImgData => {
-              // console.log("image upload : ", uploadImgData);
               alert("회원가입이 완료되었습니다.");
               scope.$router.push("/");
             });
@@ -249,7 +239,7 @@ export default {
             }
           })
           .catch(err => {
-            console.log("error : ", err);
+            alert("에러 에러 에러");
           });
       } else {
         alert("아이디를 입력해주세요.");
