@@ -1,13 +1,13 @@
 <template>
   <div class="wrapper">
-    <div class="section page-header header-filter" :style="headerStyle">
+    <div class="section page-header header-filter" style="background: #5fe0d18a;">
       <div class="container">
         <div class="md-layout">
           <div
             class="md-layout-item md-size-33 md-small-size-66 md-xsmall-size-100 md-medium-size-40 mx-auto"
           >
           <form @submit.prevent="onSubmit()">
-            <login-card header-color="green">
+            <login-card header-color="red">
               <h4 slot="title" class="card-title" style="font-size:30px;">로그인</h4>
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>face</md-icon>
@@ -63,7 +63,7 @@ export default {
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`
+        // backgroundImage: `url(${this.header})`
       };
     },
     invalidForm(){
