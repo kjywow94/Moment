@@ -81,7 +81,7 @@
                 <p>Download</p>
               </md-list-item>
 
-              <li class="md-list-item" v-else>
+              <li href="#" class="md-list-item" v-else>
                 <a
                   href="javascript:void(0)"
                   class="md-list-item-router md-list-item-container md-button-clean dropdown"
