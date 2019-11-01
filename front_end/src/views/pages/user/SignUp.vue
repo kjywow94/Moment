@@ -92,16 +92,16 @@
                 </md-field>
                 <md-field>
                   <label>인스타그램</label>
-                  <md-input v-model="instagram" type="text"></md-input>
+                  <md-input v-model="instagram" type="text" value="https://www.instagram.com/"></md-input>
                 </md-field>
                 <md-field>
                   <label>페이스북</label>
-                  <md-input v-model="facebook" type="text"></md-input>
+                  <md-input v-model="facebook" type="text" value="https://www.facebook.com/"></md-input>
                 </md-field>
                 <br />
               </template>
               <template slot="tab-pane-3">
-                <p>가입을 축하드립니다!</p>
+                <p>가입을 축하드립니다! </br> 메일에서 인증 후에 사용이 가능합니다.</p>
                 <md-button type="submit" class="md-primary md-round" v-on:click="signUp">회원가입</md-button>
               </template>
             </tabs>

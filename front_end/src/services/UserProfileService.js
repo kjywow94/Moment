@@ -14,15 +14,4 @@ export default {
     getUserImage(email) {
         return apiServer.get('api/user/image/' + email);
     }
-    
-
-    // getAccompanyRegistById(id) {
-    //     return apiServer.get('/api/accompanyRegist/' + id);
-    // },
-    // insertAccompanyRegist(accompanyRegist) {
-    //     return apiServer.post('/api/accompanyRegist/' , accompanyRegist);
-    // },
-    // updateAccompanyRegist(accompanyRegist) {
-    //     return apiServer.put('/api/accompanyRegist/' , accompanyRegist);
-    // }
 }
