@@ -43,7 +43,7 @@
   - docker image 실행
 
     ~~~ 
-    docker run -d -p 8080:8080 brc:0.1
+    docker run -d -p 8888:8888 boracoin:0.1
     ~~~
 
 - 컨테이너에 도커 이미지 폴더 추가
