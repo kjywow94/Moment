@@ -18,7 +18,7 @@
                 <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
                 <label>비밀번호를 입력해주세요...</label>
-                <md-input v-model="password" @keyup.enter="onSubmit()"></md-input>
+                <md-input v-model="password" type="password" @keyup.enter="onSubmit()"></md-input>
               </md-field>
               <md-button slot="footer" class="md-simple md-success md-lg" :class="{'btn-success' : !invalidForm}" type="submit"
                 :disabled="invalidForm">
