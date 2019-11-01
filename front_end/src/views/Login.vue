@@ -9,15 +9,14 @@
           <form @submit.prevent="onSubmit()">
             <login-card header-color="green">
               <h4 slot="title" class="card-title" style="font-size:30px;">로그인</h4>
-              <p slot="description" class="description">Or Be Classical</p>
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>face</md-icon>
-                <label>아이디를 입력해주세요...</label>
+                <label>아이디를 입력해주세요</label>
                 <md-input v-model="email"></md-input>
               </md-field>
                 <md-field class="md-form-group" slot="inputs">
                 <md-icon>lock_outline</md-icon>
-                <label>비밀번호를 입력해주세요...</label>
+                <label>비밀번호를 입력해주세요</label>
                 <md-input v-model="password" type="password" @keyup.enter="onSubmit()"></md-input>
               </md-field>
               <md-button slot="footer" class="md-simple md-success md-lg" :class="{'btn-success' : !invalidForm}" type="submit"
@@ -90,7 +89,7 @@ export default {
               sessionStorage.setItem('PW', data.data.password);
             }
             
-            scope.$router.push('/');
+            scope.$router.push('/travelReview');
           }
           else {
             alert("다시 확인해주세요...");
