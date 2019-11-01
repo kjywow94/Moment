@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.travelmaker.dao.AccompanyRegistMapper">
+	<!-- 동행 모집 목록 조회 -->
+	<select id="selectAllAccompanyRegistNotRemoved"
+		resultType="accompanyRegist">
+		SELECT * FROM accompany_regist where is_remove = "N";
+	</select>
+
+	<!-- 관리자 동행 목록 조회 -->
+	<select id="selectAllAccompanyRegist"
+		resultType="accompanyRegist">
+		SELECT * FROM accompany_regist;
+	</select>
+
+	<!-- 동행 모집 선택 -->
+	<select id="selectAccompanyRegistByID" parameterType="int"
+		resultType="accompanyRegist">
+		SELECT * FROM accompany_regist WHERE id=#{id};
+	</select>
+
+	<!-- 동행 모집 등록 -->
+	<insert id="insertAccompanyRegist"
+		parameterType="accompanyRegist">
+		INSERT INTO accompany_regist(title, content, process,
+		start_date, end_date, city, region, thema, view,
+		max, hashtag, user)
+		VALUES(#{title}, #{content}, #{process}, #{startDate}, #{endDate}
+		,
+		#{city}, #{region}, #{thema}, #{view}, #{max}
+		, #{hashtag}, #{user});
+	</insert>
+
+	<!-- 동행 모집 수정 -->
+	<update id="updateAccompanyRegist"
+		parameterType="accompanyRegist">
+		UPDATE accompany_regist SET title = #{title} , content =
+		#{content} , process = #{process}, start_date = #{startDate} ,
+		end_date = #{endDate} , city = #{city} ,
+		region = #{region} , thema =
+		#{thema}
+		, view = #{view} , max =
+		#{max} , hashtag = #{hashtag},
+		is_remove = #{isRemove}, user = #{user}
+		WHERE id
+		= #{id};
+	</update>
+
+	<update id="successAccompanyRegist" parameterType="int">
+	UPDATE accompany_regist SET process = "완료"
+	WHERE id
+	= #{id};
+	</update>
+
+	<!-- 동행 모집 삭제 -->
+	<delete id="deleteAccompanyRegist" parameterType="int">
+		DELETE FROM
+		accompany_regist WHERE id
+		= #{id};
+	</delete>
+</mapper>

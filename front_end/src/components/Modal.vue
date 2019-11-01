@@ -1,8 +1,11 @@
 <template>
   <transition name="modal">
     <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container" v-click-outside="closeModal">
+      <div class="modal-wrapper my-modal-wrapper">
+        <div
+          class="modal-container my-modal-container my-modal-container-sm"
+          v-click-outside="closeModal"
+        >
           <div class="modal-header">
             <slot name="header"></slot>
           </div>
@@ -40,6 +43,10 @@ export default {
  * You can easily play with the modal transition by editing
  * these styles.
  */
+.my-modal-container {
+  max-height: 79%;
+  overflow: auto;
+}
 
 .modal-enter {
   opacity: 0;
@@ -53,5 +60,9 @@ export default {
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+// 모바일
+@media (max-width: 480px) {
 }
 </style>

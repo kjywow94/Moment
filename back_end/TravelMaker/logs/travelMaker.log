@@ -2268,3 +2268,667 @@ Caused by: java.lang.NumberFormatException: For input string: "undefined"
 2019-10-31 17:34:10 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'clientInboundChannelExecutor'
 2019-10-31 17:34:10 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2019-10-31 17:34:11 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-10-31 17:44:42 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - Starting TravelMakerApplication on DESKTOP-KVCQHCD with PID 2728 (C:\Workspace\TravelMaker\back_end\TravelMaker\target\classes started by multicampus in C:\Workspace\TravelMaker\back_end\TravelMaker)
+2019-10-31 17:44:42 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - No active profile set, falling back to default profiles: default
+2019-10-31 17:44:42 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-31 17:44:42 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-31 17:44:42 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$44f9afbe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-31 17:44:43 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-10-31 17:44:43 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-10-31 17:44:43 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-31 17:44:43 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-10-31 17:44:43 [restartedMain] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-10-31 17:44:43 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 957 ms
+2019-10-31 17:44:43 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accompanyController': Unsatisfied dependency expressed through field 'accompanyService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accompanyService': Unsatisfied dependency expressed through field 'accompanyMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accompanyMapper' defined in file [C:\Workspace\TravelMaker\back_end\TravelMaker\target\classes\com\travelmaker\dao\AccompanyMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mapper/accompanyMapper.xml
+2019-10-31 17:44:43 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2019-10-31 17:44:43 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-10-31 17:44:43 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accompanyController': Unsatisfied dependency expressed through field 'accompanyService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accompanyService': Unsatisfied dependency expressed through field 'accompanyMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accompanyMapper' defined in file [C:\Workspace\TravelMaker\back_end\TravelMaker\target\classes\com\travelmaker\dao\AccompanyMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mapper/accompanyMapper.xml
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:598)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:376)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:847)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204)
+	at com.travelmaker.TravelMakerApplication.main(TravelMakerApplication.java:10)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accompanyService': Unsatisfied dependency expressed through field 'accompanyMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accompanyMapper' defined in file [C:\Workspace\TravelMaker\back_end\TravelMaker\target\classes\com\travelmaker\dao\AccompanyMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mapper/accompanyMapper.xml
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:598)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:376)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1255)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1175)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:595)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accompanyMapper' defined in file [C:\Workspace\TravelMaker\back_end\TravelMaker\target\classes\com\travelmaker\dao\AccompanyMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mapper/accompanyMapper.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1515)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1255)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1175)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:595)
+	... 37 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mapper/accompanyMapper.xml
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1255)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1175)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1500)
+	... 48 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mapper/accompanyMapper.xml
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 61 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mapper/accompanyMapper.xml
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:573)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:475)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:616)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:180)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$77ce00ee.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$77ce00ee$$FastClassBySpringCGLIB$$2c583310.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$77ce00ee.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 62 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mapper/accompanyMapper.xml
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:121)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:98)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:570)
+	... 75 common frames omitted
+Caused by: java.io.IOException: Could not find resource mapper/accompanyMapper.xml
+	at org.apache.ibatis.io.Resources.getResourceAsStream(Resources.java:114)
+	at org.apache.ibatis.io.Resources.getResourceAsStream(Resources.java:100)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:372)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:119)
+	... 77 common frames omitted
+2019-10-31 17:47:16 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - Starting TravelMakerApplication on DESKTOP-KVCQHCD with PID 15868 (C:\Workspace\TravelMaker\back_end\TravelMaker\target\classes started by multicampus in C:\Workspace\TravelMaker\back_end\TravelMaker)
+2019-10-31 17:47:16 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - No active profile set, falling back to default profiles: default
+2019-10-31 17:47:16 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-31 17:47:16 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-31 17:47:17 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e91c4b83] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-31 17:47:17 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-10-31 17:47:17 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-10-31 17:47:17 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-31 17:47:17 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-10-31 17:47:17 [restartedMain] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-10-31 17:47:17 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 955 ms
+2019-10-31 17:47:17 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'clientInboundChannelExecutor'
+2019-10-31 17:47:17 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'clientOutboundChannelExecutor'
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.AccompanyController:
+	{GET /api/selectAccompany/{id}}: selectAccompanyPartiByTid(int)
+	{GET /api/accompany/{cid}}: selectAccompanybyTid(int)
+	{POST /api/accompany}: insertAccompanyParti(Accompany)
+	{PUT /api/accompany}: updateAccompanyRegist(Accompany)
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.AccompanyPartiController:
+	{PUT /api/accompanyParti}: accompanyRegist(AccompanyParti)
+	{GET /api/accompanyParti/{uid}}: selectAccompanyPartiByUid(int)
+	{GET /api/accompanyPartiByTid/{tid}}: selectAccompanyPartiByTid(int)
+	{POST /api/accompanyParti}: insertAccompanyParti(AccompanyParti)
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.AccompanyRegistController:
+	{GET /api/accompanyRegist/{id}}: selectByid(int)
+	{PUT /api/accompanyRegist}: accompanyRegist(AccompanyRegist)
+	{GET /api/accompanyRegistAdmin}: selectAllAccompanyRegist()
+	{GET /api/accompanyRegistSuccess/{id}}: successAccompanyRegist(int)
+	{POST /api/accompanyRegist}: accompanyRegistInsert(AccompanyRegist)
+	{GET /api/accompanyRegist}: selectAllAccompanyRegistNotRemoved()
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ChatController:
+	{POST /api/chatAdmin}: selectAllChat(int)
+	{DELETE /api/chat}: forceDeleteChat(int)
+	{GET /api/chat/private/{uid1}/{uid2}}: forceDeleteChat(int,int)
+	{PUT /api/chat}: updateChat(Chat)
+	{POST /api/chat}: insertChat(Chat)
+	{GET /api/chatAll/{rn}}: selectAllNotRemovedReview(int)
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ChatListController:
+	{GET /api/chatList/{uid}}: selectAllChat(int)
+	{DELETE /api/chatList/{id}}: forceDeleteChat(int)
+	{PUT /api/chatList}: updateChat(ChatList)
+	{POST /api/chatList}: insertChat(ChatList)
+	{GET /api/chatNoti/{id}/{uid}}: selectChatListbyFrom(int,int)
+	{GET /api/chatNoti/{uid}}: selectAllNotRemovedReview(int)
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ChatRoomController:
+	{DELETE /api/chatRoom}: deleteChatRoom(ChatRoom)
+	{POST /api/chatRoom}: insertChatRoom(ChatRoom)
+	{POST /api/chatRoomTid}: selectAllChatRoomByTid(int)
+	{GET /api/chatRoomAdmin}: selectAllChatRoom()
+	{POST /api/chatRoomUid}: selectAllChatRoomByUid(int)
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.LogController:
+	{GET /api/log}: selectAllUser()
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.MessagingController:
+	
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ReviewController:
+	{GET /api/reviewByUser/{uid}}: selectReviewByUid(int)
+	{POST /api/isLike}: isLike(Like)
+	{POST /api/likeIt}: likeIt(Like)
+	{GET /api/review}: reviewList()
+	{POST /api/writeReview}: insertReview(Review)
+	{POST /api/unLike}: unLike(Like)
+	{GET /api/review/{id}}: selectReviewById(int)
+	{POST /api/reviewImg}: uploadImg(ReviewImage)
+	{POST /api/review}: reviewListByLocation(Location)
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.TravelReviewController:
+	{GET /api/travelReviewTid/{tid}}: selectAllReviewByTid(int)
+	{DELETE /api/travelReview/{id}}: deleteForceReviewById(int)
+	{POST /api/travelReview}: insertReviewById(TravelReview)
+	{PUT /api/travelReview}: updateReview(TravelReview)
+	{GET /api/travelReview/{id}}: selectReviewById(int)
+	{GET /api/travelReviewAdmin}: selectAllReview()
+	{GET /api/travelReview}: selectAllNotRemovedReview()
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.UserController:
+	{ /api/user/cert}: emailCertification(String,String,HttpServletResponse)
+	{GET /api/userAll}: selectNotRemovedAllUser()
+	{GET /api/user/{id}}: selectOneUserByID(int)
+	{GET /api/user/email/{email}}: selectOneUserByEmail(String)
+	{DELETE /api/user}: userDelect(int)
+	{GET /api/userAllAdmin}: selectAllUser()
+	{PUT /api/user}: userUpdate(User)
+	{GET /api/user/image/{email}}: uploadImage(String)
+	{POST /api/user/image}: uploadImage(UserImage)
+	{POST /api/login}: userSelect(User)
+	{POST /api/user/findPass}: findPass(User)
+	{POST /api/user}: userInsert(User)
+	{POST /api/user/findId}: findId(User)
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.UserReviewController:
+	{GET /api/userReviewTid/{tid}}: selectAllReviewByTid(int)
+	{GET /api/userReview}: selectNotRemovedReview()
+	{POST /api/userReview}: insertReviewById(UserReview)
+	{PUT /api/userReview}: updateReview(UserReview)
+	{GET /api/userReviewAdmin}: selectAllReview()
+	{DELETE /api/userReview/{id}}: deleteReviewById(int)
+	{GET /api/userReviewUid/{uid}}: selectAllReviewByUid(int)
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	s.d.s.w.ApiResourceController:
+	{ /swagger-resources/configuration/ui}: uiConfiguration()
+	{ /swagger-resources}: swaggerResources()
+	{ /swagger-resources/configuration/security}: securityConfiguration()
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ /error}: error(HttpServletRequest)
+	{ /error, produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 73 mappings in 'requestMappingHandlerMapping'
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-10-31 17:47:18 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'messageBrokerTaskScheduler'
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.s.s.WebSocketHandlerMapping - Mapped [/websocket/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@5a8510a
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Patterns [/websocket/**] in 'stompWebSocketHandlerMapping'
+2019-10-31 17:47:18 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'brokerChannelExecutor'
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@bb0ee9b, started on Thu Oct 31 17:47:16 KST 2019
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.AccompanyController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.AccompanyPartiController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.AccompanyRegistController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.ChatController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.ChatListController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.ChatRoomController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.LogController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 4 message handler methods found on class com.travelmaker.controller.MessagingController: {public void com.travelmaker.controller.MessagingController.greeting(com.travelmaker.dto.Chat) throws java.lang.Exception={[/greetings],messageType=[MESSAGE]}, public void com.travelmaker.controller.MessagingController.goodbye(com.travelmaker.dto.Chat) throws java.lang.Exception={[/goodbye],messageType=[MESSAGE]}, public void com.travelmaker.controller.MessagingController.outChat(com.travelmaker.dto.Chat) throws java.lang.Exception={[/chat],messageType=[MESSAGE]}, public void com.travelmaker.controller.MessagingController.privateChat(com.travelmaker.dto.Chat) throws java.lang.Exception={[/privateChat],messageType=[MESSAGE]}}
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Mapped "{[/greetings],messageType=[MESSAGE]}" onto public void com.travelmaker.controller.MessagingController.greeting(com.travelmaker.dto.Chat) throws java.lang.Exception
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Mapped "{[/goodbye],messageType=[MESSAGE]}" onto public void com.travelmaker.controller.MessagingController.goodbye(com.travelmaker.dto.Chat) throws java.lang.Exception
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Mapped "{[/chat],messageType=[MESSAGE]}" onto public void com.travelmaker.controller.MessagingController.outChat(com.travelmaker.dto.Chat) throws java.lang.Exception
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Mapped "{[/privateChat],messageType=[MESSAGE]}" onto public void com.travelmaker.controller.MessagingController.privateChat(com.travelmaker.dto.Chat) throws java.lang.Exception
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.ReviewController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.TravelReviewController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.UserController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.UserReviewController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class springfox.documentation.swagger.web.ApiResourceController: {}
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController: {}
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.h.SimpleUrlHandlerMapping - Mapped [/**/favicon.ico] onto ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []]
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-10-31 17:47:18 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping - Detected 0 mappings in 'beanNameHandlerMapping'
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.h.SimpleUrlHandlerMapping - Mapped [/webjars/**] onto ResourceHttpRequestHandler ["classpath:/META-INF/resources/webjars/"]
+2019-10-31 17:47:18 [restartedMain] TRACE o.s.w.s.h.SimpleUrlHandlerMapping - Mapped [/**] onto ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"]
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-10-31 17:47:18 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: insertAccompanyPartiUsingPOST_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAccompanyPartiByTidUsingGET_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: accompanyRegistUsingPUT_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: forceDeleteChatUsingDELETE_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: insertChatUsingPOST_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllNotRemovedReviewUsingGET_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateChatUsingPUT_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllNotRemovedReviewUsingGET_2
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectReviewByIdUsingGET_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllUserUsingGET_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: insertReviewByIdUsingPOST_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllReviewUsingGET_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllReviewByTidUsingGET_1
+2019-10-31 17:47:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateReviewUsingPUT_1
+2019-10-31 17:47:18 [restartedMain] DEBUG org.springframework.web.SimpLogging - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
+2019-10-31 17:47:18 [restartedMain] DEBUG org.springframework.web.SimpLogging - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
+2019-10-31 17:47:18 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2019-10-31 17:47:18 [restartedMain] DEBUG org.springframework.web.SimpLogging - clientInboundChannel added SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]
+2019-10-31 17:47:18 [restartedMain] DEBUG org.springframework.web.SimpLogging - brokerChannel added SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]
+2019-10-31 17:47:18 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2019-10-31 17:47:18 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2019-10-31 17:47:18 [restartedMain] DEBUG org.springframework.web.SimpLogging - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2019-10-31 17:47:18 [restartedMain] DEBUG org.springframework.web.SimpLogging - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2019-10-31 17:47:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-10-31 17:47:18 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - Started TravelMakerApplication in 2.153 seconds (JVM running for 2.908)
+2019-10-31 17:47:26 [http-nio-9090-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:47:26 [http-nio-9090-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-10-31 17:47:26 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@58cdb3a3
+2019-10-31 17:47:26 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - No LocaleResolver 'localeResolver': using default [AcceptHeaderLocaleResolver]
+2019-10-31 17:47:26 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - No ThemeResolver 'themeResolver': using default [FixedThemeResolver]
+2019-10-31 17:47:26 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - No RequestToViewNameTranslator 'viewNameTranslator': using default [DefaultRequestToViewNameTranslator]
+2019-10-31 17:47:26 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - No FlashMapManager 'flashMapManager': using default [SessionFlashMapManager]
+2019-10-31 17:47:26 [http-nio-9090-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-10-31 17:47:26 [http-nio-9090-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2019-10-31 17:47:26 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:47:26 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:47:26 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:47:26 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:47:26 [http-nio-9090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-10-31 17:47:27 [http-nio-9090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-10-31 17:47:27 [http-nio-9090-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:47:27 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@615a3389, com.travelmaker.dto.ReviewListDTO@6a32e8bc, com.travelmaker.dto.ReviewListDTO@750aff47, com.travelmaker.dto.ReviewListDTO@12ba434a, com.travelmaker.dto.ReviewListDTO@224cecef, com.travelmaker.dto.ReviewListDTO@5f468712, com.travelmaker.dto.ReviewListDTO@7d94ab7a, com.travelmaker.dto.ReviewListDTO@3d740791, com.travelmaker.dto.ReviewListDTO@789aaf44, com.travelmaker.dto.ReviewListDTO@130fc952, com.travelmaker.dto.ReviewListDTO@4b986f32, com.travelmaker.dto.ReviewListDTO@56cdb15f, com.travelmaker.dto.ReviewListDTO@7b80c44d, com.travelmaker.dto.ReviewListDTO@1628d736, com.travelmaker.dto.ReviewListDTO@1ec1db3e, com.travelmaker.dto.ReviewListDTO@253dc6f0, com.travelmaker.dto.ReviewListDTO@58e2ccb6, com.travelmaker.dto.ReviewListDTO@8a331fb, com.travelmaker.dto.ReviewListDTO@182b13fa, com.travelmaker.dto.ReviewListDTO@53ea5c49]]
+2019-10-31 17:47:27 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:47:27 [http-nio-9090-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:47:34 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:47:34 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:47:34 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:47:34 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:47:34 [http-nio-9090-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:47:34 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@4dd01130, com.travelmaker.dto.ReviewListDTO@49ef9c52, com.travelmaker.dto.ReviewListDTO@ced1b0b, com.travelmaker.dto.ReviewListDTO@703f5353, com.travelmaker.dto.ReviewListDTO@3dab95f5, com.travelmaker.dto.ReviewListDTO@893831e, com.travelmaker.dto.ReviewListDTO@6cc2e444, com.travelmaker.dto.ReviewListDTO@66ed9744, com.travelmaker.dto.ReviewListDTO@708a251, com.travelmaker.dto.ReviewListDTO@13974add, com.travelmaker.dto.ReviewListDTO@688c7c2f, com.travelmaker.dto.ReviewListDTO@62d191cd, com.travelmaker.dto.ReviewListDTO@2009adec, com.travelmaker.dto.ReviewListDTO@9e1da92, com.travelmaker.dto.ReviewListDTO@287a285, com.travelmaker.dto.ReviewListDTO@6c3614e1, com.travelmaker.dto.ReviewListDTO@1bdb246, com.travelmaker.dto.ReviewListDTO@60fdda9, com.travelmaker.dto.ReviewListDTO@3923c467, com.travelmaker.dto.ReviewListDTO@656e5ebe]]
+2019-10-31 17:47:34 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:47:34 [http-nio-9090-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:47:35 [http-nio-9090-exec-3] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:47:35 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:47:35 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:47:35 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:47:35 [http-nio-9090-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:47:35 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@6d0ce49, com.travelmaker.dto.ReviewListDTO@2ef4a4b, com.travelmaker.dto.ReviewListDTO@47edc472, com.travelmaker.dto.ReviewListDTO@76c22b4d, com.travelmaker.dto.ReviewListDTO@76e0015a, com.travelmaker.dto.ReviewListDTO@e25b0df, com.travelmaker.dto.ReviewListDTO@27c23b3d, com.travelmaker.dto.ReviewListDTO@403df4cb, com.travelmaker.dto.ReviewListDTO@3621d747, com.travelmaker.dto.ReviewListDTO@15213a14, com.travelmaker.dto.ReviewListDTO@238ce05e, com.travelmaker.dto.ReviewListDTO@c38d348, com.travelmaker.dto.ReviewListDTO@349ba667, com.travelmaker.dto.ReviewListDTO@28f6cb7a, com.travelmaker.dto.ReviewListDTO@6c3c402a, com.travelmaker.dto.ReviewListDTO@26546c76, com.travelmaker.dto.ReviewListDTO@4f155e45, com.travelmaker.dto.ReviewListDTO@51a6f1c6, com.travelmaker.dto.ReviewListDTO@5f95c6c8, com.travelmaker.dto.ReviewListDTO@5a273690]]
+2019-10-31 17:47:35 [http-nio-9090-exec-3] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:47:35 [http-nio-9090-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:47:44 [http-nio-9090-exec-5] TRACE o.s.web.servlet.DispatcherServlet - OPTIONS "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:47:44 [http-nio-9090-exec-5] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:47:44 [http-nio-9090-exec-5] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:47:44 [http-nio-9090-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:47:44 [http-nio-9090-exec-4] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:47:44 [http-nio-9090-exec-4] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:47:44 [http-nio-9090-exec-4] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:47:44 [http-nio-9090-exec-4] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:47:45 [http-nio-9090-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:47:45 [http-nio-9090-exec-4] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@5b2a404c, com.travelmaker.dto.ReviewListDTO@1e28c54d, com.travelmaker.dto.ReviewListDTO@5ee3867f, com.travelmaker.dto.ReviewListDTO@2f7c9caa, com.travelmaker.dto.ReviewListDTO@265d8129, com.travelmaker.dto.ReviewListDTO@7e073a02, com.travelmaker.dto.ReviewListDTO@3c958bc3, com.travelmaker.dto.ReviewListDTO@7747c937, com.travelmaker.dto.ReviewListDTO@3d594a3f, com.travelmaker.dto.ReviewListDTO@7a49a0bc, com.travelmaker.dto.ReviewListDTO@6a92f7a5, com.travelmaker.dto.ReviewListDTO@235585b1, com.travelmaker.dto.ReviewListDTO@542a2b56, com.travelmaker.dto.ReviewListDTO@63513d2f, com.travelmaker.dto.ReviewListDTO@1e83d13f, com.travelmaker.dto.ReviewListDTO@11f4a753, com.travelmaker.dto.ReviewListDTO@14014ea0, com.travelmaker.dto.ReviewListDTO@7ed3a14a, com.travelmaker.dto.ReviewListDTO@7ed99d86, com.travelmaker.dto.ReviewListDTO@4aa37331]]
+2019-10-31 17:47:45 [http-nio-9090-exec-4] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:47:45 [http-nio-9090-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:48:18 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2019-10-31 17:49:55 [http-nio-9090-exec-7] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:49:55 [http-nio-9090-exec-7] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:49:55 [http-nio-9090-exec-7] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:49:55 [http-nio-9090-exec-7] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:49:56 [http-nio-9090-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:49:56 [http-nio-9090-exec-7] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@470035f3, com.travelmaker.dto.ReviewListDTO@433fb9cb, com.travelmaker.dto.ReviewListDTO@63d3fc8, com.travelmaker.dto.ReviewListDTO@719867be, com.travelmaker.dto.ReviewListDTO@37717bd3, com.travelmaker.dto.ReviewListDTO@93e7d17, com.travelmaker.dto.ReviewListDTO@6612c087, com.travelmaker.dto.ReviewListDTO@5485ee6c, com.travelmaker.dto.ReviewListDTO@6816b8cc, com.travelmaker.dto.ReviewListDTO@123ab61c, com.travelmaker.dto.ReviewListDTO@625c5a24, com.travelmaker.dto.ReviewListDTO@19512e8d, com.travelmaker.dto.ReviewListDTO@44dc35b3, com.travelmaker.dto.ReviewListDTO@391f162, com.travelmaker.dto.ReviewListDTO@39c064e, com.travelmaker.dto.ReviewListDTO@13a975f6, com.travelmaker.dto.ReviewListDTO@36fdbb9d, com.travelmaker.dto.ReviewListDTO@3a6b56c1, com.travelmaker.dto.ReviewListDTO@59a689b4, com.travelmaker.dto.ReviewListDTO@17841b3]]
+2019-10-31 17:49:56 [http-nio-9090-exec-7] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:49:56 [http-nio-9090-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:49:56 [http-nio-9090-exec-10] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:49:56 [http-nio-9090-exec-10] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:49:56 [http-nio-9090-exec-10] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:49:56 [http-nio-9090-exec-10] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:49:57 [http-nio-9090-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:49:57 [http-nio-9090-exec-10] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@3310bd55, com.travelmaker.dto.ReviewListDTO@372f2fef, com.travelmaker.dto.ReviewListDTO@722db76e, com.travelmaker.dto.ReviewListDTO@7559e608, com.travelmaker.dto.ReviewListDTO@439507e3, com.travelmaker.dto.ReviewListDTO@d0b0829, com.travelmaker.dto.ReviewListDTO@12024821, com.travelmaker.dto.ReviewListDTO@28d185cf, com.travelmaker.dto.ReviewListDTO@43902529, com.travelmaker.dto.ReviewListDTO@160f2732, com.travelmaker.dto.ReviewListDTO@164c3692, com.travelmaker.dto.ReviewListDTO@32972669, com.travelmaker.dto.ReviewListDTO@70ece47f, com.travelmaker.dto.ReviewListDTO@1f356be7, com.travelmaker.dto.ReviewListDTO@683a2635, com.travelmaker.dto.ReviewListDTO@6395e135, com.travelmaker.dto.ReviewListDTO@744d3e24, com.travelmaker.dto.ReviewListDTO@40130919, com.travelmaker.dto.ReviewListDTO@79a184a0, com.travelmaker.dto.ReviewListDTO@35f14ee8]]
+2019-10-31 17:49:57 [http-nio-9090-exec-10] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:49:57 [http-nio-9090-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:50:29 [http-nio-9090-exec-9] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:50:29 [http-nio-9090-exec-9] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:50:29 [http-nio-9090-exec-9] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:29 [http-nio-9090-exec-9] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:30 [http-nio-9090-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:50:30 [http-nio-9090-exec-9] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@3c34d023, com.travelmaker.dto.ReviewListDTO@380b537d, com.travelmaker.dto.ReviewListDTO@7d09da18, com.travelmaker.dto.ReviewListDTO@5611b6e4, com.travelmaker.dto.ReviewListDTO@4c3ec1cd, com.travelmaker.dto.ReviewListDTO@2eccf38c, com.travelmaker.dto.ReviewListDTO@1d262557, com.travelmaker.dto.ReviewListDTO@465b0681, com.travelmaker.dto.ReviewListDTO@7c51972e, com.travelmaker.dto.ReviewListDTO@35c85bbb, com.travelmaker.dto.ReviewListDTO@1968dcc8, com.travelmaker.dto.ReviewListDTO@799be6a, com.travelmaker.dto.ReviewListDTO@7781a150, com.travelmaker.dto.ReviewListDTO@633998, com.travelmaker.dto.ReviewListDTO@5fb23bc0, com.travelmaker.dto.ReviewListDTO@1592a4b2, com.travelmaker.dto.ReviewListDTO@6f631c71, com.travelmaker.dto.ReviewListDTO@765557fc, com.travelmaker.dto.ReviewListDTO@38770ecd, com.travelmaker.dto.ReviewListDTO@38c08a45]]
+2019-10-31 17:50:30 [http-nio-9090-exec-9] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:50:30 [http-nio-9090-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:50:30 [http-nio-9090-exec-8] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:50:30 [http-nio-9090-exec-8] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:50:30 [http-nio-9090-exec-8] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:30 [http-nio-9090-exec-8] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:31 [http-nio-9090-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:50:31 [http-nio-9090-exec-8] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@730a59e4, com.travelmaker.dto.ReviewListDTO@4a12c496, com.travelmaker.dto.ReviewListDTO@42b3cfa0, com.travelmaker.dto.ReviewListDTO@32410c7e, com.travelmaker.dto.ReviewListDTO@1325a6ab, com.travelmaker.dto.ReviewListDTO@4fcfe62d, com.travelmaker.dto.ReviewListDTO@13ddfebb, com.travelmaker.dto.ReviewListDTO@29452242, com.travelmaker.dto.ReviewListDTO@176bd93f, com.travelmaker.dto.ReviewListDTO@2725bb71, com.travelmaker.dto.ReviewListDTO@5bf1b108, com.travelmaker.dto.ReviewListDTO@5b26cf06, com.travelmaker.dto.ReviewListDTO@124d477c, com.travelmaker.dto.ReviewListDTO@18b99877, com.travelmaker.dto.ReviewListDTO@4e960399, com.travelmaker.dto.ReviewListDTO@23a5bbb2, com.travelmaker.dto.ReviewListDTO@5b2b7e1d, com.travelmaker.dto.ReviewListDTO@f052f2f, com.travelmaker.dto.ReviewListDTO@71f16f9d, com.travelmaker.dto.ReviewListDTO@7f07323a]]
+2019-10-31 17:50:31 [http-nio-9090-exec-8] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:50:31 [http-nio-9090-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:50:34 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:50:34 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:50:34 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:34 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:35 [http-nio-9090-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:50:35 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@56a307c4, com.travelmaker.dto.ReviewListDTO@5ec12e77, com.travelmaker.dto.ReviewListDTO@6bf5af92, com.travelmaker.dto.ReviewListDTO@1a5c4872, com.travelmaker.dto.ReviewListDTO@548ff1da, com.travelmaker.dto.ReviewListDTO@3eadfaa, com.travelmaker.dto.ReviewListDTO@45a5797a, com.travelmaker.dto.ReviewListDTO@3d42b664, com.travelmaker.dto.ReviewListDTO@16688137, com.travelmaker.dto.ReviewListDTO@43aa0bdf, com.travelmaker.dto.ReviewListDTO@2daac479, com.travelmaker.dto.ReviewListDTO@5f3a63e, com.travelmaker.dto.ReviewListDTO@5740ee8e, com.travelmaker.dto.ReviewListDTO@44a7e34a, com.travelmaker.dto.ReviewListDTO@3f556eab, com.travelmaker.dto.ReviewListDTO@278ffd29, com.travelmaker.dto.ReviewListDTO@77eb53c8, com.travelmaker.dto.ReviewListDTO@c2d53cc, com.travelmaker.dto.ReviewListDTO@189944d4, com.travelmaker.dto.ReviewListDTO@40a7845b]]
+2019-10-31 17:50:35 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:50:35 [http-nio-9090-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:50:35 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:50:35 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:50:35 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:35 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:36 [http-nio-9090-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:50:36 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@71b789ce, com.travelmaker.dto.ReviewListDTO@56107b63, com.travelmaker.dto.ReviewListDTO@419c54b1, com.travelmaker.dto.ReviewListDTO@2729d812, com.travelmaker.dto.ReviewListDTO@6a1dccc0, com.travelmaker.dto.ReviewListDTO@3f836983, com.travelmaker.dto.ReviewListDTO@1c998b1e, com.travelmaker.dto.ReviewListDTO@759929d7, com.travelmaker.dto.ReviewListDTO@71668068, com.travelmaker.dto.ReviewListDTO@558d30b6, com.travelmaker.dto.ReviewListDTO@59c8062, com.travelmaker.dto.ReviewListDTO@3977d697, com.travelmaker.dto.ReviewListDTO@7c576411, com.travelmaker.dto.ReviewListDTO@4063f3ad, com.travelmaker.dto.ReviewListDTO@219de453, com.travelmaker.dto.ReviewListDTO@26595d99, com.travelmaker.dto.ReviewListDTO@6169d2af, com.travelmaker.dto.ReviewListDTO@3e48abb4, com.travelmaker.dto.ReviewListDTO@70b96f52, com.travelmaker.dto.ReviewListDTO@1c604149]]
+2019-10-31 17:50:36 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:50:36 [http-nio-9090-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:50:43 [http-nio-9090-exec-3] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:50:43 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:50:43 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:43 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:44 [http-nio-9090-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:50:44 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@596b4214, com.travelmaker.dto.ReviewListDTO@28b97c77, com.travelmaker.dto.ReviewListDTO@4b494c46, com.travelmaker.dto.ReviewListDTO@5999035c, com.travelmaker.dto.ReviewListDTO@5a618199, com.travelmaker.dto.ReviewListDTO@39581466, com.travelmaker.dto.ReviewListDTO@38f24477, com.travelmaker.dto.ReviewListDTO@296033d6, com.travelmaker.dto.ReviewListDTO@7f5b022a, com.travelmaker.dto.ReviewListDTO@659c283, com.travelmaker.dto.ReviewListDTO@2ca2efc3, com.travelmaker.dto.ReviewListDTO@4f49702, com.travelmaker.dto.ReviewListDTO@23999fe4, com.travelmaker.dto.ReviewListDTO@6b1c1cce, com.travelmaker.dto.ReviewListDTO@50fb3a99, com.travelmaker.dto.ReviewListDTO@7097fb03, com.travelmaker.dto.ReviewListDTO@1f9e2c4a, com.travelmaker.dto.ReviewListDTO@14efb91b, com.travelmaker.dto.ReviewListDTO@1d4976ed, com.travelmaker.dto.ReviewListDTO@52c9d9a4]]
+2019-10-31 17:50:44 [http-nio-9090-exec-3] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:50:44 [http-nio-9090-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:50:47 [http-nio-9090-exec-5] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:50:47 [http-nio-9090-exec-5] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:50:47 [http-nio-9090-exec-5] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:47 [http-nio-9090-exec-5] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Location [latitude=35.205939199999996, longitude=126.8146176, distance=10]]
+2019-10-31 17:50:48 [http-nio-9090-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:50:48 [http-nio-9090-exec-5] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@233a2b90, com.travelmaker.dto.ReviewListDTO@77ee4169, com.travelmaker.dto.ReviewListDTO@37d57fda, com.travelmaker.dto.ReviewListDTO@4b35f570, com.travelmaker.dto.ReviewListDTO@39a1212d, com.travelmaker.dto.ReviewListDTO@3cc1ca79, com.travelmaker.dto.ReviewListDTO@20f65994, com.travelmaker.dto.ReviewListDTO@440ca68f, com.travelmaker.dto.ReviewListDTO@74945f6a, com.travelmaker.dto.ReviewListDTO@46b4d183, com.travelmaker.dto.ReviewListDTO@549c1a38, com.travelmaker.dto.ReviewListDTO@7505f6fa, com.travelmaker.dto.ReviewListDTO@233c883f, com.travelmaker.dto.ReviewListDTO@43e46d12, com.travelmaker.dto.ReviewListDTO@771df28c, com.travelmaker.dto.ReviewListDTO@2d7578b3, com.travelmaker.dto.ReviewListDTO@6a4f7052, com.travelmaker.dto.ReviewListDTO@aa30cf4, com.travelmaker.dto.ReviewListDTO@123216be, com.travelmaker.dto.ReviewListDTO@140444ab]]
+2019-10-31 17:50:48 [http-nio-9090-exec-5] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:50:48 [http-nio-9090-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] DEBUG org.springframework.web.SimpLogging - clientOutboundChannel removed SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] DEBUG org.springframework.web.SimpLogging - clientInboundChannel removed WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] DEBUG org.springframework.web.SimpLogging - clientInboundChannel removed SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] DEBUG org.springframework.web.SimpLogging - brokerChannel removed SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] DEBUG org.springframework.web.SimpLogging - clientInboundChannel removed UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] DEBUG org.springframework.web.SimpLogging - brokerChannel removed UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'brokerChannelExecutor'
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'clientInboundChannelExecutor'
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2019-10-31 17:52:14 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-10-31 17:52:58 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - Starting TravelMakerApplication on DESKTOP-KVCQHCD with PID 16072 (C:\Workspace\TravelMaker\back_end\TravelMaker\target\classes started by multicampus in C:\Workspace\TravelMaker\back_end\TravelMaker)
+2019-10-31 17:52:58 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - No active profile set, falling back to default profiles: default
+2019-10-31 17:52:58 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-31 17:52:58 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-31 17:52:59 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$45e978d3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-31 17:52:59 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-10-31 17:52:59 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-10-31 17:52:59 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-31 17:52:59 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-10-31 17:52:59 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 956 ms
+2019-10-31 17:52:59 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'clientInboundChannelExecutor'
+2019-10-31 17:52:59 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'clientOutboundChannelExecutor'
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.AccompanyController:
+	{POST /api/accompany}: insertAccompanyParti(Accompany)
+	{PUT /api/accompany}: updateAccompanyRegist(Accompany)
+	{GET /api/accompany/{cid}}: selectAccompanybyTid(int)
+	{GET /api/selectAccompany/{id}}: selectAccompanyPartiByTid(int)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.AccompanyPartiController:
+	{POST /api/accompanyParti}: insertAccompanyParti(AccompanyParti)
+	{GET /api/accompanyParti/{uid}}: selectAccompanyPartiByUid(int)
+	{GET /api/accompanyPartiByTid/{tid}}: selectAccompanyPartiByTid(int)
+	{PUT /api/accompanyParti}: accompanyRegist(AccompanyParti)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.AccompanyRegistController:
+	{GET /api/accompanyRegistAdmin}: selectAllAccompanyRegist()
+	{POST /api/accompanyRegist}: accompanyRegistInsert(AccompanyRegist)
+	{GET /api/accompanyRegistSuccess/{id}}: successAccompanyRegist(int)
+	{GET /api/accompanyRegist}: selectAllAccompanyRegistNotRemoved()
+	{PUT /api/accompanyRegist}: accompanyRegist(AccompanyRegist)
+	{GET /api/accompanyRegist/{id}}: selectByid(int)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ChatController:
+	{GET /api/chatAll/{rn}}: selectAllNotRemovedReview(int)
+	{POST /api/chatAdmin}: selectAllChat(int)
+	{PUT /api/chat}: updateChat(Chat)
+	{GET /api/chat/private/{uid1}/{uid2}}: forceDeleteChat(int,int)
+	{DELETE /api/chat}: forceDeleteChat(int)
+	{POST /api/chat}: insertChat(Chat)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ChatListController:
+	{GET /api/chatNoti/{uid}}: selectAllNotRemovedReview(int)
+	{GET /api/chatNoti/{id}/{uid}}: selectChatListbyFrom(int,int)
+	{GET /api/chatList/{uid}}: selectAllChat(int)
+	{PUT /api/chatList}: updateChat(ChatList)
+	{DELETE /api/chatList/{id}}: forceDeleteChat(int)
+	{POST /api/chatList}: insertChat(ChatList)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ChatRoomController:
+	{GET /api/chatRoomAdmin}: selectAllChatRoom()
+	{POST /api/chatRoomTid}: selectAllChatRoomByTid(int)
+	{POST /api/chatRoomUid}: selectAllChatRoomByUid(int)
+	{POST /api/chatRoom}: insertChatRoom(ChatRoom)
+	{DELETE /api/chatRoom}: deleteChatRoom(ChatRoom)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.LogController:
+	{GET /api/log}: selectAllUser()
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.MessagingController:
+	
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ReviewController:
+	{POST /api/review}: reviewListByLocation(Location)
+	{GET /api/reviewByUser/{uid}}: selectReviewByUid(int)
+	{POST /api/unLike}: unLike(Like)
+	{POST /api/isLike}: isLike(Like)
+	{GET /api/review}: reviewList()
+	{GET /api/review/{id}}: selectReviewById(int)
+	{POST /api/writeReview}: insertReview(Review)
+	{POST /api/reviewImg}: uploadImg(ReviewImage)
+	{POST /api/likeIt}: likeIt(Like)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.TravelReviewController:
+	{GET /api/travelReview}: selectAllNotRemovedReview()
+	{GET /api/travelReviewTid/{tid}}: selectAllReviewByTid(int)
+	{DELETE /api/travelReview/{id}}: deleteForceReviewById(int)
+	{GET /api/travelReviewAdmin}: selectAllReview()
+	{PUT /api/travelReview}: updateReview(TravelReview)
+	{POST /api/travelReview}: insertReviewById(TravelReview)
+	{GET /api/travelReview/{id}}: selectReviewById(int)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.UserController:
+	{GET /api/userAll}: selectNotRemovedAllUser()
+	{GET /api/user/{id}}: selectOneUserByID(int)
+	{GET /api/user/email/{email}}: selectOneUserByEmail(String)
+	{ /api/user/cert}: emailCertification(String,String,HttpServletResponse)
+	{GET /api/userAllAdmin}: selectAllUser()
+	{POST /api/user/image}: uploadImage(UserImage)
+	{GET /api/user/image/{email}}: uploadImage(String)
+	{POST /api/user}: userInsert(User)
+	{POST /api/user/findId}: findId(User)
+	{POST /api/user/findPass}: findPass(User)
+	{PUT /api/user}: userUpdate(User)
+	{DELETE /api/user}: userDelect(int)
+	{POST /api/login}: userSelect(User)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.UserReviewController:
+	{GET /api/userReviewUid/{uid}}: selectAllReviewByUid(int)
+	{GET /api/userReviewTid/{tid}}: selectAllReviewByTid(int)
+	{GET /api/userReview}: selectNotRemovedReview()
+	{GET /api/userReviewAdmin}: selectAllReview()
+	{PUT /api/userReview}: updateReview(UserReview)
+	{POST /api/userReview}: insertReviewById(UserReview)
+	{DELETE /api/userReview/{id}}: deleteReviewById(int)
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	s.d.s.w.ApiResourceController:
+	{ /swagger-resources/configuration/security}: securityConfiguration()
+	{ /swagger-resources}: swaggerResources()
+	{ /swagger-resources/configuration/ui}: uiConfiguration()
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ /error}: error(HttpServletRequest)
+	{ /error, produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 73 mappings in 'requestMappingHandlerMapping'
+2019-10-31 17:52:59 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-10-31 17:52:59 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'messageBrokerTaskScheduler'
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.s.s.WebSocketHandlerMapping - Mapped [/websocket/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@50cd7581
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Patterns [/websocket/**] in 'stompWebSocketHandlerMapping'
+2019-10-31 17:52:59 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'brokerChannelExecutor'
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@403a81bb, started on Thu Oct 31 17:52:58 KST 2019
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.AccompanyController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.AccompanyPartiController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.AccompanyRegistController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.ChatController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.ChatListController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.ChatRoomController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.LogController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 4 message handler methods found on class com.travelmaker.controller.MessagingController: {public void com.travelmaker.controller.MessagingController.privateChat(com.travelmaker.dto.Chat) throws java.lang.Exception={[/privateChat],messageType=[MESSAGE]}, public void com.travelmaker.controller.MessagingController.outChat(com.travelmaker.dto.Chat) throws java.lang.Exception={[/chat],messageType=[MESSAGE]}, public void com.travelmaker.controller.MessagingController.goodbye(com.travelmaker.dto.Chat) throws java.lang.Exception={[/goodbye],messageType=[MESSAGE]}, public void com.travelmaker.controller.MessagingController.greeting(com.travelmaker.dto.Chat) throws java.lang.Exception={[/greetings],messageType=[MESSAGE]}}
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Mapped "{[/privateChat],messageType=[MESSAGE]}" onto public void com.travelmaker.controller.MessagingController.privateChat(com.travelmaker.dto.Chat) throws java.lang.Exception
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Mapped "{[/chat],messageType=[MESSAGE]}" onto public void com.travelmaker.controller.MessagingController.outChat(com.travelmaker.dto.Chat) throws java.lang.Exception
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Mapped "{[/goodbye],messageType=[MESSAGE]}" onto public void com.travelmaker.controller.MessagingController.goodbye(com.travelmaker.dto.Chat) throws java.lang.Exception
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Mapped "{[/greetings],messageType=[MESSAGE]}" onto public void com.travelmaker.controller.MessagingController.greeting(com.travelmaker.dto.Chat) throws java.lang.Exception
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.ReviewController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.TravelReviewController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.UserController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class com.travelmaker.controller.UserReviewController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class springfox.documentation.swagger.web.ApiResourceController: {}
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 0 message handler methods found on class org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController: {}
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.h.SimpleUrlHandlerMapping - Mapped [/**/favicon.ico] onto ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []]
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-10-31 17:52:59 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping - Detected 0 mappings in 'beanNameHandlerMapping'
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.h.SimpleUrlHandlerMapping - Mapped [/webjars/**] onto ResourceHttpRequestHandler ["classpath:/META-INF/resources/webjars/"]
+2019-10-31 17:52:59 [restartedMain] TRACE o.s.w.s.h.SimpleUrlHandlerMapping - Mapped [/**] onto ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"]
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-10-31 17:52:59 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: insertAccompanyPartiUsingPOST_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAccompanyPartiByTidUsingGET_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: accompanyRegistUsingPUT_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: forceDeleteChatUsingDELETE_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: insertChatUsingPOST_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllNotRemovedReviewUsingGET_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateChatUsingPUT_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllNotRemovedReviewUsingGET_2
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectReviewByIdUsingGET_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllUserUsingGET_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: insertReviewByIdUsingPOST_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllReviewUsingGET_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllReviewByTidUsingGET_1
+2019-10-31 17:53:00 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateReviewUsingPUT_1
+2019-10-31 17:53:00 [restartedMain] DEBUG org.springframework.web.SimpLogging - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
+2019-10-31 17:53:00 [restartedMain] DEBUG org.springframework.web.SimpLogging - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
+2019-10-31 17:53:00 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2019-10-31 17:53:00 [restartedMain] DEBUG org.springframework.web.SimpLogging - clientInboundChannel added SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]
+2019-10-31 17:53:00 [restartedMain] DEBUG org.springframework.web.SimpLogging - brokerChannel added SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]
+2019-10-31 17:53:00 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2019-10-31 17:53:00 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2019-10-31 17:53:00 [restartedMain] DEBUG org.springframework.web.SimpLogging - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2019-10-31 17:53:00 [restartedMain] DEBUG org.springframework.web.SimpLogging - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2019-10-31 17:53:00 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-10-31 17:53:00 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - Started TravelMakerApplication in 2.161 seconds (JVM running for 2.908)
+2019-10-31 17:53:11 [http-nio-9090-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:53:11 [http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-10-31 17:53:11 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@3883f7d3
+2019-10-31 17:53:11 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - No LocaleResolver 'localeResolver': using default [AcceptHeaderLocaleResolver]
+2019-10-31 17:53:11 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - No ThemeResolver 'themeResolver': using default [FixedThemeResolver]
+2019-10-31 17:53:11 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - No RequestToViewNameTranslator 'viewNameTranslator': using default [DefaultRequestToViewNameTranslator]
+2019-10-31 17:53:11 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - No FlashMapManager 'flashMapManager': using default [SessionFlashMapManager]
+2019-10-31 17:53:11 [http-nio-9090-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-10-31 17:53:11 [http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2019-10-31 17:53:11 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:53:11 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:53:11 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [com.travelmaker.dto.Location@51c3132a]
+2019-10-31 17:53:11 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [com.travelmaker.dto.Location@51c3132a]
+2019-10-31 17:53:11 [http-nio-9090-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-10-31 17:53:11 [http-nio-9090-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-10-31 17:53:12 [http-nio-9090-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:53:12 [http-nio-9090-exec-2] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@72c81a04, com.travelmaker.dto.ReviewListDTO@c028086, com.travelmaker.dto.ReviewListDTO@52707010, com.travelmaker.dto.ReviewListDTO@b3d9e91, com.travelmaker.dto.ReviewListDTO@3997bdc8, com.travelmaker.dto.ReviewListDTO@21091ccc]]
+2019-10-31 17:53:12 [http-nio-9090-exec-2] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:53:12 [http-nio-9090-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:53:12 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:53:12 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:53:12 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [com.travelmaker.dto.Location@21831922]
+2019-10-31 17:53:12 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [com.travelmaker.dto.Location@21831922]
+2019-10-31 17:53:12 [http-nio-9090-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:53:12 [http-nio-9090-exec-1] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@2b7b7252, com.travelmaker.dto.ReviewListDTO@6e79e959, com.travelmaker.dto.ReviewListDTO@570ab7bd, com.travelmaker.dto.ReviewListDTO@5fdd01cd, com.travelmaker.dto.ReviewListDTO@2f440186, com.travelmaker.dto.ReviewListDTO@e561616]]
+2019-10-31 17:53:12 [http-nio-9090-exec-1] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:53:12 [http-nio-9090-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:53:14 [http-nio-9090-exec-4] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:53:14 [http-nio-9090-exec-4] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:53:14 [http-nio-9090-exec-4] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [com.travelmaker.dto.Location@426f39a3]
+2019-10-31 17:53:14 [http-nio-9090-exec-4] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [com.travelmaker.dto.Location@426f39a3]
+2019-10-31 17:53:15 [http-nio-9090-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:53:15 [http-nio-9090-exec-4] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@3c9b6585, com.travelmaker.dto.ReviewListDTO@39799c9, com.travelmaker.dto.ReviewListDTO@3e1c8a4c, com.travelmaker.dto.ReviewListDTO@713cc0b6, com.travelmaker.dto.ReviewListDTO@166c3459, com.travelmaker.dto.ReviewListDTO@290aae8c]]
+2019-10-31 17:53:15 [http-nio-9090-exec-4] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:53:15 [http-nio-9090-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:53:17 [http-nio-9090-exec-3] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:53:17 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:53:17 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [com.travelmaker.dto.Location@444e9f73]
+2019-10-31 17:53:17 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [com.travelmaker.dto.Location@444e9f73]
+2019-10-31 17:53:17 [http-nio-9090-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:53:17 [http-nio-9090-exec-3] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.travelmaker.dto.ReviewListDTO@bb473b1, com.travelmaker.dto.ReviewListDTO@3bb1c0b3]]
+2019-10-31 17:53:17 [http-nio-9090-exec-3] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:53:17 [http-nio-9090-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:53:18 [http-nio-9090-exec-6] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/review/", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:53:18 [http-nio-9090-exec-6] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public java.util.List<com.travelmaker.dto.ReviewListDTO> com.travelmaker.controller.ReviewController.reviewListByLocation(com.travelmaker.dto.Location) throws java.lang.Exception
+2019-10-31 17:53:18 [http-nio-9090-exec-6] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [com.travelmaker.dto.Location@370011cc]
+2019-10-31 17:53:18 [http-nio-9090-exec-6] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [com.travelmaker.dto.Location@370011cc]
+2019-10-31 17:53:18 [http-nio-9090-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:53:18 [http-nio-9090-exec-6] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[]]
+2019-10-31 17:53:18 [http-nio-9090-exec-6] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:53:18 [http-nio-9090-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:53:21 [http-nio-9090-exec-5] TRACE o.s.web.servlet.DispatcherServlet - POST "/api/isLike", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2019-10-31 17:53:21 [http-nio-9090-exec-5] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to public int com.travelmaker.controller.ReviewController.isLike(com.travelmaker.dto.Like) throws java.lang.Exception
+2019-10-31 17:53:21 [http-nio-9090-exec-5] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [Like [id=0, uid=8, rid=3]]
+2019-10-31 17:53:21 [http-nio-9090-exec-5] TRACE o.s.w.s.m.m.a.ServletInvocableHandlerMethod - Arguments: [Like [id=0, uid=8, rid=3]]
+2019-10-31 17:53:21 [http-nio-9090-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-10-31 17:53:21 [http-nio-9090-exec-5] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [0]
+2019-10-31 17:53:21 [http-nio-9090-exec-5] TRACE o.s.web.servlet.DispatcherServlet - No view rendering, null ModelAndView returned.
+2019-10-31 17:53:21 [http-nio-9090-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK, headers={masked}
+2019-10-31 17:53:59 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2019-10-31 18:23:59 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+2019-10-31 18:53:59 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
