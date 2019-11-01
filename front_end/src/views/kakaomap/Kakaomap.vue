@@ -40,6 +40,7 @@ import { Tabs } from "@/components";
 import { Modal } from "@/components";
 import LocationService from "@/services/LocationService.js";
 import ReviewService from "@/services/ReviewService.js";
+import EthereumService from "@/services/EthereumService.js";
 
 export default {
   components: {
@@ -98,19 +99,21 @@ export default {
               this.reviewList[i].title +
               "        </div>" +
               '        <div class="body">' +
-              '            <div class="img">' +
-              '                <img src="' +
+              '            <div class="img my-map-img-box">' +
+              '                <img  class="my-map-img" src="' +
               this.reviewList[i].imageData +
               '" width="73" height="70">' +
               "            </div>" +
               '            <div class="desc">' +
-              '                <div class="jibun ellipsis">장소 : ' +
+              '                <div class="jibun ellipsis">' +
               this.reviewList[i].location +
               "</div>" +
-              '                <div class="elipsis colorfont">좋아요<span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Coraz%C3%B3n.svg/174px-Coraz%C3%B3n.svg.png" width="13" height="13"><span> ' +
+              '<div class="jibun ellipsis">' +
+              this.convertDate(this.reviewList[i].date) +
+              "</div>" +
+              '                <div class="elipsis colorfont"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Coraz%C3%B3n.svg/174px-Coraz%C3%B3n.svg.png" width="13" height="13"> ' +
               this.reviewList[i].liked +
               "</div>" +
-              '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link" title="모달">홈페이지</a></div>' +
               "            </div>" +
               "        </div>" +
               "    </div>" +
@@ -167,13 +170,21 @@ export default {
             };
           }
 
-          function clip() {
+          function clip(date) {
             return function() {
               flag = true;
             };
           }
         });
       });
+    },
+    convertDate(date) {
+      var jsDate = new Date(date);
+      var year = jsDate.getFullYear();
+      var month = jsDate.getMonth() + 1;
+      var date = jsDate.getDate();
+      var result = year + "-" + month + "-" + date;
+      return result;
     }
   },
   computed: {
@@ -285,6 +296,20 @@ export default {
 }
 .colorfont {
   color: #000000;
+}
+.my-map-img-box {
+  position: relative;
+  overflow: hidden;
+}
+.my-map-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 </style>
 
