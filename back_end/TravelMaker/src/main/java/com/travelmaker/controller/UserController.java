@@ -104,6 +104,13 @@ public class UserController {
 	public int uploadImage(@RequestBody UserImage image) {
 		return userService.uploadImage(image);
 	}
+	
+	// 회원 이미지 삭제
+	@RequestMapping(value = "/user/image", method = RequestMethod.DELETE)
+	@ApiOperation(value = "회원 이미지 등록")
+	public int deleteImage(@RequestBody UserImage image) {
+		return userService.deleteUploadImage(image);
+	}
 
 	// 회원 이미지 가져오기
 	@RequestMapping(value = "/user/image/{email}", method = RequestMethod.GET)
