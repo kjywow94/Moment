@@ -1,19 +1,14 @@
 <template>
   <div class="md-layout-item md-size-100 mx-auto review_button">
+
     <!-- <md-button class="md-info md-just-icon md-round" @click="doWrite">
       <md-icon>create</md-icon>
     </md-button>-->
 
     <modal v-if="this.$store.state.ReviewWriteOn" @close="classicModalHide">
       <template slot="header">
-        <h4 class="modal-title">리뷰쓰기</h4>
-        <md-button
-          class="md-simple md-just-icon md-round modal-default-button"
-          @click="classicModalHide"
-          style="height : 8px"
-        >
-          <md-icon>clear</md-icon>
-        </md-button>
+        <h4>리뷰쓰기</h4>
+        
       </template>
       <template slot="body">
         <!-- 지도로 변경 -->
