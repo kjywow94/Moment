@@ -25,13 +25,13 @@ export default {
         return apiServer.post('/api/user', user);
     },
     uploadImage(userImage) {
-        return apiServer.post('api/user/image', userImage);
+        return apiServer.post('/api/user/image', userImage);
     },
-    delteImage(userImage) {
-        return apiServer.delete('api/user/image', userImage);
+    delteImage(email) {
+        return apiServer.delete('/api/user/image/' + email);
     },
     getImage(email){
-        return apiServer.get('api/user/image/' + email);
+        return apiServer.get('/api/user/image/' + email);
     },
     Login(email, password) {
         var body = {
@@ -67,6 +67,13 @@ export default {
         var temp = body;
         temp.name = name;
         temp.phone = phone;
+        return apiServer.put("/api/user", temp);
+    },
+    userprofile(aboutme, instagram, facebook, body){
+        var temp = body;
+        temp.about = aboutme;
+        temp.sns1 = instagram;
+        temp.sns2 = facebook;
         return apiServer.put("/api/user", temp);
     }
 }
