@@ -80,5 +80,12 @@ export default {
             });
             callback(walletAddress);
         });
+    },
+    getBalance(address, callback) {
+        web3.eth.getBalance(address).then(money => {
+            var result = web3.utils.fromWei(money, 'ether');
+            callback(result);
+        });
     }
+
 }

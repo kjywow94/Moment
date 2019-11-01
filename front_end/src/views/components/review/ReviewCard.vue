@@ -6,7 +6,7 @@
         infinite-scroll-disabled="busy"
         infinite-scroll-distance="10"
       >
-        <div class="md-layout">
+        <div class="md-layout" style="margin:auto;">
           <!-- <ReviewWrite /> -->
           <div
             class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
@@ -14,8 +14,8 @@
             :key="r.id"
           >
             <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
-                <ProfileCard :info = r :uid=r.uid></ProfileCard>
-                <hr />
+              <ProfileCard :info="r" :uid="r.uid"></ProfileCard>
+              <hr />
               <div class="md-card-content" style="padding-top: 0px;" @click="detailModalShow(r)">
                 <div class="my-card-img-box" style="height:200px;">
                   <img class="my-card-img" :src="r.imageData" />
