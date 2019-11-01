@@ -9,64 +9,64 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
-      isSigned: false,
-      userinfo : null,
-      user: {
-          email: "",
-          password: ""
-      },
-      isLogin: false,
-      isLoginError: false,
-      findid : "",
-      findpass : "",
-
-      ReviewWriteOn : false,
-      latitude: null,
-      longitude: null
+        isSigned: false,
+        userinfo: null,
+        user: {
+            email: "",
+            password: ""
+        },
+        isLogin: false,
+        isLoginError: false,
+        findid: "",
+        findpass: "",
+        myInfoModalOn: false,
+        ReviewWriteOn: false,
+        latitude: null,
+        longitude: null
     },
 
     mutations: {
         // 로그인 성공했을때
-        loginSuccess(state){
+        loginSuccess(state) {
             state.isLogin = true
             state.isLoginError = false
         },
         // 로그인이 실패했을 때
-        loginError(state){
+        loginError(state) {
             state.isLogin = false,
-            state.isLoginError = true
+                state.isLoginError = true
         },
-        login(state, payload){
+        login(state, payload) {
             state.user = payload
             state.isLogin = true
             state.userinfo = payload
         },
-        logout(state){
+        logout(state) {
             state.isLogin = false
             state.user = []
             state.userinfo = ""
-            
+
         },
-        update(state, payload){
+        update(state, payload) {
             state.user = payload
             state.userinfo = payload
         },
-        findid(state, payload){
+        findid(state, payload) {
             state.findid = payload.email;
         },
-        findpass(state, payload){
+        findpass(state, payload) {
             state.findpass = payload.password;
         },
-        clearfind(state){
+        clearfind(state) {
             state.findid = ""
             state.findpass = ""
         }
     },
     actions: {
         //로그인 시도
-        login({state, commit}, signObj){
-           let selectUser = null
-           
+        login({ state, commit }, signObj) {
+            let selectUser = null
+
         }
     }
-  });
+});
