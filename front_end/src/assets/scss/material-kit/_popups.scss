@@ -28,7 +28,7 @@
 
   &.popover {
     @include shadow-16dp();
-    max-width: 276px;
+    max-width: 500px;
     padding: 0;
     opacity: 0;
     z-index: 10;
@@ -156,6 +156,7 @@
   line-height: 1.4;
   color: #555;
   text-align: left;
+  
 }
 
 .v-popover {

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.travelmaker.dao.ReviewMapper">
+
+	<!-- 메인 리뷰 리스트 -->
+	<select id="mainReviewList" parameterType="location"
+		resultType="reviewList">
+		SELECT C.img_name as imgName, B.nickname, A.*
+		FROM (
+		SELECT *
+		, ( 6371 * acos( cos( radians( #{latitude} ) ) * cos(radians( latitude
+		) ) * cos( radians( longitude ) - radians(#{longitude} ) )+ sin(
+		radians( #{latitude} ) ) * sin( radians(latitude ) ) ) ) AS distance
+		FROM review
+		HAVING distance <![CDATA[ < ]]>
+		#{distance}
+		ORDER BY distance DESC
+		) A, user B, user_image C
+		WHERE A.uid = B.id
+		and B.email = C.email
+		;
+
+
+	</select>
+
+	<!-- 후기 목록 by 거리 -->
+	<select id="reviewListByLocation" parameterType="location"
+		resultType="reviewWithDistance">
+		SELECT * , ( 6371 * acos( cos( radians( #{latitude} ) ) * cos(
+		radians( latitude ) ) * cos( radians( longitude ) - radians(
+		#{longitude} ) )+ sin( radians( #{latitude} ) ) * sin( radians(
+		latitude ) ) ) ) AS distance FROM review HAVING distance <![CDATA[ < ]]>
+		#{distance} ORDER BY distance DESC;
+	</select>
+
+	<!-- 전체 후기목록 -->
+	<select id="reviewList" resultType="review">
+		SELECT * FROM review;
+	</select>
+
+	<!-- 후기 하나 선택 -->
+	<select id="selectReviewById" resultType="review"
+		parameterType="int">
+		SELECT * FROM review where id = #{id};
+	</select>
+
+	<!-- 후기 유저로 선택 -->
+	<select id="selectReviewByUid" resultType="review"
+		parameterType="int">
+		SELECT * FROM review where uid = #{uid};
+	</select>
+
+	<!-- 후기 등록 -->
+	<insert id="insertReview" parameterType="review"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+		review(uid,
+		date, title,
+		location, latitude, longitude, hash, hashtag)
+		VALUES(#{uid}, #{date},
+		#{title}, #{location}, #{latitude},
+		#{longitude}, #{hash}, #{hashtag});
+	</insert>
+
+	<update id="likeIt" parameterType="int">
+		UPDATE review set
+		liked=liked+1 WHERE id = #{int}
+	</update>
+
+	<update id="unLike" parameterType="int">
+		UPDATE review set
+		liked=liked-1 WHERE id = #{int}
+	</update>
+
+</mapper>
