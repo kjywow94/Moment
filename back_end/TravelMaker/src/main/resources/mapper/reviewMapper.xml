@@ -15,7 +15,7 @@
 		FROM review
 		HAVING distance <![CDATA[ < ]]>
 		#{distance}
-		ORDER BY distance DESC
+		ORDER BY distance DESC limit #{start},#{end}
 		) A, user B, user_image C
 		WHERE A.uid = B.id
 		and B.email = C.email

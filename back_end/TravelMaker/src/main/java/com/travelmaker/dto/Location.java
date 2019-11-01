@@ -5,11 +5,15 @@ public class Location {
 	private double latitude;
 	private double longitude;
 	private int distance;
-	public Location(double latitude, double longitude, int distance) {
+	private int start;
+	private int end;
+	public Location(double latitude, double longitude, int distance, int start, int end) {
 		super();
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.distance = distance;
+		this.start = start;
+		this.end = end;
 	}
 	public double getLatitude() {
 		return latitude;
@@ -29,9 +33,18 @@ public class Location {
 	public void setDistance(int distance) {
 		this.distance = distance;
 	}
-	@Override
-	public String toString() {
-		return "Location [latitude=" + latitude + ", longitude=" + longitude + ", distance=" + distance + "]";
+	public int getStart() {
+		return start;
 	}
-
+	public void setStart(int start) {
+		this.start = start;
+	}
+	public int getEnd() {
+		return end;
+	}
+	public void setEnd(int end) {
+		this.end = end;
+	}
+	
+	
 }
