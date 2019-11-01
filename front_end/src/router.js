@@ -48,7 +48,6 @@ const adminAuth = (to, from, next) => {
 
   }
   const adminYes = '/admin'
-  const adminNo = "/"
   aminAuth ? next() : next(adminYes)
 }
 
@@ -185,6 +184,7 @@ export default new Router({
     {
       path: "/travelReview",
       name: "travelReview",
+      beforeEnter: requireAuth,
       components: { default: TravelReview, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 50 },
@@ -194,6 +194,7 @@ export default new Router({
     {
       path: "/travelReviewDetail/:id",
       name: "travelReviewDetail",
+      beforeEnter: requireAuth,
       components: { default: TravelReviewDetail, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 50 },
@@ -250,6 +251,7 @@ export default new Router({
     {
       path: "/map/kakaomap",
       name: "kakaomap",
+      beforeEnter: requireAuth,
       components: { default: Kakaomap, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 50 },
@@ -259,6 +261,7 @@ export default new Router({
     {
       path: "/mypage/myuserinfo",
       name: "myuserinfo",
+      beforeEnter: requireAuth,
       components: { default: Myuserinfo, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 50 },

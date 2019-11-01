@@ -20,7 +20,7 @@
         <md-field class="md-form-group" slot="inputs">
           <md-icon>edit</md-icon>
           <label>위치</label>
-          <md-input v-model="road"></md-input>
+          <md-input v-model="location"></md-input>
         </md-field>
 
         <md-field class="md-form-group" slot="inputs">
@@ -42,7 +42,7 @@
         <input-tag v-model="hashtag" placeholder="태그"></input-tag>
       </template>
       <template slot="footer">
-        <md-button class="md-info md-simple" @click="submit">등록</md-button>
+        <md-button class="md-info md-simple" @click="submit" :class="{'btn-success' : !invalidForm}" :disabled="invalidForm">등록</md-button>
         <md-button class="md-danger md-simple" @click="classicModalHide">취소</md-button>
       </template>
     </modal>
@@ -71,7 +71,6 @@ export default {
       location: null,
       latitude: null,
       longitude: null,
-      road: ""
     };
   },
   mounted() {
@@ -171,30 +170,32 @@ export default {
             
             if(result[0].road_address !== null){
               if(result[0].road_address.building_name !== ""){
-                scope.road = result[0].address.address_name;
+                scope.location = result[0].address.address_name;
                 return;
               }
 
               if(result[0].road_address.address_name !== ""){
-                scope.road = result[0].road_address.address_name;
+                scope.location = result[0].road_address.address_name;
                 return;
               }
             }
 
             if(result[0].address.address_name !== ""){
-              scope.road = result[0].address.address_name;
+              scope.location = result[0].address.address_name;
               return;              
             }
           }
         };
-
         geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
       });
-    }
+    },
   },
   computed: {
     getLocation() {
       return this.$store.state.ReviewWriteOn;
+    },
+    invalidForm(){
+      return !this.location || !this.imgName || !this.content
     }
   },
   watch: {

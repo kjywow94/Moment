@@ -67,12 +67,8 @@ export default {
     init() {
       LocationService.getLocation((latitude, longitude) => {
         ReviewService.getReviewListByLocation({
-<<<<<<< HEAD
-
-=======
           start: 0,
           end: 100,
->>>>>>> 97cfca7fa3f5c5bbdfbbaed319f30093d7c9c205
           latitude: latitude,
           longitude: longitude,
           distance: this.distance
