@@ -2,7 +2,7 @@
   <div class="md-layout-item md-size-100 mx-auto review_button">
     <!-- <md-button class="md-info md-just-icon md-round" @click="doWrite">
       <md-icon>create</md-icon>
-    </md-button> -->
+    </md-button>-->
 
     <modal v-if="this.$store.state.ReviewWriteOn" @close="classicModalHide">
       <template slot="header">
@@ -20,7 +20,7 @@
         <md-field class="md-form-group" slot="inputs">
           <md-icon>edit</md-icon>
           <label>위치</label>
-          <md-input v-model="location"></md-input>
+          <md-input v-model="road"></md-input>
         </md-field>
 
         <md-field class="md-form-group" slot="inputs">
@@ -70,11 +70,13 @@ export default {
       imgData: "https://placehold.it/80x80",
       location: null,
       latitude: null,
-      longitude: null
+      longitude: null,
+      road: ""
     };
   },
   mounted() {
     this.ModalOn();
+    // this.locationroad();
   },
   methods: {
     clickUpload() {
@@ -149,10 +151,56 @@ export default {
       this.imgName = null;
       this.imgData = null;
     },
-    ModalOn(){
-      if(this.$store.state.ReviewWriteOn){
+    ModalOn() {
+      if (this.$store.state.ReviewWriteOn) {
         this.latitude = this.$store.state.latitude;
         this.longitude = this.$store.state.longitude;
+      }
+    },
+    locationroad() {
+      var scope = this;
+      LocationService.getLocation((latitude, longitude) => {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        var geocoder = new kakao.maps.services.Geocoder();
+
+        var coord = new kakao.maps.LatLng(this.latitude, this.longitude);
+        var callback = function(result, status) {
+          if (status === kakao.maps.services.Status.OK) {
+            console.log();
+            
+            if(result[0].road_address !== null){
+              if(result[0].road_address.building_name !== ""){
+                scope.road = result[0].address.address_name;
+                return;
+              }
+
+              if(result[0].road_address.address_name !== ""){
+                scope.road = result[0].road_address.address_name;
+                return;
+              }
+            }
+
+            if(result[0].address.address_name !== ""){
+              scope.road = result[0].address.address_name;
+              return;              
+            }
+          }
+        };
+
+        geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+      });
+    }
+  },
+  computed: {
+    getLocation() {
+      return this.$store.state.ReviewWriteOn;
+    }
+  },
+  watch: {
+    getLocation() {
+      if (this.$store.state.ReviewWriteOn) {
+        this.locationroad();
       }
     }
   }

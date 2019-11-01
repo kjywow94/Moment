@@ -12,28 +12,11 @@
             class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
             v-for="r in reviewList"
             :key="r.id"
-            @click="detailModalShow(r)"
           >
             <div class="md-card md-card-blog md-theme-default text-left list-inline md-with-hover">
-              <div class="my-card-title">
-                <div style="display : inline-block">
-                  <div>
-                    <img :src="r.userImgData" alt="Avatar" class="Avatar_image" />
-                  </div>
-                </div>
-                <div style="display : inline-block; position:absolute; left:80px">
-                  <div>
-                    {{r.location}}
-                    <!--장소-->
-                  </div>
-                  <div>
-                    by {{r.nickname}}
-                    <!--작성자-->
-                  </div>
-                </div>
+                <ProfileCard :info = r :uid=r.uid></ProfileCard>
                 <hr />
-              </div>
-              <div class="md-card-content" style="padding-top: 0px;">
+              <div class="md-card-content" style="padding-top: 0px;" @click="detailModalShow(r)">
                 <div class="my-card-img-box" style="height:200px;">
                   <img class="my-card-img" :src="r.imageData" />
                 </div>
@@ -98,6 +81,8 @@
     <!--Model end-->
   </div>
 </template>
+
+
 <script>
 import { EventBus } from "@/main.js";
 import ReviewService from "@/services/ReviewService.js";
@@ -105,6 +90,7 @@ import UserService from "@/services/UserService.js";
 import EthereumService from "@/services/EthereumService.js";
 import LocationService from "@/services/LocationService.js";
 import ReviewWrite from "@/views/components/review/ReviewWrite";
+import ProfileCard from "@/views/components/profile/ProfileCard";
 import { Tabs } from "@/components";
 import { Modal } from "@/components";
 
@@ -112,12 +98,13 @@ export default {
   components: {
     Tabs,
     ReviewWrite,
-    Modal
+    Modal,
+    ProfileCard
   },
   data() {
     return {
       busy: false,
-      reviewList: [{}],
+      reviewList: [],
       idx: 0,
       active: false,
       value: null,
@@ -231,6 +218,9 @@ export default {
   }
 };
 </script>
+
+
+
 <style>
 .my-card-img {
   position: absolute;
@@ -274,7 +264,7 @@ export default {
 }
 .modal-img {
   margin-bottom: 5px;
-  max-height: 500px;
+  max-height: 400px;
 }
 .md-card-actions.text-center {
   display: flex;
