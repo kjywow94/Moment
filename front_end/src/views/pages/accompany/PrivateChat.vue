@@ -119,7 +119,7 @@ export default {
 
       this.chat = await ChatService.getPrivateChats(this.id, this.uid);
       this.chat = this.chat['data'];
-      var socket = new SockJS('http://192.168.100.49:9090/websocket');
+      var socket = new SockJS('http://localhost:9090/websocket');
       this.stompClient = Stomp.over(socket);
       this.stompClient.debug = function(str) {};
       // SockJS와 stomp client를 통해 연결을 시도.
