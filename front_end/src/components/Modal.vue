@@ -2,8 +2,8 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper my-modal-wrapper">
-        <md-content 
-          class="modal-container my-modal-container my-modal-container-sm md-scrollbar"
+        <md-content
+          class="modal-container my-modal-container my-modal-container-sm md-scrollbar my-modal-index"
           v-click-outside="closeModal"
         >
           <div class="modal-header">
@@ -17,7 +17,7 @@
           <div class="modal-footer">
             <slot name="footer"></slot>
           </div>
-        </md-content >
+        </md-content>
       </div>
     </div>
   </transition>
@@ -43,6 +43,10 @@ export default {
  * You can easily play with the modal transition by editing
  * these styles.
  */
+.my-modal-index {
+  position: relative;
+  z-index: 1050;
+}
 .my-modal-container {
   max-height: 79%;
   overflow: auto;
