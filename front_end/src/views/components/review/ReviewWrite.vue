@@ -1,19 +1,14 @@
 <template>
   <div class="md-layout-item md-size-100 mx-auto review_button">
+
     <!-- <md-button class="md-info md-just-icon md-round" @click="doWrite">
       <md-icon>create</md-icon>
-    </md-button> -->
+    </md-button>-->
 
     <modal v-if="this.$store.state.ReviewWriteOn" @close="classicModalHide">
       <template slot="header">
-        <h4 class="modal-title">리뷰쓰기</h4>
-        <md-button
-          class="md-simple md-just-icon md-round modal-default-button"
-          @click="classicModalHide"
-          style="height : 8px"
-        >
-          <md-icon>clear</md-icon>
-        </md-button>
+        <h4>리뷰쓰기</h4>
+        
       </template>
       <template slot="body">
         <!-- 지도로 변경 -->
@@ -42,7 +37,7 @@
         <input-tag v-model="hashtag" placeholder="태그"></input-tag>
       </template>
       <template slot="footer">
-        <md-button class="md-info md-simple" @click="submit">등록</md-button>
+        <md-button class="md-info md-simple" @click="submit" :class="{'btn-success' : !invalidForm}" :disabled="invalidForm">등록</md-button>
         <md-button class="md-danger md-simple" @click="classicModalHide">취소</md-button>
       </template>
     </modal>
@@ -70,11 +65,12 @@ export default {
       imgData: "https://placehold.it/80x80",
       location: null,
       latitude: null,
-      longitude: null
+      longitude: null,
     };
   },
   mounted() {
     this.ModalOn();
+    // this.locationroad();
   },
   methods: {
     clickUpload() {
@@ -149,10 +145,58 @@ export default {
       this.imgName = null;
       this.imgData = null;
     },
-    ModalOn(){
-      if(this.$store.state.ReviewWriteOn){
+    ModalOn() {
+      if (this.$store.state.ReviewWriteOn) {
         this.latitude = this.$store.state.latitude;
         this.longitude = this.$store.state.longitude;
+      }
+    },
+    locationroad() {
+      var scope = this;
+      LocationService.getLocation((latitude, longitude) => {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        var geocoder = new kakao.maps.services.Geocoder();
+
+        var coord = new kakao.maps.LatLng(this.latitude, this.longitude);
+        var callback = function(result, status) {
+          if (status === kakao.maps.services.Status.OK) {
+            console.log();
+            
+            if(result[0].road_address !== null){
+              if(result[0].road_address.building_name !== ""){
+                scope.location = result[0].address.address_name;
+                return;
+              }
+
+              if(result[0].road_address.address_name !== ""){
+                scope.location = result[0].road_address.address_name;
+                return;
+              }
+            }
+
+            if(result[0].address.address_name !== ""){
+              scope.location = result[0].address.address_name;
+              return;              
+            }
+          }
+        };
+        geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+      });
+    },
+  },
+  computed: {
+    getLocation() {
+      return this.$store.state.ReviewWriteOn;
+    },
+    invalidForm(){
+      return !this.location || !this.imgName || !this.content
+    }
+  },
+  watch: {
+    getLocation() {
+      if (this.$store.state.ReviewWriteOn) {
+        this.locationroad();
       }
     }
   }

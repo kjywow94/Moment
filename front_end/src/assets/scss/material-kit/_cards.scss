@@ -242,7 +242,7 @@
     [data-background-color="red"],
     .md-card-header-red,
     .md-tabs.md-danger .md-tabs-navigation{
-        background: linear-gradient(60deg, $red-400, $red-700);
+        background: #ed6c6b;
         @include shadow-big-color($brand-danger);
     }
 

@@ -109,11 +109,11 @@ public class UserService {
 	}
 
 	// 회원 이미지 수정 전 기존 이미지 삭제
-	public int deleteUploadImage(UserImage image) {
+	public int deleteUploadImage(String email) {
 		int result = 0;
-		int cnt = userMapper.selectCountUserImage(image.getEmail());
+		int cnt = userMapper.selectCountUserImage(email);
 		if (cnt > 0) {
-			userMapper.deleteUserImage(image.getEmail());
+			userMapper.deleteUserImage(email);
 			result = 1;
 		}
 		return result;
