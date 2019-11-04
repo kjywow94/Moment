@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="section page-header header-filter" style="background: #5fe0d18a;">
+    <div class="section page-header" :style="headerStyle">
       <div class="container">
         <div class="md-layout">
           <div
@@ -57,13 +57,13 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/profile_city.jpg")
+      default: require("@/assets/img/ballon3.jpg")
     }
   },
   computed: {
-    headerStyle() {
+    headerStyle() { 
       return {
-        // backgroundImage: `url(${this.header})`
+        backgroundImage: `url(${this.header})`
       };
     },
     invalidForm(){

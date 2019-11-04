@@ -2,25 +2,28 @@
   <div class="wrapper">
     <div class="section page-header header-filter" :style="headerStyle">
       <div class="container">
-        <h1 class="title">회원가입</h1>
-        <div class="md-layout" style="background:white;">
-          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;">
+        <div class="md-layout">
+          <div
+            class="md-layout-item md-size-80 md-small-size-100"
+            style="margin: 0 auto; background: linear-gradient(45deg, #FFFF, transparent);"
+          >
             <tabs
               :tab-name="['회원등록', '프로필등록', '가입하기']"
               :tab-icon="['supervisor_account', 'person_pin', 'check']"
               plain
               nav-pills-icons
-              color-button="primary"
+              color-button="info"
             >
               <template slot="tab-pane-1">
                 <div
-                  class="md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100"
+                  class="card md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100"
+                  style="background:white; padding:20px;"
                 >
                   <div style="font-size:0.9em; text-align:right">*는 필수 입력 항목입니다.</div>
                   <md-field>
                     <label>* 이메일</label>
                     <md-input v-model="email" type="text"></md-input>
-                    <md-button class="md-primary md-round" v-on:click="idDuplicateChk">중복 체크</md-button>
+                    <md-button class="md-rose md-round" v-on:click="idDuplicateChk">중복 체크</md-button>
                   </md-field>
                   <md-field>
                     <label>* 닉네임</label>
@@ -46,67 +49,78 @@
                   <md-datepicker v-model="birthday">
                     <label>* 생년월일</label>
                   </md-datepicker>
-                  <br>
-                  <div><span style="margin-right:10px">* 성별 :</span> 
-                  <md-radio v-model="gender" value="M">남자</md-radio>
-                  <md-radio v-model="gender" value="W">여자</md-radio>
+                  <br />
+                  <div>
+                    <span style="margin-right:10px">* 성별 :</span>
+                    <md-radio v-model="gender" value="M">남자</md-radio>
+                    <md-radio v-model="gender" value="W">여자</md-radio>
                   </div>
                 </div>
               </template>
 
               <template slot="tab-pane-2">
-                <label>사진등록</label>
-                <br />
-                <div class="ml-2 col-sm-6">
-                  <img :src="img" id="preview" class="img-thumbnail" style="float: left;" />
-                </div>
-                <div class="ml-2 col-sm-6">
-                  <div id="msg"></div>
-                  <form method="post" id="image-form">
-                    <input
-                      type="file"
-                      ref="inputRef"
-                      name="img[]"
-                      class="file"
-                      accept="image/*"
-                      @change="changeFile($event)"
-                      style="display:none"
-                    />
-                    <div class="input-group my-3">
+                <div
+                  class="card md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100"
+                  style="background:white; padding:20px;"
+                >
+                  <label>사진등록</label>
+                  <br />
+                  <div class="ml-2 col-sm-6">
+                    <img :src="img" id="preview" class="img-thumbnail" style="float: left;" />
+                  </div>
+                  <div class="ml-2 col-sm-6">
+                    <div id="msg"></div>
+                    <form method="post" id="image-form">
                       <input
-                        type="text"
-                        class="form-control"
-                        disabled
-                        placeholder="Upload File"
-                        v-model="fileName"
+                        type="file"
+                        ref="inputRef"
+                        name="img[]"
+                        class="file"
+                        accept="image/*"
+                        @change="changeFile($event)"
+                        style="display:none"
                       />
-                      <div class="input-group-append">
-                        <button
-                          type="button"
-                          class="browse btn btn-primary"
-                          v-on:click="uploadImg()"
-                        >Browse...</button>
+                      <div class="input-group my-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          disabled
+                          placeholder="Upload File"
+                          v-model="fileName"
+                        />
+                        <div class="input-group-append">
+                          <button
+                            type="button"
+                            class="browse btn btn-primary"
+                            v-on:click="uploadImg()"
+                          >Browse...</button>
+                        </div>
                       </div>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
+                  <md-field>
+                    <label>소개글</label>
+                    <md-textarea v-model="aboutme"></md-textarea>
+                  </md-field>
+                  <md-field>
+                    <label>인스타그램</label>
+                    <md-input v-model="instagram" type="text"></md-input>
+                  </md-field>
+                  <md-field>
+                    <label>페이스북</label>
+                    <md-input v-model="facebook" type="text"></md-input>
+                  </md-field>
+                  <br />
                 </div>
-                <md-field>
-                  <label>소개글</label>
-                  <md-textarea v-model="aboutme"></md-textarea>
-                </md-field>
-                <md-field>
-                  <label>인스타그램</label>
-                  <md-input v-model="instagram" type="text"></md-input>
-                </md-field>
-                <md-field>
-                  <label>페이스북</label>
-                  <md-input v-model="facebook" type="text"></md-input>
-                </md-field>
-                <br />
               </template>
               <template slot="tab-pane-3">
-                <p>가입을 축하드립니다!<br> 이메일 인증 후 로그인이 가능합니다.</p>
-                <md-button type="submit" class="md-primary md-round" v-on:click="signUp">회원가입</md-button>
+                <div
+                  class="card md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100"
+                  style="background:white; padding:20px;"
+                >
+                  <p>이메일 본인 인증 후 서비스 사용이 가능합니다.</p>
+                  <md-button type="submit" class="md-size-30 md-small-size-60 md-layout-item md-rose md-round" v-on:click="signUp">이메일 인증하기</md-button>
+                </div>
               </template>
             </tabs>
           </div>
@@ -152,7 +166,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/profile_city.jpg")
+      default: require("@/assets/img/signup_background.jpg")
     }
   },
   methods: {
@@ -181,40 +195,40 @@ export default {
     signUp() {
       var scope = this;
       //빈공간 체크 등
-      if(scope.email=="") {
-           alert("이메일을 입력해 주세요.");
-           return false;
-       }
+      if (scope.email == "") {
+        alert("이메일을 입력해 주세요.");
+        return false;
+      }
 
-      if(scope.nickname=="") {
-           alert("닉네임을 입력해 주세요.");
-           return false;
-       }
+      if (scope.nickname == "") {
+        alert("닉네임을 입력해 주세요.");
+        return false;
+      }
 
-       if(scope.name=="") {
-           alert("이름을 입력해 주세요.");
-           return false;
-       }
+      if (scope.name == "") {
+        alert("이름을 입력해 주세요.");
+        return false;
+      }
 
-       if(scope.password=="") {
-           alert("비밀번호를 입력해 주세요.");
-           return false;
-       }
+      if (scope.password == "") {
+        alert("비밀번호를 입력해 주세요.");
+        return false;
+      }
 
-       if(scope.passwordcheck=="") {
-           alert("비밀번호를 입력해 주세요.");
-           return false;
-       }
+      if (scope.passwordcheck == "") {
+        alert("비밀번호를 입력해 주세요.");
+        return false;
+      }
 
-      if(scope.phone=="") {
-           alert("핸드폰 번호를 입력해 주세요.");
-           return false;
-       }
+      if (scope.phone == "") {
+        alert("핸드폰 번호를 입력해 주세요.");
+        return false;
+      }
 
-       if(scope.gender=="") {
-           alert("성별을 선택해 주세요.");
-           return false;
-       }
+      if (scope.gender == "") {
+        alert("성별을 선택해 주세요.");
+        return false;
+      }
 
       //유효성 체크
       if (scope.password !== scope.passwordcheck) {
@@ -245,9 +259,10 @@ export default {
           walletAddress: walletAddress
         }).then(userdata => {
           if (userdata.data == 1) {
-            let imgName = scope.imgName == "" ? "이미지없음"  : scope.imgName;
+            let imgName = scope.imgName == "" ? "이미지없음" : scope.imgName;
             let imgData = scope.img;
-            let extension = scope.extension == "" ? "이미지없음"  : scope.extension;;
+            let extension =
+              scope.extension == "" ? "이미지없음" : scope.extension;
 
             UserService.uploadImage({
               imgName: imgName,
@@ -255,7 +270,7 @@ export default {
               extension: extension,
               email: scope.email
             }).then(uploadImgData => {
-              alert("회원가입이 완료되었습니다. 이메일 인증을 해주세요.");
+              alert("이메일이 발송되었습니다. 본인 인증 후 서비스 사용이 가능합니다.");
               scope.$router.push("/");
             });
           }
