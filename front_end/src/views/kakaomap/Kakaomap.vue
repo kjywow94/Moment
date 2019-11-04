@@ -65,6 +65,7 @@ export default {
   },
   methods: {
     init() {
+      console.log(parseInt(screen.width/300))
       LocationService.getLocation((latitude, longitude) => {
         ReviewService.getReviewListByLocation({
           start: 0,
@@ -77,7 +78,7 @@ export default {
           var container = document.getElementById("map");
           var mapOptions = {
             center: new kakao.maps.LatLng(latitude, longitude),
-            level: 2
+            level: (5 - parseInt(screen.width/300)) < 1 ? 1 : (5 - parseInt(screen.width/300))
           };
           var map = new kakao.maps.Map(container, mapOptions);
 

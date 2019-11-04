@@ -214,12 +214,9 @@ export default {
       location.reload();
     },
 
-    sendWriteSign() {
-      LocationService.getLocation((latitude, longitude) => {
-        this.$store.state.latitude = latitude;
-        this.$store.state.longitude = longitude;
-        this.$store.state.ReviewWriteOn = true;
-      });
+    async sendWriteSign() {
+      this.$store.state.ReviewWriteOn = true;
+      
     },
     infoModalOn() {
       this.$store.state.myInfoModalOn = true;

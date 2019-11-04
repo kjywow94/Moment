@@ -1,9 +1,5 @@
 <template>
-  <div class="md-layout-item md-size-100 mx-auto review_button">
 
-    <!-- <md-button class="md-info md-just-icon md-round" @click="doWrite">
-      <md-icon>create</md-icon>
-    </md-button>-->
 
     <modal v-if="this.$store.state.ReviewWriteOn" @close="classicModalHide">
       <template slot="header">
@@ -41,7 +37,6 @@
         <md-button class="md-danger md-simple" @click="classicModalHide">취소</md-button>
       </template>
     </modal>
-  </div>
 </template>
 
 <script>

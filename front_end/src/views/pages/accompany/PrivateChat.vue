@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax class="section page-header header-filter" :style="headerStyle"></parallax>
+    <parallax class="section page-header" style="background-color:#ed6c6b;"></parallax>
     <div class="main main-raised">
       <div class="section section-contacts">
         <div class="container">
@@ -54,7 +54,7 @@
 
             <template>
               <div class="md-layout-item md-size-30 md-small-hide">
-                <md-toolbar class="md-rose">
+                <md-toolbar class="md-info">
                   <div class="md-toolbar-row">
                     <div class="md-toolbar-section-start">
                       <i class="material-icons">person</i>
@@ -166,14 +166,7 @@ export default {
       interval: null
     };
   },
-  computed: {
-    headerStyle() {
-      return {
-        backgroundImage: `url(${this.header})`
-      };
-    }
-  },
-  mounted() {
+  mountsed() {
     this.init();
   },
 
