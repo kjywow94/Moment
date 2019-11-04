@@ -53,6 +53,17 @@ public class ReviewService {
 		return list;
 	}
 
+	public List<ReviewListDTO> userReviewList(String email) {
+		List<ReviewListDTO> list = reviewMapper.userReviewList(email);
+		for (ReviewListDTO review : list) {
+			String userImageData = userService.getUserImage(review.getImgName());
+			String imageData = reviewImgService.getReviewImage(review.getId());
+			review.setUserImgData(userImageData);
+			review.setImageData(imageData);
+		}
+		return list;
+	}
+	
 	/**
 	 * 위도와 경도로 5km이내의 리뷰 리스트에 사진을 추가해서 리턴
 	 * 

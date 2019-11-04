@@ -18,14 +18,24 @@
 		FROM review
 		HAVING distance <![CDATA[ < ]]>
 		#{distance}
-		ORDER BY distance DESC limit #{start},#{end}
 		) A, user B,
 		user_image C
 		WHERE A.uid = B.id
 		and B.email = C.email
+		ORDER BY distance asc, A.date desc, A.liked limit #{start},#{end}
 		;
 	</select>
 
+	<!-- 유저 이메일로 프로필 페이지에 필요한 유저 정보를 포함한 리뷰 목록 -->
+	<select id="userReviewList" parameterType="String" resultType="reviewList">
+		   SELECT C.img_name as imgName, B.nickname, A.*
+		     FROM review A, user B, user_image C
+		    WHERE A.uid = B.id
+			  AND B.email = #{email}
+		      AND B.email = C.email
+			ORDER BY date desc, id desc;
+	</select>
+	
 	<!-- 후기 목록 by 거리 -->
 	<select id="reviewListByLocation" parameterType="location"
 		resultType="reviewWithDistance">
@@ -36,6 +46,7 @@
 		#{distance} ORDER BY distance DESC;
 	</select>
 
+	
 	<!-- 전체 후기목록 -->
 	<select id="reviewList" resultType="review">
 		SELECT * FROM review;

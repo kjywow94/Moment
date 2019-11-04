@@ -43,6 +43,12 @@ public class ReviewController {
 	public List<ReviewListDTO> reviewListByLocation(@RequestBody Location location) throws Exception {
 		return reviewService.mainReviewList(location);
 	}
+	
+	@RequestMapping(value = "/reviewByEmail/{email}", method = RequestMethod.POST)
+	@ApiOperation(value = "유저 이메일로 리뷰 반환")
+	public List<ReviewListDTO> reviewListByEmail(@PathVariable String email) throws Exception {
+		return reviewService.userReviewList(email);
+	}
 
 	@RequestMapping(value = "/review", method = RequestMethod.GET)
 	@ApiOperation(value = "리뷰 목록 전체 반환")
