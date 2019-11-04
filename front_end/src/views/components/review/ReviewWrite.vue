@@ -161,7 +161,6 @@ export default {
         var coord = new kakao.maps.LatLng(this.latitude, this.longitude);
         var callback = function(result, status) {
           if (status === kakao.maps.services.Status.OK) {
-            console.log();
             
             if(result[0].road_address !== null){
               if(result[0].road_address.building_name !== ""){

@@ -11,7 +11,7 @@
         <i class="fab fa-github"></i>
         BoraCoin<md-tooltip md-direction="top">Git Page</md-tooltip>
         </a>
-        for a better travel
+        for a better life
         <h5 style="text-align : center">
           Since. Oct 2019
         </h5>

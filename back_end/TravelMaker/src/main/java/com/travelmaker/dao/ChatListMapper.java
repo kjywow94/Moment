@@ -15,7 +15,6 @@ public interface ChatListMapper {
 	public List<ChatList> selectNotiChatListByFrom(int id, int uid);
 	//로그인
 	public List<ChatList> selectChatListByUid(int id);
-	public int selectAllNotiByUid(int uid);
 	public int insertChatList(ChatList cl);
 	
 	public int updateChatList(ChatList cl);

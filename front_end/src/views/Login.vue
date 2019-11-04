@@ -8,7 +8,7 @@
           >
           <form @submit.prevent="onSubmit()">
             <login-card header-color="red">
-              <h4 slot="title" class="card-title" style="font-size:30px;">로그인</h4>
+              <h4 slot="title" class="bodyFont bold" style="font-size:30px; color:white">로그인</h4>
               <md-field class="md-form-group" slot="inputs">
                 <md-icon>face</md-icon>
                 <label>아이디를 입력해주세요</label>
@@ -19,8 +19,8 @@
                 <label>비밀번호를 입력해주세요</label>
                 <md-input v-model="password" type="password" @keyup.enter="onSubmit()"></md-input>
               </md-field>
-              <md-button slot="footer" class="md-simple md-success md-lg" :class="{'btn-success' : !invalidForm}" type="submit"
-                :disabled="invalidForm">
+              <md-button slot="footer" class="md-simple md-success md-lg" :class="{'md-simple' : !invalidForm}" type="submit"
+                :disabled="invalidForm" style="color:#9c27b0 !important">
                 로그인
               </md-button>
               <md-button v-on:clicl="signup()" slot="footer" class="md-simple md-success md-lg">
@@ -80,7 +80,7 @@ export default {
         .then(data => {
           if(data.data !== ""){
             this.$store.commit("login", data.data)
-            console.log(data.data);
+            //console.log(data.data);
             
             // this.$store.commit("login", {data.data.email, data.data.password}), 
             if(window.sessionStorage){
@@ -92,7 +92,7 @@ export default {
             scope.$router.push('/travelReview');
           }
           else {
-            alert("다시 확인해주세요...");
+            alert("다시 확인해주세요.");
           }
         })
     },

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax class="section page-header header-filter" :style="headerStyle"></parallax>
+    <parallax class="section page-header" style="background-color:#ed6c6b;"></parallax>
     <div class="main main-raised">
       <div class="section section-contacts">
         <div class="container">
