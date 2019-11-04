@@ -3,23 +3,24 @@
     <div class="section page-header header-filter" :style="headerStyle">
       <div class="container">
         <div class="md-layout">
-          <div class="card md-layout-item md-size-50 md-small-size-95" style="margin: 0 auto; background:white;">
+          <div class="card md-layout-item md-size-50 md-small-size-95" style="margin: 0 auto; background:white; padding:30px">
             <template>
-              <h2 style="color:black; font-weight: bold;">아이디 찾기</h2>
-              <p style="color:black; margin-bottom: 10px;">아이디를 잊으셨나요?</p>
+              <h2 class="bodyFont" style="color:black; font-weight: bold;">아이디 찾기</h2>
+              <br/>
+              <p style="color:black; margin-bottom: 0px;">아이디를 잊으셨나요?</p>
               <hr/>
             </template>
             <form @submit.prevent="onSubmit()">
                 <div class="form-group">
                     <label for="exampleInputEmail1" style="color:black;">사용자 이름</label>
-                    <input v-model="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이름을 입력해주세요..">
+                    <input v-model="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이름을 입력해주세요.">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" style="color:black;">번호</label>
                     <input v-model="phone" class="form-control" id="exampleInputPassword1" placeholder="010-xxxx-xxxx">
                 </div>
-                <br>
-                <button class="btn btn-primary btn-lg btn-block" :class="{'btn-success' : !invalidForm}" style="margin-bottom: 16px;"  :disabled="invalidForm" @click="classicModal = false">
+                <hr/>
+                <button class="btn btn-primary btn-lg btn-block" :class="{'btn-primary' : !invalidForm}" style="margin-bottom: 0px; color:white !important"  :disabled="invalidForm" @click="classicModal = false">
                   아이디 찾기</button>
                   <br>
                 <modal v-if="classicModal" @close="classicModalHide">
