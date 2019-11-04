@@ -51,7 +51,7 @@ export default {
   bodyClass: "login-page",
   data() {
     return {
-      distance: 10,
+      distance: 9999999,
       reviewList: [{}]
     };
   },
