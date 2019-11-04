@@ -117,14 +117,12 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 import MobileMenu from "@/layout/MobileMenu";
-import Badge from "@/components/Badge";
 import ChatListService from "@/services/ChatListService.js";
 import LocationService from "@/services/LocationService.js";
 
 export default {
   components: {
-    MobileMenu,
-    Badge
+    MobileMenu
   },
   props: {
     type: {
