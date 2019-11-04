@@ -5,7 +5,7 @@
         <div class="md-layout">
           <div
             class="md-layout-item md-size-80 md-small-size-100"
-            style="margin: 0 auto; background: floralwhite;"
+            style="margin: 0 auto; background: linear-gradient(45deg, #FFFF, transparent);"
           >
             <tabs
               :tab-name="['기본 정보', '비밀번호 변경', '프로필 수정']"
@@ -16,8 +16,8 @@
             >
               <template slot="tab-pane-1" style="background: white;">
                 <div class="card" style="margin-bottom:16px;">
-                  <div class="card-header" style="background: linen;">
-                    <h4 style="color:black; font-weight: bold;">기본 정보</h4>
+                  <div class="card-header" style="background: rgb(237, 128, 127);">
+                    <h4 style="color:white; font-weight: bold;">기본 정보</h4>
                   </div>
                   <div class="card-body">
                     <md-field>
@@ -30,7 +30,7 @@
                     </md-field>
                     <md-field>
                       <label>포인트</label>
-                      <md-input v-model="money" type="text" :disabled="invalidform"></md-input>
+                      <md-input v-model="money" type="text" disabled></md-input>
                     </md-field>
                     <button
                       type="button"
@@ -56,8 +56,8 @@
 
               <template slot="tab-pane-2">
                 <div class="card" style="margin-bottom:16px;">
-                  <div class="card-header" style="background: linen;">
-                    <h4 style="color:black; font-weight: bold;">비밀번호 변경</h4>
+                  <div class="card-header" style="background: rgb(237, 128, 127);">
+                    <h4 style="color:white; font-weight: bold;">비밀번호 변경</h4>
                   </div>
                   <div class="card-body">
                     <md-field>
@@ -88,8 +88,8 @@
               </template>
               <template slot="tab-pane-3">
                 <div class="card" style="margin-bottom:16px;">
-                  <div class="card-header" style="background: linen;">
-                    <h4 style="color:black; font-weight: bold;">프로필 수정</h4>
+                  <div class="card-header" style="background: rgb(237, 128, 127);">
+                    <h4 style="color:white; font-weight: bold;">프로필 수정</h4>
                   </div>
                   <div class="card-body">
                     <label>사진등록</label>
@@ -358,7 +358,7 @@ export default {
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`
+        backgroundImage: `url("https://images.unsplash.com/photo-1544911845-1f34a3eb46b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60")`
       };
     }
   }

@@ -2,11 +2,8 @@
       <div class="wrapper">
     <div class="section page-header header-filter" :style="headerStyle">
       <div class="container">
-          <h1 class="title">비밀번호 찾기
-          </h1>
-        <div class="md-layout"  style="background:white;">
-          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto;">
-
+        <div class="md-layout">
+          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto; background:white;">
             <template>
               <h2 style="color:black; font-weight: bold;">비밀번호 찾기</h2>
               <p style="color:black; margin-bottom: 55px;">비밀번호를 잊으셨나요?</p>
@@ -20,8 +17,10 @@
                     <label for="exampleInputPassword1" style="color:black;">번호</label>
                     <input v-model="phone" class="form-control" id="exampleInputPassword1" placeholder="010-xxxx-xxxx">
                 </div>
+                <br>
                 <button class="btn btn-primary btn-lg btn-block" :class="{'btn-success' : !invalidForm}" style="margin-bottom: 16px;"  :disabled="invalidForm" @click="classicModal = false">
                   비밀번호 찾기</button>
+                <br>
                 <modal v-if="classicModal" @close="classicModalHide">
                   <template slot="header">
                     <h4 class="modal-title" style="color: black;">비밀번호를 확인해주세요</h4>
@@ -102,7 +101,7 @@ export default {
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`
+        backgroundImage: `url("https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"w)`
       };
     },
     invalidForm(){
