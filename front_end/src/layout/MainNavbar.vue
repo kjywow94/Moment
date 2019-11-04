@@ -93,7 +93,7 @@
 
             <md-list-item href="#/" v-on:click="isLogout" v-if="isLogined" class="hidden-sm">
               <i class="material-icons" style="color:white;">how_to_reg</i>
-              <p class="hidden-sm">로그아웃</p>
+              <p class="hidden-sm" style="color:white;">로그아웃</p>
             </md-list-item>
 
             <!-- <md-list-item href="https://lab.ssafy.com/s1-final/" target="_blank">
@@ -214,12 +214,9 @@ export default {
       location.reload();
     },
 
-    sendWriteSign() {
-      LocationService.getLocation((latitude, longitude) => {
-        this.$store.state.latitude = latitude;
-        this.$store.state.longitude = longitude;
-        this.$store.state.ReviewWriteOn = true;
-      });
+    async sendWriteSign() {
+      this.$store.state.ReviewWriteOn = true;
+      
     },
     infoModalOn() {
       this.$store.state.myInfoModalOn = true;
