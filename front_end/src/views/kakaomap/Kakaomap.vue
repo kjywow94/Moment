@@ -66,7 +66,6 @@ export default {
   },
   methods: {
     init() {
-      console.log(parseInt(screen.width/300))
       LocationService.getLocation((latitude, longitude) => {
         ReviewService.getReviewListByLocation({
           start: 0,
