@@ -1,35 +1,53 @@
 <template>
   <v-popover offset="8" placement="left" class="my-card-title">
     <div style="display : inline-block">
-                <div>
-                  <img :src="info.userImgData" alt="Avatar" class="Avatar_image" />
-                </div>
-              </div>
-              <div style="display : inline-block; position:absolute; left:80px">
-                <div style="align-items: center;">
-                  {{info.location}}
-                  <!--장소-->
-                </div >
-                <div>
-                  by {{info.nickname}}
-                  <!--작성자-->
-                </div>
-              </div>
-  <template slot="popover">
-                  <img :src="userImg['imgData']" alt="Avatar" class="Avatar_image" />
-                  <h3 class="popover-header">{{user.nickname}} </h3>
-                  <h5 class="popover-header">{{user.userName}} / {{user.birthday}} / {{user.gender}}</h5>
-                  <hr>
-                  <div class="popover-body">
-                    {{user.about}}
-                    <hr>
-                    <a :href="'https://'+user.sns1">{{user.sns1}}</a><br>
-                    <a :href="'https://'+user.sns2">{{user.sns2}}</a><br>
-                    <a :href="'#/PrivateChat/' + user.id"><md-button>메세지 보내기</md-button></a>
-                  </div>
-                </template>
-</v-popover>
+      <div>
+        <img :src="info.userImgData" alt="Avatar" class="Avatar_image" />
+      </div>
+    </div>
+    <div style="display : inline-block; position:absolute; left:80px">
+      <div style="align-items: center;">
+        <!--장소-->
+        {{info.location}}
+      </div >
+      <div>
+        <!--작성자-->
+        by {{info.nickname}}
+      </div>
+    </div>
 
+    <!-- Pop Up -->        
+    <template slot="popover">
+      <img :src="userImg['imgData']" alt="Avatar" class="Avatar_image" />
+      <h3 class="popover-header"  style="text-align:center">{{user.nickname}} </h3>
+      <hr style="width:90%">
+      <!--<h5 class="popover-header">{{user.userName}} / {{user.birthday}} / {{user.gender}}</h5> -->
+          <md-button
+            :href="user.sns1"
+            class="md-just-icon md-simple md-twitter" target="_blank"
+            v-if="user.sns1 !== ''"
+            ><i class="fab fa-facebook" style="color:#4267b2 !important"></i
+          ></md-button>
+          <md-button
+            :href="user.sns2"
+            class="md-just-icon md-simple md-pinterest" target="_blank"
+            v-if="user.sns2 !== ''"
+            ><i class="fab fa-instagram" style="color:#a91ba6 !important"></i
+          ></md-button>
+      <div class="popover-body" style="text-align:center">
+        {{user.about}}
+        <hr>
+        <div style="text-align:right">
+         <a :href="'#/PrivateChat/' + user.id">
+          <md-button class="md-rose">
+            <i class="material-icons">mail</i>메세지 보내기
+          </md-button>
+         </a>
+        </div>
+      </div>
+
+    </template>
+  </v-popover>
 </template>
 <script>
 import UserService from "@/services/UserService.js"
@@ -61,13 +79,12 @@ export default {
          
           this.userImg = await UserProfileService.getUserImage(this.user['email']);
           this.userImg = this.userImg['data'][0];
-          },
-
+          }
+          ,
           setData(){
             let birth = new Date(this.user.birthday);
             this.user.birthday = (1900 + birth.getYear()) + "년 " + (birth.getMonth() + 1) + "월 " + birth.getDay() + "일"
             this.user.gender = (this.user.gender == 'M' ? "남" : "여");
-          
           }
         }
   };
@@ -115,8 +132,8 @@ export default {
   margin-top: 15px;
 }
 
-
 .popover-inner {
+    padding-top : 15px;
     background-color: white;
     max-width: 500px;
     width:500px;
@@ -140,6 +157,16 @@ export default {
   .my-card-container {
     margin: auto;
     height: 380px;
+  }
+  .popover-inner {
+    padding-top : 15px;
+    background-color: white;
+    max-width: 300px;
+    width:300px;
+  }
+  .md-tooltip.popover .popover.popover{
+      max-width: 300px !important;
+      width:300px !important;
   }
 }
 </style>

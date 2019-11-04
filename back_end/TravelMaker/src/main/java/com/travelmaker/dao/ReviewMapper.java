@@ -21,6 +21,14 @@ public interface ReviewMapper {
 	public List<ReviewListDTO> mainReviewList(Location location);
 
 	/**
+	 * 유저 이메일로 프로필 페이지에 필요한 유저 정보를 포함한 리뷰 리스트 리턴
+	 * 
+	 * @param location
+	 * @return
+	 */
+	public List<ReviewListDTO> userReviewList(String email);
+	
+	/**
 	 * 위도와 경도로 가까운 리뷰 반환
 	 * 
 	 * @param Location 위도 경도

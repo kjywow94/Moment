@@ -1,11 +1,11 @@
 <template>
   <div>
     <div>
-      <div
+      <!-- <div
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="busy"
         infinite-scroll-distance="10"
-      >
+      > -->
         <div class="md-layout" style="margin:auto;">
           <!-- <ReviewWrite /> -->
           <div
@@ -35,7 +35,7 @@
             <img src="@/assets/img/loading.gif" class="loadingImg" />
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
 
     <!-- Modal -->
@@ -53,7 +53,7 @@
       <template slot="body">
         <div class="modal-body blockquote undefined">
           <img :src="this.detailModalData.imageData" class="modal-img img-raised rounded" />
-          <h5>{{this.detailModalData.date | moment("YYYY.MM.DD , dddd")}}</h5>
+          <h5>{{this.detailModalData.date | moment("YYYY MM DD, dddd")}}</h5>
           <p>{{this.detailModalData.content}}</p>
           <small>by {{this.detailModalData.nickname}}</small>
           <div class="my-hashtag-div">
@@ -87,6 +87,7 @@
 import { EventBus } from "@/main.js";
 import ReviewService from "@/services/ReviewService.js";
 import UserService from "@/services/UserService.js";
+import UserProfileService from "@/services/UserProfileService.js";
 import EthereumService from "@/services/EthereumService.js";
 import LocationService from "@/services/LocationService.js";
 import ReviewWrite from "@/views/components/review/ReviewWrite";
@@ -141,31 +142,24 @@ export default {
       }
     },
     init() {
-      LocationService.getLocation((latitude, longitude) => {
-        this.latitude = latitude;
-        this.longitude = longitude;
-        ReviewService.getReviewListByLocation({
-          start: 0,
-          end: this.loadingPageNumber,
-          latitude: latitude,
-          longitude: longitude,
-          distance: this.distance
-        }).then(reviewList => {
-          this.reviewList = reviewList.data;
-        });
+      UserProfileService.getReviewByEmail(this.$store.state.user.email)
+      .then(reviewList => {
+        this.reviewList = reviewList.data;
       });
-    },
-    loading(callback) {
-      ReviewService.getReviewListByLocation({
-        start: this.idx,
-        end: this.loadingPageNumber,
-        latitude: this.latitude,
-        longitude: this.longitude,
-        distance: this.distance
-      }).then(reviewList => {
-        callback(reviewList.data);
-      });
-    },
+    }
+    // ,
+    // loading(callback) {
+    //   ReviewService.getReviewListByLocation({
+    //     start: this.idx,
+    //     end: this.loadingPageNumber,
+    //     latitude: this.latitude,
+    //     longitude: this.longitude,
+    //     distance: this.distance
+    //   }).then(reviewList => {
+    //     callback(reviewList.data);
+    //   });
+    // }
+    ,
     detailModalShow(selectedData) {
       this.detailModalData = selectedData;
       EthereumService.read(selectedData.hash, content => {
