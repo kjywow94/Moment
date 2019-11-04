@@ -180,7 +180,6 @@ export default {
   beforeDestroy() {
     clearInterval(this.interval);
   },
-
   methods: {
     async init() {
       this.partner = await UserService.getUserById(this.id);
