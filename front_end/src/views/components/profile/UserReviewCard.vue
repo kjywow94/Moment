@@ -9,7 +9,7 @@
         <div class="md-layout" style="margin:auto;">
           <!-- <ReviewWrite /> -->
           <div
-            class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container"
+            class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95 my-card-container myMargin" 
             v-for="r in reviewList"
             :key="r.id"
           >
@@ -53,7 +53,7 @@
       <template slot="body">
         <div class="modal-body blockquote undefined">
           <img :src="this.detailModalData.imageData" class="modal-img img-raised rounded" />
-          <h5>{{this.detailModalData.date | moment("YYYY MM DD, dddd")}}</h5>
+          <h5>{{this.detailModalData.date | moment("YYYY.MM.DD , dddd")}}</h5>
           <p>{{this.detailModalData.content}}</p>
           <small>by {{this.detailModalData.nickname}}</small>
           <div class="my-hashtag-div">
@@ -287,6 +287,9 @@ export default {
     height: 50px;
     width: 50px;
     margin-top: 10%;
+  }
+  .myMargin {
+    margin-bottom:50px;
   }
 }
 
