@@ -91,8 +91,8 @@ export default {
     },
 
     submit() {
-      let title = this.content.substring(0, 14);
-      if (this.content.length > 14) {
+      let title = this.content.substring(0, 12);
+      if (this.content.length > 12) {
         title = title + "...";
       }
       let hashtagToSTring = "";
