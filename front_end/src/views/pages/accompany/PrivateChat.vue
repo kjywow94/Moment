@@ -166,7 +166,7 @@ export default {
       interval: null
     };
   },
-  mountsed() {
+  mounted() {
     this.init();
   },
 
