@@ -21,7 +21,9 @@ public class ChatListService {
 	public List<ChatList> selectNotiChatListByFrom(int id, int uid) {
 		return chatListMapper.selectNotiChatListByFrom(id, uid);
 	}
-
+	public int selectAllNotiByUid(int uid) {
+		return chatListMapper.selectAllNotiByUid(uid);
+	}
 	public List<ChatList> selectChatListByUid(int id) {
 		return chatListMapper.selectChatListByUid(id);
 	}

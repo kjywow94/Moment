@@ -43,7 +43,7 @@ const loginAuth = (to, from, next) => {
 }
 
 const adminAuth = (to, from, next) => {
-  if (sessionStorage.Auth === "U") {
+  if (sessionStorage.Auth === "A") {
     var aminAuth = true;
 
   }

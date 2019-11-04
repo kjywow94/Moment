@@ -16,37 +16,41 @@
                 <div
                   class="md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100"
                 >
+                  <div style="font-size:0.9em; text-align:right">*는 필수 입력 항목입니다.</div>
                   <md-field>
-                    <label>이메일</label>
+                    <label>* 이메일</label>
                     <md-input v-model="email" type="text"></md-input>
                     <md-button class="md-primary md-round" v-on:click="idDuplicateChk">중복 체크</md-button>
                   </md-field>
                   <md-field>
-                    <label>닉네임</label>
+                    <label>* 닉네임</label>
                     <md-input v-model="nickname" type="text"></md-input>
                   </md-field>
                   <md-field>
-                    <label>이름</label>
+                    <label>* 이름</label>
                     <md-input v-model="name" type="text"></md-input>
                   </md-field>
                   <md-field>
-                    <label>비밀번호</label>
+                    <label>* 비밀번호</label>
                     <md-input v-model="password" type="password"></md-input>
                   </md-field>
                   <md-field>
-                    <label>비밀번호 확인</label>
+                    <label>* 비밀번호 확인</label>
                     <md-input v-model="passwordcheck" type="password"></md-input>
                   </md-field>
                   <md-field>
-                    <label>휴대폰</label>
+                    <label>* 휴대폰</label>
                     <md-input v-model="phone" type="text"></md-input>
                   </md-field>
 
                   <md-datepicker v-model="birthday">
-                    <label>생년월일</label>
+                    <label>* 생년월일</label>
                   </md-datepicker>
+                  <br>
+                  <div><span style="margin-right:10px">* 성별 :</span> 
                   <md-radio v-model="gender" value="M">남자</md-radio>
                   <md-radio v-model="gender" value="W">여자</md-radio>
+                  </div>
                 </div>
               </template>
 
@@ -101,7 +105,7 @@
                 <br />
               </template>
               <template slot="tab-pane-3">
-                <p>가입을 축하드립니다!</p>
+                <p>가입을 축하드립니다!<br> 이메일 인증 후 로그인이 가능합니다.</p>
                 <md-button type="submit" class="md-primary md-round" v-on:click="signUp">회원가입</md-button>
               </template>
             </tabs>
@@ -176,19 +180,53 @@ export default {
     },
     signUp() {
       var scope = this;
+      //빈공간 체크 등
+      if(scope.email=="") {
+           alert("이메일을 입력해 주세요.");
+           return false;
+       }
+
+      if(scope.nickname=="") {
+           alert("닉네임을 입력해 주세요.");
+           return false;
+       }
+
+       if(scope.name=="") {
+           alert("이름을 입력해 주세요.");
+           return false;
+       }
+
+       if(scope.password=="") {
+           alert("비밀번호를 입력해 주세요.");
+           return false;
+       }
+
+       if(scope.passwordcheck=="") {
+           alert("비밀번호를 입력해 주세요.");
+           return false;
+       }
+
+      if(scope.phone=="") {
+           alert("핸드폰 번호를 입력해 주세요.");
+           return false;
+       }
+
+       if(scope.gender=="") {
+           alert("성별을 선택해 주세요.");
+           return false;
+       }
 
       //유효성 체크
       if (scope.password !== scope.passwordcheck) {
         alert("비밀번호가 일치하지 않습니다.");
-        return;
+        return false;
       }
 
       if (!scope.duplChk) {
         alert("이메일 중복체크를 해주세요.");
-        return;
+        email.focus();
+        return false;
       }
-
-      //빈공간 체크 등
 
       // 계좌생성
       EthereumService.newAccount(scope.password, walletAddress => {
@@ -207,9 +245,9 @@ export default {
           walletAddress: walletAddress
         }).then(userdata => {
           if (userdata.data == 1) {
-            let imgName = scope.imgName;
+            let imgName = scope.imgName == "" ? "이미지없음"  : scope.imgName;
             let imgData = scope.img;
-            let extension = scope.extension;
+            let extension = scope.extension == "" ? "이미지없음"  : scope.extension;;
 
             UserService.uploadImage({
               imgName: imgName,
@@ -217,7 +255,7 @@ export default {
               extension: extension,
               email: scope.email
             }).then(uploadImgData => {
-              alert("회원가입이 완료되었습니다.");
+              alert("회원가입이 완료되었습니다. 이메일 인증을 해주세요.");
               scope.$router.push("/");
             });
           }

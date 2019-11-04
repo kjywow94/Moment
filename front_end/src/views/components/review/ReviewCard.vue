@@ -53,7 +53,7 @@
       <template slot="body">
         <div class="modal-body blockquote undefined">
           <img :src="this.detailModalData.imageData" class="modal-img img-raised rounded" />
-          <h5>{{this.detailModalData.date | moment("YYYY MM DD, dddd")}}</h5>
+          <h5>{{this.detailModalData.date | moment("YYYY.MM.DD , dddd")}}</h5>
           <p>{{this.detailModalData.content}}</p>
           <small>by {{this.detailModalData.nickname}}</small>
           <div class="my-hashtag-div">

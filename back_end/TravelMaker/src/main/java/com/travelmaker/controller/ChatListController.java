@@ -40,6 +40,12 @@ public class ChatListController {
 		return chatListService.selectNotiChatListByFrom(id,uid);
 	}
 	
+	@RequestMapping(value = "/chatNotiAll/{uid}", method = RequestMethod.GET)
+	@ApiOperation(value="알림 확인")
+	public int selectAllNotiByUid(@PathVariable int uid) throws Exception {
+		return chatListService.selectAllNotiByUid(uid);
+	}
+	
 	@RequestMapping(value = "/chatList", method = RequestMethod.POST)
 	@ApiOperation(value="채팅리스트 생성")
 	public int insertChat(@RequestBody ChatList cl) throws Exception {

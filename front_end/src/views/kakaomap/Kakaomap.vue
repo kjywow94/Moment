@@ -74,8 +74,6 @@ export default {
           distance: this.distance
         }).then(reviewList => {
           this.reviewList = reviewList.data;
-          console.log(this.reviewList);
-          
           var container = document.getElementById("map");
           var mapOptions = {
             center: new kakao.maps.LatLng(latitude, longitude),

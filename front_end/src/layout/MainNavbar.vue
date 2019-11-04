@@ -9,13 +9,13 @@
     <div class="md-toolbar-row md-collapse-lateral">
       <router-link :to="{name:'travelReview'}" class="hidden-sm" v-if="isLogined">
         <div class="md-toolbar-section-start">
-          <h3 class="md-title">Travel Maker</h3>
+          <h3 class="titleFont" style="color:white; font-size : 2.5em">Moment</h3>
         </div>
       </router-link>
 
       <router-link :to="{name:'login'}" class="hidden-sm" v-if="!isLogined">
         <div class="md-toolbar-section-start">
-          <h3 class="md-title">Travel Maker</h3>
+          <h3 class="titleFont" style="color:white; font-size : 2.5em">Moment</h3>
         </div>
       </router-link>
       <div class="hidden-sm" style="width:30%;"></div>
@@ -28,47 +28,53 @@
 
             <md-list-item href="#/travelReview" v-if="isLogined" class="hidden-sm">
               <i class="material-icons" style="color:white;">rate_review</i>
-              <p class="hidden-sm">뉴스피드</p>
+              <p class="hidden-sm" style="color:white">뉴스피드</p>
             </md-list-item>
 
             <md-list-item href="#" v-if="isLogined" @click="sendWriteSign">
               <i class="material-icons" style="color:white;">create</i>
-              <p class="hidden-sm">글쓰기</p>
+              <p class="hidden-sm" style="color:white">글쓰기</p>
             </md-list-item>
 
             <md-list-item :href="chatUrl" v-if="isLogined">
               <i class="material-icons" style="color:white;">chat</i>
-              <p class="hidden-sm">채팅</p>
+              <p class="hidden-sm" style="color:white">채팅</p>
+              <md-badge  :md-content="noti" type="danger"></md-badge>
             </md-list-item>
 
             <md-list-item href="#/map/kakaomap" v-if="isLogined">
               <i class="material-icons" style="color:white">gps_fixed</i>
-              <p class="hidden-sm">지도</p>
+              <p class="hidden-sm" style="color:white">지도</p>
             </md-list-item>
 
             <md-list-item href="#/login" v-if="!isLogined">
               <i class="material-icons" style="color:white;">account_circle</i>
-              <p class="hidden-sm">로그인</p>
+              <p class="hidden-sm" style="color:white">로그인</p>
             </md-list-item>
 
             <md-list-item href="#/signUp" v-if="!isLogined">
               <i class="material-icons" style="color:white;">how_to_reg</i>
-              <p class="hidden-sm">회원가입</p>
+              <p class="hidden-sm" style="color:white">회원가입</p>
             </md-list-item>
 
             <md-list-item href="#/find/idfind" v-if="!isLogined">
-              <i class="material-icons" style="color:white;">how_to_reg</i>
-              <p class="hidden-sm">아이디 찾기</p>
+              <i class="material-icons" style="color:white;">search</i>
+              <p class="hidden-sm" style="color:white">아이디 찾기</p>
             </md-list-item>
 
-            <md-list-item href="#/find/passwordfind" v-if="!isLogined">
-              <i class="material-icons" style="color:white;">how_to_reg</i>
-              <p class="hidden-sm">비밀번호 찾기</p>
+            <md-list-item href="#/find/passwordfind" v-if="!isLogined" >
+              <i class="material-icons" style="color:white;">vpn_key</i>
+              <p class="hidden-sm" style="color:white">비밀번호 찾기</p>
+            </md-list-item>
+
+            <md-list-item href="#/profile" v-if="isLogined" class="hidden-sm">
+              <i class="material-icons" style="color:white;">person_pin</i>
+              <p style="color:white">{{$store.state.user.nickname}}님</p>
             </md-list-item>
 
             <md-list-item href="#/mypage/myuserinfo" v-if="isLogined" class="hidden-sm">
-              <i class="material-icons" style="color:white;">person_pin</i>
-              <p>{{$store.state.user.nickname}}님</p>
+              <i class="material-icons" style="color:white;">build</i>
+              <p style="color:white">내정보</p>
             </md-list-item>
 
             <!-- 모달 내정보 -->
@@ -78,11 +84,11 @@
 
             <md-list-item
               href="#/admin"
-              v-if="$store.state.user.authority === 'U'"
+              v-if="$store.state.user.authority == 'A'"
               class="hidden-sm"
             >
               <i class="material-icons" style="color:white;">settings_applications</i>
-              <p class="hidden-sm">관리자</p>
+              <p class="hidden-sm" style="color:white;">관리자</p>
             </md-list-item>
 
             <md-list-item href="#/" v-on:click="isLogout" v-if="isLogined" class="hidden-sm">
@@ -117,6 +123,7 @@ function resizeThrottler(actualResizeHandler) {
 
 import MobileMenu from "@/layout/MobileMenu";
 import LocationService from "@/services/LocationService.js";
+import ChatListService from "@/services/ChatListService.js";
 
 export default {
   components: {
@@ -146,9 +153,11 @@ export default {
   },
   data() {
     return {
-      chatUrl: "#/privateChat/" + this.$store.state.user.id,
+      chatUrl: null,
       extraNavClasses: "",
-      toggledClass: false
+      toggledClass: false,
+      noti: 0,
+      chatNotiInterval: null
     };
   },
   methods: {
@@ -198,7 +207,7 @@ export default {
     },
     isLogout() {
       this.$store.commit("logout");
-
+      clearInterval(this.chatNotiInterval);
       sessionStorage.clear();
       localStorage.clear();
       alert("정상적으로 로그아웃 되었습니다.");
@@ -217,14 +226,32 @@ export default {
     }
   },
   mounted() {
+    let self = this;
     document.addEventListener("scroll", this.scrollListener);
     // this.$store.state.isLogin = true;
+    
+    // setInterval(() => {
+    //   ChatListService.selectAllNotiByUid(self.$store.state.user.id).then(function(data){
+    //   self.noti = data.data;
+    // })
+    // }, 1000);
   },
   beforeDestroy() {
     document.removeEventListener("scroll", this.scrollListener);
   },
   computed: {
     isLogined() {
+      let self = this;
+      if (this.$store.state.isLogin == true) {
+      this.chatNotiInterval = setInterval(() => {
+        ChatListService.selectAllNotiByUid(this.$store.state.user.id).then(
+        function(data) {
+          self.noti = data.data;
+        }
+      );
+      }, 1000);
+      this.chatUrl = "#/privateChat/" + this.$store.state.user.id;
+    }
       return this.$store.state.isLogin;
     }
   }

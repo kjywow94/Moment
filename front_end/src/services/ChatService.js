@@ -12,6 +12,6 @@ export default {
         return apiServer.get('/api/chat/private/'+uid1 + '/' + uid2);
     },
     insertChat(chat) {
-        return apiServer.post('/api/chat/', chat);
+        return apiServer.post('/api/chat', chat);
     }
 }
