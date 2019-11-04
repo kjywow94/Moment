@@ -12,7 +12,7 @@
               :tab-icon="['supervisor_account', 'enhanced_encryption', 'person_pin']"
               plain
               nav-pills-icons
-              color-button="primary"
+              color-button="info"
             >
               <template slot="tab-pane-1" style="background: white;">
                 <div class="card" style="margin-bottom:16px;">
@@ -358,7 +358,7 @@ export default {
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url("https://images.unsplash.com/photo-1544911845-1f34a3eb46b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60")`
+         backgroundImage: `url("https://images.unsplash.com/photo-1544911845-1f34a3eb46b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")`
       };
     }
   }

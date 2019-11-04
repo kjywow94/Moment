@@ -3,10 +3,11 @@
     <div class="section page-header header-filter" :style="headerStyle">
       <div class="container">
         <div class="md-layout">
-          <div class="md-layout-item md-size-50 md-small-size-100" style="margin: 0 auto; background:white;">
+          <div class="card md-layout-item md-size-50 md-small-size-95" style="margin: 0 auto; background:white;">
             <template>
               <h2 style="color:black; font-weight: bold;">비밀번호 찾기</h2>
-              <p style="color:black; margin-bottom: 55px;">비밀번호를 잊으셨나요?</p>
+              <p style="color:black; margin-bottom: 10px;">비밀번호를 잊으셨나요?</p>
+              <hr/>
             </template>
             <form @submit.prevent="onSubmit()">
                 <div class="form-group">
@@ -101,7 +102,7 @@ export default {
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url("https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"w)`
+        backgroundImage: `url("https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")`
       };
     },
     invalidForm(){
