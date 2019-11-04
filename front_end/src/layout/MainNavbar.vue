@@ -39,6 +39,7 @@
             <md-list-item :href="chatUrl" v-if="isLogined">
               <i class="material-icons" style="color:white;">chat</i>
               <p class="hidden-sm">채팅</p>
+              <md-badge  :md-content="noti" type="danger"></md-badge>
             </md-list-item>
 
             <md-list-item href="#/map/kakaomap" v-if="isLogined">
@@ -116,11 +117,14 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 import MobileMenu from "@/layout/MobileMenu";
+import Badge from "@/components/Badge";
+import ChatListService from "@/services/ChatListService.js";
 import LocationService from "@/services/LocationService.js";
 
 export default {
   components: {
-    MobileMenu
+    MobileMenu,
+    Badge
   },
   props: {
     type: {
@@ -146,9 +150,11 @@ export default {
   },
   data() {
     return {
-      chatUrl: "#/privateChat/" + this.$store.state.user.id,
+      chatUrl: null,
       extraNavClasses: "",
-      toggledClass: false
+      toggledClass: false,
+      noti: 0,
+      chatNotiInterval: null
     };
   },
   methods: {
@@ -198,7 +204,7 @@ export default {
     },
     isLogout() {
       this.$store.commit("logout");
-
+      clearInterval(this.chatNotiInterval);
       sessionStorage.clear();
       localStorage.clear();
       alert("정상적으로 로그아웃 되었습니다.");
@@ -217,14 +223,32 @@ export default {
     }
   },
   mounted() {
+    let self = this;
     document.addEventListener("scroll", this.scrollListener);
     // this.$store.state.isLogin = true;
+    
+    // setInterval(() => {
+    //   ChatListService.selectAllNotiByUid(self.$store.state.user.id).then(function(data){
+    //   self.noti = data.data;
+    // })
+    // }, 1000);
   },
   beforeDestroy() {
     document.removeEventListener("scroll", this.scrollListener);
   },
   computed: {
     isLogined() {
+      let self = this;
+      if (this.$store.state.isLogin == true) {
+      this.chatNotiInterval = setInterval(() => {
+        ChatListService.selectAllNotiByUid(this.$store.state.user.id).then(
+        function(data) {
+          self.noti = data.data;
+        }
+      );
+      }, 1000);
+      this.chatUrl = "#/privateChat/" + this.$store.state.user.id;
+    }
       return this.$store.state.isLogin;
     }
   }
