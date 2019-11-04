@@ -26,20 +26,23 @@ export default {
             return apiServer.put('api/chatList', chatList);
         }
     },
-    async insertNotification(uid, target, nickname, noti){
-        let chatList = await apiServer.get('/api/chatNoti/' + uid + '/' + target);
-        if(chatList.data.length > 0)
-        return;
-         chatList = { 'uid' : uid, 'target' : target, 'notification' : noti, 'nickname' : nickname};
-            return apiServer.post('api/chatList', chatList)
-    },
-    async checkNotification(uid, target){
+    async insertNotification(uid, target, nickname, count) {
         let chatList = await apiServer.get('/api/chatNoti/' + uid + '/' + target);
         if(chatList.data.length == 0){
-            return;
-        }else{
-            chatList['data'][0]['notification'] = 0;
-            return apiServer.put("api/chatList/",chatList.data[0])
+            chatList = { 'uid' : uid, 'target' : target, 'notification' : count, 'nickname' : nickname};
+            return apiServer.post('api/chatList', chatList)
         }
+    },
+    async checkNotification(uid, target) {
+        let chatList = await apiServer.get('/api/chatNoti/' + uid + '/' + target);
+        if (chatList.data.length == 0) {
+            return apiServer.post("api/chatList/", chatList.data[0]);
+        } else {
+            chatList['data'][0]['notification'] = 0;
+            return apiServer.put("api/chatList/", chatList.data[0]);
+        }
+    },
+    selectAllNotiByUid(uid) {
+        return apiServer.get("api/chatNotiAll/" + uid);
     }
 }

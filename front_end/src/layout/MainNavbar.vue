@@ -7,136 +7,95 @@
     :color-on-scroll="colorOnScroll"
   >
     <div class="md-toolbar-row md-collapse-lateral">
-      <router-link :to="{name:'index'}">
+      <router-link :to="{name:'travelReview'}" class="hidden-sm" v-if="isLogined">
         <div class="md-toolbar-section-start">
-          <h3 class="md-title hidden-sm">Travel Maker</h3>
-          <i class="material-icons hidden-md" style="color:white">home</i>
-
-          <li class="md-list-item">
-                <a
-                  href="javascript:void(0)"
-                  class="md-list-item-router md-list-item-container md-button-clean dropdown"
-                >
-                  <div class="md-list-item-content">
-                    <drop-down direction="down">
-                      <md-button
-                        slot="title"
-                        class="md-button md-button-link md-white md-simple"
-                      >
-                        <i class="material-icons">chat</i>
-                      </md-button>
-                      <ul
-                        class="dropdown-menu"
-                      >
-                        <li class="dropdown-header">Dropdown header</li>
-                        <li>
-                          <a href="#/accompanyChat/0" class="dropdown-item"
-                            >0번</a>
-                        </li>
-                        <li>
-                          <a href="#/accompanyChat/1" class="dropdown-item"
-                            >1번</a>
-                        </li>
-                        <li>
-                          <a href="#/accompanyChat/2" class="dropdown-item"
-                            >2번</a>
-                        </li>
-                        <li>
-                          <a href="#/accompanyChat/3" class="dropdown-item"
-                            >3번</a>
-                        </li>
-                        <li>
-                          <a href="#/accompanyChat/4" class="dropdown-item"
-                            >4번</a>
-                        </li>
-                        <li>
-                          <a href="#/PrivateChat/8" class="dropdown-item"
-                            >갓과 함께하는 대화</a>
-                        </li>
-                      </ul>
-                    </drop-down>
-                  </div>
-                </a>
-              </li>
-
+          <h3 class="md-title">Travel Maker</h3>
         </div>
       </router-link>
-      <div class="md-toolbar-section-end">
-        <!-- <md-button
-          class="md-just-icon md-simple md-toolbar-toggle"
-          :class="{ toggled: toggledClass }"
-          @click="toggleNavbarMobile()"
-        >
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </md-button> -->
 
+      <router-link :to="{name:'login'}" class="hidden-sm" v-if="!isLogined">
+        <div class="md-toolbar-section-start">
+          <h3 class="md-title">Travel Maker</h3>
+        </div>
+      </router-link>
+      <div class="hidden-sm" style="width:30%;"></div>
+      <div class="my-header-sm my-header-md">
         <div>
-          <div>
-            <!-- <mobile-menu nav-mobile-section-start="false"> -->
-              <!-- Here you can add your items from the section-start of your toolbar -->
-            <!-- </mobile-menu> -->
-            <md-list> 
-              <md-list-item href="#" v-if="isLogined" @click="sendWriteSign">
-                <i class="material-icons" style="color:white;">create</i>
-                <p class="hidden-sm">글쓰기</p>                 
-              </md-list-item>
-              
-              <md-list-item href="#/admin" v-if="$store.state.user.authority === 'U'">
-                  <i class="material-icons" style="color:white;">settings_applications</i>
-                  <p class="hidden-sm">관리자</p>
-              </md-list-item>
-              <md-list-item href="#/map/kakaomap">
-                <i class="material-icons" style="color:white">gps_fixed</i>
-                <p class="hidden-sm">지도</p>
-              </md-list-item>
+          <md-list>
+            <md-list-item href="#/travelReview" class="hidden-md" v-if="isLogined">
+              <i class="material-icons" style="color:white;">rate_review</i>
+            </md-list-item>
 
-              
+            <md-list-item href="#/travelReview" v-if="isLogined" class="hidden-sm">
+              <i class="material-icons" style="color:white;">rate_review</i>
+              <p class="hidden-sm">뉴스피드</p>
+            </md-list-item>
 
-              <md-list-item href="#/travelReview" v-if="isLogined">
-                <i class="material-icons " style="color:white;">rate_review</i>
-                <p class="hidden-sm">여행 리뷰</p>
-              </md-list-item>
+            <md-list-item href="#" v-if="isLogined" @click="sendWriteSign">
+              <i class="material-icons" style="color:white;">create</i>
+              <p class="hidden-sm">글쓰기</p>
+            </md-list-item>
 
-              <md-list-item href="#/login" v-if="!isLogined">
-                <i class="material-icons" style="color:white;">account_circle</i>
-                <p class="hidden-sm">로그인</p>
-              </md-list-item>
+            <md-list-item :href="chatUrl" v-if="isLogined">
+              <i class="material-icons" style="color:white;">chat</i>
+              <p class="hidden-sm">채팅</p>
+              <md-badge  :md-content="noti" type="danger"></md-badge>
+            </md-list-item>
 
-               <md-list-item href="#/signUp" v-if="!isLogined">
-                <i class="material-icons" style="color:white;">how_to_reg</i>
-                <p class="hidden-sm">회원가입</p>
-              </md-list-item>
+            <md-list-item href="#/map/kakaomap" v-if="isLogined">
+              <i class="material-icons" style="color:white">gps_fixed</i>
+              <p class="hidden-sm">지도</p>
+            </md-list-item>
 
-              <md-list-item href="#/find/idfind" v-if="!isLogined">
-                <i class="material-icons" style="color:white;">how_to_reg</i>
-                <p class="hidden-sm">아이디 찾기</p>
-              </md-list-item>
+            <md-list-item href="#/login" v-if="!isLogined">
+              <i class="material-icons" style="color:white;">account_circle</i>
+              <p class="hidden-sm">로그인</p>
+            </md-list-item>
 
-              <md-list-item href="#/find/passwordfind" v-if="!isLogined">
-                <i class="material-icons" style="color:white;">how_to_reg</i>
-                <p class="hidden-sm">비밀번호 찾기</p>
-              </md-list-item>
+            <md-list-item href="#/signUp" v-if="!isLogined">
+              <i class="material-icons" style="color:white;">how_to_reg</i>
+              <p class="hidden-sm">회원가입</p>
+            </md-list-item>
 
-              <md-list-item href="#/" v-on:click="isLogout" v-if="isLogined">
-                <i class="material-icons" style="color:white;">how_to_reg</i>
-                <p class="hidden-sm">로그아웃</p>
-              </md-list-item>
+            <md-list-item href="#/find/idfind" v-if="!isLogined">
+              <i class="material-icons" style="color:white;">how_to_reg</i>
+              <p class="hidden-sm">아이디 찾기</p>
+            </md-list-item>
 
-              <md-list-item href="#/mypage/mywallet" v-if="isLogined">
-                <i class="material-icons" style="color:white;">person_pin</i>
-                <p class="hidden-sm">{{$store.state.user.nickname}}님</p>
-                <md-tooltip md-direction="bottom">내 정보</md-tooltip>
-              </md-list-item>
+            <md-list-item href="#/find/passwordfind" v-if="!isLogined">
+              <i class="material-icons" style="color:white;">how_to_reg</i>
+              <p class="hidden-sm">비밀번호 찾기</p>
+            </md-list-item>
 
+            <md-list-item href="#/mypage/myuserinfo" v-if="isLogined" class="hidden-sm">
+              <i class="material-icons" style="color:white;">person_pin</i>
+              <p>{{$store.state.user.nickname}}님</p>
+            </md-list-item>
 
-              <!-- <md-list-item href="https://lab.ssafy.com/s1-final/" target="_blank">
+            <!-- 모달 내정보 -->
+            <md-list-item v-if="isLogined" class="hidden-md" @click="infoModalOn">
+              <i class="material-icons" style="color:white;">person_pin</i>
+            </md-list-item>
+
+            <md-list-item
+              href="#/admin"
+              v-if="$store.state.user.authority === 'U'"
+              class="hidden-sm"
+            >
+              <i class="material-icons" style="color:white;">settings_applications</i>
+              <p class="hidden-sm">관리자</p>
+            </md-list-item>
+
+            <md-list-item href="#/" v-on:click="isLogout" v-if="isLogined" class="hidden-sm">
+              <i class="material-icons" style="color:white;">how_to_reg</i>
+              <p class="hidden-sm">로그아웃</p>
+            </md-list-item>
+
+            <!-- <md-list-item href="https://lab.ssafy.com/s1-final/" target="_blank">
                 <i class="fab fa-github" style="color:white;"></i>
                 <md-tooltip md-direction="bottom">Github</md-tooltip>
-              </md-list-item> -->
-            </md-list>
-          </div>
+            </md-list-item>-->
+          </md-list>
         </div>
       </div>
     </div>
@@ -158,16 +117,19 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 import MobileMenu from "@/layout/MobileMenu";
+import Badge from "@/components/Badge";
+import ChatListService from "@/services/ChatListService.js";
 import LocationService from "@/services/LocationService.js";
 
 export default {
   components: {
-    MobileMenu
+    MobileMenu,
+    Badge
   },
   props: {
     type: {
       type: String,
-      default: "white",
+      default: "rose",
       validator(value) {
         return [
           "white",
@@ -176,7 +138,8 @@ export default {
           "danger",
           "success",
           "warning",
-          "info"
+          "info",
+          "rose"
         ].includes(value);
       }
     },
@@ -187,8 +150,11 @@ export default {
   },
   data() {
     return {
+      chatUrl: null,
       extraNavClasses: "",
-      toggledClass: false
+      toggledClass: false,
+      noti: 0,
+      chatNotiInterval: null
     };
   },
   methods: {
@@ -236,37 +202,68 @@ export default {
         element_id.scrollIntoView({ block: "end", behavior: "smooth" });
       }
     },
-    isLogout(){
-      this.$store.commit("logout")
-      
+    isLogout() {
+      this.$store.commit("logout");
+      clearInterval(this.chatNotiInterval);
       sessionStorage.clear();
       localStorage.clear();
       alert("정상적으로 로그아웃 되었습니다.");
       location.reload();
     },
 
-
-    sendWriteSign(){
+    sendWriteSign() {
       LocationService.getLocation((latitude, longitude) => {
         this.$store.state.latitude = latitude;
         this.$store.state.longitude = longitude;
         this.$store.state.ReviewWriteOn = true;
       });
+    },
+    infoModalOn() {
+      this.$store.state.myInfoModalOn = true;
     }
-    
   },
   mounted() {
+    let self = this;
     document.addEventListener("scroll", this.scrollListener);
     // this.$store.state.isLogin = true;
+    
+    // setInterval(() => {
+    //   ChatListService.selectAllNotiByUid(self.$store.state.user.id).then(function(data){
+    //   self.noti = data.data;
+    // })
+    // }, 1000);
   },
   beforeDestroy() {
     document.removeEventListener("scroll", this.scrollListener);
   },
-  computed : {
-    isLogined(){
-      console.log("here is my code : " + this.$store.state.isLogin)
+  computed: {
+    isLogined() {
+      let self = this;
+      if (this.$store.state.isLogin == true) {
+      this.chatNotiInterval = setInterval(() => {
+        ChatListService.selectAllNotiByUid(this.$store.state.user.id).then(
+        function(data) {
+          self.noti = data.data;
+        }
+      );
+      }, 1000);
+      this.chatUrl = "#/privateChat/" + this.$store.state.user.id;
+    }
       return this.$store.state.isLogin;
-    },
+    }
   }
 };
 </script>
+<style scoped>
+@media (min-width: 481px) {
+  .my-header-sm {
+    text-align: right;
+    /* padding-right: 0px; */
+  }
+}
+@media (max-width: 480px) {
+  .my-header-sm {
+    margin: auto;
+  }
+}
+</style>

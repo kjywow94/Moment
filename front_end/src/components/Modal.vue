@@ -2,8 +2,8 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper my-modal-wrapper">
-        <div
-          class="modal-container my-modal-container my-modal-container-sm"
+        <md-content 
+          class="modal-container my-modal-container my-modal-container-sm md-scrollbar"
           v-click-outside="closeModal"
         >
           <div class="modal-header">
@@ -17,7 +17,7 @@
           <div class="modal-footer">
             <slot name="footer"></slot>
           </div>
-        </div>
+        </md-content >
       </div>
     </div>
   </transition>

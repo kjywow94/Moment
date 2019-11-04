@@ -13,7 +13,9 @@
 		resultType="chatList">
 		SELECT * FROM chat_list where target = #{id};
 	</select>
-
+	<select id ="selectAllNotiByUid" parameterType="int" resultType="int">
+		select sum(notification) from chat_list where target = #{uid} group by target;
+	</select>
 	<!-- 자신에게 온 특정 메세지 알림 확인 -->
 	<select id="selectNotiChatListByFrom" parameterType="int"
 		resultType="chatList">
