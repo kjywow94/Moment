@@ -111,8 +111,10 @@ export default {
         this.$store.state.user.password,
         this.content,
         receipt => {
+          var date = new Date();
+          date.setHours(date.getHours() + 9);
           ReviewService.writeReview({
-            date: new Date(),
+            date: date,
             title: title,
             hash: receipt.transactionHash,
             hashtag: hashtagToSTring,
@@ -126,7 +128,7 @@ export default {
               imageData: this.imgData,
               imageNum: response.data
             }).then(response => {
-              this.busy = true;
+              this.busy = false;
               alert("등록되었습니다.");
               this.classicModalHide();
               /** 새로고침 이벤트 추가 필요 , 이벤트 버스 */
