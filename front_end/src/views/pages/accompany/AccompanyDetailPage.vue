@@ -147,7 +147,7 @@ export default {
   },
   methods:{
     del(id){
-      console.log(id)
+      // console.log(id)
     }
   }
 };
