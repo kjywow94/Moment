@@ -28,7 +28,7 @@
 
             <md-list-item href="#/travelReview" v-if="isLogined" class="hidden-sm">
               <i class="material-icons" style="color:white;">rate_review</i>
-              <p class="hidden-sm" style="color:white">뉴스피드</p>
+              <p class="hidden-sm" style="color:white">트레이스</p>
             </md-list-item>
 
             <md-list-item href="#" v-if="isLogined" @click="sendWriteSign">

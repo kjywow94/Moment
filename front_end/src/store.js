@@ -22,7 +22,9 @@ export default new Vuex.Store({
         myInfoModalOn: false,
         ReviewWriteOn: false,
         latitude: null,
-        longitude: null
+        longitude: null,
+        isDetailOn: false,
+        detailModalData: null
     },
 
     mutations: {

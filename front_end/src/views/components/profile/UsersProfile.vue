@@ -143,15 +143,6 @@ export default {
     .md-card-tabs .md-list {
       justify-content: center;
     }
-
-    [class*="tab-pane-"] {
-      margin-top: 3.213rem;
-      padding-bottom: 50px;
-
-      img {
-        margin-bottom: 2.142rem;
-      }
-    }
   }
   .font-size {
     font-size: 1.2em;
