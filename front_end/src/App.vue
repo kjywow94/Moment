@@ -17,7 +17,6 @@
 import ReviewWrite from "@/views/components/review/ReviewWrite";
 import ReviewModal from "@/views/components/review/ReviewModal";
 import MyInfoModal from "@/views/components/profile/MyInfoModal";
-
 export default {
   components: {
     ReviewWrite,

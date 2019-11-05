@@ -51,7 +51,7 @@ export default {
   bodyClass: "login-page",
   data() {
     return {
-      distance: 10,
+      distance: 9999999,
       reviewList: [{}]
     };
   },
@@ -66,7 +66,6 @@ export default {
   },
   methods: {
     init() {
-      console.log(parseInt(screen.width/300))
       LocationService.getLocation((latitude, longitude) => {
         ReviewService.getReviewListByLocation({
           start: 0,

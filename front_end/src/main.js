@@ -16,7 +16,6 @@ Vue.use(infiniteScroll);
 const NavbarStore = {
   showNavbar: false
 };
-
 export const EventBus = new Vue();
 
 Vue.mixin({

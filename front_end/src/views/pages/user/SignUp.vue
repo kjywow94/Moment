@@ -16,10 +16,10 @@
             >
               <template slot="tab-pane-1">
                 <div
-                  class="card md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100"
-                  style="background:white; padding:20px;"
+                  class="card md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100 paddingSingUp"
+                  style="background:white;"
                 >
-                  <div style="font-size:0.9em; text-align:right">*는 필수 입력 항목입니다.</div>
+                  <div style="font-size:0.9em; text-align:right;">*는 필수 입력 항목입니다.</div>
                   <md-field>
                     <label>* 이메일</label>
                     <md-input v-model="email" type="text"></md-input>
@@ -115,11 +115,13 @@
               </template>
               <template slot="tab-pane-3">
                 <div
-                  class="card md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100"
-                  style="background:white; padding:20px;"
+                  class="card md-layout-item md-size-100 md-xsmall-size-100 md-small-size-100 md-medium-size-100  "
+                  style="background:white; padding:20px;" 
                 >
                   <p>이메일 본인 인증 후 서비스 사용이 가능합니다.</p>
-                  <md-button type="submit" class="md-size-30 md-small-size-60 md-layout-item md-rose md-round" v-on:click="signUp">이메일 인증하기</md-button>
+                  <div class="alignCenter">
+                    <md-button type="submit" class="md-size-30 md-small-size-50 md-layout-item md-rose md-round" v-on:click="signUp">이메일 인증하기</md-button>
+                  </div>
                 </div>
               </template>
             </tabs>
@@ -302,7 +304,7 @@ export default {
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.header})`
+        backgroundImage: `url("https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")`
       };
     }
   }
@@ -311,4 +313,13 @@ export default {
 
 <style lang="css">
 @import url("../../../assets/bootstrap/bootstrap.css");
+
+@media (min-width: 481px) {
+  .paddingSingUp {  padding: 40px 100px 20px 100px !important; }
+}
+
+/* 모바일*/
+@media (max-width: 480px) {
+  .alignCenter { text-align: center; }
+}
 </style>
