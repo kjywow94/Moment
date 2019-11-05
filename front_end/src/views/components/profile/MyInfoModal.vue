@@ -11,7 +11,7 @@
         <md-button href="#/login" v-on:click="isLogout" @click="classicModalHide" class="md-rose">로그아웃</md-button>
       </div>
       <div v-if="$store.state.user.authority === 'A'" @click="classicModalHide">
-        <md-button href="#/admin">관리자 페이지</md-button>
+        <md-button href="#/admin" class="md-warning">관리자 페이지</md-button>
       </div>
     </template>
   </modal>
