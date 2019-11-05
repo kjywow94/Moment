@@ -7,7 +7,6 @@
         infinite-scroll-distance="10"
       >
         <div class="md-layout" style="margin:auto;">
-          <!-- <ReviewWrite /> -->
           <div
             class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-95"
             v-for="r in reviewList"
@@ -40,48 +39,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Modal -->
-    <modal v-if="isDetail" @close="detailModalHide">
-      <template slot="header">
-        <h4>{{this.detailModalData.location}}</h4>
-        <md-button
-          class="md-simple md-just-icon md-round modal-default-button"
-          @click="detailModalHide"
-        >
-          <md-icon>clear</md-icon>
-        </md-button>
-      </template>
-
-      <template slot="body">
-        <div class="modal-body blockquote undefined">
-          <img :src="this.detailModalData.imageData" class="modal-img img-raised rounded" />
-          <h5>{{this.detailModalData.date | moment("YYYY.MM.DD , dddd")}}</h5>
-          <p>{{this.detailModalData.content}}</p>
-          <small>by {{this.detailModalData.nickname}}</small>
-          <div class="my-hashtag-div">
-            <small class="my-hashtag">{{this.detailModalData.hashtag}}</small>
-          </div>
-        </div>
-      </template>
-
-      <template slot="footer">
-        <div>
-          <md-button class="md-simple md-danger" v-if="isLike" @click="unLike()">
-            <md-icon>favorite</md-icon>
-            {{this.detailModalData.liked}}
-          </md-button>
-
-          <md-button class="md-simple" v-if="!isLike" @click="likeIt()">
-            <md-icon>favorite</md-icon>
-            {{this.detailModalData.liked}}
-          </md-button>
-
-          <md-button class="md-danger md-simple" @click="detailModalHide">Close</md-button>
-        </div>
-      </template>
-    </modal>
-    <!--Model end-->
   </div>
 </template>
 
@@ -92,15 +49,11 @@ import ReviewService from "@/services/ReviewService.js";
 import UserService from "@/services/UserService.js";
 import EthereumService from "@/services/EthereumService.js";
 import LocationService from "@/services/LocationService.js";
-import ReviewWrite from "@/views/components/review/ReviewWrite";
 import ProfileCard from "@/views/components/profile/ProfileCard";
-import { Tabs } from "@/components";
 import { Modal } from "@/components";
 
 export default {
   components: {
-    Tabs,
-    ReviewWrite,
     Modal,
     ProfileCard
   },
@@ -109,12 +62,7 @@ export default {
       busy: false,
       reviewList: [],
       idx: 0,
-      active: false,
-      value: null,
-      isDetail: false,
-      detailModalData: null,
       distance: 10,
-      isLike: false,
       latitude: 0,
       longitude: 0,
       loadingPageNumber: 6,
@@ -170,59 +118,12 @@ export default {
       });
     },
     detailModalShow(selectedData) {
-      this.detailModalData = selectedData;
-      EthereumService.read(selectedData.hash, content => {
-        this.detailModalData.content = content;
-        ReviewService.isLike({
-          uid: this.$store.state.user.id,
-          rid: selectedData.id
-        }).then(response => {
-          if (response.data == 0) this.isLike = false;
-          else {
-            this.detailModalData.like = response.data;
-            this.isLike = true;
-          }
-          this.isDetail = true;
-        });
-      });
-    },
-    detailModalHide() {
-      this.isDetail = false;
-      this.detailModalData = null;
-    },
-    likeIt() {
-      ReviewService.likeIt({
-        uid: this.$store.state.user.id,
-        rid: this.detailModalData.id
-      }).then(response => {
-        var max = response.data.max;
-        if (response.data.point) {
-          let point = max / 10;
-          UserService.getUserById(this.detailModalData.uid).then(userInfo => {
-            let to = userInfo.data.walletAddress;
-            EthereumService.sendPoint(to, point, recept => {});
-          });
-        }
-        this.detailModalData.like = response.data.id;
-        this.detailModalData.liked = this.detailModalData.liked + 1;
-        this.isLike = true;
-      });
-    },
-    unLike() {
-      ReviewService.unLike({
-        uid: this.$store.state.user.id,
-        rid: this.detailModalData.id,
-        id: this.detailModalData.like
-      }).then(response => {
-        this.detailModalData.liked = this.detailModalData.liked - 1;
-        this.isLike = false;
-      });
+      this.$store.state.detailModalData = selectedData;
+      this.$store.state.isDetailOn = true;
     }
   }
 };
 </script>
-
-
 
 <style>
 .my-card-img {
