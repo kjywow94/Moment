@@ -151,9 +151,7 @@ export default {
         alert("해쉬태그는 최소 1개입니다.");
         return;
       }
-      console.log(id);
       this.hash.splice(id-1,1);
-      console.log(this.hash);        
     }
   }
 };

@@ -162,16 +162,18 @@ export default {
       id: parseInt(this.$route.params.id),
       uid: this.$store.state.user.id,
       chatList: [{ nickname: "", img: null }],
-      partner: { data: { nickname: "", img: null } },
-      interval: null
+      partner: { data: { nickname: "", img: null } }
     };
   },
   mounted() {
     this.init();
   },
-
+  beforeRouteUpdate (to, from, next) {
+    this.stompClient.disconnect({},{});
+      next();
+  },
   beforeDestroy() {
-    clearInterval(this.interval);
+    this.stompClient.disconnect({},{});
   },
   methods: {
     async init() {
@@ -259,6 +261,7 @@ export default {
               ("00" + date.getHours()).slice(-2) +
               ":" +
               ("00" + date.getMinutes()).slice(-2);
+              msg.timestamp = dateFormat;
             scope.chat.push(msg);
             scope.setChatDivBottom();
           }
@@ -266,7 +269,7 @@ export default {
       });
     },
     async send() {
-      if (this.msg == "") {
+      if (this.msg.trim() == "") {
         return;
       }
       let chat = {

@@ -215,7 +215,7 @@ export default {
               String(latitude),
               String(longitude),
               response => {
-                console.log(response);
+                // console.log(response);
                 /** isEnd */
               }
             );
@@ -270,7 +270,7 @@ export default {
           });
         })
         .catch(err => {
-          console.log(err);
+          // console.log(err);
         });
     }
   },
