@@ -73,8 +73,7 @@ public class UserController {
 	// 회원조회 - 이메일
 	@RequestMapping(value = "/user/email/{email}", method = RequestMethod.GET)
 	@ApiOperation(value = "회원조회(이메일)")
-	public User selectOneUserByEmail(@PathVariable String email) throws Exception {
-		System.out.println("email : "+email);
+	public User selectOneUserByEmail(@RequestParam String email) throws Exception {
 		return userService.selectOneUserByEmail(email);
 	}
 

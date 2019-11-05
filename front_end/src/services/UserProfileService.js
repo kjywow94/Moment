@@ -16,5 +16,9 @@ export default {
     },
     getReviewByEmail(email) {
         return apiServer.post('/api/reviewByEmail/' + email);
+    },
+    getUserProfileByEmail(email) {
+        console.log("service : ", email , typeof(email));
+        return apiServer.get('api/email/', {email});
     }
 }
