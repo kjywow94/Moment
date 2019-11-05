@@ -88,7 +88,7 @@ export default {
       this.chat = await ChatService.getChats(this.id);
       this.chat = this.chat['data'];
       
-      var socket = new SockJS('http://localhost:9090/websocket');
+      var socket = new SockJS(API_BASE_URL+'/websocket');
       this.stompClient = Stomp.over(socket);
       this.stompClient.debug = function(str) {};
       // SockJS와 stomp client를 통해 연결을 시도.
