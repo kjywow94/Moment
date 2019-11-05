@@ -9,85 +9,94 @@
       <div style="align-items: center;">
         <!--장소-->
         {{info.location}}
-      </div >
+      </div>
       <div>
         <!--작성자-->
         by {{info.nickname}}
       </div>
     </div>
 
-    <!-- Pop Up -->        
+    <!-- Pop Up -->
     <template slot="popover">
       <img :src="userImg['imgData']" alt="Avatar" class="Avatar_image" />
-      <h3 class="popover-header"  style="text-align:center">{{user.nickname}} </h3>
-      <hr style="width:90%">
-      <!--<h5 class="popover-header">{{user.userName}} / {{user.birthday}} / {{user.gender}}</h5> -->
-          <md-button
-            :href="user.sns1"
-            class="md-just-icon md-simple md-twitter" target="_blank"
-            v-if="user.sns1 !== ''"
-            ><i class="fab fa-facebook" style="color:#4267b2 !important"></i
-          ></md-button>
-          <md-button
-            :href="user.sns2"
-            class="md-just-icon md-simple md-pinterest" target="_blank"
-            v-if="user.sns2 !== ''"
-            ><i class="fab fa-instagram" style="color:#a91ba6 !important"></i
-          ></md-button>
+      <router-link :to="{ name: 'userProfile', params: { userEmail: user.email, id : user.id }}">
+        <h3 class="popover-header" style="text-align:center; cursor:pointer;">{{user.nickname}}</h3>
+      </router-link>
+      <hr style="width:90%" />
+      <md-button
+        :href="user.sns1"
+        class="md-just-icon md-simple md-twitter"
+        target="_blank"
+        v-if="user.sns1 !== ''"
+      >
+        <i class="fab fa-facebook" style="color:#4267b2 !important"></i>
+      </md-button>
+      <md-button
+        :href="user.sns2"
+        class="md-just-icon md-simple md-pinterest"
+        target="_blank"
+        v-if="user.sns2 !== ''"
+      >
+        <i class="fab fa-instagram" style="color:#a91ba6 !important"></i>
+      </md-button>
       <div class="popover-body" style="text-align:center">
         {{user.about}}
-        <hr>
+        <hr />
         <div style="text-align:right">
-         <a :href="'#/PrivateChat/' + user.id">
-          <md-button class="md-rose">
-            <i class="material-icons">mail</i>메세지 보내기
-          </md-button>
-         </a>
+          <a :href="'#/PrivateChat/' + user.id">
+            <md-button class="md-rose">
+              <i class="material-icons">mail</i>메세지 보내기
+            </md-button>
+          </a>
         </div>
       </div>
-
     </template>
   </v-popover>
 </template>
 <script>
-import UserService from "@/services/UserService.js"
-import UserProfileService from "@/services/UserProfileService.js"
+import UserService from "@/services/UserService.js";
+import UserProfileService from "@/services/UserProfileService.js";
 export default {
-    components : {
-        UserService,
-        UserProfileService
+  components: {
+    UserService,
+    UserProfileService
+  },
+  props: {
+    info: {}
+  },
+  data() {
+    return {
+      user: {},
+      userImg: {}
+    };
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    async init() {
+      let uid = this.info["uid"];
+      this.user = await UserService.getUserById(uid);
+      this.user = this.user["data"];
+      this.setData();
+
+      this.userImg = await UserProfileService.getUserImage(this.user["email"]);
+      this.userImg = this.userImg["data"][0];
     },
-    props : {
-      info : {}
-    },
-    data() {
-        return {
-            user : {},
-            userImg : {}
-        };
-    },
-    mounted() {
-        this.init();
-    },
-    methods : {
-        async init(){
-          
-          let uid = this.info['uid'];
-          this.user = await UserService.getUserById(uid);
-          this.user = this.user['data'];
-          this.setData();
-         
-          this.userImg = await UserProfileService.getUserImage(this.user['email']);
-          this.userImg = this.userImg['data'][0];
-          }
-          ,
-          setData(){
-            let birth = new Date(this.user.birthday);
-            this.user.birthday = (1900 + birth.getYear()) + "년 " + (birth.getMonth() + 1) + "월 " + birth.getDay() + "일"
-            this.user.gender = (this.user.gender == 'M' ? "남" : "여");
-          }
-        }
-  };
+    setData() {
+      let birth = new Date(this.user.birthday);
+      this.user.birthday =
+        1900 +
+        birth.getYear() +
+        "년 " +
+        (birth.getMonth() + 1) +
+        "월 " +
+        birth.getDay() +
+        "일";
+      this.user.gender = this.user.gender == "M" ? "남" : "여";
+    }
+  }
+};
 </script>
 <style>
 .md-button-content {
@@ -133,14 +142,14 @@ export default {
 }
 
 .popover-inner {
-    padding-top : 15px;
-    background-color: white;
-    max-width: 500px;
-    width:500px;
+  padding-top: 15px;
+  background-color: white;
+  max-width: 500px;
+  width: 500px;
 }
-.md-tooltip.popover .popover.popover{
-    max-width: 500px !important;
-    width:500px !important;
+.md-tooltip.popover .popover.popover {
+  max-width: 500px !important;
+  width: 500px !important;
 }
 
 @media (min-width: 481px) {
@@ -159,14 +168,14 @@ export default {
     height: 380px;
   }
   .popover-inner {
-    padding-top : 15px;
+    padding-top: 15px;
     background-color: white;
     max-width: 300px;
-    width:300px;
+    width: 300px;
   }
-  .md-tooltip.popover .popover.popover{
-      max-width: 300px !important;
-      width:300px !important;
+  .md-tooltip.popover .popover.popover {
+    max-width: 300px !important;
+    width: 300px !important;
   }
 }
 </style>

@@ -17,6 +17,7 @@ import Admin from "./views/pages/adminPage/Admin.vue";
 import MyAccompany from "./views/pages/myAccompany/MyAccompanyPage.vue";
 import TravelReview from "./views/pages/travelReview/TravelReviewPage.vue";
 import UserProfile from "./views/pages/profile/UsersProfilePage.vue";
+import OtherUserProfile from "./views/pages/profile/OtherUserProfilePage.vue";
 import TravelReviewDetail from "./views/pages/travelReview/TravelReviewDetail.vue";
 import Mywallet from "./views/pages/mypage/MyWallet.vue";
 import MyReview from "./views/pages/mypage/MyReviewpage.vue";
@@ -166,6 +167,16 @@ export default new Router({
       name: "profile",
       beforeEnter: requireAuth,
       components: { default: UserProfile, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 50 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/userProfile",
+      name: "userProfile",
+      beforeEnter: requireAuth,
+      components: { default: OtherUserProfile, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 50 },
         footer: { backgroundColor: "black" }
