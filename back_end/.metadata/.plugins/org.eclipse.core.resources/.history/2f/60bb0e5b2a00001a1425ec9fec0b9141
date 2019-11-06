@@ -1,0 +1,42 @@
+# set datasource
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://13.209.9.195:3306/boracoin?allowPublicKeyRetrieval=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+spring.datasource.username=boracoin1
+spring.datasource.password=ssafy
+
+# set mybatis
+mybatis.config-location=classpath:mybatis-config.xml
+
+#port
+server.port=8888
+server.ssl.enabled=true
+server.ssl.key-store=keystore.p12
+server.ssl.key-store-password=123456
+server.ssl.key-store-type=PKCS12
+server.ssl.key-alias=bns-ssl
+
+# ===============================
+# = LOGGING
+# ===============================
+logging.level.org.springframework.web=WARN
+logging.level.com.bcauction=DEBUG
+
+
+# Logging pattern for the console
+logging.pattern.console=%d{HH:mm:ss} %clr(%5p) [%c] %m%n
+
+# Logging pattern for file
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+
+logging.file = logs/travelMaker.log
+
+# ===============================
+# = Gmail SMTP
+# ===============================
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=boracoin191028@gmail.com
+spring.mail.password=boracoin1004
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+

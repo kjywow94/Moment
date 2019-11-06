@@ -1,0 +1,5 @@
+package com.bcauction.config;
+
+public class WebSocketConfig {
+
+}
