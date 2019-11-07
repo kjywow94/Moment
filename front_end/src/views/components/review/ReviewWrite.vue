@@ -1,7 +1,7 @@
 <template>
   <modal v-if="this.$store.state.ReviewWriteOn" @close="classicModalHide">
     <template slot="header">
-      <h4>리뷰쓰기</h4>
+      <h4>Moment</h4>
     </template>
     <template slot="body">
       <!-- 지도로 변경 -->

@@ -4,7 +4,6 @@
       <div class="container">
         <div class="md-layout">
           <div class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100">
-            //배경
           </div>
         </div>
       </div>
