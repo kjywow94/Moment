@@ -1,0 +1,60 @@
+package com.travelMaker.dto;
+
+public class Accompany {
+
+	private int id;
+	private int cid;
+	private int isEnd;
+	private String contractAddress;
+
+	public Accompany() {
+		super();
+	}
+
+	public Accompany(int id, int cid, int is_end, String contract_address) {
+		super();
+		this.id = id;
+		this.cid = cid;
+		this.is_end = is_end;
+		this.contract_address = contract_address;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getCid() {
+		return cid;
+	}
+
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
+
+	public int getIs_end() {
+		return is_end;
+	}
+
+	public void setIs_end(int is_end) {
+		this.is_end = is_end;
+	}
+
+	public String getContract_address() {
+		return contract_address;
+	}
+
+	public void setContract_address(String contract_address) {
+		this.contract_address = contract_address;
+	}
+
+	@Override
+	public String toString() {
+		return "Accompany [id=" + id + ", cid=" + cid + ", is_end=" + is_end + ", contract_address=" + contract_address
+				+ "]";
+	}
+
+}

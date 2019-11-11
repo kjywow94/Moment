@@ -1,0 +1,87 @@
+2019-10-21 16:15:17 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - Starting TravelMakerApplication on DESKTOP-KVCQHCD with PID 10416 (C:\Workspace\TravelMaker\back_end\TravelMaker\target\classes started by multicampus in C:\Workspace\TravelMaker\back_end\TravelMaker)
+2019-10-21 16:15:17 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - No active profile set, falling back to default profiles: default
+2019-10-21 16:15:18 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2475a7a4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-21 16:15:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-10-21 16:15:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-10-21 16:15:18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.26]
+2019-10-21 16:15:18 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-10-21 16:15:18 [restartedMain] DEBUG o.s.web.context.ContextLoader - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-10-21 16:15:18 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 312 ms
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.AccompanyRegistController:
+	{GET /api/accompanyRegistAdmin}: selectAllAccompanyRegist()
+	{POST /api/accompanyRegist}: accompanyRegistInsert(AccompanyRegist)
+	{PUT /api/accompanyRegist}: accompanyRegist(AccompanyRegist)
+	{GET /api/accompanyRegist/{id}}: selectByid(int)
+	{GET /api/accompanyRegist}: selectAllAccompanyRegistNotRemoved()
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ChatController:
+	{POST /api/chatAll}: selectAllNotRemovedReview(int)
+	{POST /api/chatAdmin}: selectAllChat(int)
+	{PUT /api/chat}: updateChat(Chat)
+	{POST /api/chat}: insertChat(Chat)
+	{DELETE /api/chat}: forceDeleteChat(int)
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.ChatRoomController:
+	{POST /api/chatRoomUid}: selectAllChatRoomByUid(int)
+	{GET /api/chatRoomAdmin}: selectAllChatRoom()
+	{POST /api/chatRoomTid}: selectAllChatRoomByTid(int)
+	{POST /api/chatRoom}: insertChatRoom(ChatRoom)
+	{DELETE /api/chatRoom}: deleteChatRoom(ChatRoom)
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.TravelReviewController:
+	{GET /api/travelReviewTid/{tid}}: selectAllReviewByTid(int)
+	{DELETE /api/travelReview/{id}}: deleteForceReviewById(int)
+	{GET /api/travelReview}: selectAllNotRemovedReview()
+	{GET /api/travelReviewAdmin}: selectAllReview()
+	{PUT /api/travelReview}: updateReview(TravelReview)
+	{POST /api/travelReview}: insertReviewById(TravelReview)
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.UserController:
+	{GET /api/userAll}: selectNotRemovedAllUser()
+	{GET /api/userAllAdmin}: selectAllUser()
+	{POST /api/login}: userSelect(User)
+	{PUT /api/user}: userUpdate(User)
+	{POST /api/user}: userInsert(User)
+	{GET /api/user/{id}}: selectOneUser(int)
+	{DELETE /api/user}: userDelect(int)
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	c.t.c.UserReviewController:
+	{GET /api/userReviewTid/{tid}}: selectAllReviewByTid(int)
+	{GET /api/userReview}: selectNotRemovedReview()
+	{GET /api/userReviewUid/{uid}}: selectAllReviewByUid(int)
+	{GET /api/userReviewAdmin}: selectAllReview()
+	{PUT /api/userReview}: updateReview(UserReview)
+	{DELETE /api/userReview/{id}}: deleteReviewById(int)
+	{POST /api/userReview}: insertReviewById(UserReview)
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	s.d.s.w.ApiResourceController:
+	{ /swagger-resources/configuration/security}: securityConfiguration()
+	{ /swagger-resources}: swaggerResources()
+	{ /swagger-resources/configuration/ui}: uiConfiguration()
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ /error}: error(HttpServletRequest)
+	{ /error, produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2019-10-21 16:15:18 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 40 mappings in 'requestMappingHandlerMapping'
+2019-10-21 16:15:18 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.h.SimpleUrlHandlerMapping - Mapped [/**/favicon.ico] onto ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []]
+2019-10-21 16:15:18 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-10-21 16:15:18 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-21 16:15:18 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-10-21 16:15:18 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-10-21 16:15:18 [restartedMain] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping - Detected 0 mappings in 'beanNameHandlerMapping'
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.h.SimpleUrlHandlerMapping - Mapped [/webjars/**] onto ResourceHttpRequestHandler ["classpath:/META-INF/resources/webjars/"]
+2019-10-21 16:15:18 [restartedMain] TRACE o.s.w.s.h.SimpleUrlHandlerMapping - Mapped [/**] onto ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"]
+2019-10-21 16:15:18 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-10-21 16:15:18 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-10-21 16:15:18 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2019-10-21 16:15:18 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-10-21 16:15:18 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2019-10-21 16:15:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: insertReviewByIdUsingPOST_1
+2019-10-21 16:15:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllReviewUsingGET_1
+2019-10-21 16:15:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: selectAllReviewByTidUsingGET_1
+2019-10-21 16:15:18 [restartedMain] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: updateReviewUsingPUT_1
+2019-10-21 16:15:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-10-21 16:15:18 [restartedMain] INFO  c.travelmaker.TravelMakerApplication - Started TravelMakerApplication in 0.594 seconds (JVM running for 9321.851)
+2019-10-21 16:15:18 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged

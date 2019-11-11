@@ -1,0 +1,12 @@
+com\bcauction\domain\exception\NotFoundException.class
+com\bcauction\config\WebSocketConfig.class
+com\bcauction\domain\exception\ApplicationException.class
+com\bcauction\domain\exception\RepositoryException.class
+com\bcauction\api\handler\GlobalExceptionHandler.class
+com\bcauction\api\Type.class
+com\bcauction\domain\exception\DomainException.class
+com\bcauction\api\Chat.class
+com\bcauction\api\MessagingController.class
+com\bcauction\Application.class
+com\bcauction\api\Status.class
+com\bcauction\domain\exception\EmptyListException.class

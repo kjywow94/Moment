@@ -1,0 +1,51 @@
+1571035937203	Rename type 'TroubleMakerApplication'
+1571035955496	Rename type 'TroubleMakerApplicationTests'
+1571035964634	Rename package 'com.troublemaker'
+1571108840446	Rename package 'com.troublemaker'
+1571108846605	Rename package 'com.troublemaker.controller'
+1571108853202	Rename package 'com.troublemaker.domain'
+1571108859162	Rename package 'com.troublemaker.domain.enumeration'
+1571108864163	Rename package 'com.troublemaker.repository'
+1571108869018	Rename package 'com.troublemaker.service'
+1571116243499	Rename package 'com.travelMaker.repository'
+1571116681314	Copy file
+1571122898943	Rename package 'com.travelMaker.domain'
+1571123018682	Rename type 'Travel'
+1571123581174	Rename field 'is_end'
+1571123599007	Rename field 'contract_address'
+1571123611960	Rename local variable 'is_end'
+1571123615956	Rename local variable 'contract_address'
+1571123621461	Rename local variable 'is_end'
+1571123626751	Rename method 'getContract_address'
+1571123630977	Rename local variable 'contract_address'
+1571123636418	Rename method 'setContract_address'
+1571123753382	Rename package 'com.travelMaker.domain.enumeration'
+1571126704939	Rename field 'companioncount'
+1571126708461	Rename field 'companiongrade'
+1571127963787	Copy compilation unit
+1571128541870	Copy compilation unit
+1571128842948	Copy file
+1571129510975	Copy compilation unit
+1571184292117	Delete element
+1571184467773	Rename field 'trabelReviewService'
+1571184536387	Delete elements
+1571184575854	Delete element
+1571300268975	Delete element
+1571300275684	Copy file
+1571300371353	Rename resource 'ReviewMapper.xml'
+1571300377159	Rename resource 'UserReviewMapper.xml'
+1571300617328	Copy compilation unit
+1571300732443	Copy compilation unit
+1571300766813	Rename field 'travelReviewMapper'
+1571300826382	Copy compilation unit
+1571300969279	Delete element
+1571377931840	Rename field 'UID'
+1571377934306	Rename field 'ID'
+1571378018948	Copy file
+1571378179914	Copy compilation unit
+1571381041763	Copy compilation unit
+1571381181784	Copy compilation unit
+1571383259689	Copy file
+1571384796691	Copy compilation unit
+1571385136580	Copy compilation unit
+1571385150674	Copy compilation unit

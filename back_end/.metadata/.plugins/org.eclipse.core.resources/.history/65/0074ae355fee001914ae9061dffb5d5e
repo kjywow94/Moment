@@ -1,0 +1,28 @@
+package com.troublemaker.domain;
+
+import java.time.LocalDateTime;
+
+public class User {
+	int id;
+	LocalDateTime birthday;
+	char gender;
+	String nickname;
+	String user_name;
+	String phone;
+	String email;
+	int companion_count;
+	int companion_grade;
+	String password;
+	String sns_1;
+	String sns_2;
+	int taste_1;
+	int taste_2;
+	int taste_3;
+	int taste_4;
+	int taste_5;
+	int taste_6;
+	int taste_7;
+	String about;
+	char authority;
+	String walletAddress;
+}

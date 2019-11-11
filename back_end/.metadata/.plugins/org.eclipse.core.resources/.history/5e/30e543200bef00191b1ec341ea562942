@@ -1,0 +1,5 @@
+package com.travelMaker.domain;
+
+public class Travel {
+
+}

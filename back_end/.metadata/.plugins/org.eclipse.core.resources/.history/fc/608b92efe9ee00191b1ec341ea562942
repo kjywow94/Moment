@@ -1,0 +1,23 @@
+package com.troublemaker.domain.enumeration;
+
+/**
+ * 
+ * @author 김선일
+ * <p> 성별 정보를 나타내는 enum
+ *
+ */
+
+public enum Gender {
+	/**
+	 * 남성 (Man)
+	 */
+	M,
+	/**
+	 * 여성 (Woman)
+	 */
+	W,
+	/**
+	 * 성별 정보없음
+	 */
+	X
+}
